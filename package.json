@@ -1,0 +1,31 @@
+{
+  "name": "stryker-mutator.github.io",
+  "version": "0.0.0",
+  "description": "Package for our github page",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stryker-mutator/stryker-mutator.github.io.git"
+  },
+  "keywords": [
+    "stryker",
+    "stryker-mutator",
+    "github"
+  ],
+  "author": "nicojs",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/stryker-mutator/stryker-mutator.github.io/issues"
+  },
+  "homepage": "https://github.com/stryker-mutator/stryker-mutator.github.io#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-pug": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "jstransformer-markdown": "^1.1.0"
+  }
+}

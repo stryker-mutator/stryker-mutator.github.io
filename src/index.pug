@@ -1,0 +1,23 @@
+
+
+doctype html
+html
+    include head
+    
+    body
+        include header
+        
+        #main_content_wrap.outer
+            section#main_content.inner
+                :markdown
+                    ### What is mutation testing?
+                    
+                    Bugs (or mutations) are automatically inserted into your production code, then your tests are run. If your tests fail then the mutation is killed, if your tests passed the mutation survived. The higher the percentage of mutations killed, the more *effective* your tests are. 
+                    
+                    It's really that simple.
+                    
+                    ### Why use Stryker
+                    
+                    Do you love tools like Grunt, Mocha and Karma? We do to, that's why we *integrate with them* rather than reinvent the wheel.
+        
+        include footer
