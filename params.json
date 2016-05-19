@@ -1,0 +1,6 @@
+{
+  "name": "Stryker - The JavaScript mutation testing framework",
+  "tagline": "Automaticaly measure the effectiveness of your JavaScript unit tests.",
+  "body": "### What is mutation testing?\r\n\r\nBugs (or mutations) are automatically inserted into your production code, then your tests are run. If your tests fail then the mutation is killed, if your tests passed the mutation survived. The higher the percentage of mutations killed, the more *effective* your tests are. \r\n\r\nIt's really that simple.\r\n\r\n### Why use Stryker\r\n\r\nDo you love tools like Grunt, Mocha and Karma? We do to, that's why we *integrate with them* rather than reinvent the wheel.",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
