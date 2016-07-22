@@ -1,23 +1,41 @@
+extends ./layout/layout.pug
 
+block docs-header
 
-doctype html
-html
-    include head
-    
-    body
-        include header
-        
-        #main_content_wrap.outer
-            section#main_content.inner
-                :markdown
-                    ### What is mutation testing?
-                    
-                    Bugs (or mutations) are automatically inserted into your production code, then your tests are run. If your tests fail then the mutation is killed, if your tests passed the mutation survived. The higher the percentage of mutations killed, the more *effective* your tests are. 
-                    
-                    It's really that simple.
-                    
-                    ### Why use Stryker
-                    
-                    Do you love tools like Grunt, Mocha and Karma? We do to, that's why we *integrate with them* rather than reinvent the wheel.
-        
-        include footer
+    .docs-header.jumbotron
+        .container
+            img(src="/images/Stryker_410x410.png", alt="Stryker")
+            h1 Stryker
+            p=tagline
+
+block content
+    .row
+        .col-md-12.text-center
+            :markdown
+                ## What is mutation testing?
+                
+                Bugs, or *mutants*, are automatically inserted into your production code. Your tests are run for each mutant.  
+                If your tests *fail* then the mutant is *killed*. 
+                If your tests passed, the mutant *survived*.  
+                The higher the percentage of mutants killed, the more *effective* your tests are. 
+                
+                It's really that simple.
+                
+                ## Meet: Stryker
+            	
+                With Stryker, mutation testing finally arrives in the JavaScript world. 
+                Stryker is not a test runner or test framework. 
+                Indeed, why would it? there are already awesome test runners and test frameworks out there. 
+                Instead, Stryker is a framework with extension points so you can plug the test runner and framework you want into.   
+            
+                ##Features
+
+    .row.text-center
+        .col-md-3.col-md-offset-2
+            .row
+                .col-md-2
+                    i.fa.fa-rocket
+                .col-md-10
+                    h4 Speed
+                    p Stryker uses advanced techniques like code analysis and running multiple test runners concurrently to speed things up.
+

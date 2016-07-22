@@ -1,45 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Stryker - The JavaScript mutation testing framework: Measure the effectiveness of your JavaScript unit tests.">
-    <title>Stryker - The JavaScript mutation testing framework</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="#">Stryker</a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#quickstart">Quickstart</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="outer" id="main_content_wrap">
-      <section class="inner" id="main_content"><h3>What is mutation testing?</h3>
+<!DOCTYPE html><html><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker - The JavaScript mutation testing framework: Measure the effectiveness of your JavaScript unit tests."><title>Stryker - The JavaScript mutation testing framework</title><link rel="stylesheet" href="stylesheets/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="stylesheets/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" href="stylesheets/stryker.css"><link rel="stylesheet" href="stylesheets/font-awesome-4.6.3/css/font-awesome.min.css"><script src="stylesheets/bootstrap/js/bootstrap.min.js"></script></head><body><nav class="navbar navbar-default navbar-fixed-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="/"><img src="/images/stryker-80x80.png" alt="Stryker" width="20" height="20"></a></div><div class="collapse navbar-collapse" id="navbar"><ul class="nav navbar-nav"><li class="active"><a href="/" title="Home">Home</a></li><li><a href="/quickstart.html" title="Quickstart">Quickstart</a></li></ul></div></div></nav><div class="docs-header jumbotron"><div class="container"><img src="/images/Stryker_410x410.png" alt="Stryker"><h1>Stryker</h1><p>Measure the effectiveness of your JavaScript unit tests.</p></div></div><div class="container"><div class="row"><div class="col-md-12 text-center"><h2>What is mutation testing?</h2>
 
-<p>Bugs (or mutations) are automatically inserted into your production code, then your tests are run. If your tests fail then the mutation is killed, if your tests passed the mutation survived. The higher the percentage of mutations killed, the more <em>effective</em> your tests are. </p>
+<p>Bugs, or <em>mutants</em>, are automatically inserted into your production code. Your tests are run for each mutant.<br/>If your tests <em>fail</em> then the mutant is <em>killed</em>. 
+If your tests passed, the mutant <em>survived</em>.<br/>The higher the percentage of mutants killed, the more <em>effective</em> your tests are. </p>
 
 <p>It&#39;s really that simple.</p>
 
-<h3>Why use Stryker</h3>
+<h2>Meet: Stryker</h2>
 
-<p>Do you love tools like Grunt, Mocha and Karma? We do to, that&#39;s why we <em>integrate with them</em> rather than reinvent the wheel.</p>
-      </section>
-    </div>
-    <div class="outer" id="footer_wrap">
-      <footer class="inner">
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a> </p>
-      </footer>
-    </div>
-  </body>
-</html>
+<p>With Stryker, mutation testing finally arrives in the JavaScript world. 
+Stryker is not a test runner or test framework. 
+Indeed, why would it? there are already awesome test runners and test frameworks out there. 
+Instead, Stryker is a framework with extension points so you can plug the test runner and framework you want into.   </p>
+
+<h2>Features</h2></div></div><div class="row text-center"><div class="col-md-3 col-md-offset-2"><div class="row"><div class="col-md-2"><i class="fa fa-rocket"></i></div><div class="col-md-10"><h4>Speed</h4><p>Stryker uses advanced techniques like code analysis and running multiple test runners concurrently to speed things up.</p></div></div></div></div><div class="outer" id="footer_wrap"><footer class="inner"><p>Published with <a href="https://pages.github.com">GitHub Pages</a> </p></footer></div></div></body></html>

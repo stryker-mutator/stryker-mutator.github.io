@@ -3,31 +3,49 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-pug');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.initConfig({
-    
-    watch:{
-      pug:{
+
+    watch: {
+      options: {
+        livereload: true
+      },
+      pug: {
         files: ['src/**/*.pug'],
         tasks: ['pug']
+      },
+      css: {
+        files: ['stylesheets/**/*.css']
       }
     },
-    
+
+    connect: {
+      server: {
+        options: {
+          open: true,
+          livereload: true,
+          host: 'localhost',
+          hostname: 'localhost'
+        }
+      }
+    },
+
     pug: {
       compile: {
         options: {
-          data: {
-            debug: true,
-            name: 'Stryker - The JavaScript mutation testing framework',
-            tagline: 'Measure the effectiveness of your JavaScript unit tests.'
-          },
-          pretty: true
+          data: require('./src/fillViewModel.js')
         },
-        src: 'src/index.pug',
-        dest: 'index.html'
+        pretty: true,
+
+        cwd: 'src',
+        src: '*.pug',
+        dest: './',
+        ext: '.html',
+        expand: true
       }
     }
-  });
 
-  grunt.registerTask('serve', ['pug', 'watch']);
+  });
+  grunt.registerTask('serve', ['pug', 'connect', 'watch']);
 }
