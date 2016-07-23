@@ -5,7 +5,36 @@
 }
 
 body { padding-top: 50px; font-family: "Open Sans",Arial,sans-serif; }
+
 .docs-header { font-family: Carrois; text-align: center; background-color: #B74934; color: #F1C40F; }
 .docs-header img { max-width: 220px; }
-
- 
+.icon-box {
+    color: #B74934;
+    font-size: 1.8em;
+}
+.icon-box i{
+    margin-top: 15px;
+} 
+h1, h2, h3, .icon-box {
+    color: #B74934;
+}
+h1, h2, h3 {
+    font-family: Carrois;   
+}
+footer .navbar-text{
+    font-size: 0.7em;
+}
+#forkme_banner {
+    background: #0090ff url("../images/blacktocat.png") no-repeat scroll 95% 50%;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: block;
+    font-weight: 700;
+    padding: 10px 50px 10px 10px;
+    position: fixed;
+    right: 10px;
+    top: 0;
+    z-index: 10;
+}
