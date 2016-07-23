@@ -2,8 +2,16 @@ head
     meta(charset="utf8")
     meta(http-equiv="X-UA-Compatible",content="chrome=1")
     meta(name="description", content=name + ': ' + tagline)
-    title=name
+    title=currentTitle + ' - ' + name
     
+    //- Favicon - by http://realfavicongenerator.net
+    link(rel="apple-touch-icon", sizes="180x180", href="/apple-touch-icon.png")
+    link(rel="icon", type="image/png", href="/favicon-32x32.png", sizes="32x32")
+    link(rel="icon", type="image/png" href="/favicon-16x16.png" sizes="16x16")
+    link(rel="manifest", href="/manifest.json")
+    meta(name="theme-color", content="#b74934")
+
+
     //- CSS
     link(rel="stylesheet", href="stylesheets/bootstrap/css/bootstrap.min.css")
     link(rel="stylesheet", href="stylesheets/bootstrap/css/bootstrap-theme.min.css")
