@@ -21,8 +21,11 @@ h1, h2, h3, .icon-box {
 h1, h2, h3 {
     font-family: Carrois;   
 }
-footer .navbar-text{
+.navbar-footer .navbar-text{
     font-size: 0.7em;
+}
+.navbar-footer{
+    border-top: 1px solid;
 }
 #forkme_banner {
     background: #0090ff url("../images/blacktocat.png") no-repeat scroll 95% 50%;
