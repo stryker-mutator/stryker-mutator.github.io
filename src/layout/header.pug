@@ -1,10 +1,14 @@
 nav.navbar.navbar-default.navbar-fixed-top
-    
-    
-    div.container
+        
+    div.container-fluid
         div.navbar-header
             a.navbar-brand(href="/")
                 img(src="/images/stryker_205x205.png", alt="Stryker", width=20, height=20)
+            button.pull-left.navbar-toggle.collapsed(type="button", data-toggle="collapse", data-target="#navbar", aria-expanded="false")
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
         div#navbar.collapse.navbar-collapse
             ul.nav.navbar-nav
                 each val, key in menu
