@@ -15,6 +15,9 @@ module.exports = function (grunt) {
         files: ['src/**/*.pug'],
         tasks: ['pug']
       },
+      js: {
+        files: ['javascripts/**/*.js']
+      },
       css: {
         files: ['stylesheets/**/*.css']
       }
