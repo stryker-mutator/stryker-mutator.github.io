@@ -29,5 +29,10 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-npm": "0.0.2",
     "jstransformer-markdown": "^1.1.0"
-  }
+  },
+  "contributors": [
+    "Nico Jansen <jansennico@gmail.com>",
+    "Simon de Lang <simondelang@gmail.com>",
+    "BartB <btvanderburgt@gmail.com>"
+  ]
 }
