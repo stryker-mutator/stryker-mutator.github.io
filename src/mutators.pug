@@ -6,5 +6,67 @@ block content
             :markdown-it
                 # Supported mutators
 
-                Comming soon! In the meantime, checkout the [Stryker readme](http://github.com/stryker-mutator/stryker#supported-mutators) for 
-                a short description on the supported mutators.
+                Stryker supports a variety of mutators, which are listed below. Do you have a suggestion for a (new) mutator? Feel free to create an [issue](https://github.com/stryker-mutator/stryker/issues)! 
+
+                ## Math
+                | Original | Mutated  |
+                | -------- | -------- |
+                | a + b    | a - b    |
+                | a - b    | a + b    |
+                | a * b    | a / b    |
+                | a / b    | a * b    |
+                | a & b    | a * b    |
+
+                ## Unary
+                | Original | Mutated  |
+                | -------- | -------- |
+                | a++      | a--      |
+                | a--      | a++      |
+                | ++a      | --a      |
+                | --a      | ++a      |
+                | +a       | -a       |
+                | -a       | +a       |
+
+                ## Conditional boundary
+                | Original | Mutated  |
+                | -------- | -------- |
+                | a < b    | a <= b   |
+                | a <= b   | a < b    |
+                | a > b    | a >= b   |
+                | a >= b   | a < b    |
+
+                ## Reverse conditional
+                | Original | Mutated  |
+                | -------- | -------- |
+                | a == b   | a != b   |
+                | a != b   | a == b   |
+                | a === b  | a !== b  |
+                | a !== b  | a === b  |
+                | a <= b   | a > b    |
+                | a >= b   | a < b    |
+                | a < b    | a >= b   |
+                | a > b    | a <= b   |
+                | a && b   | a \|\| b   |
+                | a \|\| b   | a && b   |
+
+                ## Remove conditionals
+                | Original                         | Mutated                         |
+                | -------------------------------- | ------------------------------- |
+                | for (var i = 0; i < 10; i++) { } | for (var i = 0; false; i++) { } |
+                | while (a > b) { }                | while (false) { }               |
+                | do { } while (a > b);            | do { } while (false);           |
+                | if (a > b) { }                   | if (true) { }                   |
+                | if (a > b) { }                   | if (false) { }                  |
+
+                ## Block statement
+                This mutator removes the content of every block statement. For example the code:
+                ```js
+                function saySomething() {
+                console.log('Hello world!');   
+                }
+                ```
+                becomes:
+                ```js
+                function saySomething() { 
+                }
+                ```
