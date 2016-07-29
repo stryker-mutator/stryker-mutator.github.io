@@ -4,6 +4,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-pug');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-npm');
 
   grunt.initConfig({
 
@@ -47,8 +48,15 @@ module.exports = function (grunt) {
         ext: '.html',
         expand: true
       }
+    },
+
+    'npm-contributors': {
+      options: {
+        commitMessage: 'chore: update contributors'
+      }
     }
 
   });
   grunt.registerTask('serve', ['pug', 'connect', 'watch']);
+  grunt.registerTask('build', ['pug', 'npm-contributors'])
 }
