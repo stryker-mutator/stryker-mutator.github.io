@@ -42,7 +42,7 @@ $(function () {
       case 'grunt': return 'grunt-stryker';
       case 'html': return 'stryker-html-reporter';
       case 'mocha': return group === 'test-runner' ? 'stryker-mocha-runner' : '';
-      case 'karma': return 'stryker-karma';
+      case 'karma': return 'stryker-karma-runner';
       default: return '';
     }
   }
