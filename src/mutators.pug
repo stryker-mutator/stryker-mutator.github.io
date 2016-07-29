@@ -6,67 +6,144 @@ block content
             :markdown-it
                 # Supported mutators
 
-                Stryker supports a variety of mutators, which are listed below. Do you have a suggestion for a (new) mutator? Feel free to create an [issue](https://github.com/stryker-mutator/stryker/issues)! 
+                Stryker supports a variety of mutators, which are listed below. Do you have a suggestion for a (new) mutator? Feel free to create an [issue](https://github.com/stryker-mutator/stryker/issues)!
+            
+            h3 Math
+            table.table.table-striped
+                    thead
+                        tr
+                            th Original
+                            th Mutated
+                    tbody
+                        tr
+                            td a + b
+                            td a - b
+                        tr
+                            td a - b
+                            td a + b
+                        tr
+                            td a * b
+                            td a / b
+                        tr
+                            td a / b
+                            td a * b
+                        tr
+                            td a & b
+                            td a * b
 
-                ## Math
-                | Original | Mutated  |
-                | -------- | -------- |
-                | a + b    | a - b    |
-                | a - b    | a + b    |
-                | a * b    | a / b    |
-                | a / b    | a * b    |
-                | a & b    | a * b    |
-
-                ## Unary
-                | Original | Mutated  |
-                | -------- | -------- |
-                | a++      | a--      |
-                | a--      | a++      |
-                | ++a      | --a      |
-                | --a      | ++a      |
-                | +a       | -a       |
-                | -a       | +a       |
-
-                ## Conditional boundary
-                | Original | Mutated  |
-                | -------- | -------- |
-                | a < b    | a <= b   |
-                | a <= b   | a < b    |
-                | a > b    | a >= b   |
-                | a >= b   | a < b    |
-
-                ## Reverse conditional
-                | Original | Mutated  |
-                | -------- | -------- |
-                | a == b   | a != b   |
-                | a != b   | a == b   |
-                | a === b  | a !== b  |
-                | a !== b  | a === b  |
-                | a <= b   | a > b    |
-                | a >= b   | a < b    |
-                | a < b    | a >= b   |
-                | a > b    | a <= b   |
-                | a && b   | a \|\| b   |
-                | a \|\| b   | a && b   |
-
-                ## Remove conditionals
-                | Original                         | Mutated                         |
-                | -------------------------------- | ------------------------------- |
-                | for (var i = 0; i < 10; i++) { } | for (var i = 0; false; i++) { } |
-                | while (a > b) { }                | while (false) { }               |
-                | do { } while (a > b);            | do { } while (false);           |
-                | if (a > b) { }                   | if (true) { }                   |
-                | if (a > b) { }                   | if (false) { }                  |
-
-                ## Block statement
-                This mutator removes the content of every block statement. For example the code:
-                ```js
-                function saySomething() {
-                console.log('Hello world!');   
-                }
-                ```
-                becomes:
-                ```js
-                function saySomething() { 
-                }
-                ```
+            h3 Unary
+            table.table.table-striped
+                    thead
+                        tr
+                            th Original
+                            th Mutated
+                    tbody
+                        tr
+                            td a++
+                            td a--
+                        tr
+                            td a--
+                            td a++
+                        tr
+                            td ++a
+                            td --a
+                        tr
+                            td --a
+                            td ++a
+                        tr
+                            td +a
+                            td -a
+                        tr
+                            td -a
+                            td +a
+            
+            h3 Conditional boundary
+            table.table.table-striped
+                    thead
+                        tr
+                            th Original
+                            th Mutated
+                    tbody
+                        tr
+                            td a < b
+                            td a <= b
+                        tr
+                            td a <= b
+                            td a < b
+                        tr
+                            td a > b
+                            td a >= b
+                        tr
+                            td a >= b
+                            td a > b
+                            
+            h3 Reverse conditional
+            table.table.table-striped
+                    thead
+                        tr
+                            th Original
+                            th Mutated
+                    tbody
+                        tr
+                            td a == b
+                            td a != b
+                        tr
+                            td a != b
+                            td a == b
+                        tr
+                            td a === b
+                            td a !== b
+                        tr
+                            td a !== b
+                            td a === b
+                        tr
+                            td a <= b
+                            td a > b
+                        tr
+                            td a < b
+                            td a >= b
+                        tr
+                            td a > b
+                            td a <= b
+                        tr
+                            td a && b
+                            td a || b
+                        tr
+                            td a || b
+                            td a && b
+            
+            h3 Remove conditionals
+            table.table.table-striped
+                    thead
+                        tr
+                            th Original
+                            th Mutated
+                    tbody
+                        tr
+                            td for (var i = 0; i < 10; i++) { }
+                            td for (var i = 0; false; i++) { }
+                        tr
+                            td while (a > b) { }
+                            td while (false) { }
+                        tr
+                            td do { } while (a > b);
+                            td do { } while (false);
+                        tr
+                            td if (a > b) { } 
+                            td if (true) { }
+                        tr
+                            td if (a > b) { } 
+                            td if (false) { }
+            
+            h3 Block statement
+            p This mutator removes the content of every block statement. For example the code:
+            pre
+                code.
+                    function saySomething() {
+                        console.log('Hello world!');   
+                    }
+            p becomes:
+            pre
+                code.
+                    function saySomething() { 
+                    }
