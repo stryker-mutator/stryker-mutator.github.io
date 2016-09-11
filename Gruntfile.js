@@ -58,5 +58,5 @@ module.exports = function (grunt) {
 
   });
   grunt.registerTask('serve', ['pug', 'connect', 'watch']);
-  grunt.registerTask('build', ['pug', 'npm-contributors'])
-}
+  grunt.registerTask('build', ['pug', 'npm-contributors']);
+};
