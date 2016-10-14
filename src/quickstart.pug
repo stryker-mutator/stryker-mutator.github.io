@@ -12,31 +12,46 @@ block content
         .col-md-12
             h3 #[span.label.label-primary 1] Choose your tools
     section.row
-        .col-md-12
+        .col-md-6
             form
                 h4 Build system
                 .form-group
                     .btn-group(data-group="build-system")
-                        .btn.btn-default(data-name="grunt") Grunt
                         .btn.btn-default(data-name="npm") Vanilla NPM
+                        .btn.btn-default(data-name="grunt") Grunt
+                        .btn.btn-default(data-name="grunt") Gulp
+                        .btn.btn-default(data-name="npm") Anular-cli
+                        .btn.btn-default(data-name="npm") Brocolli
         
                 h4 Test runner
                 .form-group
                     .btn-group(data-group="test-runner")
                         .btn.btn-default(data-name="karma") Karma
                         .btn.btn-default(data-name="mocha") Mocha
-    
+                        .btn.btn-default(data-name="karma") Jasmine
+                        .btn.btn-default(data-name="mocha") Jest
+                        .btn.btn-default(data-name="karma") Tape
                 h4 Test framework
                 .form-group
                     .btn-group(data-group="test-framework")
                         .btn.btn-default(data-name="jasmine") Jasmine
                         .btn.btn-default(data-name="mocha") Mocha
+                        .btn.btn-default(data-name="jasmine") Tape
+                        .btn.btn-default(data-name="mocha") Jest
+                        .btn.btn-default(data-name="jasmine") CucumberJS
                 h4 Reporting
                 .form-group
                     .btn-group(data-group="reporter")
                         .btn.btn-default(data-name="html") html
                         .btn.btn-default(data-name="clear-text") clear-text
-            hr/
+                        .btn.btn-default(data-name="clear-text") Codacy
+                        .btn.btn-default(data-name="clear-text") SonarQube
+        .col-md-6
+            h4 Or paste your package.json here and we'll figure it out
+            textarea
+    div.row
+        div.col-md-12
+            hr/            
     section#installSection.row.advance-step(hidden="hidden")
         .col-md-12
             h3 #[span.label.label-primary 2] Install
