@@ -28,7 +28,7 @@
     "grunt-contrib-pug": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-npm": "0.0.2",
-    "jstransformer-markdown-it": "^0.2.3"
+    "jstransformer-markdown-it": "^1.0.0"
   },
   "contributors": [
     "Nico Jansen <jansennico@gmail.com>",
