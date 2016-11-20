@@ -1,8 +1,8 @@
-
 module.exports = function (dest) {
   var menu = {
     'Home': '/',
     'Quickstart': '/quickstart.html',
+    // 'Blog': '/blog.html',
     'Plugins': '/plugins.html',
     'Supported mutators': '/mutators.html'
   };

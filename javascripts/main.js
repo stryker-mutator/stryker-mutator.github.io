@@ -7,6 +7,7 @@ $(function () {
   var installCodeElement = $('.stryker-install code');
   var strykerConfigureBuild = $('.stryker-configure-build code');
   var strykerConfigureStryker = $('.stryker-configure-stryker code');
+  var strykerConfigureKarma = $('.stryker-configure-karma');
   var installTemplate = installCodeElement.text();
   var strykerConfigTemplate = strykerConfigureStryker.text();
   var buildSystemExamples = $('.stryker-configure-build');
@@ -32,6 +33,11 @@ $(function () {
       strykerConfExample = strykerConfExample.replace('{{' + key + '}}', selectedItems[key]);
     });
     strykerConfigureStryker.text(strykerConfExample);
+    if (selectedItems['test-runner'] === 'karma') {
+      strykerConfigureKarma.show();
+    } else {
+      strykerConfigureKarma.hide();
+    }
   }
 
   /**
@@ -42,6 +48,7 @@ $(function () {
       case 'grunt': return 'grunt-stryker';
       case 'html': return 'stryker-html-reporter';
       case 'mocha': return group === 'test-runner' ? 'stryker-mocha-runner' : '';
+      case 'jasmine': return 'stryker-jasmine';
       case 'karma': return 'stryker-karma-runner';
       default: return '';
     }

@@ -43,7 +43,7 @@ block content
             p Use this command to install your node modules.
             pre.stryker-install
                 code 
-                    | npm i --save-dev stryker stryker-api {{build-system}} {{test-runner}} {{reporter}}
+                    | npm i --save-dev stryker stryker-api {{build-system}} {{test-framework}} {{test-runner}} {{reporter}}
             hr/
     section.row.advance-step(hidden="hidden")
         .col-md-12
@@ -54,7 +54,7 @@ block content
                     // package.json
                     {
                       "scripts": {
-                        "stryker": "stryker -c stryker.conf.js"
+                        "stryker": "stryker run stryker.conf.js"
                       }
                     }
             pre.stryker-configure-build(data-build-system="grunt")
@@ -90,9 +90,19 @@ block content
                         ],
                         testRunner: '{{test-runner}}',
                         testFramework: '{{test-framework}}',
-                        reporter: ['{{reporter}}', 'progress']
+                        coverageAnalysis: 'perTest',
+                        reporter: ['{{reporter}}', 'progress'],
                       });
                     }
+            p.stryker-configure-karma Stryker does not (yet) load your karma configuration. If you need a specific browser, preprocessors, frameworks, etc. to load, you'll need to add that to your  #[code stryker.conf.js]. For more info, see [stryker-karma-runner](https://github.com/stryker-mutator/stryker-karma-runner). For example:
+            pre.stryker-configure-karma
+                code.
+                    config.set({
+                        karmaConfig: {
+                            frameworks: ['requirejs', 'jasmine'],
+                            browsers: ['Chrome']
+                        }
+                    });
             hr/
     section.row.advance-step(hidden="hidden")
         .col-md-12
@@ -109,15 +119,17 @@ block content
         .col-md-12
             h3 #[span.label.label-primary 5] What's next?
             :markdown-it
+                Having troubles? Try enabling debug logging by adding `logLevel: 'debug'` to your stryker.conf.js. 
+                To also see output of your test runner, use `logLevel: 'trace'`. 
+                You can also have a look at the [readme file of stryker](https://github.com/stryker-mutator/stryker) for more information about the configuration.
+                Please [report any issues](http://github.com/stryker-mutator/stryker/issues) you have or let us know [via gitter](https://gitter.im/stryker-mutator/stryker).
+
                 Try and improve on your mutation score. Also checkout the [Stryker readme](https://github.com/stryker-mutator/stryker) 
                 for an explanation on all Stryker options. 
                 
                 Want to help the Stryker community? Awesome! You can help by writing plugins, document issues or simply writing docs.
                 You can always drop us a line [on gitter](https://gitter.im/stryker-mutator/stryker). 
 
-                Having troubles? Try enabling debug logging by adding `logLevel: 'debug'` to your stryker.conf.js. 
-                To also see output of your test runner, use `logLevel: 'trace'`. Please [report any issues](http://github.com/stryker-mutator/stryker/issues)
-                you have or let us know [via gitter](https://gitter.im/stryker-mutator/stryker).
 
     .row
         .col-md-12

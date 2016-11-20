@@ -8,9 +8,20 @@ use the <a href="https://github.com/stryker-mutator/stryker-plugin-seed">stryker
 <li>Mocha (<a href="https://github.com/stryker-mutator/stryker-mocha-runner">stryker-mocha-runner</a>)</li>
 </ul>
 <h2>Test frameworks</h2>
-<p>Stryker is test framework agnostic, however if you plugin hooks to the test framework you are using, it can significantly improve the performance.
-We don't have any test frameworks as plugins right now. They are planned for the next major release of stryker (0.5). We do have limitted support for Jasmine built into Stryker. Enable it by setting the testSelector to <code>jasmine</code>.</p>
+<p>Stryker is test framework agnostic, however if you plugin hooks to the test framework you are using, it can significantly improve the performance
+by using <code>coverageAnalysis: 'perTest'</code>. For more information about coverage analysis, see the <a href="https://github.com/stryker-mutator/stryker#coverage-analysis">stryker readme</a>.</p>
+<ul>
+<li>Jasmine (<a href="https://github.com/stryker-mutator/stryker-jasmine">stryker-jasmine</a>)</li>
+<li>Mocha (<a href="https://github.com/stryker-mutator/stryker-mocha-runner">stryker-mocha-runner</a>) (only when running in the mocha test runner on node)</li>
+</ul>
 <h2>Reporters</h2>
+<p>Stryker already has 3 reporters build in:</p>
+<ul>
+<li><code>progress</code>: Report progress during mutation testing.</li>
+<li><code>clear-text</code>: A clear text report at the end of the mutation testing phase.</li>
+<li><code>event-recorder</code>: Write all events to disk. Useful for debug purposes (default location: 'reports/mutation/events')</li>
+</ul>
+<p>Additional reporters can be found here:</p>
 <ul>
 <li>HTML Reporter (<a href="https://github.com/stryker-mutator/stryker-html-reporter">stryker-html-reporter</a>)</li>
 </ul>
@@ -18,4 +29,7 @@ We don't have any test frameworks as plugins right now. They are planned for the
 <p>We don't have any mutators as plugins yet, but we do have list of <a href="/mutators.html">mutators that are included with Stryker</a></p>
 <h2>Config writers</h2>
 <p>None so far.</p>
+<h2>&lt;Your plugin here&gt;</h2>
+<p>You can write your own plugins for Stryker. Interested? Please have a look at our <a href="https://github.com/stryker-mutator/stryker-plugin-seed">stryker-plugin-seed</a>,
+an opinioned setup to start writing your own plugins using TypeScript.</p>
 </div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen and Simon de Lang. Logo by Selina.</p></div></footer></div></body></html>
