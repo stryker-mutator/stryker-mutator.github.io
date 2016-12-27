@@ -43,7 +43,7 @@ module.exports = function (grunt) {
         pretty: true,
 
         cwd: 'src',
-        src: '*.pug',
+        src: ['**/*.pug', '!layout/*.pug'],
         dest: './',
         ext: '.html',
         expand: true

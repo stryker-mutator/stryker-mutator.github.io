@@ -1,0 +1,15 @@
+extends ./layout/layout.pug
+
+block content
+    .row
+        .col-md-12.text-center
+            :markdown-it
+                # Blog
+                Welcome to the blog!
+
+            each blog in blogs
+                h2
+                    a(href=blog.url, title=blog.title)= blog.title
+                p= blog.date
+                p= blog.description
+
