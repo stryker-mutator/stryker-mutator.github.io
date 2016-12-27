@@ -31,7 +31,7 @@ module.exports = function (dest) {
       if(fileName === "blog.json"){
         var blog = JSON.parse(fs.readFileSync(baseBlogFolder + dirName + '/blog.json'));
         blog.url = 'blogs/' + dirName + '/' + blog.fileName + '.html';
-        blogs.push(blog);
+        blogs.splice(0, 0, blog);
       }
     });
   });
