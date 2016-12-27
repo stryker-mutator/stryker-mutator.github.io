@@ -13,35 +13,35 @@ block content
         .col-md-12.text-center
             :markdown-it
                 ## What is mutation testing?
-                
+
                 Bugs, or *mutants*, are automatically inserted into your production code. Your tests are run for each mutant.
                 If your tests *fail* then the mutant is *killed*.
                 If your tests passed, the mutant *survived*.
-                The higher the percentage of mutants killed, the more *effective* your tests are. 
-                
+                The higher the percentage of mutants killed, the more *effective* your tests are.
+
                 It's really that simple.
     .row
         .col-md-12.text-center
             :markdown-it
                 ## But wait, what about code coverage?
 
-                Well... code coverage doesn't really tell you anything about the effectiveness of your tests. Think about it, 
+                Well... code coverage doesn't really tell you anything about the effectiveness of your tests. Think about it,
                 when was the last time you saw a test without an assertion, purely to increase the code coverage.
-                
+
                 Imagine a sandwich
                 covered with paste. Code coverage would tell you the bread is 80% covered with paste. Mutation testing, on the other hand,
                 would tell you it is actually *chococate* paste and not... well... something else.
     .row
         .col-md-12.text-center
             :markdown-it
-                
+
                 ## Meet: Stryker
-            	
-                With Stryker, mutation testing finally arrives at the JavaScript world. 
+
+                With Stryker, mutation testing finally arrives at the JavaScript world.
                 It takes the best practices of existing mutation testing frameworks like [PIT](http://pitest.org/) and [Humbug](https://github.com/padraic/humbug),
-                but with the open mentality of nodejs and the web. This is why Stryker is not a test runner or test framework. 
-                Indeed, why would it? There are already awesome test runners and test frameworks out there. 
-                Instead, Stryker empowers you to use what you like and focusses on being the best Mutation testing framework it can be. 
+                but with the open mentality of nodejs and the web. This is why Stryker is not a test runner or test framework.
+                Indeed, why would it? There are already awesome test runners and test frameworks out there.
+                Instead, Stryker empowers you to use what you like and focusses on being the best Mutation testing framework it can be.
     .row
         .col-md-12.text-center
             h2 Features
@@ -53,7 +53,7 @@ block content
                 .col-md-10.col-xs-10
                     :markdown-it
                         #### Mutations
-                        
+
                         Control [more than 30 supported mutations](http://github.com/stryker-mutator/stryker#supported-mutators), or write your own.
         .col-md-3.col-sm-6
             .row
@@ -62,7 +62,7 @@ block content
                 .col-md-10.col-xs-10
                     :markdown-it
                         #### Speed
-                        
+
                         Use code analysis and parallel test runner processes to speed things up.
         .col-md-3.col-sm-6
             .row
@@ -71,8 +71,8 @@ block content
                 .col-md-10.col-xs-10
                     :markdown-it
                         #### Test runner agnostic
-                       
-                        Run tests with [Karma](http://karma-runner.github.io), [Mocha](https://mochajs.org/), 
+
+                        Run tests with [Karma](http://karma-runner.github.io), [Mocha](https://mochajs.org/),
                         or write a simple plugin for any test runner you like.
         .col-md-3.col-md-offset-1.col-sm-6
             .row
@@ -81,8 +81,8 @@ block content
                 .col-md-10.col-xs-10
                     :markdown-it
                         #### Open source
-                        
-                        Free as in Speech. Maintained by the open source community at 
+
+                        Free as in Speech. Maintained by the open source community at
                         [GitHub](http://github.com/stryker-mutator/stryker).
         .col-md-3.col-sm-6
             .row
@@ -91,7 +91,7 @@ block content
                 .col-md-10.col-xs-10
                     :markdown-it
                         #### Extendable
-                        
+
                         Create your own plugins to mutate, report or run tests using the [Stryker API](http://github.com/stryker-mutator/stryker-api).
         .col-md-3.col-sm-6
             .row
@@ -100,7 +100,7 @@ block content
                 .col-md-10.col-xs-10
                     :markdown-it
                         #### Clever reports
-                        
+
                         Use [clever reports](http://github.com/stryker-mutator/stryker-html-reporter)
                         to sniff out surviving mutants and improve test effectiveness.
 
@@ -110,9 +110,9 @@ block content
             blockquote Oh, they serve their purpose... as long as they can be controlled. #[footer William Stryker]
     .row
         .col-md-12.text-center
-            :markdown
+            :markdown-it
                 ## Free swag
-                
+
                 Contribute and get a free t-shirt or sticker. As long as stock lasts.
 
                 ![Stryker T-shirt](images/stryker-t-shirt.png)

@@ -28,11 +28,12 @@
     "grunt-contrib-pug": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-npm": "0.0.2",
-    "jstransformer-markdown-it": "^1.0.0"
+    "jstransformer-markdown-it": "^2.0.0"
   },
   "contributors": [
     "Nico Jansen <jansennico@gmail.com>",
     "Simon de Lang <simondelang@gmail.com>",
-    "BartB <btvanderburgt@gmail.com>"
+    "BartB <btvanderburgt@gmail.com>",
+    "Alex van Assem <avassem@gmail.com>"
   ]
 }
