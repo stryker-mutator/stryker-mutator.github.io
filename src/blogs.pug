@@ -2,10 +2,14 @@ extends ./layout/layout.pug
 
 block content
     .row
-        .col-md-12.text-center
+        .col-md-12
             :markdown-it
                 # Blog
-                Welcome to the blog!
+                Welcome to the blog of Stryker. This year we will publish blog posts regularly to inform developers about the usage of Stryker and the new possibities that will be implemented this year. We will write blog posts about the following topics:
+
+                - Getting Started with Stryker
+                - Embed Stryker into your build pipeline 
+                - Combine Stryker and Polymer
 
             each blog in blogs
                 h2

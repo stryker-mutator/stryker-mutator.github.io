@@ -27,13 +27,20 @@ module.exports = function (dest) {
   var directories = fs.readdirSync(baseBlogFolder);
   directories.forEach(function(dirName){
     var files = fs.readdirSync(baseBlogFolder + dirName);
+    var blog = {};
+    
     files.forEach(function(fileName){
       if(fileName === "blog.json"){
-        var blog = JSON.parse(fs.readFileSync(baseBlogFolder + dirName + '/blog.json'));
-        blog.url = 'blogs/' + dirName + '/' + blog.fileName + '.html';
-        blogs.splice(0, 0, blog);
+        var json = JSON.parse(fs.readFileSync(baseBlogFolder + dirName + '/blog.json'));
+        blog.title = json.title;
+        blog.description = json.description;
+        blog.date = json.date;
+      } else if (fileName.endsWith(".pug")){
+        blog.url = 'blogs/' + dirName + '/' + fileName.substr(0,fileName.length-4) + '.html';
       }
     });
+
+    blogs.splice(0, 0, blog);
   });
 
   return {
