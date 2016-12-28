@@ -4,7 +4,8 @@ module.exports = function (dest) {
     'Quickstart': '/quickstart.html',
     // 'Blog': '/blog.html',
     'Plugins': '/plugins.html',
-    'Supported mutators': '/mutators.html'
+    'Supported mutators': '/mutators.html',
+    'FAQ': '/faq.html'
   };
   var currentUrl = '/' + dest;
   var currentTitle = 'Home';
