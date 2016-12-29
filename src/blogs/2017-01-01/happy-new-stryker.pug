@@ -4,8 +4,8 @@ block prepend content
     .row
         .col-md-12
             h1= blogs[0].title
-            p= blogs[0].date
+            p Published: #{blogs[0].date}
             :markdown-it
-                ![](/images/blogs/stryker.png)
+                ![Stryker](/images/blogs/stryker.png)
                 
                 The year 2017 is going to be the year of code quality. Stryker is the mutation test framework for Javascript that will help you to write better test code.
