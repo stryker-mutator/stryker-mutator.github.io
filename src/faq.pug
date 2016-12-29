@@ -11,11 +11,12 @@ block content
 
                 ## Q: Stryker is slow! How do I speed it up?  
                 **A: Improve your tests' performance**  
-                As we're running *your* tests, the first thing you should do, is to improve the performance of your unit tests. 
+                As we're running *your* tests, the first thing you should do, is to improve the performance of your unit tests.
+                For example: when running tests in a browser, try to reduce the number of files loaded in the browser. 
 
                 **A: Only mutate what's needed**  
-                Make sure you're not mutating unnecessary files (e.g. unrelated test files, third party code, etc.)  
-                Double-check your `files` setting and try a `run` with `--mutate ''` to perform a dry-run.
+                Make sure you're not mutating unnecessary files (e.g. test files, third party code, etc.)  
+                Double-check your `files` and `mutate` settings.
 
                 **A: Create a RAM disk/drive**  
                 Take a look at your disk I/O. Is it peaking when running Stryker? Consider creating a RAM disk!  
@@ -23,7 +24,6 @@ block content
                 *Note*: We didn't test this ourselves yet. So take it with a grain of salt. ;-)
 
                 ## Q: I found a bug! What do I do now?
-                **A: Contact us on Gitter first, then file an issue on GitHub**  
-                Please first [contact us on Gitter](https://gitter.im/stryker-mutator/stryker) and ask if the (mis)behavior you've encountered is known.  
-                You can also [take a look at the known issues](https://github.com/stryker-mutator/stryker/issues) or take a look at [our 
-                documentation on how to report bugs](https://github.com/stryker-mutator/stryker/blob/master/CONTRIBUTING.md#bug-triage).
+                **A: First [take a look at the known issues](https://github.com/stryker-mutator/stryker/issues) before filing an issue yourself**  
+                You can also [contact us on Gitter](https://gitter.im/stryker-mutator/stryker) and ask if the (mis)behavior you've encountered is known.  
+                When reporting an issue, please read [our documentation on how to report bugs](https://github.com/stryker-mutator/stryker/blob/master/CONTRIBUTING.md#bug-triage).

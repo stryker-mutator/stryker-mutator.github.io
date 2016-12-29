@@ -4,17 +4,17 @@ If this page does not answer your question, please feel free to <a href="https:/
 If you think you've encountered a bug, please also contact us on Gitter first, before submitting a bug report.</p>
 <h2>Q: Stryker is slow! How do I speed it up?</h2>
 <p><strong>A: Improve your tests' performance</strong><br>
-As we're running <em>your</em> tests, the first thing you should do, is to improve the performance of your unit tests.</p>
+As we're running <em>your</em> tests, the first thing you should do, is to improve the performance of your unit tests.
+For example: when running tests in a browser, try to reduce the number of files loaded in the browser.</p>
 <p><strong>A: Only mutate what's needed</strong><br>
-Make sure you're not mutating unnecessary files (e.g. unrelated test files, third party code, etc.)<br>
-Double-check your <code>files</code> setting and try a <code>run</code> with <code>--mutate ''</code> to perform a dry-run.</p>
+Make sure you're not mutating unnecessary files (e.g. test files, third party code, etc.)<br>
+Double-check your <code>files</code> and <code>mutate</code> settings.</p>
 <p><strong>A: Create a RAM disk/drive</strong><br>
 Take a look at your disk I/O. Is it peaking when running Stryker? Consider creating a RAM disk!<br>
 This will speed up writing and/or reading intermediate files (such as temporary HTML files) by doing everything in your secondary storage.<br>
 <em>Note</em>: We didn't test this ourselves yet. So take it with a grain of salt. ;-)</p>
 <h2>Q: I found a bug! What do I do now?</h2>
-<p><strong>A: Contact us on Gitter first, then file an issue on GitHub</strong><br>
-Please first <a href="https://gitter.im/stryker-mutator/stryker">contact us on Gitter</a> and ask if the (mis)behavior you've encountered is known.<br>
-You can also <a href="https://github.com/stryker-mutator/stryker/issues">take a look at the known issues</a> or take a look at <a href="https://github.com/stryker-mutator/stryker/blob/master/CONTRIBUTING.md#bug-triage">our
-documentation on how to report bugs</a>.</p>
+<p><strong>A: First <a href="https://github.com/stryker-mutator/stryker/issues">take a look at the known issues</a> before filing an issue yourself</strong><br>
+You can also <a href="https://gitter.im/stryker-mutator/stryker">contact us on Gitter</a> and ask if the (mis)behavior you've encountered is known.<br>
+When reporting an issue, please read <a href="https://github.com/stryker-mutator/stryker/blob/master/CONTRIBUTING.md#bug-triage">our documentation on how to report bugs</a>.</p>
 </div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen and Simon de Lang. Logo by Selina.</p></div></footer></div></body></html>
