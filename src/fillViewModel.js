@@ -55,7 +55,7 @@ function readBlogs() {
   const blogs = [];
   const baseBlogFolder = 'src/blogs/';
   const directories = fs.readdirSync(baseBlogFolder);
-  directories.sort().forEach(function (dirName) {
+  directories.sort((a, b) => a < b).forEach(dirName => {
     const files = fs.readdirSync(baseBlogFolder + dirName);
     const blog = {};
 
