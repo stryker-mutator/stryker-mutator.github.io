@@ -3,7 +3,7 @@ const fs = require('fs');
 const menu = {
   'Home': '/',
   'Quickstart': '/quickstart.html',
-  'Blog': '/blogs.html',
+  'Blog': '/blog.html',
   'Plugins': '/plugins.html',
   'Supported mutators': '/mutators.html',
   'FAQ': '/faq.html'
@@ -32,7 +32,7 @@ module.exports = function (dest) {
 };
 
 function selectedMenuItem(currentUrl) {
-  if (currentUrl.startsWith('/blogs/')) {
+  if (currentUrl.startsWith('/blog/')) {
     return 'Blog';
   } else {
     const menuItem = Object.keys(menu).find(item => menu[item] === currentUrl);
@@ -54,7 +54,7 @@ function currentBlog(currentUrl) {
 
 function readBlogs() {
   const blogs = [];
-  const baseBlogFolder = 'src/blogs/';
+  const baseBlogFolder = 'src/blog/';
   const directories = fs.readdirSync(baseBlogFolder);
   directories.sort((a, b) => a < b).forEach(dirName => {
     const files = fs.readdirSync(baseBlogFolder + dirName);
@@ -67,7 +67,7 @@ function readBlogs() {
         blog.description = json.description;
         blog.date = json.date;
       } else if (fileName.endsWith('.pug')) {
-        blog.url = '/blogs/' + dirName + '/' + fileName.substr(0, fileName.length - 4) + '.html';
+        blog.url = '/blog/' + dirName + '/' + fileName.substr(0, fileName.length - 4) + '.html';
       }
     });
 
