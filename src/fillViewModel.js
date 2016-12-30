@@ -5,7 +5,8 @@ const menu = {
   'Quickstart': '/quickstart.html',
   'Blog': '/blogs.html',
   'Plugins': '/plugins.html',
-  'Supported mutators': '/mutators.html'
+  'Supported mutators': '/mutators.html',
+  'FAQ': '/faq.html'
 };
 
 const blogs = readBlogs();
