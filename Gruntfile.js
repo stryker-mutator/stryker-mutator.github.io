@@ -13,7 +13,7 @@ module.exports = function (grunt) {
         livereload: true
       },
       pug: {
-        files: ['src/**/*.pug'],
+        files: ['src/**/*.pug', 'src/**/*.js'],
         tasks: ['pug']
       },
       js: {
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
         pretty: true,
 
         cwd: 'src',
-        src: '*.pug',
+        src: ['**/*.pug', '!layout/*.pug'],
         dest: './',
         ext: '.html',
         expand: true
