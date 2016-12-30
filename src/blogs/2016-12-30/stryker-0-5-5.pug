@@ -6,26 +6,24 @@ block prepend content
             h1= currentBlog.title
             p Published: #{currentBlog.date}
             :markdown-it
-                The latest version of Stryker, version 0.5.5, has been released! This release bring a number of improvements that will make your life easier.
-                The full changelog can be read over on [GitHub](https://github.com/stryker-mutator/stryker/blob/master/CHANGELOG.md). In this post we'll dive into a couple new features.
+                The latest version of Stryker, version 0.5.5, has been released! This release brings a number of improvements that will make your life easier when using Stryker.
+                The full changelog can be found on [GitHub](https://github.com/stryker-mutator/stryker/blob/master/CHANGELOG.md). In this post we'll dive into a couple new of features.
 
-                To use the latest features execute the command: `npm i --save-dev stryker-api@0.4.2 stryker@0.5.5`
+                To upgrade to Stryker 0.5.5, simply run: `npm i --save-dev stryker-api@0.4.2 stryker@0.5.5`
 
                 ### New progress reporter
-                The progress reporter got a fresh new look! We think this new reporter gives a better indication of the progress of the mutation testing process.
-                Gone are the days of guessing how far Stryker is!
-                You can use the new reporter by using the reporter `'progress'` in your configuration.
+                The `progress` reporter got a fresh new look! It will now display a progress bar, the percentage of doneness and an ETC (Estimated Time of Completion).
+                Gone are the days of guessing how far Stryker has come and how long it'll need!
+                You can use it by setting reporter to `'progress'` in your `stryker.conf.js`.
 
                 **The new progress reporter looks like this:**
                 ![new progress reporter image](../../images/blogs/progress-reporter.png)
 
-                The progress bar is updated as Stryker is running. That way you always know how far it is. You even get an estimation on the time remaining.
-
-                Do you still want to use the **old reporter**? It's still there! Just use the repoter `'dots'` in your configuration.
+                Do you still want to use the **old** reporter? It's still there! Just use the repoter `'dots'` in your configuration.
 
                 ### Clear text reporter updated
                 The clear text reporter no longer prints every single test that was executed for a mutant. It now only prints the first three tests and mentions how many more tests were executed.
-                This behavior can be overwritten by using adding the following piece of config to your `stryker.conf.js`:
+                If desired, you can overwrite this behavior by adding the following piece of config to your `stryker.conf.js`:
                 ```
                 clearTextReporter: { 
                     maxTestsToLog: 25 
@@ -34,11 +32,10 @@ block prepend content
                 Don't want to know which tests were executed? Feel free to set the `maxTestsToLog` property to 0.
 
                 ### Karma config parsing
-                With Stryker 0.5.5 we have also updated the [stryker-karma-runner](https://github.com/stryker-mutator/stryker-karma-runner) with the option to parse your `karma.conf.js`!
-                When you use **version 0.3.3 of the stryker-karma-runner** you can specify the location of your karma config file. 
-                By doing this the stryker-karma-runner will parse your config file, which reduces the amount of duplicate config in your stryker.conf.js.
+                In addition to this release of Stryker, we've also added support for an often requested feature: reading your existing `karma.conf.js` in the [stryker-karma-runner](https://github.com/stryker-mutator/stryker-karma-runner)!
+                Starting with version 0.3.3, you can add the location of your karma config file to `Stryker.conf.js` and have it automatically be picked up by the plugin. This reduces code duplication between these two files.
 
-                An updated version of a stryker.conf.js is:
+                This is what your new `stryker.conf.js` might look like:
                 ```
                 // Stryker.conf.js
                 module.exports = function (config) {
@@ -56,4 +53,4 @@ block prepend content
                 As you can see, there is no need to specify which files Stryker should use! You only have to specify which files you want to mutate. 
                 A more detailed explanation of this feature can be found in the [stryker-karma-runner README.md](https://github.com/stryker-mutator/stryker-karma-runner/blob/master/README.md#configuring).
 
-                #### We hope you enjoy this new version of Stryker! We'd love to hear your feedback!
+                #### We hope you enjoy this new version of Stryker! We'd love to hear your feedback on [Gitter](https://gitter.im/stryker-mutator/stryker) and/or Twitter (with hashtag #strykermutator)!
