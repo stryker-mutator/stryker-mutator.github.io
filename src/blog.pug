@@ -7,10 +7,10 @@ block content
                 # Blog
                 Welcome to the blog of Stryker. Expect an article every 2 weeks to inform developers about the usage of Stryker and the new possibities it brings.
 
-
             each blog in blogs
                 h2
                     a(href=blog.url, title=blog.title)= blog.title
                 p Published: #{blog.date}
                 p= blog.description
+                a(href=blog.url, title=blog.title) &gt; Read more
 
