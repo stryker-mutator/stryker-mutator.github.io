@@ -8,20 +8,20 @@ block prepend content
             :markdown-it
                 ## 2017 - The year to invest into test quality
                 Up until now, when you were writing unit tests, you were actually investing in *code quality*. Catching bugs early by continuously
-                exercising your code with unit tests and keeping your stakeholders happy by presenting them with a code coverage number of 85 % or higher.  
-                But what if those tests contain bugs too? How would you go about discovering that? How do you test *your tests*?  
-                That's the problem [mutation testing](https://en.wikipedia.org/wiki/Mutation_testing) sets out to solve.  
+                exercising your code with unit tests and keeping your stakeholders happy by presenting them with a code coverage number of 85% or higher.
+                But does code coverage tell the entire story? Are your tests actually able to detect bugs? How do you test *your tests*?
+                That's the problem [mutation testing](https://en.wikipedia.org/wiki/Mutation_testing) sets out to solve.
 
                 ### Mutation testing in JavaScript
                 Due to JavaScript's dynamic nature, unit testing has become a fundamental tool to bring a higher level of robustness to JavaScript projects.
-                Your average AngularJS app can easily have around 10,000 unit tests. Ensuring that these cover the code as well as possible is very desireable.  
+                Your average JavaScript app can easily have around 1,000 unit tests. Ensuring that these are actually *effective* can be a full-time job. This is where Stryker comes in.
                 [Stryker Mutator](http://stryker-mutator.github.io/) is our approach to providing a comprehensive mutation testing tool for the JavaScript environment.
 
                 We start out by altering your source code ever so slightly (e.g. turning a `+` into `-`) and then running your tests to see if they are 
-                resilient to this *"mutation"*. If they are (and they fail), all is fine - the *mutant is dead*. If they don't, the *mutant* survived and you have to fix your test.
+                resilient to this *"mutant"*. If they are (and they fail), all is fine - the *mutant is dead*. If they don't, the *mutant* survived and you have to fix your test.
 
                 ## Stryker Hackweek 2016
-                Stryker began its life as the thesis project of Simon de Lang. After graduating, his thesis tutor Nico Jansen joined him and continued development in the open on [GitHub](https://github.com/stryker-mutator/).  
+                Stryker began its life as the thesis project of Simon de Lang. After graduating, his thesis tutor Nico Jansen joined him and continued development in the open on [GitHub](https://github.com/stryker-mutator/).
                 Since then they had five major releases, improving performance, adding support for the [Karma](http://karma-runner.github.io/1.0/index.html) and [Mocha](http://mochajs.org/) test runners, 
                 as well as creating a fancy [HTML reporter](https://github.com/stryker-mutator/stryker-html-reporter).
 
@@ -30,10 +30,10 @@ block prepend content
                 Around came the traditionally slow Christmas time period, allowing a select few of their colleagues at [Info Support](https://www.infosupport.com/) to join them for 4 days for the ***Stryker Hackweek 2016***.
 
                 ### Achieved goals
-                The whole team enjoyed the experience a lot and had good fun extending Stryker and fixing issues.  
+                The whole team enjoyed the experience a lot and had good fun extending Stryker and fixing issues.
                 We mostly concentrated on integrating Stryker with SonarQube, as well as improving the first time usage experience.  
 
-                All in all we made <p style="color: red;">{NUMBER OF COMMITS}, closing {NUMERB OF CLOSED ISSUES} etc.</p>
+                All in all we made **47 commits**, closed **18 issues**, eat **6 kebabs** and **4 subway sandwiches**!
                 Here's a quick overview of what we did:
                 * Created a [Stryker SonarQube plugin](https://github.com/stryker-mutator/sonar-stryker-plugin), that turns survived mutants into neat SonarQube issues
                 * Added [a blog](http://stryker-mutator.github.io/blog.html) to the Stryker homepage
@@ -55,4 +55,4 @@ block prepend content
                 * Wannes Van Regenmortel: Software engineer (via Info Support Belgium)
                 
                 #### Want to try out Stryker? Begin with the handy [quick start guide](http://stryker-mutator.github.io/quickstart.html).  
-                #### Want to get in touch on? Find us on [Gitter](https://gitter.im/stryker-mutator/stryker) and [Twitter](https://twitter.com/search?q=%23strykermutator&src=typd).
+                #### Want to get in touch? Find us on [Gitter](https://gitter.im/stryker-mutator/stryker) and [Twitter](https://twitter.com/search?q=%23strykermutator&src=typd).
