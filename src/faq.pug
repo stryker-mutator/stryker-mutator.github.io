@@ -24,7 +24,7 @@ block content
                 *Note*: We didn't test this ourselves yet. So take it with a grain of salt. ;-)
 
                 ## Q: So, what is this "mutation score"?
-                **A: It's an indication of how much mutations have been killed.**  
+                **A: It's the percentage of mutants that have been killed.**  
                 We suppose that mutants to the original source code will be 'killed' by a unit test.
                 If that is not the case, the mutant has 'survived'.
                 That's not good - so the higher the mutation score, the better is the quality of your tests! 
@@ -48,7 +48,7 @@ block content
                           // perform some logic
                       }
 
-                  Stryker could decide to mutate the `moreDataAvailable` into the constant `true`, thus creating an infinite loop.
+                  Stryker could decide to mutate the `moreDataAvailable` into the constant `true` (Stryker would not do this, but let's say that he does), thus creating an infinite loop.
 
                 * `No coverage` means that the original, unmodified code did not have test coverage, As such, every mutant would survive and is as such considered 'survived'.
                 * `Error` is used to indicate that an `Error` was thrown while running a test. This could be due to a mutant, but that is not always the case. Due to that, in this situation the mutant is *not* considered killed.

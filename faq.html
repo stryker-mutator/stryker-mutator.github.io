@@ -14,7 +14,7 @@ Take a look at your disk I/O. Is it peaking when running Stryker? Consider creat
 This will speed up writing and/or reading intermediate files (such as temporary HTML files) by doing everything in your secondary storage.<br>
 <em>Note</em>: We didn't test this ourselves yet. So take it with a grain of salt. ;-)</p>
 <h2>Q: So, what is this &quot;mutation score&quot;?</h2>
-<p><strong>A: It's an indication of how much mutations have been killed.</strong><br>
+<p><strong>A: It's the percentage of mutants that have been killed.</strong><br>
 We suppose that mutants to the original source code will be 'killed' by a unit test.
 If that is not the case, the mutant has 'survived'.
 That's not good - so the higher the mutation score, the better is the quality of your tests!</p>
@@ -40,7 +40,7 @@ An example of a <code>TimedOut</code> due to a mutant would be a snippet of code
     // perform some logic
 }
 </code></pre>
-<p>Stryker could decide to mutate the <code>moreDataAvailable</code> into the constant <code>true</code>, thus creating an infinite loop.</p>
+<p>Stryker could decide to mutate the <code>moreDataAvailable</code> into the constant <code>true</code> (Stryker would not do this, but let's say that he does), thus creating an infinite loop.</p>
 </li>
 <li>
 <p><code>No coverage</code> means that the original, unmodified code did not have test coverage, As such, every mutant would survive and is as such considered 'survived'.</p>
