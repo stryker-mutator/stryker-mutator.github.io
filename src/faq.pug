@@ -23,6 +23,44 @@ block content
                 This will speed up writing and/or reading intermediate files (such as temporary HTML files) by doing everything in your secondary storage.  
                 *Note*: We didn't test this ourselves yet. So take it with a grain of salt. ;-)
 
+                ## Q: So, what is this "mutation score"?
+                **A: It's an indication of how much mutations have been killed.**  
+                We suppose that mutants to the original source code will be 'killed' by a unit test.
+                If that is not the case, the mutant has 'survived'.
+                That's not good - so the higher the mutation score, the better is the quality of your tests! 
+                
+                To determine the mutation score, Stryker calculates the following numbers:
+
+                    Total mutants = # error + # timeout + # killed + # survived + # no coverage
+                    Total mutants used for score calculations = Total mutants - # error
+                    Total survived = # survived + # no coverage
+                    Mutation score = Total survived / Total mutants used for score calculations * 100
+                
+                ## Q: What do all these metrics mean?
+                **A: After running, Stryker gives each mutant a status:**  
+
+                * `Killed` means that a mutant in the original code caused a test to fail. The mutant is dead!
+                * `Survived` means that a mutant in the original code did not cause a test to fail.
+                * `TimedOut` means that, due to a mutant in the original code, the test takes too long to run. This is often an indication that the mutant created an infinite loop. Such cases are killed by Stryker.
+                  An example of a `TimedOut` due to a mutant would be a snippet of code like this:
+
+                      while (moreDataAvailable) {
+                          // perform some logic
+                      }
+
+                  Stryker could decide to mutate the `moreDataAvailable` into the constant `true`, thus creating an infinite loop.
+
+                * `No coverage` means that the original, unmodified code did not have test coverage, As such, every mutant would survive and is as such considered 'survived'.
+                * `Error` is used to indicate that an `Error` was thrown while running a test. This could be due to a mutant, but that is not always the case. Due to that, in this situation the mutant is *not* considered killed.
+
+                  An example of an `Error` due to mutant would be a line of code like this:
+
+                      const fs = require('f' + 's');
+
+                  Stryker could decide to mutate the `+` into a `-`, which would result in `AssertionError: missing path at Module.require (module.js:496:3)`. In such cases, Stryker will report
+                  
+                  > 1 mutant(s) caused an error and were therefore not accounted for in the mutation score
+
                 ## Q: I found a bug! What do I do now?
                 **A: First [take a look at the known issues](https://github.com/stryker-mutator/stryker/issues) before filing an issue yourself**  
                 You can also [contact us on Gitter](https://gitter.im/stryker-mutator/stryker) and ask if the (mis)behavior you've encountered is known.  
