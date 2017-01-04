@@ -4,7 +4,7 @@
   "description": "Package for our github page",
   "main": "Gruntfile.js",
   "scripts": {
-    "test": "grunt test"
+    "serve": "grunt serve"
   },
   "repository": {
     "type": "git",
