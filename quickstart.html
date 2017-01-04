@@ -33,11 +33,11 @@ module.exports = function(config){
     coverageAnalysis: 'perTest',
     reporter: ['{{reporter}}', 'progress'],
   });
-}</code></pre><p class="stryker-configure-karma">Stryker does not (yet) load your karma configuration. If you need a specific browser, preprocessors, frameworks, etc. to load, you'll need to add that to your  <code>stryker.conf.js</code>. For more info, see [stryker-karma-runner](https://github.com/stryker-mutator/stryker-karma-runner). For example:</p><pre class="stryker-configure-karma"><code>config.set({
+}</code></pre><p class="stryker-configure-karma">Stryker can load your Karma configuration; specify the path to the Karma config file using <code>karmaConfigFile</code>. If you need to override e.g. the browser, you can put that in <code>karmaConfig</code>; it will override the config from <code>karmaConfigFile</code>. For more info, see <a href="https://github.com/stryker-mutator/stryker-karma-runner">stryker-karma-runner</a>. For example:</p><pre class="stryker-configure-karma"><code>config.set({
     karmaConfig: {
-        frameworks: ['requirejs', 'jasmine'],
-        browsers: ['Chrome']
-    }
+        browsers: ['PhantomJS']
+    },
+    karmaConfigFile: 'karma.conf.js'
 });</code></pre><hr/></div></section><section class="row advance-step" hidden="hidden"><div class="col-md-12"><h3><span class="label label-primary">4</span> Let's kill some mutants!</h3><p>Use the following command to run Stryker:</p><pre class="stryker-run" data-build-system="npm"><code>npm run stryker</code></pre><pre class="stryker-run" data-build-system="grunt"><code>grunt stryker</code></pre><p class="stryker-reporter" data-reporter="html">When stryker is done, lookup your html report on disk by opening the <code>index.html</code> file on the default location: <code>reports/mutation/html</code>.</p><p class="stryker-reporter" data-reporter="clear-text">When Stryker is done the clear text report is printed to your console.</p><hr/></div></section><section class="row advance-step" hidden="hidden"><div class="col-md-12"><h3><span class="label label-primary">5</span> What's next?</h3><p>Having troubles? Try enabling debug logging by adding <code>logLevel: 'debug'</code> to your stryker.conf.js.
 To also see output of your test runner, use <code>logLevel: 'trace'</code>.
 You can also have a look at the <a href="https://github.com/stryker-mutator/stryker">readme file of stryker</a> for more information about the configuration.

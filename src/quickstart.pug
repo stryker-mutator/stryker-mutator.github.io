@@ -94,14 +94,14 @@ block content
                         reporter: ['{{reporter}}', 'progress'],
                       });
                     }
-            p.stryker-configure-karma Stryker does not (yet) load your karma configuration. If you need a specific browser, preprocessors, frameworks, etc. to load, you'll need to add that to your  #[code stryker.conf.js]. For more info, see [stryker-karma-runner](https://github.com/stryker-mutator/stryker-karma-runner). For example:
+            p.stryker-configure-karma Stryker can load your Karma configuration; specify the path to the Karma config file using #[code karmaConfigFile]. If you need to override e.g. the browser, you can put that in #[code karmaConfig]; it will override the config from #[code karmaConfigFile]. For more info, see #[a(href="https://github.com/stryker-mutator/stryker-karma-runner") stryker-karma-runner]. For example:
             pre.stryker-configure-karma
                 code.
                     config.set({
                         karmaConfig: {
-                            frameworks: ['requirejs', 'jasmine'],
-                            browsers: ['Chrome']
-                        }
+                            browsers: ['PhantomJS']
+                        },
+                        karmaConfigFile: 'karma.conf.js'
                     });
             hr/
     section.row.advance-step(hidden="hidden")
