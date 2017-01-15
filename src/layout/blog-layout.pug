@@ -1,4 +1,8 @@
 extends ./layout.pug
-
-block content
-    a(href="/blog.html", title="blog") Back to blog                  
+block prepend content
+    .row
+        .col-md-12
+            h1= currentBlog.title
+            p Published: #{currentBlog.date}
+            block content
+            a(href="/blog.html", title="blog") Back to blogs
