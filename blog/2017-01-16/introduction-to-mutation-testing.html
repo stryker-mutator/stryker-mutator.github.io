@@ -1,0 +1,45 @@
+<!DOCTYPE html><html><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker - The JavaScript mutation testing framework: Measure the effectiveness of JavaScript tests."><title>Introduction to mutation testing - Stryker - The JavaScript mutation testing framework</title><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/stylesheets/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="/stylesheets/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" href="/stylesheets/stryker.css"><link rel="stylesheet" href="/stylesheets/font-awesome-4.6.3/css/font-awesome.min.css"><link rel="stylesheet" href="/stylesheets/highlightjs/styles/solarized-light.css"></head><body><nav class="navbar navbar-default navbar-fixed-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="20" height="20"></a><button class="pull-left navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div><div class="collapse navbar-collapse" id="navbar"><ul class="nav navbar-nav"><li><a href="/" title="Home">Home</a></li><li><a href="/quickstart.html" title="Quickstart">Quickstart</a></li><li class="active"><a href="/blog.html" title="Blog">Blog</a></li><li><a href="/plugins.html" title="Plugins">Plugins</a></li><li><a href="/mutators.html" title="Supported mutators">Supported mutators</a></li><li><a href="/faq.html" title="FAQ">FAQ</a></li></ul></div><a href="https://github.com/stryker-mutator/stryker" id="forkme_banner">View me on GitHub</a></div></nav><div class="container"><div class="row"><div class="col-md-12"><h1>Introduction to mutation testing</h1><p>Published: 16 January 2017</p><p>Writing unit tests can be hard. Even for an easy example such as a caluclator app.
+There are unlimited combinations of inputs for a calculator and you're not going to test every single one. So when are you done testing?</p>
+<p>Say you're building an online casino, users can only enter the casino when they're over 18. So you write the following piece of code to check if someone is allowed to use the website:</p>
+<pre><code class="language-javascript">function isUserOldEnough(user) {
+    return user.age &gt;= 18;
+}
+</code></pre>
+<p>Easy right? So what inputs do you use to test? Perhaps you would pick your own age (25 for example) if you're over 18 and pick something below 18 (16 or so) to check the other outcome.
+You run your code coverage tool on the code and it turns out your code is 100% covered. Great, we're done testing!</p>
+<h2>The code coverage problem</h2>
+<p>I used to think that code coverage tells you which code is tested. But I realized I was wrong. Code coverage doesn’t tell you which code is tested, it only tells you which code is being executed during testing. There is an important difference here. You could write one test which hits 100 lines of code, but that doesn’t mean that all 100 lines of code work as you would expect. If you would write 10 tests for that piece of code, you may still have the same code coverage. You could even write tests without assertions to boost your code coverage.</p>
+<p>And how do you know that enough is enough? Some teams even have code coverage goals that they have to hit (100% anyone?). As if that would make you write better tests. Sure, it forces you to write tests, but it doesn’t promise that they’re good tests. It even encourages bad behavior for some people. During one of my projects as a student, our school decided a little competition would be fun. The team with the highest code coverage at the end of the project would win a small prize. It didn’t take long to find out that tests could be written without assertions to easily boost their code coverage (of course, I would never do that ;)).</p>
+<p>The only way to know that a test actually <em>works</em> is when it fails when you make a code change.</p>
+<h2>Mutation testing</h2>
+<p>You could go through your code base and make changes to see if certain tests fail. However, this process is time consuming. You're much better off using a mutation testing framework. A mutation testing framework will look through your code to see where it can introduce bugs, which we will call <em>mutants</em> from now on.</p>
+<p>Say you have the following code:</p>
+<pre><code class="language-javascript">function isUserOldEnough(user) {
+    return user.age &gt;= 18;
+}
+</code></pre>
+<p>A mutation testing framework will find the return statement and decide to change it in a number of ways:</p>
+<pre><code class="language-javascript">/* 1 */ return user.age &gt; 18;
+/* 2 */ return user.age &lt; 18;
+/* 3 */ return false;
+/* 4 */ return true;
+</code></pre>
+<p>Each one of those mutants should make a test fail. After the mutants have been found, they are applied one by one and your tests will be executed. If at least one of your tests fail, we say the mutant is <em>killed</em>. If no tests fail, it <em>survived</em>. The better your tests, the less mutants survive. The first mutant would have survived if we had a test with a user aged 16 and 25, since we didn't test the boundary.</p>
+<p>With mutation testing you’re testing your tests.</p>
+<h2>Getting started</h2>
+<p>The best thing to do if you’re not already using mutation testing is to just try it once. Most languages have a mutation testing framework.
+Just take a look on GitHub and you will probably find one for the language you use.</p>
+<p>If you’re using JavaScript, I would suggest looking at Stryker. It has a great <a href="http://stryker-mutator.github.io/quickstart.html">quickstart page</a> to get you up and running.</p>
+<p>If you've first used a mutation testing framework, you may find that there are a lot of mutations that survive, but that’s ok!</p>
+<h2>Setting goals</h2>
+<p>After you’ve used a mutation framework a couple of times, you may think about setting a mutation testing goal,
+just like with your code coverage goal. I sometimes get asked what a good goal is for mutation testing.
+It can be a difficult question to answer and I honestly don’t know what a good goal is for your application.</p>
+<p>Mutation testing frameworks make very different changes depending on the language or even framework you’re using.
+Stryker could assign any value to any variable since it tests JavaScript. That doesn’t work for a framework like <a href="http://pitest.org/">PIT</a>,
+which can be used to mutation test Java code. This means that your score could differ a lot depending on the language and framework you use.
+The goal you want to set may also differ depending on the type of application that you're writing. A banking application may require a higher mutation score than some side project.</p>
+<p>I would suggest running a mutation testing framework and set a higher goal than your current score.
+I would not advise to make 100% mutation coverage your goal though. The most important thing is that you write good tests and mutation testing can help you achieve that.
+So if you’re going to set any goal, make writing good tests your goal.</p>
+<a href="/blog.html" title="blog">Back to blogs</a></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/javascripts/jquery-2.2.4.min.js"></script><script src="/stylesheets/bootstrap/js/bootstrap.min.js"></script><script src="/stylesheets/highlightjs/highlight.pack.js"></script><script src="/javascripts/main.js"></script><script>hljs.initHighlightingOnLoad();</script></div></body></html>
