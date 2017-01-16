@@ -1,5 +1,5 @@
 {
     "title": "Introduction to mutation testing",
     "description": "How do you know when you're done writing unit tests for your code? Most people use code coverage to measure the quality of their tests. Code coverage wasn't built for this. Fortunately, mutation testing was built for this!",
-    "date": "15 January 2017"
+    "date": "16 January 2017"
 }
