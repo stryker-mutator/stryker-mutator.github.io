@@ -41,3 +41,6 @@ h1, h2, h3 {
     top: 0;
     z-index: 10;
 }
+pre{
+    padding: 0;
+}

@@ -12,7 +12,7 @@ nav.navbar.navbar-default.navbar-fixed-top
         div#navbar.collapse.navbar-collapse
             ul.nav.navbar-nav
                 each val, key in menu
-                    li(class=selectedMenuItem === key ? 'active' : '')
+                    li(class=   selectedMenuItem === key ? 'active' : '')
                         a(href=val, title=key)= key
         a(href="https://github.com/stryker-mutator/stryker")#forkme_banner View me on GitHub
 

@@ -4,7 +4,9 @@
   "description": "Package for our github page",
   "main": "Gruntfile.js",
   "scripts": {
-    "serve": "grunt serve"
+    "start": "grunt serve",
+    "test": "grunt build",
+    "build": "grunt build"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-pug": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
@@ -33,10 +36,11 @@
   "contributors": [
     "Nico Jansen <jansennico@gmail.com>",
     "nicojs <jansennico@gmail.com>",
-    "Alex van Assem <avassem@gmail.com>",
-    "Simon de Lang <Simon.DeLang@infosupport.com>",
-    "BartB <btvanderburgt@gmail.com>",
     "Maarten Mulders <mthmulders@users.noreply.github.com>",
-    "Philipp Weissenbacher <philipp.weissenbacher@gmail.com>"
+    "Philipp Weissenbacher <philipp.weissenbacher@gmail.com>",
+    "Simon de Lang <Simon.DeLang@infosupport.com>",
+    "Alex van Assem <avassem@gmail.com>",
+    "BartB <btvanderburgt@gmail.com>",
+    "Maarten Mulders <m.th.mulders@xs4all.nl>"
   ]
 }

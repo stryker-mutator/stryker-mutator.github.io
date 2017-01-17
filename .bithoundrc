@@ -2,6 +2,7 @@
   "ignore": [
     "stylesheets/bootstrap/**",
     "stylesheets/font-awesome-4.6.3/**",
-    "javascripts/jquery*.js"
+    "javascripts/jquery*.js",
+    "stylesheets/highlightjs/**"
   ]
 }

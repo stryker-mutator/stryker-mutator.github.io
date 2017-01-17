@@ -1,4 +1,9 @@
 extends ./layout.pug
-
-block content
-    a(href="/blog.html", title="blog") Back to blog                  
+block prepend content
+    .row
+        .col-md-12
+            h1= currentBlog.title
+            p Published: #{currentBlog.date}
+            block content
+            p Want to get in touch? Find us on #[a(href="https://gitter.im/stryker-mutator/stryker" target="_blank") Gitter] or #[a(href="https://twitter.com/search?q=%23strykermutator&src=typd" target="_blank") Twitter].
+            a(href="/blog.html", title="blog") Back to blogs
