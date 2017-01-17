@@ -4,10 +4,14 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-pug');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-npm');
 
   grunt.initConfig({
-
+    clean: {
+      html: ['*.html', 'blog/**/*.html'],
+      blog: 'blog'
+    },
     watch: {
       options: {
         livereload: true
@@ -55,8 +59,7 @@ module.exports = function (grunt) {
         commitMessage: 'chore: update contributors'
       }
     }
-
   });
-  grunt.registerTask('serve', ['pug', 'connect', 'watch']);
-  grunt.registerTask('build', ['pug', 'npm-contributors']);
+  grunt.registerTask('serve', ['clean', 'pug', 'connect', 'watch']);
+  grunt.registerTask('build', ['clean', 'pug', 'npm-contributors']);
 };

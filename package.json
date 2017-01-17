@@ -5,6 +5,7 @@
   "main": "Gruntfile.js",
   "scripts": {
     "start": "grunt serve",
+    "test": "grunt build",
     "build": "grunt build"
   },
   "repository": {
