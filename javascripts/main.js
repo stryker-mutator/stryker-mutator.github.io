@@ -50,6 +50,7 @@ $(function () {
       case 'mocha': return group === 'test-runner' ? 'stryker-mocha-runner' : '';
       case 'jasmine': return 'stryker-jasmine';
       case 'karma': return 'stryker-karma-runner';
+      case 'jest': return 'stryker-jest-runner';
       default: return '';
     }
   }
