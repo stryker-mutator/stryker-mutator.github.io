@@ -47,7 +47,7 @@ $(function () {
     switch (key) {
       case 'grunt': return 'grunt-stryker';
       case 'html': return 'stryker-html-reporter';
-      case 'mocha': return group === 'test-runner' ? 'stryker-mocha-runner' : '';
+      case 'mocha': return 'stryker-mocha-runner';
       case 'jasmine': return 'stryker-jasmine';
       case 'karma': return 'stryker-karma-runner';
       case 'jest': return 'stryker-jest-runner';
@@ -61,7 +61,8 @@ $(function () {
   function updateInstallExample() {
     var installExample = installTemplate;
     Object.keys(selectedItems).forEach(function (key) {
-      installExample = installExample.replace('{{' + key + '}}', getPlugin(selectedItems[key], key));
+      var plugin = getPlugin(selectedItems[key], key);
+      installExample = installExample.replace('{{' + key + '}}', (installExample.indexOf(plugin) < 0 ? plugin : ''));
     });
     installCodeElement.text(installExample);
   }
