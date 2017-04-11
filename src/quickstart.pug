@@ -87,7 +87,9 @@ block content
                         files: [
                             // Add your files here, this is just an example:
                             { pattern: 'src/**/*.js', mutated: true, included: {{included}}},
-                            'test/**/*.js'
+                            'test/**/*.js',
+                            { pattern: 'src/templates/*.html', included: false, mutated: false } // Extra files you need can be mentioned like this
+                            '!src/fileToIgnore.js' // You can exclude files if you want
                         ],
                         testRunner: '{{test-runner}}',
                         testFramework: '{{test-framework}}',
