@@ -17,7 +17,7 @@ If desired, you can overwrite this behavior by adding the following piece of con
 </code></pre>
 <p>Don't want to know which tests were executed? Feel free to set the <code>maxTestsToLog</code> property to 0.</p>
 <h3>Karma config parsing</h3>
-<p>In addition to this release of Stryker, we've also added support for an often requested feature: reading your existing <code>karma.conf.js</code> in the <a href="https://github.com/stryker-mutator/stryker-karma-runner">stryker-karma-runner</a>!
+<p>In addition to this release of Stryker, we've also added support for an often requested feature: reading your existing <code>karma.conf.js</code> in the <a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-karma-runner">stryker-karma-runner</a>!
 Starting with version 0.3.3, you can add the location of your karma config file to <code>Stryker.conf.js</code> and have it automatically be picked up by the plugin. This reduces code duplication between these two files.</p>
 <p>This is what your new <code>stryker.conf.js</code> might look like:</p>
 <pre><code>// Stryker.conf.js
@@ -33,6 +33,6 @@ module.exports = function (config) {
 }
 </code></pre>
 <p>As you can see, there is no need to specify which files Stryker should use! You only have to specify which files you want to mutate.
-A more detailed explanation of this feature can be found in the <a href="https://github.com/stryker-mutator/stryker-karma-runner/blob/master/README.md#configuring">stryker-karma-runner README.md</a>.</p>
+A more detailed explanation of this feature can be found in the <a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-karma-runner/blob/master/README.md#configuring">stryker-karma-runner README.md</a>.</p>
 <h4>We hope you enjoy this new version of Stryker! We'd love to hear your feedback on <a href="https://gitter.im/stryker-mutator/stryker">Gitter</a> and/or Twitter (with hashtag #strykermutator)!</h4>
 <p>Want to get in touch? Find us on <a href="https://gitter.im/stryker-mutator/stryker" target="_blank">Gitter</a> or <a href="https://twitter.com/search?q=%23strykermutator&amp;src=typd" target="_blank">Twitter</a>.</p><a href="/blog.html" title="blog">Back to blogs</a></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/javascripts/jquery-2.2.4.min.js"></script><script src="/stylesheets/bootstrap/js/bootstrap.min.js"></script><script src="/stylesheets/highlightjs/highlight.pack.js"></script><script src="/javascripts/main.js"></script><script>hljs.initHighlightingOnLoad();</script></div></body></html>
