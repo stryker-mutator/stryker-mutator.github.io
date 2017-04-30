@@ -35,7 +35,7 @@ module.exports = function(config){
     coverageAnalysis: 'perTest',
     reporter: ['{{reporter}}', 'progress'],
   });
-}</code></pre><p class="stryker-configure-karma">Stryker can load your Karma configuration; specify the path to the Karma config file using <code>karmaConfigFile</code>. If you need to override e.g. the browser, you can put that in <code>karmaConfig</code>; it will override the config from <code>karmaConfigFile</code>. For more info, see <a href="https://github.com/stryker-mutator/stryker-karma-runner">stryker-karma-runner</a>. For example:</p><pre class="stryker-configure-karma"><code>config.set({
+}</code></pre><p class="stryker-configure-karma">Stryker can load your Karma configuration; specify the path to the Karma config file using <code>karmaConfigFile</code>. If you need to override e.g. the browser, you can put that in <code>karmaConfig</code>; it will override the config from <code>karmaConfigFile</code>. For more info, see <a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-karma-runner">stryker-karma-runner</a>. For example:</p><pre class="stryker-configure-karma"><code>config.set({
     karmaConfig: {
         browsers: ['PhantomJS']
     },

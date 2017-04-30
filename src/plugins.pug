@@ -13,16 +13,16 @@ block content
 
                 ## Test runners
                 * Jest ([stryker-jest-runner](https://github.com/stryker-mutator/stryker-jest-runner))
-                * Karma ([stryker-karma-runner](https://github.com/stryker-mutator/stryker-karma-runner))
-                * Mocha ([stryker-mocha-runner](https://github.com/stryker-mutator/stryker-mocha-runner))
+                * Karma ([stryker-karma-runner](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-karma-runner))
+                * Mocha ([stryker-mocha-runner](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-mocha-runner))
 
                 ## Test frameworks
                 Stryker is test framework agnostic, however if you plugin hooks to the test framework you are using, it can significantly improve the performance
                 by using `coverageAnalysis: 'perTest'`. For more information about coverage analysis, see the [stryker readme](https://github.com/stryker-mutator/stryker#coverage-analysis).
                 
                 * Jest ([stryker-jest-runner](https://github.com/stryker-mutator/stryker-jest-runner)) (only when running in the jest test runner)
-                * Jasmine ([stryker-jasmine](https://github.com/stryker-mutator/stryker-jasmine))
-                * Mocha ([stryker-mocha-runner](https://github.com/stryker-mutator/stryker-mocha-runner)) (only when running in the mocha test runner on node)
+                * Jasmine ([stryker-jasmine](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-jasmine))
+                * Mocha ([stryker-mocha-runner](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-mocha-runner)) (only when running in the mocha test runner on node)
 
                 ## Reporters
                 Stryker already has 4 reporters build in:
@@ -32,7 +32,7 @@ block content
                 * `event-recorder`: Write all events to disk. Useful for debug purposes (default location: 'reports/mutation/events')
 
                 Additional reporters can be found here:
-                * HTML Reporter ([stryker-html-reporter](https://github.com/stryker-mutator/stryker-html-reporter))
+                * HTML Reporter ([stryker-html-reporter](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-html-reporter))
 
                 ## Mutators
                 We don't have any mutators as plugins yet, but we do have list of [mutators that are included with Stryker](/mutators.html)
