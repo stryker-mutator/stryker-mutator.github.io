@@ -44,6 +44,68 @@ block content
                 Instead, Stryker empowers you to use what you like and focusses on being the best Mutation testing framework it can be.
     .row
         .col-md-12.text-center
+            :markdown-it
+
+                ## An example
+
+                Say you're building an online casino, users can only enter the casino when they're over 18. So you write the following piece of code to check if someone is allowed to use the website:
+
+                ```js
+                function isUserOldEnough(user) {
+                  return user.age >= 18;
+                }
+                ```
+
+                Stryker will find the return statement and decide to change it in a number of ways:
+                ```js
+                /* 1 */ return user.age > 18;
+                /* 2 */ return user.age < 18;
+                /* 3 */ return false;
+                /* 4 */ return true;
+                ```
+
+                We call those modifications mutants. After the mutants have been found, they are applied one by one and your tests will be executed against them. If at least one of your tests fail, we say the mutant is *killed*. That's what we want! If no tests fail, it *survived*. The better your tests, the less mutants survive.
+    .row
+        .col-md-12.text-center
+            :markdown-it
+
+                ## Output
+
+                Stryker will output the results in various different formats. One of the easiest output to read is via the clear text reporter:
+                ```shell
+                [DEBUG] ClearTextReporter - Mutant killed!
+                [DEBUG] ClearTextReporter - /yourPath/yourFile.js: line 10:27
+                [DEBUG] ClearTextReporter - Mutator: BinaryOperator
+                [DEBUG] ClearTextReporter - -                 return user.age >= 18;
+                [DEBUG] ClearTextReporter - +                 return user.age > 18;
+                [DEBUG] ClearTextReporter -
+                [DEBUG] ClearTextReporter - Ran all tests for this mutant.
+                [DEBUG] ClearTextReporter - Mutant killed!
+                [DEBUG] ClearTextReporter - /yourPath/yourFile.js: line 10:27
+                [DEBUG] ClearTextReporter - Mutator: BinaryOperator
+                [DEBUG] ClearTextReporter - -                 return user.age >= 18;
+                [DEBUG] ClearTextReporter - +                 return user.age < 18;
+                [DEBUG] ClearTextReporter -
+                [DEBUG] ClearTextReporter - Ran all tests for this mutant.
+                [DEBUG] ClearTextReporter - Mutant killed!
+                [DEBUG] ClearTextReporter - /yourPath/yourFile.js: line 10:27
+                [DEBUG] ClearTextReporter - Mutator: RemoveConditionals
+                [DEBUG] ClearTextReporter - -                 return user.age >= 18;
+                [DEBUG] ClearTextReporter - +                 return false;
+                [DEBUG] ClearTextReporter -
+                [DEBUG] ClearTextReporter - Ran all tests for this mutant.
+                [DEBUG] ClearTextReporter - Mutant survived!
+                [DEBUG] ClearTextReporter - /yourPath/yourFile.js: line 10:27
+                [DEBUG] ClearTextReporter - Mutator: RemoveConditionals
+                [DEBUG] ClearTextReporter - -                 return user.age >= 18;
+                [DEBUG] ClearTextReporter - +                 return true;
+                [DEBUG] ClearTextReporter -
+                [DEBUG] ClearTextReporter - Ran all tests for this mutant.
+                ```
+
+                Here all the mutations from the paragraph are printed out by the clear text reporter. As we can see all of the mutants are catched by our tests except for the last one. This means there is probably a test missing that explicitly tests for an age lower than 18.
+    .row
+        .col-md-12.text-center
             h2 Features
     .row
         .col-md-3.col-md-offset-1.col-sm-6
