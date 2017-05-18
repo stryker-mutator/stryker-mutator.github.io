@@ -43,4 +43,5 @@ h1, h2, h3 {
 }
 pre{
     padding: 0;
+    text-align: left;
 }
