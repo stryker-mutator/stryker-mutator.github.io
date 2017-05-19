@@ -71,39 +71,25 @@ block content
 
                 ## Output
 
-                Stryker will output the results in various different formats. One of the easiest output to read is via the clear text reporter:
+                Stryker will output the results in various different formats. One of the easiest to read is the clear text reporter which output. You can activate it by adding `'clear-text'` to the `reporter` list in `stryker.conf.js`.
                 ```shell
-                [DEBUG] ClearTextReporter - Mutant killed!
-                [DEBUG] ClearTextReporter - /yourPath/yourFile.js: line 10:27
-                [DEBUG] ClearTextReporter - Mutator: BinaryOperator
-                [DEBUG] ClearTextReporter - -                 return user.age >= 18;
-                [DEBUG] ClearTextReporter - +                 return user.age > 18;
-                [DEBUG] ClearTextReporter -
-                [DEBUG] ClearTextReporter - Ran all tests for this mutant.
-                [DEBUG] ClearTextReporter - Mutant killed!
-                [DEBUG] ClearTextReporter - /yourPath/yourFile.js: line 10:27
-                [DEBUG] ClearTextReporter - Mutator: BinaryOperator
-                [DEBUG] ClearTextReporter - -                 return user.age >= 18;
-                [DEBUG] ClearTextReporter - +                 return user.age < 18;
-                [DEBUG] ClearTextReporter -
-                [DEBUG] ClearTextReporter - Ran all tests for this mutant.
-                [DEBUG] ClearTextReporter - Mutant killed!
-                [DEBUG] ClearTextReporter - /yourPath/yourFile.js: line 10:27
-                [DEBUG] ClearTextReporter - Mutator: RemoveConditionals
-                [DEBUG] ClearTextReporter - -                 return user.age >= 18;
-                [DEBUG] ClearTextReporter - +                 return false;
-                [DEBUG] ClearTextReporter -
-                [DEBUG] ClearTextReporter - Ran all tests for this mutant.
-                [DEBUG] ClearTextReporter - Mutant survived!
-                [DEBUG] ClearTextReporter - /yourPath/yourFile.js: line 10:27
-                [DEBUG] ClearTextReporter - Mutator: RemoveConditionals
-                [DEBUG] ClearTextReporter - -                 return user.age >= 18;
-                [DEBUG] ClearTextReporter - +                 return true;
-                [DEBUG] ClearTextReporter -
-                [DEBUG] ClearTextReporter - Ran all tests for this mutant.
+
+                  Mutant killed!
+                  /yourPath/yourFile.js: line 10:27
+                  Mutator: BinaryOperator
+                  -                 return user.age >= 18;
+                  +                 return user.age > 18;
+
+                  Mutant survived!
+                  /yourPath/yourFile.js: line 10:27
+                  Mutator: RemoveConditionals
+                  -                 return user.age >= 18;
+                  +                 return true;
+
+
                 ```
 
-                Here all the mutations from the paragraph are printed out by the clear text reporter. As we can see all of the mutants are catched by our tests except for the last one. This means there is probably a test missing that explicitly tests for an age lower than 18.
+                The clear text reporter will output how exactly your code was modified and which mutator was used. It will then tell us if a mutant was killed, meaning that at least one test failed, or if it survived. The second mutation in this example is marked as a survivor. This means there is probably a test missing that explicitly tests for an age lower than 18.
     .row
         .col-md-12.text-center
             h2 Features
