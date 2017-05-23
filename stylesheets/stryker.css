@@ -14,12 +14,12 @@ body { padding-top: 50px; font-family: "Open Sans",Arial,sans-serif; }
 }
 .icon-box i{
     margin-top: 15px;
-} 
+}
 h1, h2, h3, .icon-box {
     color: #B74934;
 }
 h1, h2, h3 {
-    font-family: Carrois;   
+    font-family: Carrois;
 }
 .navbar-footer .navbar-text{
     font-size: 0.7em;
@@ -43,4 +43,5 @@ h1, h2, h3 {
 }
 pre{
     padding: 0;
+    text-align: left;
 }
