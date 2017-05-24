@@ -22,7 +22,7 @@ That's not good - so the higher the mutation score, the better is the quality of
 <pre><code>Total mutants = # error + # timeout + # killed + # survived + # no coverage
 Total mutants used for score calculations = Total mutants - # error
 Total survived = # survived + # no coverage
-Mutation score = Total survived / Total mutants used for score calculations * 100
+Mutation score = (#killed + #timeout) / Total mutants used for score calculations * 100
 </code></pre>
 <h2>Q: What do all these metrics mean?</h2>
 <p><strong>A: After running, Stryker gives each mutant a status:</strong></p>
