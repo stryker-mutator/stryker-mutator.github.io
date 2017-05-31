@@ -45,7 +45,11 @@ pre{
     padding: 0;
     text-align: left;
 }
+<<<<<<< HEAD
 #stryker-shirt-image {
+=======
+.stryker-shirt-image {
+>>>>>>> 12658190b611b39f72ac7f0da7f6ad82e2f0f889
     max-width: 100%;
     width: auto;
     height: auto;
