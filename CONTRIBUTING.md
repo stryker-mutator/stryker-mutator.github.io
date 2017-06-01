@@ -23,7 +23,7 @@ npm install
 npm start
 ```
 
-The website should be opened in your browser of choice.
+The website should be opened in your browser of choice. Changes you make to the source files are automatically picked up and updated in your browser.
 
 ## Examples 
 
@@ -52,4 +52,5 @@ The website should be opened in your browser of choice.
         :markdown-it
             Your content here
     ```
-
+1. Test the website locally to see if the blog article looks fine.
+1. Make the PR.
