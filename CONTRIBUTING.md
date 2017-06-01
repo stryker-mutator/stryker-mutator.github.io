@@ -54,3 +54,15 @@ The website should be opened in your browser of choice. Changes you make to the 
     ```
 1. Test the website locally to see if the blog article looks fine.
 1. Make the PR.
+
+## Commit messages
+
+We're not following a strict commit message format for our stryker-mutator.github.io web page. However, you are still encouraged to follow general commit message best practices. 
+
+```
+<subject>
+ 
+<body>
+```
+
+A commit message should have a clear subject (<70 characters). Optionally, the title can be followed by 2 new lines and a longer description in the body. Use imperative, present tense: "change" not "changed" nor "changes".
