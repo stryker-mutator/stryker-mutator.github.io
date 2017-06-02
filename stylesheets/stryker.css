@@ -45,3 +45,8 @@ pre{
     padding: 0;
     text-align: left;
 }
+#stryker-shirt-image img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
