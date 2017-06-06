@@ -1,0 +1,79 @@
+extends ../../layout/blog-layout.pug
+block content
+    :markdown-it
+        For the entire changelog per package:
+        
+        * [stryker changelog](https://github.com/stryker-mutator/stryker/blob/master/packages/stryker/CHANGELOG.md)
+        * [stryker-api changelog](https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-api/CHANGELOG.md) 
+        * [stryker-mocha-runner changelog](https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-mocha-runner/CHANGELOG.md) 
+        * [stryker-mocha-framework changelog](https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-mocha-framework/CHANGELOG.md) 
+
+        ## New quickstart
+
+        A new version of Stryker has been released that comes with a new way to initialize your project: an interactive questionnaire.
+        Previously, when you wanted to start using Stryker in your project, you probably used the quickstart on the website.
+
+    .row
+        .col-sm-10
+            :markdown-it
+
+                This was still a lot of work:
+                * You had to install Stryker and its dependencies.
+                * You had to manually configure Stryker (create the config file).
+                * You could select combinations that were impossible.
+                * We had to update the page every time a new plugin was added
+
+                Instead of evolving the quickstart on the website, we've build it right into Stryker. Try it out: `stryker init`. 
+                TODO: Add animated gif of running `stryker init`
+
+                **A note for plugin creators**: `stryker init` will automatically find your plugin as log as add the correct keywords to your `package.json` file:
+                
+                * Test runner plugins: add `"stryker-test-runner"` to your keywords
+                * Test framework plugins: add `"stryker-test-framework"` and the name of the test runner you support
+                    * For example: stryker-mocha-framework has `"stryker-test-framework"` and `"stryker-mocha-runner"` as keywords.
+                    No "stryker-karma-runner" because that is not (yet) supported by the framework.  
+
+                TODO: Link to the PR
+                
+        .thumbnail(class="col-sm-2")
+            img(src="../../images/blogs/old-quickstart.png")
+            .caption.text-center 
+                h4 Old quickstart
+        
+    :markdown-it
+        ## Stryker mocha framework
+
+        Previously, the stryker-mocha-framework was included in the stryker-mocha-runner. We've noticed that this was quite confusing.
+        Thats why it now comes in its own package
+
+        **BREAKING CHANGE:** If you are using testRunner: 'mocha', testFramework: 'mocha' right now,
+        please also install stryker-mocha-framework when upgrading from stryker-mocha-runner@0.3.x to stryker-mocha-runner@0.4.0.
+
+        The stryker-mocha-framework currently only supports test runner 'mocha', you'll get a warning when you configure something else.
+        As configuring a test framework is always optional, you'll still able to run your mocha tests in karma.
+
+        TODO: Link to the PR
+
+        ## New clear-text reporter summary
+
+        The summary at the end of the clear-text reporter got a new look:
+
+        TODO: Insert new clear-text table
+
+        The way this works under the hood is with a new reporter callback: `onScoreCalculated`. Which provides a tree
+        of score results per directory/file. This should be used as a single source of truth for all reporters.
+        We're planning to migrate the stryker-html-reporter to this new way of working.
+
+        Please take a look at the [PR for more details](https://github.com/stryker-mutator/stryker/pull/309)
+
+        ## New mutator
+
+        Please welcome our latest mutator: **boolean substitution**. It mutates your code in 3 ways:
+
+        ```
+        true -> false
+        false -> true
+        !a -> a 
+        ```
+
+        TODO: Link to the PR.
