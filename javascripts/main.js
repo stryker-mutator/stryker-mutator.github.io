@@ -47,7 +47,7 @@ $(function () {
     switch (key) {
       case 'grunt': return 'grunt-stryker';
       case 'html': return 'stryker-html-reporter';
-      case 'mocha': return group === 'test-runner' ? 'stryker-mocha-runner' : '';
+      case 'mocha': return group === 'test-runner' ? 'stryker-mocha-runner' : 'stryker-mocha-framework';
       case 'jasmine': return 'stryker-jasmine';
       case 'karma': return 'stryker-karma-runner';
       case 'jest': return 'stryker-jest-runner';
