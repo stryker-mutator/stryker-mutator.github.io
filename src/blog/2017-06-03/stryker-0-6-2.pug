@@ -24,8 +24,15 @@ block content
                 * We had to update the page every time a new plugin was added
 
                 Instead of evolving the quickstart on the website, we've build it right into Stryker. Try it out: `stryker init`. 
-                TODO: Add animated gif of running `stryker init`
+                
+            .thumbnail.col-sm-12
+                img(src="../../images/blogs/stryker-init.gif" alt="stryker init movie" class="img-responsive")
+                .caption.text-center 
+                    h4 New stryker init command
+                    :markdown-it
+                        **Note:** This is using the new [stryker-cli](https://www.npmjs.com/package/stryker-cli). More on that in a separate blog article
 
+            :markdown-it
                 **A note for plugin creators**: `stryker init` will automatically find your plugin as log as add the correct keywords to your `package.json` file:
                 
                 * Test runner plugins: add `"stryker-test-runner"` to your keywords
