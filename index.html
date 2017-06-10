@@ -16,6 +16,37 @@ It takes the best practices of existing mutation testing frameworks like <a href
 but with the open mentality of nodejs and the web. This is why Stryker is not a test runner or test framework.
 Indeed, why would it? There are already awesome test runners and test frameworks out there.
 Instead, Stryker empowers you to use what you like and focusses on being the best Mutation testing framework it can be.</p>
+</div></div><div class="row"><div class="col-md-12 text-center"><h2>An example</h2>
+<p>Say you're building an online casino, users can only enter the casino when they're over 18. So you write the following piece of code to check if someone is allowed to use the website:</p>
+<pre><code class="language-js">function isUserOldEnough(user) {
+  return user.age &gt;= 18;
+}
+</code></pre>
+<p>Stryker will find the return statement and decide to change it in a number of ways:</p>
+<pre><code class="language-js">/* 1 */ return user.age &gt; 18;
+/* 2 */ return user.age &lt; 18;
+/* 3 */ return false;
+/* 4 */ return true;
+</code></pre>
+<p>We call those modifications mutants. After the mutants have been found, they are applied one by one and your tests will be executed against them. If at least one of your tests fail, we say the mutant is <em>killed</em>. That's what we want! If no tests fail, it <em>survived</em>. The better your tests, the less mutants survive.</p>
+</div></div><div class="row"><div class="col-md-12 text-center"><h2>Output</h2>
+<p>Stryker will output the results in various different formats. One of the easiest to read is the clear text reporter which output. You can activate it by adding <code>'clear-text'</code> to the <code>reporter</code> list in <code>stryker.conf.js</code>.</p>
+<pre><code class="language-shell">
+  Mutant killed!
+  /yourPath/yourFile.js: line 10:27
+  Mutator: BinaryOperator
+  -                 return user.age &gt;= 18;
+  +                 return user.age &gt; 18;
+
+  Mutant survived!
+  /yourPath/yourFile.js: line 10:27
+  Mutator: RemoveConditionals
+  -                 return user.age &gt;= 18;
+  +                 return true;
+
+
+</code></pre>
+<p>The clear text reporter will output how exactly your code was modified and which mutator was used. It will then tell us if a mutant was killed, meaning that at least one test failed, or if it survived. The second mutation in this example is marked as a survivor. This means there is probably a test missing that explicitly tests for an age lower than 18.</p>
 </div></div><div class="row"><div class="col-md-12 text-center"><h2>Features</h2></div></div><div class="row"><div class="col-md-3 col-md-offset-1 col-sm-6"><div class="row"><div class="col-md-2 col-xs-2 icon-box text-center"><i class="fa fa-crosshairs"></i></div><div class="col-md-10 col-xs-10"><h4>Mutations</h4>
 <p>Control <a href="http://github.com/stryker-mutator/stryker#supported-mutators">more than 30 supported mutations</a>, or write your own.</p>
 </div></div></div><div class="col-md-3 col-sm-6"><div class="row"><div class="col-md-2 col-xs-2 icon-box text-center"><i class="fa fa-fast-forward"></i></div><div class="col-md-10 col-xs-10"><h4>Speed</h4>
@@ -33,5 +64,5 @@ or write a simple plugin for any test runner you like.</p>
 to sniff out surviving mutants and improve test effectiveness.</p>
 </div></div></div></div><div class="row"><div class="col-md-12"><blockquote>For someone who hates mutants... you certainly keep some strange company. <footer>Professor X</footer></blockquote><blockquote>Oh, they serve their purpose... as long as they can be controlled. <footer>William Stryker</footer></blockquote></div></div><div class="row"><div class="col-md-12 text-center"><h2>Free swag</h2>
 <p>Contribute and get a free t-shirt or sticker. As long as stock lasts.</p>
-<p><img src="images/stryker-t-shirt.png" alt="Stryker T-shirt"></p>
-</div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/javascripts/jquery-2.2.4.min.js"></script><script src="/stylesheets/bootstrap/js/bootstrap.min.js"></script><script src="/stylesheets/highlightjs/highlight.pack.js"></script><script src="/javascripts/main.js"></script><script>hljs.initHighlightingOnLoad();</script></div></body></html>
+<div id="stryker-shirt-image"><p><img src="images/stryker-t-shirt.png" alt="Stryker T-shirt"></p>
+</div></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/javascripts/jquery-2.2.4.min.js"></script><script src="/stylesheets/bootstrap/js/bootstrap.min.js"></script><script src="/stylesheets/highlightjs/highlight.pack.js"></script><script src="/javascripts/main.js"></script><script>hljs.initHighlightingOnLoad();</script></div></body></html>

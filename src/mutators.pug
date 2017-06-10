@@ -66,6 +66,23 @@ block content
                         tr
                             td a !== b
                             td a === b
+
+            h3 Boolean Substitutions
+            table.table.table-striped
+                    thead
+                        tr
+                            th Original
+                            th Mutated
+                    tbody
+                        tr
+                            td true
+                            td false
+                        tr
+                            td false
+                            td true
+                        tr
+                            td !
+                            td
                             
             h3 Logical operator
             table.table.table-striped
@@ -143,7 +160,21 @@ block content
                         tr
                             td var x = a > b ? 1 : 2; 
                             td var x = false ? 1 : 2;
-            
+
+            h3 Array Declarator
+            table.table.table-striped
+                    thead
+                        tr
+                            th Original
+                            th Mutated
+                    tbody
+                        tr
+                            td new Array(1, 2, 3, 4)
+                            td new Array()
+                        tr
+                            td [1, 2, 3, 4]
+                            td [ ]
+                            
             h3 Block statement
             p This mutator removes the content of every block statement. For example the code:
             pre

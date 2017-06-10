@@ -15,15 +15,16 @@ This will speed up writing and/or reading intermediate files (such as temporary 
 <em>Note</em>: We didn't test this ourselves yet. So take it with a grain of salt. ;-)</p>
 <h2>Q: So, what is this &quot;mutation score&quot;?</h2>
 <p><strong>A: It's the percentage of mutants that have been killed.</strong><br>
-We suppose that mutants to the original source code will be 'killed' by a unit test.
-If that is not the case, the mutant has 'survived'.
+We suppose that mutants to the original source code will be <code>killed</code> by a unit test.
+If that is not the case, the mutant has <code>survived</code>.
 That's not good - so the higher the mutation score, the better is the quality of your tests!</p>
 <p>To determine the mutation score, Stryker calculates the following numbers:</p>
-<pre><code>Total mutants = # error + # timeout + # killed + # survived + # no coverage
-Total mutants used for score calculations = Total mutants - # error
-Total survived = # survived + # no coverage
-Mutation score = Total survived / Total mutants used for score calculations * 100
+<pre><code># Total detected = # timedOut + # killed
+# Total undetected = # survived + # no coverage
+# Total mutants = # Total detected + # Total undetected
+% Mutation score = # Total detected / # Total mutants * 100
 </code></pre>
+<p>Please note that mutants that resulted in an <code>error</code> are not used in the calculation.</p>
 <h2>Q: What do all these metrics mean?</h2>
 <p><strong>A: After running, Stryker gives each mutant a status:</strong></p>
 <ul>

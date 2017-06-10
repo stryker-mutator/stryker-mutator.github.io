@@ -25,16 +25,18 @@ block content
 
                 ## Q: So, what is this "mutation score"?
                 **A: It's the percentage of mutants that have been killed.**  
-                We suppose that mutants to the original source code will be 'killed' by a unit test.
-                If that is not the case, the mutant has 'survived'.
+                We suppose that mutants to the original source code will be `killed` by a unit test.
+                If that is not the case, the mutant has `survived`.
                 That's not good - so the higher the mutation score, the better is the quality of your tests! 
                 
                 To determine the mutation score, Stryker calculates the following numbers:
 
-                    Total mutants = # error + # timeout + # killed + # survived + # no coverage
-                    Total mutants used for score calculations = Total mutants - # error
-                    Total survived = # survived + # no coverage
-                    Mutation score = Total survived / Total mutants used for score calculations * 100
+                    # Total detected = # timedOut + # killed
+                    # Total undetected = # survived + # no coverage
+                    # Total mutants = # Total detected + # Total undetected
+                    % Mutation score = # Total detected / # Total mutants * 100
+
+                Please note that mutants that resulted in an `error` are not used in the calculation.
                 
                 ## Q: What do all these metrics mean?
                 **A: After running, Stryker gives each mutant a status:**  
