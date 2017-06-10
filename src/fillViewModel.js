@@ -49,6 +49,7 @@ function currentTitle(currentUrl) {
 }
 
 function currentBlog(currentUrl) {
+  console.log(`Searching ${currentUrl}`)
   return blogs.find(blog => blog.url === currentUrl);
 }
 
