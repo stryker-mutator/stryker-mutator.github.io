@@ -6,8 +6,16 @@
 
 body { padding-top: 50px; font-family: "Open Sans",Arial,sans-serif; }
 
-.docs-header { font-family: Carrois; background-color: #B74934; color: #F1C40F; }
-.docs-header img { max-width: 220px; }
+.docs-header {
+    font-family: Carrois;
+    background-color: #B74934;
+    color: #F1C40F; 
+}
+.docs-header a {
+    color: #F1C40F;
+    text-decoration: underline;
+}
+.docs-header img.stryker-img { max-width: 220px; }
 .icon-box {
     color: #B74934;
     font-size: 1.8em;
