@@ -9,40 +9,39 @@ block content
         * Stryker uses advance coverage analysis to do less work.
 
         The way Stryker achieves all this, is using a plugin model. Want to use a different test runner? 
-        Create a class that implements the [`TestRunner` interface](https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-api/src/test_runner/TestRunner.ts) and your done.
-        Stryker only does one assumption: your JavaScript code can be directly loaded into you environment.
+        Create a class that implements the [TestRunner interface](https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-api/src/test_runner/TestRunner.ts) and you're done.
+        However, Stryker does one assumption: your source code can be directly executed in your environment.
 
-        ### Road to v1
+        ## Road to v1
 
-        We're very happy with the results thus far. But we're far from done. The JavaScript world is constantly evolving.
+        We're very happy with the results so far, but we're far from done. The JavaScript world is constantly evolving.
         A couple of examples of modern use cases are:
 
         * A web project written in JSX / [React](https://facebook.github.io/react/)
-        * A node project written in [TypesScript](http://typescriptlang.org/) and executed using [ts-node](https://www.npmjs.com/package/ts-node) 
-        * An Angular project generated with the [angular cli](https://www.npmjs.com/package/@angular/cli) using [webpack](https://webpack.js.org/) and [TypeScript](https://www.npmjs.com/package/typescript)
+        * A node project written in [TypesScript](https://www.typescriptlang.org/) and executed using [ts-node](https://www.npmjs.com/package/ts-node) 
+        * An Angular project generated with the [angular cli](https://www.npmjs.com/package/@angular/cli) using [webpack](https://webpack.js.org/) and [TypeScript](https://www.typescriptlang.org/)
         * A web project using [VueJS](https://vuejs.org/)
         * A web component written in HTML5 using [Polymer](https://www.polymer-project.org) and [webpack](https://webpack.js.org/)
 
         In order to stay relevant, these use cases need to be supported in a user friendly way. 
         Only then are we comfortable with tagging Stryker with a version *1* tag.
 
-        ### False assumption
+        ## False assumption
 
         If you look at the modern use cases, they have something in common: 
-        your code cannot be directly loaded into the JavaScript environment. It's not even JavaScript in some cases.
+        your code cannot be directly executed in your JavaScript environment. It's not even JavaScript in some cases.
         It first needs to be compiled, transpiled and/or bundled, before it can be executed.
         For the sake of this article, let's call this step [transpiling](https://en.wikipedia.org/wiki/Source-to-source_compiler).
-        This makes the assumption that Stryker does a false one: **it should not assume the code you write is JavaScript**.
+        This makes the assumption that Stryker does a false one: **it should not assume the code you write is the code that gets executed**.
 
-        ### First attempt
+        ## First attempt
 
         We've had a lot of discussion within the Stryker team on how to support these use cases. 
-        One possibility is to first transpile your code before we run the mutation tests on it.
-        We can even make is user-friendly by using a plugin model for this. 
-        
+        One possibility is to first transpile your code before we run the normal Stryker process on it.
+                
         In the end we decided against this approach, because it comes with a big downside: it will cause a lot of false positives.
         
-        To illustrate: let's take this piece of TypeScript code:
+        Let's take this piece of TypeScript code as an example:
 
         ```typescript
         const b = 42;
@@ -56,7 +55,7 @@ block content
         var a = 'the answer is ' + b;
         ```
         
-        When mutation testing comes along: it changes `'the answer is ' + b` to `'the answer is ' - b`. 
+        When Stryker comes along: it changes `'the answer is ' + b` to `'the answer is ' - b`. 
         This is a valid mutation for JavaScript (if you're curious: the answer is `NaN`).
         However, `'the answer is ' - b` is *not a valid TypeScript expression*. It results in the following compile error:
         
@@ -64,16 +63,16 @@ block content
         The left-hand side of an arithmetic operation must be of type 'any', 'number' or an enum type.
         ```
 
-        This is why we refer to it as a false positive. We falsy identified this mutant. This is why we shouldn't blindly mutate transpiled code.
+        This is why we refer to it as a false positive. This mutation shouldn't be tested, because it's a waste of resources and it impacts the mutation score. This is why we shouldn't blindly mutate transpiled code. 
 
         ## Open heart surgery
 
-        The only solution for supporting these use cases, is to move the actual transpiling phase to
-        Stryker itself. This way, we can make sure only valid mutations are done to your code because 
-        we *teach* Stryker which mutations are valid and which are invalid. 
+        The only solution for supporting these use cases is to transpile the code after it has been mutated. This way, we can make sure only valid mutations are done to your code because 
+        we *teach* Stryker which mutations are valid and which are invalid and we won't have to worry about code that gets generated during the transpilation. 
         
-        However, we don't want to just hard code it all in Stryker. This means that the transpiling and mutating of the code will be the responsibility of an new plugin type.
-        Let's call this the `transpiler` plugin. 
+        However, we don't want to just hard code it all in Stryker, because that would force a dependency on TypeScript, Babel, Webpack, etc. 
+        Instead the transpiling and mutating of the code will be the responsibility of a new plugin type.
+        Let's call this the `transpiler` plugin. Examples of these plugins may be (in the future): `stryker-typescript-transpiler`, `stryker-javascript-transpiler`, `stryker-babel-transpiler`, `stryker-webpack-transpiler`
 
         We've sketched the new workflow for the TypeScript use case on a whiteboard:
 
