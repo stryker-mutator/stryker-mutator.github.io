@@ -1,5 +1,3 @@
-console.log((require('jstransformer-markdown-it')));
-
 var md = require('jstransformer')(require('jstransformer-markdown-it'));
 
 module.exports = function (grunt) {

@@ -5,135 +5,69 @@ block docs-header
     .docs-header.jumbotron
         .container
             h1 Quickstart
-            p Use Stryker as you please
-
+            :markdown-it
+                Install Stryker using [npm](https://nodejs.org).
+            .row
+                .col-md-5
+                    img(alt="stryker-install", src="/images/stryker-install.gif" class="img-responsive")
 block content
     .row
-        .col-md-12
-            h3 #[span.label.label-primary 1] Choose your tools
-    section.row
-        .col-md-12
-            form
-                h4 Build system
-                .form-group
-                    .btn-group(data-group="build-system")
-                        .btn.btn-default(data-name="grunt") Grunt
-                        .btn.btn-default(data-name="npm") Vanilla NPM
-        
-                h4 Test runner
-                .form-group
-                    .btn-group(data-group="test-runner")
-                        .btn.btn-default(data-name="karma") Karma
-                        .btn.btn-default(data-name="mocha") Mocha
-                        .btn.btn-default(data-name="jest") Jest
-    
-                h4 Test framework
-                .form-group
-                    .btn-group(data-group="test-framework")
-                        .btn.btn-default(data-name="jasmine") Jasmine
-                        .btn.btn-default(data-name="mocha") Mocha
-                h4 Reporting
-                .form-group
-                    .btn-group(data-group="reporter")
-                        .btn.btn-default(data-name="html") html
-                        .btn.btn-default(data-name="clear-text") clear-text
-            hr/
-    section#installSection.row.advance-step(hidden="hidden")
-        .col-md-12
-            h3 #[span.label.label-primary 2] Install
-            p Use this command to install your node modules.
-            pre.stryker-install
-                code 
-                    | npm i --save-dev stryker stryker-api {{build-system}} {{test-framework}} {{test-runner}} {{reporter}}
-            hr/
-    section.row.advance-step(hidden="hidden")
-        .col-md-12
-            h3 #[span.label.label-primary 3] Configure
-            p Use this configuration to configure a stryker build.
-            pre.stryker-configure-build(data-build-system="npm")
-                code.
-                    // package.json
-                    {
-                      "scripts": {
-                        "stryker": "stryker run stryker.conf.js"
-                      }
-                    }
-            pre.stryker-configure-build(data-build-system="grunt")
-                code.
-                    // Gruntfile.js
-                    module.exports = function(grunt) {
-                        
-                        // Load the stryker task
-                        grunt.loadNpmTasks('grunt-stryker');
-
-                        grunt.initConfig({
-                            // ...
-                            stryker: {
-                                options: {
-                                    configFile: 'stryker.conf.js' 
-                                },
-                                mutationTest: { /* Can be empty */ }
-                            }
-                            // ..
-                        });
-                    };
-                   
-            p Create a file named #[code stryker.conf.js] with this content. Remember to folow #[a(href="http://github.com/isaacs/node-glob") node glob] file globbing rules when specifying the files.
-            pre.stryker-configure-stryker
-                code.
-                    // stryker.conf.js
-                    module.exports = function(config){
-                      config.set({
-                        files: [
-                            // Add your files here, this is just an example:
-                            { pattern: 'src/**/*.js', mutated: true, included: {{included}}},
-                            'test/**/*.js',
-                            { pattern: 'src/templates/*.html', included: false, mutated: false } // Extra files you need can be mentioned like this
-                            '!src/fileToIgnore.js' // You can exclude files if you want
-                        ],
-                        testRunner: '{{test-runner}}',
-                        testFramework: '{{test-framework}}',
-                        coverageAnalysis: 'perTest',
-                        reporter: ['{{reporter}}', 'progress'],
-                      });
-                    }
-            p.stryker-configure-karma Stryker can load your Karma configuration; specify the path to the Karma config file using #[code karmaConfigFile]. If you need to override e.g. the browser, you can put that in #[code karmaConfig]; it will override the config from #[code karmaConfigFile]. For more info, see #[a(href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-karma-runner") stryker-karma-runner]. For example:
-            pre.stryker-configure-karma
-                code.
-                    config.set({
-                        karmaConfig: {
-                            browsers: ['PhantomJS']
-                        },
-                        karmaConfigFile: 'karma.conf.js'
-                    });
-            hr/
-    section.row.advance-step(hidden="hidden")
-        .col-md-12
-            h3 #[span.label.label-primary 4] Let's kill some mutants!
-            p Use the following command to run Stryker:
-            pre.stryker-run(data-build-system="npm")
-                code npm run stryker
-            pre.stryker-run(data-build-system="grunt")
-                code grunt stryker
-            p.stryker-reporter(data-reporter="html") When stryker is done, lookup your html report on disk by opening the #[code index.html] file on the default location: #[code reports/mutation/html].
-            p.stryker-reporter(data-reporter="clear-text") When Stryker is done the clear text report is printed to your console.
-            hr/
-    section.row.advance-step(hidden="hidden")
-        .col-md-12
-            h3 #[span.label.label-primary 5] What's next?
-            :markdown-it
-                Having troubles? Try enabling debug logging by adding `logLevel: 'debug'` to your stryker.conf.js. 
-                To also see output of your test runner, use `logLevel: 'trace'`. 
-                You can also have a look at the [readme file of stryker](https://github.com/stryker-mutator/stryker) for more information about the configuration.
-                Please [report any issues](http://github.com/stryker-mutator/stryker/issues) you have or let us know [via gitter](https://gitter.im/stryker-mutator/stryker).
-
-                Try and improve on your mutation score. Also checkout the [Stryker readme](https://github.com/stryker-mutator/stryker) 
-                for an explanation on all Stryker options. 
+        section.row
+            .col-md-12
+                h3 #[span.label.label-primary 1] Prepare
+                p Make sure you have npm and nodejs installed. Open a terminal / command prompt and cd to the root of your project you want to mutation test.
+                pre
+                    code cd my-project
+        section.row
+            .col-md-12
+                h3 #[span.label.label-primary 2] Install
+                p 
+                    | The easiest way to get started with Stryker is by installing the stryker-cli globally. It is a small package which forwards commands to your local stryker instance. 
+                pre.stryker-install
+                    code 
+                        | npm install -g stryker-cli
+                p Optionally, you could also install stryker and the stryker-api directly yourself.
+                 pre.stryker-install
+                    code 
+                        | npm install --save-dev stryker stryker-api
+                :markdown-it
+                    If you choose to not install the stryker-cli, use `./node_modules/.bin/stryker` instead of `stryker` for the rest of the quickstart.
+                hr/
+        section.row
+            .col-md-12
+                h3 #[span.label.label-primary 3] Configure
+                p Run this command the configure stryker.
+                pre.stryker-install
+                    code 
+                        | stryker init
+                p If you're asked to install stryker, choose yes. Make decisions for the rest of your questions:
+                ol
+                    li Which test runner do you want to use?
+                    li Which test framework do you want to use?
+                    li Which reporter(s) do you want to use?
+                p Please let us know of your option is missing here.
                 
-                Want to help the Stryker community? Awesome! You can help by writing plugins, document issues or simply writing docs.
-                You can always drop us a line [on gitter](https://gitter.im/stryker-mutator/stryker). 
+                :markdown-it
+                    After the init is done, inspect the `stryker.conf.js` file. 
+                    Update the `files` and `mutate` properties if appropriate.
+                    For more information on what these options mean, take a look at the [Stryker readme](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker#readme)
+                hr/
+        section.row
+            .col-md-12
+                h3 #[span.label.label-primary 4] Let's kill some mutants
+                p Run stryker to mutation test your project
+                pre.stryker-install
+                    code 
+                        | stryker run
+                hr/
+        section.row
+            .col-md-12
+                h3 #[span.label.label-primary 5] What's next?
+                :markdown-it
+                    Having troubles? Try enabling debug logging by adding `logLevel: 'debug'` to your stryker.conf.js. 
+                    To also see output of your test runner, use `logLevel: 'trace'`. 
+                    You can also have a look at the [readme file of stryker](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker#readme) for more information about the configuration.
+                    Please [report any issues](http://github.com/stryker-mutator/stryker/issues) you have or let us know [via gitter](https://gitter.im/stryker-mutator/stryker).
 
-
-    .row
-        .col-md-12
-            :markdown-it
+                    Want to help the Stryker community? Awesome! You can help by writing plugins, document issues or simply writing docs.
+                    You can always drop us a line [on gitter](https://gitter.im/stryker-mutator/stryker). 
