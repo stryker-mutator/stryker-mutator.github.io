@@ -1,3 +1,6 @@
+console.log((require('jstransformer-markdown-it')));
+
+var md = require('jstransformer')(require('jstransformer-markdown-it'));
 
 module.exports = function (grunt) {
 
@@ -42,7 +45,16 @@ module.exports = function (grunt) {
     pug: {
       compile: {
         options: {
-          data: require('./src/fillViewModel.js')
+          data: require('./src/fillViewModel.js'),
+          filters: { // Add markdown-it-named-headers as plugin
+            'markdown-it': function (text, options) {
+              return md.render(text, {
+                plugins: ['markdown-it-named-headers'],
+                html: true
+              }).body;
+            }
+
+          }
         },
         pretty: true,
 
