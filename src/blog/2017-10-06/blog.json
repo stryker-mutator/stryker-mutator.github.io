@@ -1,0 +1,5 @@
+{
+    "title": "TypeScript support",
+    "description": "Stryker 0.10 marks the biggest change in Stryker history yet, as we now support running mutation testing on TypeScript code.",
+    "date": "6 October 2017"
+}
