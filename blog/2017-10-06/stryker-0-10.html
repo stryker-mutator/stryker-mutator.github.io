@@ -18,7 +18,7 @@ fully supported in this way.</p>
 </ul>
 <h3 id="mutator-plugin-api">Mutator plugin api</h3>
 <p>With the previous Mutator plugin, it was possible to mutate a single Abstract Syntax Tree (AST) node. It was a neat little feature,
-but was never used outside if the core Stryker package. This plugin was also specific to JavaScript.
+but was never used outside of the core Stryker package. This plugin was also specific to JavaScript.
 As Stryker is now language agnostic, we decided to move the Mutator api to a higher level of abstraction.
 A Mutator is now responsible for mutating code written in a specific language, instead of a single JS AST node.</p>
 <p>We moved the existing es5 Mutator code into a new Mutator called <code>'es5'</code>.
@@ -50,7 +50,7 @@ It contains 3 plugins that work together:</p>
 <ol>
 <li><strong>Config Editor</strong>: A plugin that reads your tsconfig.json file and makes the config available to both the mutator and transpiler.</li>
 <li><strong>Mutator</strong>: A plugin that can mutate TypeScript code. See <a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-typescript/test/unit/mutator">our unit tests</a> to know what mutations are support.</li>
-<li><strong>Transpiler</strong>: A plugin that can transpile TypeScript code. It uses your tsconfig settings, so the output will be exactly the same as</li>
+<li><strong>Transpiler</strong>: A plugin that can transpile (mutated) TypeScript code. It uses your tsconfig settings, so the output will be exactly as you'd expect.</li>
 </ol>
 <p>To configure the plugins you need to add this to your stryker.conf.js file:</p>
 <pre><code class="language-javascript">module.exports = function(config) {
@@ -68,9 +68,8 @@ It contains 3 plugins that work together:</p>
 <h3 id="great-but-what-about-performance">Great! But what about performance?</h3>
 <p>You might be thinking all this has a negative impact on performance.
 After all, we have to transpile the TypeScript code for each mutant we want to test.
-We cannot say for sure in your situation, but our tests for running Stryker on Stryker itself show that performance is
-not impacted and might even be slightly improved. This is because transpiling each mutant ensures that
-no false positives are tested.</p>
+When running Stryker on itself we notice that it takes less time than before when we were mutating JavaScript.
+This is because transpiling each mutant ensures that no false positives are tested. Results for your project may differ.</p>
 <p>Take the <a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-typescript/src/mutator/BinaryExpressionMutator.ts">BinaryExpressionMutator</a>
 for example. It might mutate:</p>
 <pre><code class="language-typescript">'foo' + 'bar'
