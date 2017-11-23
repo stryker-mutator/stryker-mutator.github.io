@@ -1,4 +1,4 @@
-user:Actor "Test enthousiast"
+user:Actor "Test enthusiast"
 stryker:Stryker[a]
 plugin:PluginLoader[a]
 cfg:ConfigReader[a]
