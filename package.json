@@ -6,7 +6,8 @@
   "scripts": {
     "start": "grunt serve",
     "test": "grunt build",
-    "build": "grunt build"
+    "build": "grunt build",
+    "sdedit": "sdedit run src/diagrams/1.lifecycle.sd src/diagrams/2.initial-test-run.sd src/diagrams/3.mutation-test.sd src/diagrams/4.run-test.sd"
   },
   "repository": {
     "type": "git",
@@ -45,5 +46,9 @@
     "Cristiano Mazzarini <mazzcris@users.noreply.github.com>",
     "Maarten Mulders <m.th.mulders@xs4all.nl>",
     "Peter <peter.fessel@live.de>"
-  ]
+  ],
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "sdedit": "^0.1.1"
+  }
 }
