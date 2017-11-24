@@ -1,31 +1,53 @@
 var md = require('jstransformer')(require('jstransformer-markdown-it'));
+const sdedit = require('./tasks/grunt-sdedit');
+
 
 module.exports = function (grunt) {
+
+  const sdFiles = grunt.file.expand('src/**/*.sd');
 
   grunt.loadNpmTasks('grunt-contrib-pug');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-npm');
+  sdedit(grunt);
 
-  grunt.initConfig({
+  const watchConfig = {
+    options: {
+      livereload: true
+    },
+    sdedit: {
+      files: ['src/**/*.sd'],
+      tasks: ['sdedit']
+    },
+    pug: {
+      files: ['src/**/*.pug', 'src/**/*.js', 'src/**/*.json'],
+      tasks: ['pug']
+    },
+    js: {
+      files: ['javascripts/**/*.js']
+    },
+    css: {
+      files: ['stylesheets/**/*.css']
+    }
+  };
+
+
+  const config = {
     clean: {
       html: ['*.html', 'blog/**/*.html'],
       blog: 'blog'
     },
-    watch: {
-      options: {
-        livereload: true
-      },
-      pug: {
-        files: ['src/**/*.pug', 'src/**/*.js', 'src/**/*.json'],
-        tasks: ['pug']
-      },
-      js: {
-        files: ['javascripts/**/*.js']
-      },
-      css: {
-        files: ['stylesheets/**/*.css']
+    watch: watchConfig,
+    sdedit: {
+      sequence: {
+        expand: true,
+        cwd: 'src',
+        src: ['**/*.sd'],
+        dest: 'images',
+        extDot: 'last',
+        ext: '.png'
       }
     },
 
@@ -69,7 +91,10 @@ module.exports = function (grunt) {
         commitMessage: 'chore: update contributors'
       }
     }
-  });
-  grunt.registerTask('serve', ['clean', 'pug', 'connect', 'watch']);
-  grunt.registerTask('build', ['clean', 'pug', 'npm-contributors']);
+  };
+
+
+  grunt.initConfig(config);
+  grunt.registerTask('serve', ['clean', 'pug', 'sdedit', 'connect', 'watch']);
+  grunt.registerTask('build', ['clean', 'pug', 'sdedit', 'npm-contributors']);
 };

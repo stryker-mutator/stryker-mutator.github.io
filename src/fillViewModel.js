@@ -6,7 +6,8 @@ const menu = {
   'Blog': '/blog.html',
   'Plugins': '/plugins.html',
   'Supported mutators': '/mutators.html',
-  'FAQ': '/faq.html'
+  'FAQ': '/faq.html',
+  'Technical reference': '/technical-reference.html'
 };
 
 const blogs = readBlogs();
