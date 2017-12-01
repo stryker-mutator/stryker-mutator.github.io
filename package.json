@@ -48,6 +48,7 @@
     "Peter <peter.fessel@live.de>"
   ],
   "dependencies": {
+    "jstransformer": "^1.0.0",
     "mkdirp": "^0.5.1",
     "sdedit": "^0.1.1"
   }
