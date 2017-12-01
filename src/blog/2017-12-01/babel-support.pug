@@ -11,16 +11,18 @@ block content
         We had already released a separate plugin for mutating TypeScript code, but now we have also released a separate plugin for mutating JavaScript code. 
         It is called the [stryker-javascript-mutator](https://www.npmjs.com/package/stryker-javascript-mutator) and it replaces the current 'ES5' mutator that has always come with Stryker. With this release, the 'ES5' has been deprecated and it will be removed in the future.
 
-        If you use Stryker with JavaScript code on your project, we highly suggest upgrading to the new stryker-javascript-mutator. You can do so by installing the package:
+        If you use Stryker with JavaScript code on your project, we highly recommend upgrading to the new stryker-javascript-mutator. 
+        
+        You can do so by installing the package:
         ```
-        npm i -D stryker-javascript-mutator
+        npm install --save-dev stryker-javascript-mutator
         ```
         And configuring it in your stryker.conf.js:
         ```
         mutator: 'javascript',
         ```
 
-        If you have a plugins section in your config, please consider removing it or adding the styker-javascript-mutator to the plugins section if you really need the plugins section.
+        If you have a plugins section in your config, please consider removing it or add the new styker-javascript-mutator plugin.
 
         # Babel transpiler
         Even if Stryker can mutate JavaScript code in which new features are used, your environment may not be able to run that code. 
@@ -30,7 +32,7 @@ block content
         
         To use the new Babel transpiler, start by installing the package:
         ```
-        npm i -D stryker-babel-transpiler
+        npm install --save-dev stryker-babel-transpiler
         ```
         And configure it in your stryker.conf.js:
         ```
@@ -40,7 +42,7 @@ block content
         // babelConfig: { "presets": ["env"],  "plugins": ["transform-object-rest-spread"] },
         ```
 
-        If you have a plugins section in your config, please consider removing it or adding the styker-babel-transpiler to the plugins section if you really need the plugins section.
+        If you have a plugins section in your config, please consider removing it or add the new styker-babel-transpiler plugin.
 
         # Webpack projects
         With these new features, **we unfortunately do not yet have support for projects using Webpack (such as React)**. 

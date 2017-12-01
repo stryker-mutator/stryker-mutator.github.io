@@ -5,20 +5,21 @@ The installation/upgrade scenario's in this blog post can be circumvented by usi
 <p>In order to support mutating more recent JavaScript features as well as experimental features, we had to change the way we mutate JavaScript code.
 We had already released a separate plugin for mutating TypeScript code, but now we have also released a separate plugin for mutating JavaScript code.
 It is called the <a href="https://www.npmjs.com/package/stryker-javascript-mutator">stryker-javascript-mutator</a> and it replaces the current 'ES5' mutator that has always come with Stryker. With this release, the 'ES5' has been deprecated and it will be removed in the future.</p>
-<p>If you use Stryker with JavaScript code on your project, we highly suggest upgrading to the new stryker-javascript-mutator. You can do so by installing the package:</p>
-<pre><code>npm i -D stryker-javascript-mutator
+<p>If you use Stryker with JavaScript code on your project, we highly recommend upgrading to the new stryker-javascript-mutator.</p>
+<p>You can do so by installing the package:</p>
+<pre><code>npm install --save-dev stryker-javascript-mutator
 </code></pre>
 <p>And configuring it in your stryker.conf.js:</p>
 <pre><code>mutator: 'javascript',
 </code></pre>
-<p>If you have a plugins section in your config, please consider removing it or adding the styker-javascript-mutator to the plugins section if you really need the plugins section.</p>
+<p>If you have a plugins section in your config, please consider removing it or add the new styker-javascript-mutator plugin.</p>
 <h1 id="babel-transpiler">Babel transpiler</h1>
 <p>Even if Stryker can mutate JavaScript code in which new features are used, your environment may not be able to run that code.
 Many people use Babel to convert their modern JavaScript to a format that will run environments that do not support these features.
 We developed a new plugin for Stryker, the <a href="https://www.npmjs.com/package/stryker-babel-transpiler">stryker-babel-transpiler</a>, during a hackathon sponosored by <a href="https://opensource.infosupport.com">Info Support</a>.
 This plugin is capable of transpiling code writen using Babel to code that runs in your enviroment. Give Stryker your babel config and we'll make it work!</p>
 <p>To use the new Babel transpiler, start by installing the package:</p>
-<pre><code>npm i -D stryker-babel-transpiler
+<pre><code>npm install --save-dev stryker-babel-transpiler
 </code></pre>
 <p>And configure it in your stryker.conf.js:</p>
 <pre><code>transpilers: ['babel'],
@@ -26,7 +27,7 @@ babelrcFile: '.babelrc', // Is your .babelrc file somewhere else? Please specify
 // If you don't have a .babelrc file you can specify the config directly (Not recommended!):
 // babelConfig: { &quot;presets&quot;: [&quot;env&quot;],  &quot;plugins&quot;: [&quot;transform-object-rest-spread&quot;] },
 </code></pre>
-<p>If you have a plugins section in your config, please consider removing it or adding the styker-babel-transpiler to the plugins section if you really need the plugins section.</p>
+<p>If you have a plugins section in your config, please consider removing it or add the new styker-babel-transpiler plugin.</p>
 <h1 id="webpack-projects">Webpack projects</h1>
 <p>With these new features, <strong>we unfortunately do not yet have support for projects using Webpack (such as React)</strong>.
 If you need Webpack to bundle your code in order to run your tests please let us know what your setup is! This will help us with the development of Webpack support.</p>
