@@ -16,8 +16,8 @@ It is called the <a href="https://www.npmjs.com/package/stryker-javascript-mutat
 <h2 id="babel-transpiler">Babel transpiler</h2>
 <p>Even if Stryker can mutate JavaScript code in which new features are used, your environment may not be able to run that code.
 Many people use Babel to convert their modern JavaScript to a format that will run environments that do not support these features.
-We developed a new plugin for Stryker, the <a href="https://www.npmjs.com/package/stryker-babel-transpiler">stryker-babel-transpiler</a>, during a hackathon sponosored by <a href="https://opensource.infosupport.com">Info Support</a>.
-This plugin is capable of transpiling code writen using Babel to code that runs in your enviroment. Give Stryker your babel config and we'll make it work!</p>
+We developed a new plugin for Stryker, the <a href="https://www.npmjs.com/package/stryker-babel-transpiler">stryker-babel-transpiler</a>, during a hackathon sponsored by <a href="https://opensource.infosupport.com">Info Support</a>.
+This plugin is capable of transpiling code written using Babel to code that runs in your environment. Give Stryker your babel config and we'll make it work!</p>
 <p>To use the new Babel transpiler, start by installing the package:</p>
 <pre><code>npm install --save-dev stryker-babel-transpiler
 </code></pre>
@@ -27,7 +27,7 @@ babelrcFile: '.babelrc', // Is your .babelrc file somewhere else? Please specify
 // If you don't have a .babelrc file you can specify the config directly (Not recommended!):
 // babelConfig: { &quot;presets&quot;: [&quot;env&quot;],  &quot;plugins&quot;: [&quot;transform-object-rest-spread&quot;] },
 </code></pre>
-<p>If you have a plugins section in your config, please consider removing it or add the new styker-babel-transpiler plugin.</p>
+<p>If you have a plugins section in your config, please consider removing it or add the new stryker-babel-transpiler plugin.</p>
 <h2 id="webpack-projects">Webpack projects</h2>
 <p>With these new features, <strong>we unfortunately do not yet have support for projects using Webpack (such as React)</strong>.
 If you need Webpack to bundle your code in order to run your tests please let us know what your setup is! This will help us with the development of Webpack support.</p>
