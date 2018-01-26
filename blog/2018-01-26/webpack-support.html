@@ -8,7 +8,7 @@ Stryker <a href="/blog/2017-07-14/road-to-stryker-1-0.html#open-heart-surgery">m
 rather than the resulting JS bundle. This means that you still need to tell Stryker how your bundle is created.</p>
 <h2 id="webpack-transpiler">Webpack transpiler</h2>
 <p>Let's say we're using <a href="https://webpack.js.org">Webpack</a> to create that bundle. Well sir, let me bring you up-to-speed. We have just
-<a href="https://www.npmjs.com/package/stryker-webpack-transpiler">released stryker-webpack-transpiler</a> and with it, Stryker uses <em>your webpack configuration</em>
+<a href="https://www.npmjs.com/package/stryker-webpack-transpiler">released the stryker-webpack-transpiler</a> and with it, Stryker uses <em>your webpack configuration</em>
 to create the testing bundle.</p>
 <p>To use the new Webpack transpiler, start by installing the package:</p>
 <pre><code>npm install --save-dev stryker-webpack-transpiler
@@ -25,7 +25,7 @@ or take a look at the <a href="https://github.com/stryker-mutator/stryker/tree/m
 <h2 id="can-i-use">Can I use...</h2>
 <h3 id="angular">Angular?</h3>
 <p>With this new support for webpack, we now start to support <a href="https://angular.io">Angular</a> projects!
-However, you still need to provide webpack configuration to Stryker. If you're using the <a href="https://npmjs.com/package/@angular/cli">angular cli</a>
+However, you still need to provide a webpack configuration to Stryker. If you're using the <a href="https://npmjs.com/package/@angular/cli">angular cli</a>
 you probably don't have a <code>webpack.config.js</code> file lying around. In that case, head on over to <a href="https://github.com/nicojs/angular-stryker-example">nicojs/angular-stryker-example</a>
 and take a look. We have tested it on small sized projects (&lt; 100 tests). We would love your feedback if you're using it on larger projects.</p>
 <h3 id="react">React?</h3>
