@@ -1,3 +1,6 @@
+.gitter-chat-embed {
+    z-index: 9999;
+}
 
 @font-face{
     font-family: Carrois;
