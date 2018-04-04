@@ -11,7 +11,7 @@
 <p>Stryker only works on copies of your source code. A copy is called a <em>sandbox</em>. It creates as much of them as you want parallel test runners.
 You don't want a big sandbox. Just imagine what would happen if all your node_modules end up in there! That's why Stryker allows you to configure
 the files to load into it.</p>
-<p>One of the most common issues in <a href="https://github.com/stryker-mutator/stryker/issues">our issue tracker</a> have to do with
+<p>One of the most common issues in <a href="https://github.com/stryker-mutator/stryker/issues">our issue tracker</a> has to do with
 the way you needed to configure it using the <code>files</code> configuration. It was very confusing. The fact that stryker-karma-runner (pre 0.13) and stryker-typescript (pre 0.10)
 modified your files array (without you knowing it) only added to the complexity.
 Just <a href="https://github.com/nicojs/angular-stryker-example/blob/72d85e19657247a77faa8e12587d3d301147b2bd/stryker.conf.js#L6">a small look at the angular example file</a>
