@@ -1,0 +1,54 @@
+<!DOCTYPE html><html><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker - The JavaScript mutation testing framework: Measure the effectiveness of JavaScript tests."><title>Use git to select files - Stryker - The JavaScript mutation testing framework</title><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="google-site-verification" content="dcR3wjiLytpKDUxRuQskHBDnuZmrf58jOUjMANVpOn0"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/stylesheets/bootstrap/css/bootstrap.min.css"><link rel="stylesheet" href="/stylesheets/bootstrap/css/bootstrap-theme.min.css"><link rel="stylesheet" href="/stylesheets/stryker.css"><link rel="stylesheet" href="/stylesheets/font-awesome-4.6.3/css/font-awesome.min.css"><link rel="stylesheet" href="/stylesheets/highlightjs/styles/solarized-light.css"></head><body><nav class="navbar navbar-default navbar-fixed-top"><div class="container"><div class="navbar-header"><a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="20" height="20"></a><button class="pull-left navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div><div class="collapse navbar-collapse" id="navbar"><ul class="nav navbar-nav"><li><a href="/" title="Home">Home</a></li><li><a href="/quickstart.html" title="Quickstart">Quickstart</a></li><li class="active"><a href="/blog.html" title="Blog">Blog</a></li><li><a href="/plugins.html" title="Plugins">Plugins</a></li><li><a href="/mutators.html" title="Supported mutators">Supported mutators</a></li><li><a href="/faq.html" title="FAQ">FAQ</a></li><li><a href="/technical-reference.html" title="Technical reference">Technical reference</a></li></ul></div><a href="https://github.com/stryker-mutator/stryker" id="forkme_banner">View me on GitHub</a></div></nav><div class="container"><div class="row"><div class="col-md-12"><h1>Use git to select files</h1><p>Published: 4 April 2018</p><p class="lead">The 0.21 release of Stryker simplifies configuration by using your git database.</p><p>For a change log per package:</p>
+<ul>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker/CHANGELOG.md">stryker changelog</a></li>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-api/CHANGELOG.md">stryker-api changelog</a></li>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-mocha-runner/CHANGELOG.md">stryker-mocha-runner changelog</a></li>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-karma-runner/CHANGELOG.md">stryker-karma-runner changelog</a></li>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-typescript/CHANGELOG.md">stryker-typescript changelog</a></li>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-webpack-transpiler/CHANGELOG.md">stryker-webpack-transpiler changelog</a></li>
+</ul>
+<h2 id="sandboxes">Sandboxes</h2>
+<p>Stryker only works on copies of your source code. A copy is called a <em>sandbox</em>. It creates as much of them as you want parallel test runners.
+You don't want a big sandbox. Just imagine what would happen if all your node_modules end up in there! That's why Stryker allows you to configure
+the files to load into it.</p>
+<p>One of the most common issues in <a href="https://github.com/stryker-mutator/stryker/issues">our issue tracker</a> has to do with
+the way you needed to configure it using the <code>files</code> configuration. It was very confusing. The fact that stryker-karma-runner (pre 0.13) and stryker-typescript (pre 0.10)
+modified your files array (without you knowing it) only added to the complexity.
+Just <a href="https://github.com/nicojs/angular-stryker-example/blob/72d85e19657247a77faa8e12587d3d301147b2bd/stryker.conf.js#L6">a small look at the angular example file</a>
+will leave you scratching your head.</p>
+<p>Further more, you had properties like <code>included</code>, <code>transpiled</code> and <code>mutated</code>. It was kind of a mess really.</p>
+<h2 id="remove-your-files-configuration">Remove your <code>files</code> configuration</h2>
+<p>No longer! From release 0.21 of Stryker, the files array is <em>optional</em>. Please remove it. Everything should work as expected.
+Stryker will fallback to a sane default: your git database. It does this by executing the following command:
+<code>git ls-files --others --exclude-standard --cached</code>. The result should be exactly what you want in your sandbox
+(given you're using <code>.gitignore</code> files like a boss). If you want to deviate from this for whatever reason,
+you can still use the <code>files</code> property with an array of strings.</p>
+<p>Stryker also stopped keeping track of <code>included</code>, <code>transpiled</code> and <code>mutated</code> properties. For <code>mutate</code> please use the
+designated <a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker#source-code-files-to-mutate"><code>mutate</code> top level stryker property</a>.</p>
+<h2 id="breaking-change">Breaking change!</h2>
+<p>Unfortunately we couldn't create this feature without some breaking changes. The biggest one is that we've had to remove the old
+<code>InputFileDescriptor</code> object way of defining your input file.</p>
+<p>This:</p>
+<pre><code class="language-js">// DEPRECATED
+files: [ { pattern: 'pattern', included: true, mutated: true, transpiled: true } ]
+</code></pre>
+<p>Is deprecated. If you are using it we strongly suggest to try to remove <code>files</code> entirely.</p>
+<p>We've had to update the API to test runner plugins and transpiler plugins as well. Before, Stryker was keeping track of which file
+needed to be included in the test runner or transpiled by the transpiler. This is
+no longer the case. To see what this means for you, please consult the readme of the plugins you are using:</p>
+<ul>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-mocha-runner/README.md">stryker-mocha-runner readme</a></li>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-karma-runner/README.md">stryker-karma-runner readme</a></li>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-typescript/README.md">stryker-typescript readme</a></li>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-webpack-transpiler/README.md">stryker-webpack-transpiler readme</a></li>
+</ul>
+<h2 id="whats-next">What's next?</h2>
+<p>With this major refactoring out of the way we will hone in to our next target: an actual v1 release.
+We've opened up <a href="https://github.com/stryker-mutator/stryker/issues/654">issue 654</a> to keep track of our
+progress on this front. Want to help? Or curious about our plans? Please get in touch.</p>
+<p>Want to get in touch? Find us on <a href="https://gitter.im/stryker-mutator/stryker" target="_blank">Gitter</a> or <a href="https://twitter.com/search?q=%23strykermutator&amp;src=typd" target="_blank">Twitter</a>.</p><a href="/blog.html" title="blog">Back to blogs</a></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/javascripts/jquery-2.2.4.min.js"></script><script src="/stylesheets/bootstrap/js/bootstrap.min.js"></script><script src="/stylesheets/highlightjs/highlight.pack.js"></script><script src="/javascripts/main.js"></script><script>hljs.initHighlightingOnLoad();</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-104444094-1', 'auto');
+ga('send', 'pageview');</script><div class="gitter-open-chat-button">Need help?</div><script>((window.gitter = {}).chat = {}).options = { room: 'stryker-mutator/stryker', activationElement: '.gitter-open-chat-button' };</script><script async defer src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></div></body></html>
