@@ -1,0 +1,106 @@
+extends ./layout/layout.pug
+
+block docs-header
+    .docs-header.jumbotron
+            .container
+                h1 Development setup
+
+block content
+    .row
+        section.row
+            .col-md-12
+                h3 Prerequisites
+                
+                :markdown-it
+                    Make sure you have an up-to-date version of node and npm installed on your machine.
+                    First install [Lerna](https://github.com/lerna/lerna).
+
+                    ```
+                    npm install --global lerna
+                    ```
+
+                    Next install the (install-local)[https://github.com/nicojs/node-install-local] tool. 
+                    You need this tool to run local versions of the stryker packages in case you changed something
+                    and want to test a local version of that package.
+
+                    ```
+                    npm install --global install-local
+                    ```
+
+        section.row
+            .col-md-12
+                h3 Cloning and preparing the repository
+
+                :markdown-it
+                    Now that you have the tools installed, let's clone the repository to disk
+                    and install the dependencies.
+
+                    ```
+                    git clone https://github.com/stryker-mutator/stryker.git
+                    ```
+                
+                :markdown-it
+                    Install the dependencies by executing the following commands:
+
+                    ```
+                    cd stryker
+                    npm install
+                    ```
+
+                    This will download all npm packages and let lerna bootstrap the repository
+                    for development.
+
+        section.row
+            .col-md-12
+                h3 Run a full build
+                :markdown-it
+                    Before you start making changes to the code, please make sure you run a full build.
+                    This ensures that you have a working environment.
+
+                    Execute the following command from the project root to run a full build:
+
+                    ```
+                    npm run build
+                    ```
+
+                    The build process uses Lerna to iterate over all packages in the repository
+                    and build them one-by-one. This will take some time, depending on your harddrive
+                    and CPU power.
+
+                    Alternatively, you can build individual packages by navigating to the folder of the package 
+                    you want to build and running `npm run build` there.
+
+        section.row
+            .col-md-12
+                h3 Run tests
+                
+                :markdown-it
+                    To verify your work you can make use of the automated tests included in the stryker project.
+                    In order to run the tests, execute the following command from the project root folder.
+
+                    ```
+                    npm test
+                    ```
+
+                    Alternatively, you can execute the same command from any of the package folders to run
+                    tests for individual package.
+
+        section.row
+            .col-md-12
+                h3 Install packages locally
+                
+                :markdown-it
+                    Stryker has a large set of automated tests that is likely enough to verify changes you made.
+                    However, if you're debugging a project you may want to install the stryker packages locally in 
+                    your project.
+
+                    In order to do so, first navigate to the project where you want to use one of the stryker packages
+                    that you've changed locally. 
+
+                    Then execute the following command to install the stryker package locally:
+
+                    ```
+                    install-local <path-to-stryker-project>/packages/<package-name>
+                    ```
+
+                    This will `npm pack` the stryker package you are testing and install it in the project.

@@ -3,6 +3,7 @@ const fs = require('fs');
 const menu = {
   'Home': '/',
   'Quickstart': '/quickstart.html',
+  'Development setup': '/development-setup.html',
   'Blog': '/blog.html',
   'Plugins': '/plugins.html',
   'Supported mutators': '/mutators.html',
