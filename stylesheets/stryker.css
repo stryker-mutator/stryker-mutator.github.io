@@ -2,23 +2,47 @@
     z-index: 9999;
 }
 
-@font-face{
-    font-family: Carrois;
-    src: url(CarroisGothic-Regular.ttf);
+@media (min-width:768px){
+    .container{
+        width:700px 
+   }
 }
-
-body { padding-top: 50px; font-family: "Open Sans",Arial,sans-serif; }
-
+@media (min-width:992px){
+    .container{
+        width:800px 
+   }
+}
+@media (min-width:1200px){
+    .container{
+        width:800px; 
+   }
+}
+body {
+    padding-top: 50px;
+    font-family: Georgia,Cambria,"Times New Roman",Times,serif;
+    background-color: #FFF;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.58;
+    letter-spacing: -.003em;
+}
 .docs-header {
-    font-family: Carrois;
+    font-family: "Open Sans";
     background-color: #B74934;
-    color: #F1C40F; 
+    color: #F1C40F;
 }
+
+.docs-header h2 {
+    color: #F1C40F;
+}
+
 .docs-header a {
     color: #F1C40F;
     text-decoration: underline;
 }
-.docs-header img.stryker-img { max-width: 220px; }
+.docs-header img.stryker-img {
+    max-width: 220px;
+}
 .icon-box {
     color: #B74934;
     font-size: 1.8em;
@@ -30,13 +54,19 @@ h1, h2, h3, .icon-box {
     color: #B74934;
 }
 h1, h2, h3 {
-    font-family: Carrois;
+    font-family: "Open Sans";
 }
 .navbar-footer .navbar-text{
     font-size: 0.7em;
 }
 .navbar-footer{
     border-top: 1px solid;
+}
+
+.navbar {
+    font-size: 16px;
+    font-family: "Open Sans";
+    letter-spacing: 0.075rem;
 }
 #forkme_banner {
     background: #0090ff url("../images/blacktocat.png") no-repeat scroll 95% 50%;
@@ -55,6 +85,10 @@ h1, h2, h3 {
 pre{
     padding: 0;
     text-align: left;
+}
+
+.fa {
+    font-size: 30px;
 }
 #stryker-shirt-image img {
     max-width: 100%;

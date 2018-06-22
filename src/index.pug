@@ -2,20 +2,20 @@ extends ./layout/layout.pug
 
 block docs-header
 
-    .docs-header.jumbotron.text-center
-        .container
+    .docs-header.jumbotron
+        .container.text-center
             img(src="/images/stryker_205x205.png", alt="Stryker", class="stryker-img")
             h1 Stryker
-            p=tagline
+            h2=tagline
 
 block content
     .row
-        .col-md-12.text-center
+        .col-md-12
             h2 Stryker: Live at TechDays 2017
             <iframe width="560" height="315" src="https://www.youtube.com/embed/ba_86FlRiKg" frameborder="0" allowfullscreen></iframe>
 
     .row
-        .col-md-12.text-center
+        .col-md-12
             :markdown-it
                 ## What is mutation testing?
 
@@ -26,7 +26,7 @@ block content
 
                 It's really that simple.
     .row
-        .col-md-12.text-center
+        .col-md-12
             :markdown-it
                 ## But wait, what about code coverage?
 
@@ -37,7 +37,7 @@ block content
                 covered with paste. Code coverage would tell you the bread is 80% covered with paste. Mutation testing, on the other hand,
                 would tell you it is actually *chocolate* paste and not... well... something else.
     .row
-        .col-md-12.text-center
+        .col-md-12
             :markdown-it
 
                 ## Meet: Stryker
@@ -48,7 +48,7 @@ block content
                 Indeed, why would it? There are already awesome test runners and test frameworks out there.
                 Instead, Stryker empowers you to use what you like and focusses on being the best Mutation testing framework it can be.
     .row
-        .col-md-12.text-center
+        .col-md-12
             :markdown-it
 
                 ## An example
@@ -71,7 +71,7 @@ block content
 
                 We call those modifications mutants. After the mutants have been found, they are applied one by one and your tests will be executed against them. If at least one of your tests fail, we say the mutant is *killed*. That's what we want! If no tests fail, it *survived*. The better your tests, the less mutants survive.
     .row
-        .col-md-12.text-center
+        .col-md-12
             :markdown-it
 
                 ## Output
@@ -96,63 +96,63 @@ block content
 
                 The clear text reporter will output how exactly your code was modified and which mutator was used. It will then tell us if a mutant was killed, meaning that at least one test failed, or if it survived. The second mutation in this example is marked as a survivor. This means there is probably a test missing that explicitly tests for an age lower than 18.
     .row
-        .col-md-12.text-center
+        .col-md-12
             h2 Features
     .row
-        .col-md-3.col-md-offset-1.col-sm-6
+        .col-md-4.col-sm-6
             .row
-                .col-md-2.col-xs-2.icon-box.text-center
+                .col-md-2.col-xs-2.icon-box
                     i.fa.fa-crosshairs
                 .col-md-10.col-xs-10
                     :markdown-it
-                        #### Mutations
+                        ### Mutations
 
                         Control [more than 30 supported mutations](/mutators.html), or write your own.
-        .col-md-3.col-sm-6
+        .col-md-4.col-sm-6
             .row
-                .col-md-2.col-xs-2.icon-box.text-center
-                    i.fa.fa-fast-forward
+                .col-md-2.col-xs-2.icon-box
+                    i.fa.fa-shipping-fast
                 .col-md-10.col-xs-10
                     :markdown-it
-                        #### Speed
+                        ### Speed
 
                         Use code analysis and parallel test runner processes to speed things up.
-        .col-md-3.col-sm-6
+        .col-md-4.col-sm-6
             .row
-                .col-md-2.col-xs-2.icon-box.text-center
-                    i.fa.fa-globe
+                .col-md-2.col-xs-2.icon-box
+                    i.fa.fa-globe-americas
                 .col-md-10.col-xs-10
                     :markdown-it
-                        #### Test runner agnostic
+                        ### Test runner agnostic
 
-                        Run tests with [Karma](http://karma-runner.github.io), [Mocha](https://mochajs.org/),
-                        or write a simple plugin for any test runner you like.
-        .col-md-3.col-md-offset-1.col-sm-6
+                        Run tests with [Karma](http://karma-runner.github.io), [Mocha](https://mochajs.org/), [Jest](https://facebook.github.io/jest/),
+                        or write your own integration.
+        .col-md-4.col-sm-6
             .row
-                .col-md-2.col-xs-2.icon-box.text-center
+                .col-md-2.col-xs-2.icon-box
                     i.fa.fa-users
                 .col-md-10.col-xs-10
                     :markdown-it
-                        #### Open source
+                        ### Open source
 
                         Free as in Speech. Maintained by the open source community at
                         [GitHub](http://github.com/stryker-mutator/stryker).
-        .col-md-3.col-sm-6
+        .col-md-4.col-sm-6
             .row
-                .col-md-2.col-xs-2.icon-box.text-center
+                .col-md-2.col-xs-2.icon-box
                     i.fa.fa-cogs
                 .col-md-10.col-xs-10
                     :markdown-it
-                        #### Extendable
+                        ### Extendable
 
                         Create your own plugins to mutate, report or run tests using the [Stryker API](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-api).
-        .col-md-3.col-sm-6
+        .col-md-4.col-sm-6
             .row
-                .col-md-2.col-xs-2.icon-box.text-center
-                    i.fa.fa-bar-chart
+                .col-md-2.col-xs-2.icon-box
+                    i.fa.fa-chart-bar
                 .col-md-10.col-xs-10
                     :markdown-it
-                        #### Clever reports
+                        ### Clever reports
 
                         Use [clever reports](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-html-reporter)
                         to sniff out surviving mutants and improve test effectiveness.
@@ -162,7 +162,7 @@ block content
             blockquote For someone who hates mutants... you certainly keep some strange company. #[footer Professor X]
             blockquote Oh, they serve their purpose... as long as they can be controlled. #[footer William Stryker]
     .row
-        .col-md-12.text-center
+        .col-md-12
             :markdown-it
                 ## Free swag
 

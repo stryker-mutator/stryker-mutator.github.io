@@ -1,13 +1,13 @@
 const fs = require('fs');
 
 const menu = {
-  'Home': '/',
-  'Quickstart': '/quickstart.html',
-  'Blog': '/blog.html',
-  'Plugins': '/plugins.html',
-  'Supported mutators': '/mutators.html',
+  'HOME': '/',
+  'QUICKSTART': '/quickstart.html',
+  'BLOG': '/blog.html',
+  'PLUGINS': '/plugins.html',
+  'SUPPORTED MUTATORS': '/mutators.html',
   'FAQ': '/faq.html',
-  'Technical reference': '/technical-reference.html'
+  'TECHNICAL REFERENCE': '/technical-reference.html'
 };
 
 const blogs = readBlogs();
@@ -17,7 +17,7 @@ module.exports = function (dest) {
   console.log(`Rendering ${currentUrl}`);
   try {
     const viewModel = {
-      name: 'Stryker - The JavaScript mutation testing framework',
+      name: 'Stryker',
       tagline: 'Measure the effectiveness of JavaScript tests.',
       selectedMenuItem: selectedMenuItem(currentUrl),
       currentTitle: currentTitle(currentUrl),
@@ -45,8 +45,12 @@ function selectedMenuItem(currentUrl) {
 }
 
 function currentTitle(currentUrl) {
-  return Object.keys(menu).find(menuItem => menu[menuItem] === currentUrl) ||
-    blogs.find(blog => blog.url === currentUrl).title;
+  return capitalizeEachWord(Object.keys(menu).find(menuItem => menu[menuItem] === currentUrl) ||
+    blogs.find(blog => blog.url === currentUrl).title);
+}
+
+function capitalizeEachWord(text) {
+  return text.split(' ').map(word => word.substr(0, 1).toUpperCase() + word.substr(1).toLowerCase()).join(' ');
 }
 
 function currentBlog(currentUrl) {
