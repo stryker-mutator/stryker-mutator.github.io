@@ -1,13 +1,13 @@
 const fs = require('fs');
 
 const menu = {
-  'HOME': '/',
-  'QUICKSTART': '/quickstart.html',
-  'BLOG': '/blog.html',
-  'PLUGINS': '/plugins.html',
-  'SUPPORTED MUTATORS': '/mutators.html',
+  'Home': '/',
+  'Quickstart': '/quickstart.html',
+  'Blog': '/blog.html',
+  'Plugins': '/plugins.html',
+  'Supported Mutators': '/mutators.html',
   'FAQ': '/faq.html',
-  'TECHNICAL REFERENCE': '/technical-reference.html'
+  'Technical Reference': '/technical-reference.html'
 };
 
 const blogs = readBlogs();
@@ -45,12 +45,8 @@ function selectedMenuItem(currentUrl) {
 }
 
 function currentTitle(currentUrl) {
-  return capitalizeEachWord(Object.keys(menu).find(menuItem => menu[menuItem] === currentUrl) ||
-    blogs.find(blog => blog.url === currentUrl).title);
-}
-
-function capitalizeEachWord(text) {
-  return text.split(' ').map(word => word.substr(0, 1).toUpperCase() + word.substr(1).toLowerCase()).join(' ');
+  return Object.keys(menu).find(menuItem => menu[menuItem] === currentUrl) ||
+    blogs.find(blog => blog.url === currentUrl).title;
 }
 
 function currentBlog(currentUrl) {

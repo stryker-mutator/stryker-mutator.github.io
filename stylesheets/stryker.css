@@ -21,7 +21,8 @@ body {
     padding-top: 50px;
     font-family: Georgia,Cambria,"Times New Roman",Times,serif;
     background-color: #FFF;
-    font-size: 21px;
+    color: rgba(0, 0, 0, 0.84);
+    font-size: 18px;
     font-weight: 400;
     line-height: 1.58;
     letter-spacing: -.003em;
@@ -85,6 +86,7 @@ h1, h2, h3 {
 pre{
     padding: 0;
     text-align: left;
+    font-size: 15px;
 }
 
 .fa {
@@ -94,4 +96,14 @@ pre{
     max-width: 100%;
     width: auto;
     height: auto;
+}
+
+
+.blog-preview p {
+    color: rgba(0, 0, 0, 0.84);
+}
+
+.blog-date {
+    font-size: 14px;
+    display:block;
 }
