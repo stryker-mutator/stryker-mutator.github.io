@@ -19,7 +19,7 @@
 }
 body {
     padding-top: 50px;
-    font-family: Georgia,Cambria,"Times New Roman",Times,serif;
+    font-family: "Lato";
     background-color: #FFF;
     color: rgba(0, 0, 0, 0.84);
     font-size: 18px;
@@ -28,7 +28,7 @@ body {
     letter-spacing: -.003em;
 }
 .docs-header {
-    font-family: "Open Sans";
+    font-family: "Roboto";
     background-color: #B74934;
     color: #F1C40F;
 }
@@ -55,7 +55,7 @@ h1, h2, h3, .icon-box {
     color: #B74934;
 }
 h1, h2, h3 {
-    font-family: "Open Sans";
+    font-family: "Roboto";
 }
 .navbar-footer .navbar-text{
     font-size: 0.7em;
@@ -65,8 +65,8 @@ h1, h2, h3 {
 }
 
 .navbar {
-    font-size: 16px;
-    font-family: "Open Sans";
+    font-size: 14px;
+    font-family: "Roboto";
     letter-spacing: 0.075rem;
 }
 #forkme_banner {
