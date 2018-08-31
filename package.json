@@ -40,15 +40,17 @@
     "nicojs <jansennico@gmail.com>",
     "Alex van Assem <avassem@gmail.com>",
     "Maarten Mulders <mthmulders@users.noreply.github.com>",
+    "kmdrGroch <bartosz.leoniak@wp.pl>",
     "Philipp Weissenbacher <philipp.weissenbacher@gmail.com>",
     "Simon de Lang <Simon.DeLang@infosupport.com>",
+    "Gianfrancø Palumbo <gianpaj@users.noreply.github.com>",
     "Adrian Heine né Lang <mail@adrianheine.de>",
     "BartB <btvanderburgt@gmail.com>",
     "Cristiano Mazzarini <mazzcris@users.noreply.github.com>",
     "Jelle Peters <JellePetersHAN@users.noreply.github.com>",
-    "Legopiraat <gijs.venne@hotmail.com>",
     "Maarten Mulders <m.th.mulders@xs4all.nl>",
-    "Peter <peter.fessel@live.de>"
+    "Peter <peter.fessel@live.de>",
+    "legopiraat <3492598+legopiraat@users.noreply.github.com>"
   ],
   "dependencies": {
     "jstransformer": "^1.0.0",
