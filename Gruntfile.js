@@ -95,6 +95,6 @@ module.exports = function (grunt) {
 
 
   grunt.initConfig(config);
-  grunt.registerTask('serve', ['clean', 'pug', 'sdedit', 'connect', 'watch']);
-  grunt.registerTask('build', ['clean', 'pug', 'sdedit', 'npm-contributors']);
+  grunt.registerTask('serve', ['clean', 'pug', 'connect', 'watch']);
+  grunt.registerTask('build', ['clean', 'pug', 'npm-contributors']);
 };

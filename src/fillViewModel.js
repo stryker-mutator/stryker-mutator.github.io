@@ -1,14 +1,48 @@
 const fs = require('fs');
 
-const menu = {
-  'Home': '/',
-  'Quickstart': '/quickstart.html',
-  'Blog': '/blog.html',
-  'Plugins': '/plugins.html',
-  'Supported Mutators': '/mutators.html',
-  'FAQ': '/faq.html',
-  'Technical Reference': '/technical-reference.html'
-};
+class MenuItem {
+  constructor(name, title, url, imgUrl, childItems) {
+    this.name = name;
+    this.title = title;
+    this.url = url;
+    this.imgUrl = imgUrl;
+    this.childItems = childItems || [];
+    this.isActive = false;
+  }
+
+  activate(urlParts) {
+    const selectedMenuItems = urlParts.slice();
+    // Work with a copy so we don't corrupt the original
+    const currentMenuItem = selectedMenuItems.shift();
+    this.isActive = this.name === currentMenuItem;
+    this.childItems.forEach(_ => _.activate(selectedMenuItems));
+  }
+  activeTitle() {
+    const activeChild = this.childItems.find(_ => _.isActive);
+    if (activeChild) {
+      return activeChild.activeTitle() + ' - ' + this.name;
+    }
+  }
+}
+
+class Menu extends MenuItem {
+  constructor(menuItems) {
+    super('', 'Stryker Mutator', '', undefined, menuItems);
+    this.isActive = true;
+  }
+  activate(currentUrl) {
+    const selectedMenuItems = Object.freeze(currentUrl.substr(0, currentUrl.lastIndexOf('.')).split('/'));
+    // this.menuItems.forEach(_ => _.activate(selectedMenuItems));
+    super.activate(selectedMenuItems);
+  }
+}
+
+const menu = new Menu([
+  new MenuItem('stryker', 'For JavaScript', '/stryker/home.html', '/images/image-placeholder.jpg'),
+  new MenuItem('stryker.NET', 'For C#', '/stryker.NET/home.html', '/images/image-placeholder.jpg'),
+  new MenuItem('stryker4s', 'For Scala', '/stryker4s/home.html', '/images/image-placeholder.jpg'),
+  new MenuItem('blog', 'Blog', '/blog.html'),
+]);
 
 const blogs = readBlogs();
 
@@ -16,12 +50,12 @@ module.exports = function (dest) {
   const currentUrl = getCurrentUrl(dest);
   console.log(`Rendering ${currentUrl}`);
   try {
+    menu.activate(currentUrl);
     const viewModel = {
       name: 'Stryker',
       tagline: 'Measure the effectiveness of JavaScript tests.',
-      selectedMenuItem: selectedMenuItem(currentUrl),
-      currentTitle: currentTitle(currentUrl),
-      menu: menu,
+      currentTitle: menu.activeTitle(),
+      menu,
       blogs: blogs,
       currentBlog: currentBlog(currentUrl)
     };
@@ -31,23 +65,6 @@ module.exports = function (dest) {
     throw err;
   }
 };
-
-function selectedMenuItem(currentUrl) {
-  if (currentUrl.startsWith('/blog/')) {
-    return 'Blog';
-  } else {
-    const menuItem = Object.keys(menu).find(item => menu[item] === currentUrl);
-    if (!menuItem) {
-      throw Error(`No menu item found for ${currentUrl} in menu ${JSON.stringify(menu)}.`);
-    }
-    return menuItem;
-  }
-}
-
-function currentTitle(currentUrl) {
-  return Object.keys(menu).find(menuItem => menu[menuItem] === currentUrl) ||
-    blogs.find(blog => blog.url === currentUrl).title;
-}
 
 function currentBlog(currentUrl) {
   return blogs.find(blog => blog.url === currentUrl);

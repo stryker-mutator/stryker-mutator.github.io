@@ -9,6 +9,15 @@
             "args": [
                 "sdedit"
             ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Grunt pug",
+            "program": "${workspaceFolder}/node_modules/grunt/bin/grunt",
+            "args": [
+                "pug"
+            ]
         }
     ]
 }
