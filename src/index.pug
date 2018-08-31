@@ -1,17 +1,40 @@
 extends ./layout/layout.pug
 
 block docs-header
+
     .docs-header.jumbotron
         .container.text-center
-            img(src="/images/stryker_205x205.png", alt="Stryker", class="stryker-img")
+            img(src="/images/landingpage.png", alt="Stryker", class="stryker-img")
             h1 Stryker
             h2=tagline
 
 block content
     .row
-        .col-md-12
-            h2 Stryker: Live at TechDays 2017
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ba_86FlRiKg" frameborder="0" allowfullscreen></iframe>
+        .col-md-12.text-center
+            H2 Getting started with stryker for:
+            //TODO: Link to StrykerJS landing page
+            <div class="stryker-version-row">
+                <a title="Stryker for Javascript" href="/">
+                    <figure>
+                        img(src="/images/JavascriptLogo.png", alt="Javascript", class="stryker-versions-img")
+                        <figcaption>Javascript</figcaption>
+                    </figure>
+                </a>
+                //TODO: Link to Stryker4S landing page
+                <a title="Stryker for Scala" href="/">
+                    <figure>
+                        img(src="/images/ScalaLogo.png", alt="Scala", class="stryker-versions-img")
+                        <figcaption>Scala</figcaption>
+                    </figure>
+                </a>
+                //TODO: Link to Stryker.NET landing page
+                <a title="Stryker for C#" href="/">
+                    <figure>
+                        img(src="/images/CSharpLogo.png", alt="C#", class="stryker-versions-img")
+                        <figcaption>C#</figcaption>
+                    </figure>
+                </a>
+            </div>
 
     .row
         .col-md-12
@@ -41,7 +64,7 @@ block content
 
                 ## Meet: Stryker
 
-                With Stryker, mutation testing finally arrives at the JavaScript world.
+                With Stryker, we bring mutation testing to the masses.
                 It takes the best practices of existing mutation testing frameworks like [PIT](http://pitest.org/) and [Infection](https://infection.github.io/),
                 but with the open mentality of nodejs and the web. This is why Stryker is not a test runner or test framework.
                 Indeed, why would it? There are already awesome test runners and test frameworks out there.
@@ -75,7 +98,7 @@ block content
 
                 ## Output
 
-                Stryker will output the results in various different formats. One of the easiest to read is the clear text reporter which output. You can activate it by adding `'clear-text'` to the `reporter` list in `stryker.conf.js`.
+                Stryker will output the results in various different formats. One of the easiest to read is the clear text reporter:
                 ```shell
 
                   Mutant killed!
@@ -124,8 +147,7 @@ block content
                     :markdown-it
                         ### Test runner agnostic
 
-                        Run tests with [Karma](http://karma-runner.github.io), [Mocha](https://mochajs.org/), [Jest](https://facebook.github.io/jest/),
-                        or write your own integration.
+                        Run tests with your favorite test runner.
     .row
         .col-md-4.col-sm-6
             .row
@@ -143,9 +165,9 @@ block content
                     i.fa.fa-cogs
                 .col-md-10.col-xs-10
                     :markdown-it
-                        ### Extendable
+                        ### multilingual
 
-                        Create your own plugins to mutate, report or run tests using the [Stryker API](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-api).
+                        Stryker has support for Javascript, Typescript, Scala and .NET
         .col-md-4.col-sm-6
             .row
                 .col-md-2.col-xs-2.icon-box
@@ -156,18 +178,16 @@ block content
 
                         Use [clever reports](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-html-reporter)
                         to sniff out surviving mutants and improve test effectiveness.
+    
+    .row
+        .col-md-12
+            h2 Info Support
+            :markdown-it
+                Stryker is sponsored by [Info Support](https://www.infosupport.com/). They provide our awesome swag, host Stryker hackatons and provide time for their developers to work on Stryker and other open source projects. Check them out at [opensource.infosupport.com](https://opensource.infosupport.com/).
 
     .row
         .col-md-12
             blockquote For someone who hates mutants... you certainly keep some strange company. #[footer Professor X]
             blockquote Oh, they serve their purpose... as long as they can be controlled. #[footer William Stryker]
-    .row
-        .col-md-12
-            :markdown-it
-                ## Free swag
 
-                Contribute and get a free t-shirt or sticker. As long as stock lasts.
-
-            #stryker-shirt-image
-                :markdown-it
-                    ![Stryker T-shirt](images/stryker-t-shirt.png)
+            

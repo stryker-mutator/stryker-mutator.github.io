@@ -29,7 +29,7 @@ body {
 }
 .docs-header {
     font-family: "Roboto";
-    background-color: #B74934;
+    background-color: #E84B39;
     color: #F1C40F;
 }
 
@@ -42,8 +42,9 @@ body {
     text-decoration: underline;
 }
 .docs-header img.stryker-img {
-    max-width: 220px;
+    max-width: 500px;
 }
+img.stryker-versions-img{ max-width: 220px; padding: 20px}
 .icon-box {
     color: #B74934;
     font-size: 1.8em;
@@ -106,4 +107,9 @@ pre{
 .blog-date {
     font-size: 14px;
     display:block;
+}
+
+.stryker-version-row{
+    display: flex;
+    justify-content: center;
 }
