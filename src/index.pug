@@ -11,10 +11,22 @@ block docs-header
 block content
     .row
         .col-md-12.text-center
-            H2 Stryker is avalible for:
-            img(src="/images/stryker_205x205.png", alt="StrykerJS", class="stryker-versions-img")
-            img(src="/images/stryker_205x205.png", alt="Stryker4s", class="stryker-versions-img")
-            img(src="/images/stryker_205x205.png", alt="Stryker.net", class="stryker-versions-img")
+            H2 Stryker is available for:
+            //TODO: Link to StrykerJS landing page
+            //TODO: change image to StyrkerJS logo
+            <a href="/">
+                img(src="/images/stryker_205x205.png", alt="StrykerJS", class="stryker-versions-img")
+            </a>
+            //TODO: Link to Stryker4S landing page
+            //TODO: change image to StyrkerJS logo
+            <a href="/">
+                img(src="/images/stryker_205x205.png", alt="Stryker4s", class="stryker-versions-img")
+            </a>
+            //TODO: Link to Stryker.NET landing page
+            //TODO: change image to StyrkerJS logo
+            <a href="/">
+                img(src="/images/stryker_205x205.png", alt="Stryker.net", class="stryker-versions-img")
+            </a>
 
     .row
         .col-md-12
@@ -49,7 +61,7 @@ block content
 
                 ## Meet: Stryker
 
-                With Stryker, mutation testing finally arrives at the JavaScript world.
+                With Stryker, we bring mutation testing to the masses.
                 It takes the best practices of existing mutation testing frameworks like [PIT](http://pitest.org/) and [Infection](https://infection.github.io/),
                 but with the open mentality of nodejs and the web. This is why Stryker is not a test runner or test framework.
                 Indeed, why would it? There are already awesome test runners and test frameworks out there.
@@ -83,7 +95,7 @@ block content
 
                 ## Output
 
-                Stryker will output the results in various different formats. One of the easiest to read is the clear text reporter which is shown below.
+                Stryker will output the results in various different formats. One of the easiest to read is the clear text reporter:
                 ```shell
 
                   Mutant killed!
@@ -132,8 +144,7 @@ block content
                     :markdown-it
                         ### Test runner agnostic
 
-                        Run tests with [Karma](http://karma-runner.github.io), [Mocha](https://mochajs.org/), [Jest](https://facebook.github.io/jest/),
-                        or write your own integration.
+                        Run tests with your favorite test runner.
     .row
         .col-md-4.col-sm-6
             .row
@@ -151,9 +162,9 @@ block content
                     i.fa.fa-cogs
                 .col-md-10.col-xs-10
                     :markdown-it
-                        ### Extendable
+                        ### multilingual
 
-                        Create your own plugins to mutate, report or run tests using the [Stryker API](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-api).
+                        Stryker has support for Javascript, Typescript, Scala and .NET
         .col-md-4.col-sm-6
             .row
                 .col-md-2.col-xs-2.icon-box
