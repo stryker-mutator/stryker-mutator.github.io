@@ -11,17 +11,13 @@ module.exports = function (grunt) {
   grunt.registerMultiTask('sass', 'compile sass', function () {
     let done = this.async(),
       promises;
-
     mkdirpAsPromised(path.dirname(this.data.dest))
-      .then(
-        Promise.all(this.filesSrc.map((file) =>
-          renderAsPromised({ file })
-            .then(({ css }) => writeFileAsPromised(this.data.dest, css)))
-        ))
-      .then(() => {
-        grunt.log.ok(`Written ${this.data.dest}`);
-        done();
-      })
+      .then(() => Promise.all(this.filesSrc.map((file) =>
+        renderAsPromised({ file })
+          .then(({ css }) => writeFileAsPromised(this.data.dest, css))
+          .then(() => grunt.log.ok(`Written ${this.data.dest}`))
+      )))
+      .then(done)
       .catch(error => {
         grunt.log.error(error);
         done(false);
