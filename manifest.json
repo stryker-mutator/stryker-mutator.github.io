@@ -1,5 +1,6 @@
 {
-	"name": "Stryker",
+	"name": "Stryker mutator",
+	"short_name": "Stryker",
 	"icons": [
 		{
 			"src": "\/android-chrome-192x192.png",
@@ -7,6 +8,7 @@
 			"type": "image\/png"
 		}
 	],
+	"background_color": "#fff",
 	"theme_color": "#b74934",
 	"display": "standalone"
 }
