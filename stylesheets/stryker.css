@@ -18,7 +18,6 @@
    }
 }
 body {
-    padding-top: 50px;
     font-family: "Lato";
     background-color: #FFF;
     color: rgba(0, 0, 0, 0.84);
@@ -28,6 +27,7 @@ body {
     letter-spacing: -.003em;
 }
 .docs-header {
+    padding-top: 100px;
     font-family: "Roboto";
     background-color: #E84B39;
     color: #F1C40F;
