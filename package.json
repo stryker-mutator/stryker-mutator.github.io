@@ -51,8 +51,10 @@
     "Peter <peter.fessel@live.de>"
   ],
   "dependencies": {
+    "bootstrap": "^4.1.3",
     "jstransformer": "^1.0.0",
     "mkdirp": "^0.5.1",
+    "node-sass": "^4.9.3",
     "sdedit": "^0.1.1"
   }
 }
