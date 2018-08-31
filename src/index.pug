@@ -4,38 +4,27 @@ block docs-header
 
     .docs-header.jumbotron
         .container.text-center
-            img(src="/images/landingpage.png", alt="Stryker", class="stryker-img")
-            h1 Stryker
+            h1.title
+                img(src="/images/landingpage.png", alt="Stryker", class="stryker-img")
             h2=tagline
 
 block content
     .row
         .col-md-12.text-center
-            H2 Getting started with stryker for:
-            //TODO: Link to StrykerJS landing page
-            <div class="stryker-version-row">
-                <a title="Stryker for Javascript" href="/">
-                    <figure>
-                        img(src="/images/JavascriptLogo.png", alt="Javascript", class="stryker-versions-img")
-                        <figcaption>Javascript</figcaption>
-                    </figure>
-                </a>
-                //TODO: Link to Stryker4S landing page
-                <a title="Stryker for Scala" href="/">
-                    <figure>
-                        img(src="/images/ScalaLogo.png", alt="Scala", class="stryker-versions-img")
-                        <figcaption>Scala</figcaption>
-                    </figure>
-                </a>
-                //TODO: Link to Stryker.NET landing page
-                <a title="Stryker for C#" href="/">
-                    <figure>
+            h2 Getting started with Stryker
+            .row
+                a.col(title="Stryker for JavaScript and friends", href="/stryker/")
+                    figure
+                        img(src="/images/JavascriptLogo.png", alt="Stryker for JavaScript and friends", class="stryker-versions-img")
+                        figcaption JavaScript and friends
+                a.col(title="Stryker for C#" href="/stryker-net/")
+                    figure
                         img(src="/images/CSharpLogo.png", alt="C#", class="stryker-versions-img")
-                        <figcaption>C#</figcaption>
-                    </figure>
-                </a>
-            </div> 
-
+                        figcaption C#
+                a.col(title="Stryker for Scala", href="/stryker4s/")
+                    figure
+                        img(src="/images/ScalaLogo.png", alt="Stryker for Scala", class="stryker-versions-img")
+                        figcaption Scala
     .row
         .col-md-12
             :markdown-it
@@ -165,9 +154,9 @@ block content
                     i.fa.fa-cogs
                 .col-md-10.col-xs-10
                     :markdown-it
-                        ### multilingual
+                        ### Multilingual
 
-                        Stryker has support for Javascript, Typescript, Scala and .NET
+                        Stryker has support for [JavaScript & TypeScript](/stryker/), [C#](/stryker-net/) and [Scala](/stryker4s/)
         .col-md-4.col-sm-6
             .row
                 .col-md-2.col-xs-2.icon-box

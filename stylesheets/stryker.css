@@ -108,8 +108,3 @@ pre{
     font-size: 14px;
     display:block;
 }
-
-.stryker-version-row{
-    display: flex;
-    justify-content: center;
-}
