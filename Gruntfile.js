@@ -1,6 +1,6 @@
 var md = require('jstransformer')(require('jstransformer-markdown-it'));
 const sdedit = require('./tasks/grunt-sdedit');
-
+const sass = require('./tasks/grunt-sass');
 
 module.exports = function (grunt) {
 
@@ -12,6 +12,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-npm');
   sdedit(grunt);
+  sass(grunt);
 
   const watchConfig = {
     options: {
@@ -20,6 +21,10 @@ module.exports = function (grunt) {
     sdedit: {
       files: ['src/**/*.sd'],
       tasks: ['sdedit']
+    },
+    sass: {
+      files: ['src/**/*.scss'],
+      tasks: ['sass']
     },
     pug: {
       files: ['src/**/*.pug', 'src/**/*.js', 'src/**/*.json'],
@@ -62,6 +67,13 @@ module.exports = function (grunt) {
       }
     },
 
+    sass: {
+      bootstrap: {
+        src: ['src/scss/custom.scss'],
+        dest: 'css/bootstrap.css'
+      }
+    },
+
     pug: {
       compile: {
         options: {
@@ -95,6 +107,6 @@ module.exports = function (grunt) {
 
 
   grunt.initConfig(config);
-  grunt.registerTask('serve', ['clean', 'pug', 'connect', 'watch']);
-  grunt.registerTask('build', ['clean', 'pug', 'npm-contributors']);
+  grunt.registerTask('serve', ['clean', 'sass', 'pug', 'connect', 'watch']);
+  grunt.registerTask('build', ['clean', 'sass', 'pug', 'npm-contributors']);
 };
