@@ -18,7 +18,7 @@ module.exports = function (dest) {
   try {
     const viewModel = {
       name: 'Stryker - The JavaScript mutation testing framework',
-      tagline: 'Measure the effectiveness of JavaScript tests.',
+      tagline: 'Test your tests',
       selectedMenuItem: selectedMenuItem(currentUrl),
       currentTitle: currentTitle(currentUrl),
       menu: menu,

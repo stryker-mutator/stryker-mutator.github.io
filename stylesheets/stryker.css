@@ -18,7 +18,8 @@ body { padding-top: 50px; font-family: "Open Sans",Arial,sans-serif; }
     color: #F1C40F;
     text-decoration: underline;
 }
-.docs-header img.stryker-img { max-width: 220px; }
+.docs-header img.stryker-img { max-width: 500px; }
+img.stryker-versions-img{ max-width: 220px; padding: 20px}
 .icon-box {
     color: #B74934;
     font-size: 1.8em;
