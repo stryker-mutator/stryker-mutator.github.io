@@ -62,7 +62,25 @@ module.exports = function (grunt) {
           open: true,
           livereload: true,
           host: 'localhost',
-          hostname: 'localhost'
+          hostname: 'localhost',
+          // directory: {
+          //   filter(filename, index, files, dir) {
+          //     console.log('test');
+          //   },
+          //   path
+          // },
+          middleware: (_, _1, middlewares) => {
+            middlewares.unshift((req, _, next) => {
+              if (!req.url.endsWith('/') && req.url.indexOf('.') === -1) {
+                req.url += '.html';
+              }
+              next();
+            });
+            return middlewares;
+          }
+
+          //   return middlewares;
+          // },
         }
       }
     },

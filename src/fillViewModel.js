@@ -1,13 +1,12 @@
 const fs = require('fs');
 
 class MenuItem {
-  constructor(name, title, url, imgUrl, childItems) {
+  constructor(name, title, childItems) {
     this.name = name;
     this.title = title;
-    this.url = url;
-    this.imgUrl = imgUrl;
     this.childItems = childItems || [];
     this.isActive = false;
+    this.childItems.forEach(_ => _.parent = this);
   }
 
   activate(urlParts) {
@@ -17,17 +16,31 @@ class MenuItem {
     this.isActive = this.name === currentMenuItem;
     this.childItems.forEach(_ => _.activate(selectedMenuItems));
   }
+
   activeTitle() {
     const activeChild = this.childItems.find(_ => _.isActive);
     if (activeChild) {
-      return activeChild.activeTitle() + ' - ' + this.name;
+      return `${activeChild.activeTitle()} - ${this.title}`;
+    } else {
+      return this.title;
     }
+  }
+
+  get url() {
+    let url = this.name;
+    if (this.childItems.length) {
+      url += '/';
+    }
+    if (this.parent) {
+      return `${this.parent.name}/${url}`;
+    }
+    return url;
   }
 }
 
 class Menu extends MenuItem {
   constructor(menuItems) {
-    super('', 'Stryker Mutator', '', undefined, menuItems);
+    super('', 'Stryker Mutator', menuItems);
     this.isActive = true;
   }
   activate(currentUrl) {
@@ -38,10 +51,12 @@ class Menu extends MenuItem {
 }
 
 const menu = new Menu([
-  new MenuItem('stryker', 'For JavaScript', '/stryker/home.html', '/images/image-placeholder.jpg'),
-  new MenuItem('stryker.NET', 'For C#', '/stryker.NET/home.html', '/images/image-placeholder.jpg'),
-  new MenuItem('stryker4s', 'For Scala', '/stryker4s/home.html', '/images/image-placeholder.jpg'),
-  new MenuItem('blog', 'Blog', '/blog.html'),
+  new MenuItem('stryker', 'For JavaScript', [new MenuItem('', 'Getting started')]),
+  new MenuItem('stryker-net', 'For C#', [new MenuItem('', 'Getting started')]),
+  new MenuItem('stryker4s', 'For Scala', [new MenuItem('', 'Getting started')]),
+  new MenuItem('blog', 'Blog'),
+  new MenuItem('handbook', 'Handbook'),
+  new MenuItem('example', 'An example')
 ]);
 
 const blogs = readBlogs();
@@ -56,7 +71,7 @@ module.exports = function (dest) {
       tagline: 'Measure the effectiveness of JavaScript tests.',
       currentTitle: menu.activeTitle(),
       menu,
-      blogs: blogs,
+      blogs,
       currentBlog: currentBlog(currentUrl)
     };
     return viewModel;
