@@ -5,9 +5,9 @@ const menu = {
   'Quickstart': '/quickstart.html',
   'Blog': '/blog.html',
   'Plugins': '/plugins.html',
-  'Supported mutators': '/mutators.html',
+  'Supported Mutators': '/mutators.html',
   'FAQ': '/faq.html',
-  'Technical reference': '/technical-reference.html'
+  'Technical Reference': '/technical-reference.html'
 };
 
 const blogs = readBlogs();
@@ -17,8 +17,8 @@ module.exports = function (dest) {
   console.log(`Rendering ${currentUrl}`);
   try {
     const viewModel = {
-      name: 'Stryker - The JavaScript mutation testing framework',
-      tagline: 'Test your tests',
+      name: 'Stryker',
+      tagline: 'Measure the effectiveness of JavaScript tests.',
       selectedMenuItem: selectedMenuItem(currentUrl),
       currentTitle: currentTitle(currentUrl),
       menu: menu,
