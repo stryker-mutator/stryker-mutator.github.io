@@ -5,4 +5,6 @@ $enable-rounded: false;
 @import "../../node_modules/highlight.js/styles/solarized-light";
 @import "./stryker/fork-me-banner";
 @import "./stryker/preview-ribbon";
-@import "./stryker/typography";@import "./stryker/header";
+@import "./stryker/typography";
+@import "./stryker/header";
+@import "./stryker/fix-collapse-animation";

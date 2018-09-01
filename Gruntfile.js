@@ -33,7 +33,7 @@ module.exports = function (grunt) {
     },
     webpack: {
       files: ['src/js/**/*.js'],
-      tasks: ['webpack']
+      tasks: ['webpack:dev']
     }
   };
 
