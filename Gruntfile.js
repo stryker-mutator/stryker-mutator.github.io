@@ -1,7 +1,6 @@
 const md = require('jstransformer')(require('jstransformer-markdown-it'));
 const webpackConfig = require('./webpack.config');
 
-const sdedit = require('./tasks/grunt-sdedit');
 const sass = require('./tasks/grunt-sass');
 
 module.exports = function (grunt) {
@@ -12,16 +11,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-npm');
-  sdedit(grunt);
   sass(grunt);
 
   const watchConfig = {
     options: {
       livereload: true
-    },
-    sdedit: {
-      files: ['src/**/*.sd'],
-      tasks: ['sdedit']
     },
     sass: {
       files: ['src/**/*.scss'],
