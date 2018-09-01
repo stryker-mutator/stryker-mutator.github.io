@@ -62,9 +62,9 @@ class Menu extends MenuItem {
 }
 
 const menu = new Menu([
-  new MenuItem('stryker', 'For JavaScript', [new MenuItem('', 'Getting started')], { githubProj: 'stryker' }),
-  new MenuItem('stryker-net', 'For C#', [new MenuItem('', 'Getting started')], { githubProj: 'stryker-net' }),
-  new MenuItem('stryker4s', 'For Scala', [new MenuItem('', 'Getting started')], { githubProj: 'stryker4s' }),
+  new MenuItem('stryker', 'For JavaScript', [new MenuItem('', 'Getting started')]),
+  new MenuItem('stryker-net', 'For C#', [new MenuItem('', 'Getting started')]),
+  new MenuItem('stryker4s', 'For Scala', [new MenuItem('', 'Getting started')]),
   new MenuItem('blog', 'Blog'),
   new MenuItem('handbook', 'Handbook'),
   new MenuItem('example', 'An example'),
