@@ -1,8 +1,7 @@
 $primary: #E84B39;
 $secondary: #b74934;
 $accent: #F1C40F;
-
-$enable-rounded: false;
+$code-color: $accent;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/highlight.js/styles/solarized-light";
