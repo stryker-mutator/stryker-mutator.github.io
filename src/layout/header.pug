@@ -9,4 +9,6 @@ nav.navbar.sticky-top.navbar-expand-md.navbar-dark.bg-primary.flex-column.flex-m
                 each val in menu.childItems
                     li.nav-item(class=   val.isActive ? 'active' : '')
                         a.nav-link(href=val.url, title=val.name)&attributes(val.attributes)= val.title
-        a(href="https://github.com/stryker-mutator/stryker")#forkme_banner View me on GitHub
+        a.d-flex.align-items-center(href="https://github.com/stryker-mutator/stryker")#forkme_banner 
+            span View me on GitHub
+            i.fab.fa-github
