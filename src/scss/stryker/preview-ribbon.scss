@@ -2,18 +2,14 @@
 .preview-ribbon:after{
     content: "Preview";
     position: absolute;
-    width: 100px;
-    height: 25px;
-    background: blue;
+    padding: 4px 20px;
+    background: $blue;
     top: 30px;
-    right: 20px;
-    text-align: center;
+    margin-left: 10px;
     font-size: .7em;
-    font-family: sans-serif;
     text-transform: uppercase;
-    font-weight: bold;  
+    font-weight: bold;
     color: #fff;
-    line-height: 27px;
     -ms-transform:rotate(45deg);
     -webkit-transform:rotate(45deg);
     transform:rotate(45deg);
