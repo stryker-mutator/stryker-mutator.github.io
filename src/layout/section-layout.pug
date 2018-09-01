@@ -2,13 +2,20 @@ extends ./layout.pug
 
 block prepend content
     .row
-        .col-sm-4
-            each item in menu.childItems
-                if item.isActive
-                    h2=item.title
-                    ul.nav.flex-column.nav-tabs
-                      each childItem in item.childItems
-                        li.nav-item
-                            a.nav-link(class= childItem.isActive ? 'active' : '', href=childItem.url, title=childItem.name)&attributes(childItem.attributes)=childItem.title
+        .col-sm-3
+            .card.sticky-top-70
+                each item in menu.childItems
+                    if item.isActive
+                        .card-header=item.title
+                        ul.list-group.list-group-flush
+                        each childItem in item.childItems
+                            li.list-group-item
+                                if childItem.isActive
+                                    | #{childItem.title}
+                                else
+                                    a.d-block(href=childItem.url, title=childItem.name, class=childItem.isActive?'text-white':'')&attributes(childItem.attributes)=childItem.title
         .col
+            h1=menu.activeTitle
             block content
+
+

@@ -1,8 +1,11 @@
 extends ../layout/section-layout.pug
 
 block content
-    .row
-        h2.col Introduction
-    .row
-        .col
-            p h1
+    :markdown-it
+        Welcome to the Stryker for JavaScript documentation. 
+
+        Stryker started out as a pure JavaScript mutation testing framework, that's why it simply referred to as **Stryker**.
+
+        Don't hesitate to get started using our quickstart guide.
+
+    a.btn.btn-primary.btn-lg(href="/stryker/quickstart") To quickstart
