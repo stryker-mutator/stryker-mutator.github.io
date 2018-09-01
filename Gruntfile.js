@@ -1,15 +1,16 @@
-var md = require('jstransformer')(require('jstransformer-markdown-it'));
+const md = require('jstransformer')(require('jstransformer-markdown-it'));
+const webpackConfig = require('./webpack.config');
+
 const sdedit = require('./tasks/grunt-sdedit');
 const sass = require('./tasks/grunt-sass');
 
 module.exports = function (grunt) {
 
-  const sdFiles = grunt.file.expand('src/**/*.sd');
-
   grunt.loadNpmTasks('grunt-contrib-pug');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-npm');
   sdedit(grunt);
   sass(grunt);
@@ -30,11 +31,9 @@ module.exports = function (grunt) {
       files: ['src/**/*.pug', 'src/**/*.js', 'src/**/*.json'],
       tasks: ['pug']
     },
-    js: {
-      files: ['javascripts/**/*.js']
-    },
-    css: {
-      files: ['stylesheets/**/*.css']
+    webpack: {
+      files: ['src/js/**/*.js'],
+      tasks: ['webpack']
     }
   };
 
@@ -54,6 +53,14 @@ module.exports = function (grunt) {
         extDot: 'last',
         ext: '.png'
       }
+    },
+
+    webpack: {
+      options: {
+        stats: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+      },
+      prod: webpackConfig,
+      dev: Object.assign({}, webpackConfig, { mode: 'development' })
     },
 
     connect: {
@@ -79,7 +86,7 @@ module.exports = function (grunt) {
     sass: {
       all: {
         src: ['src/scss/all.scss'],
-        dest: 'css/all.css'
+        dest: 'dist/all.css'
       }
     },
 
@@ -116,6 +123,6 @@ module.exports = function (grunt) {
 
 
   grunt.initConfig(config);
-  grunt.registerTask('serve', ['clean', 'sass', 'pug', 'connect', 'watch']);
-  grunt.registerTask('build', ['clean', 'sass', 'pug', 'npm-contributors']);
+  grunt.registerTask('serve', ['clean', 'webpack:dev', 'sass', 'pug', 'connect', 'watch']);
+  grunt.registerTask('build', ['clean', 'webpack:prod', 'sass', 'pug', 'npm-contributors']);
 };

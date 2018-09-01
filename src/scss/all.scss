@@ -1,8 +1,7 @@
 $primary: #b74934;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
-@import "../../node_modules/highlightjs/styles/solarized-light";
+@import "../../node_modules/highlight.js/styles/solarized-light";
 @import "./stryker/fork-me-banner";
 @import "./stryker/preview-ribbon";
-@import "./stryker/typography";
-@import "./stryker/header";
+@import "./stryker/typography";@import "./stryker/header";
