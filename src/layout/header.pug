@@ -8,5 +8,5 @@ nav.navbar.fixed-top.navbar-expand-md.navbar-dark.bg-primary
                 ul.navbar-nav
                     each val in menu.childItems
                         li.nav-item(class=   val.isActive ? 'active' : '')
-                            a.nav-link(href=val.url, title=val.name)= val.title
+                            a.nav-link(href=val.url, title=val.name)&attributes(val.attributes)= val.title
             a(href="https://github.com/stryker-mutator/stryker")#forkme_banner View me on GitHub

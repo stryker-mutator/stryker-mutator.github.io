@@ -1,11 +1,13 @@
 const fs = require('fs');
 
 class MenuItem {
-  constructor(name, title, childItems) {
+
+  constructor(name, title, childItems, options) {
     this.name = name;
     this.title = title;
     this.childItems = childItems || [];
     this.isActive = false;
+    this.options = options || {};
     this.childItems.forEach(_ => _.parent = this);
   }
 
@@ -26,15 +28,24 @@ class MenuItem {
     }
   }
 
+  get attributes() {
+    return this.options.attributes;
+  }
+
+
   get url() {
-    let url = this.name;
-    if (this.childItems.length) {
-      url += '/';
+    if (this.options.url) {
+      return this.options.url;
+    } else {
+      let url = this.name;
+      if (this.childItems.length) {
+        url += '/';
+      }
+      if (this.parent) {
+        return `${this.parent.name}/${url}`;
+      }
+      return url;
     }
-    if (this.parent) {
-      return `${this.parent.name}/${url}`;
-    }
-    return url;
   }
 }
 
@@ -56,7 +67,8 @@ const menu = new Menu([
   new MenuItem('stryker4s', 'For Scala', [new MenuItem('', 'Getting started')]),
   new MenuItem('blog', 'Blog'),
   new MenuItem('handbook', 'Handbook'),
-  new MenuItem('example', 'An example')
+  new MenuItem('example', 'An example'),
+  new MenuItem('dashboard', 'Dashboard', undefined, { url: 'https://dashboard.stryker-mutator.io', attributes: { target: '_blank'}})
 ]);
 
 const blogs = readBlogs();
@@ -68,7 +80,6 @@ module.exports = function (dest) {
     menu.activate(currentUrl);
     const viewModel = {
       name: 'Stryker',
-      tagline: 'Measure the effectiveness of JavaScript tests.',
       currentTitle: menu.activeTitle(),
       menu,
       blogs,
