@@ -62,13 +62,13 @@ class Menu extends MenuItem {
 }
 
 const menu = new Menu([
-  new MenuItem('stryker', 'For JavaScript', [new MenuItem('', 'Getting started')]),
-  new MenuItem('stryker-net', 'For C#', [new MenuItem('', 'Getting started')]),
-  new MenuItem('stryker4s', 'For Scala', [new MenuItem('', 'Getting started')]),
+  new MenuItem('stryker', 'For JavaScript', [new MenuItem('', 'Getting started')], { githubProj: 'stryker' }),
+  new MenuItem('stryker-net', 'For C#', [new MenuItem('', 'Getting started')], { githubProj: 'stryker-net' }),
+  new MenuItem('stryker4s', 'For Scala', [new MenuItem('', 'Getting started')], { githubProj: 'stryker4s' }),
   new MenuItem('blog', 'Blog'),
   new MenuItem('handbook', 'Handbook'),
   new MenuItem('example', 'An example'),
-  new MenuItem('dashboard', 'Dashboard', undefined, { url: 'https://dashboard.stryker-mutator.io', attributes: { target: '_blank'}})
+  new MenuItem('dashboard', 'Dashboard', undefined, { url: 'https://dashboard.stryker-mutator.io', attributes: { target: '_blank' } })
 ]);
 
 const blogs = readBlogs();
@@ -83,7 +83,8 @@ module.exports = function (dest) {
       currentTitle: menu.activeTitle(),
       menu,
       blogs,
-      currentBlog: currentBlog(currentUrl)
+      currentBlog: currentBlog(currentUrl),
+      githubProj: githubProj(currentUrl)
     };
     return viewModel;
   } catch (err) {
@@ -94,6 +95,18 @@ module.exports = function (dest) {
 
 function currentBlog(currentUrl) {
   return blogs.find(blog => blog.url === currentUrl);
+}
+
+function githubProj(currentUrl) {
+  if (currentUrl.startsWith('/stryker/')) {
+    return 'stryker';
+  } else if (currentUrl.startsWith('/stryker-net/')) {
+    return 'stryker-net';
+  } else if (currentUrl.startsWith('/stryker4s/')) {
+    return 'stryker4s';
+  } else {
+    return '';
+  }
 }
 
 function readBlogs() {
