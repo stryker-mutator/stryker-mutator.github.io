@@ -56,13 +56,15 @@ class Menu extends MenuItem {
   }
   activate(currentUrl) {
     const selectedMenuItems = Object.freeze(currentUrl.substr(0, currentUrl.lastIndexOf('.')).split('/'));
-    // this.menuItems.forEach(_ => _.activate(selectedMenuItems));
     super.activate(selectedMenuItems);
   }
 }
 
 const menu = new Menu([
-  new MenuItem('stryker', 'For JavaScript', [new MenuItem('', 'Getting started')]),
+  new MenuItem('stryker', 'For JavaScript', [
+    new MenuItem('index', 'Introduction'),
+    new MenuItem('getting-started', 'Getting started')
+  ]),
   new MenuItem('stryker-net', 'For C#', [new MenuItem('', 'Getting started')]),
   new MenuItem('stryker4s', 'For Scala', [new MenuItem('', 'Getting started')]),
   new MenuItem('blog', 'Blog'),

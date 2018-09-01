@@ -1,0 +1,14 @@
+extends ./layout.pug
+
+block prepend content
+    .row
+        .col-sm-4
+            each item in menu.childItems
+                if item.isActive
+                    h2=item.title
+                    ul.nav.flex-column.nav-tabs
+                      each childItem in item.childItems
+                        li.nav-item
+                            a.nav-link(class= childItem.isActive ? 'active' : '', href=childItem.url, title=childItem.name)&attributes(childItem.attributes)=childItem.title
+        .col
+            block content
