@@ -18,11 +18,11 @@ block content
                         img(src="/images/JavascriptLogo.png", alt="Stryker for JavaScript and friends", class="stryker-versions-img")
                         figcaption JavaScript and friends
                 a.col(title="Stryker for C#" href="/stryker-net/")
-                    figure
+                    figure.preview-ribbon
                         img(src="/images/CSharpLogo.png", alt="C#", class="stryker-versions-img")
                         figcaption C#
                 a.col(title="Stryker for Scala", href="/stryker4s/")
-                    figure
+                    figure.preview-ribbon
                         img(src="/images/ScalaLogo.png", alt="Stryker for Scala", class="stryker-versions-img")
                         figcaption Scala
     .row
@@ -30,7 +30,7 @@ block content
             :markdown-it
                 ## What is mutation testing?
 
-                Bugs, or *mutants*, are automatically inserted into your production code. Your tests are run for each mutant.
+                Bugs, or *mutants*, are automatically ins   d into your production code. Your tests are run for each mutant.
                 If your tests *fail* then the mutant is *killed*.
                 If your tests passed, the mutant *survived*.
                 The higher the percentage of mutants killed, the more *effective* your tests are.

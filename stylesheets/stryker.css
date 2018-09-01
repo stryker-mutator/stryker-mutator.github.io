@@ -108,3 +108,23 @@ pre{
     font-size: 14px;
     display:block;
 }
+
+.preview-ribbon:after{
+    content: "Preview";
+    position: absolute;
+    width: 100px;
+    height: 25px;
+    background: blue;
+    top: 30px;
+    right: 20px;
+    text-align: center;
+    font-size: 13px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;  
+    color: #fff;
+    line-height: 27px;
+    -ms-transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
