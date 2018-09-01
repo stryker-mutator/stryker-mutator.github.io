@@ -3,10 +3,13 @@ extends ./layout/layout.pug
 block docs-header
 
     .docs-header.jumbotron
-        .container.text-center
-            h1.title
-                img(src="/images/landingpage.png", alt="Stryker", class="stryker-img")
-            h2=tagline
+        .container
+            .row.d-flex.align-items-center
+                div.col-md-6
+                    h1.display-1 Stryker
+                    p.lead Test your tests with mutation testing. Stryker comes in three flavors to help improve your tests.
+                h1.title.col-md-6
+                    img(src="/images/landingpage.png", alt="Stryker", class="stryker-img")
 
 block content
     .row
@@ -15,7 +18,7 @@ block content
             .row
                 a.col(title="Stryker for JavaScript and friends", href="/stryker/")
                     figure
-                        img(src="/images/JavascriptLogo.png", alt="Stryker for JavaScript and friends", class="stryker-versions-img")
+                        img(src="/images/JavascriptLogo.png", alt="JavaScript", class="stryker-versions-img")
                         figcaption JavaScript and friends
                 a.col(title="Stryker for C#" href="/stryker-net/")
                     figure.preview-ribbon
@@ -23,10 +26,10 @@ block content
                         figcaption C#
                 a.col(title="Stryker for Scala", href="/stryker4s/")
                     figure.preview-ribbon
-                        img(src="/images/ScalaLogo.png", alt="Stryker for Scala", class="stryker-versions-img")
+                        img(src="/images/ScalaLogo.png", alt="Scala", class="stryker-versions-img")
                         figcaption Scala
     .row
-        .col-md-12
+        .col-md-12.mt-3
             :markdown-it
                 ## What is mutation testing?
 
@@ -109,7 +112,7 @@ block content
     .row
         .col-md-12
             h2 Features
-    .row
+    .row.mt-3
         .col-md-4.col-sm-6
             .row
                 .col-md-2.col-2.icon-box
@@ -169,7 +172,7 @@ block content
                         to sniff out surviving mutants and improve test effectiveness.
     
     .row
-        .col-md-12
+        .col-md-12.mt-3
             h2 Info Support
             :markdown-it
                 Stryker is sponsored by [Info Support](https://www.infosupport.com/). They provide our awesome swag, host Stryker hackatons and provide time for their developers to work on Stryker and other open source projects. Check them out at [opensource.infosupport.com](https://opensource.infosupport.com/).

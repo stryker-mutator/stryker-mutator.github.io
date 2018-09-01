@@ -27,13 +27,12 @@ body {
     letter-spacing: -.003em;
 }
 .docs-header {
-    padding-top: 100px;
     font-family: "Roboto";
     background-color: #E84B39;
     color: #F1C40F;
 }
 
-.docs-header h2 {
+.docs-header h2, .docs-header h1 {
     color: #F1C40F;
 }
 
@@ -48,9 +47,6 @@ img.stryker-versions-img{ max-width: 220px; padding: 20px}
 .icon-box {
     color: #B74934;
     font-size: 1.8em;
-}
-.icon-box i{
-    margin-top: 15px;
 }
 h1, h2, h3, .icon-box {
     color: #B74934;
