@@ -22,7 +22,8 @@ body {
 }
 
 .docs-header img.stryker-img {
-    max-width: 500px;
+    max-width: 100%;
+    height: auto;
 }
 
 img.stryker-versions-img { 
