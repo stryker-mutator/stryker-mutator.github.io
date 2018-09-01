@@ -1,12 +1,12 @@
-nav.navbar.fixed-top.navbar-expand-md.navbar-dark.bg-primary
-        .container    
-            button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbar", aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation")
-                span.navbar-toggler-icon
-            a.navbar-brand(href="/")
-                img(src="/images/stryker_205x205.png", alt="Stryker", width=30, height=30)
-            div#navbar.collapse.navbar-collapse
-                ul.navbar-nav
-                    each val in menu.childItems
-                        li.nav-item(class=   val.isActive ? 'active' : '')
-                            a.nav-link(href=val.url, title=val.name)&attributes(val.attributes)= val.title
-            a(href="https://github.com/stryker-mutator/stryker")#forkme_banner View me on GitHub
+nav.navbar.sticky-top.navbar-expand-md.navbar-dark.bg-primary
+    .container    
+        a.navbar-brand(href="/")
+            img(src="/images/stryker_205x205.png", alt="Stryker", width=30, height=30)
+        button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbar", aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation")
+            span.navbar-toggler-icon
+        div#navbar.collapse.navbar-collapse
+            ul.navbar-nav
+                each val in menu.childItems
+                    li.nav-item(class=   val.isActive ? 'active' : '')
+                        a.nav-link(href=val.url, title=val.name)&attributes(val.attributes)= val.title
+        a(href="https://github.com/stryker-mutator/stryker")#forkme_banner View me on GitHub
