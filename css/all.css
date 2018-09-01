@@ -6311,3 +6311,182 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+
+/*
+
+Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmail.com>
+
+*/
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #fdf6e3;
+  color: #657b83; }
+
+.hljs-comment,
+.hljs-quote {
+  color: #93a1a1; }
+
+/* Solarized Green */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-addition {
+  color: #859900; }
+
+/* Solarized Cyan */
+.hljs-number,
+.hljs-string,
+.hljs-meta .hljs-meta-string,
+.hljs-literal,
+.hljs-doctag,
+.hljs-regexp {
+  color: #2aa198; }
+
+/* Solarized Blue */
+.hljs-title,
+.hljs-section,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #268bd2; }
+
+/* Solarized Yellow */
+.hljs-attribute,
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-class .hljs-title,
+.hljs-type {
+  color: #b58900; }
+
+/* Solarized Orange */
+.hljs-symbol,
+.hljs-bullet,
+.hljs-subst,
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-link {
+  color: #cb4b16; }
+
+/* Solarized Red */
+.hljs-built_in,
+.hljs-deletion {
+  color: #dc322f; }
+
+.hljs-formula {
+  background: #eee8d5; }
+
+.hljs-emphasis {
+  font-style: italic; }
+
+.hljs-strong {
+  font-weight: bold; }
+
+#forkme_banner {
+  background: #0090ff url("../images/blacktocat.png") no-repeat scroll 95% 50%;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: block;
+  font-weight: 700;
+  padding: 10px 50px 10px 10px;
+  position: fixed;
+  right: 10px;
+  top: 0;
+  z-index: 10; }
+
+.preview-ribbon:after {
+  content: "Preview";
+  position: absolute;
+  width: 100px;
+  height: 25px;
+  background: blue;
+  top: 30px;
+  right: 20px;
+  text-align: center;
+  font-size: .7em;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  line-height: 27px;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-radius: 5px; }
+
+.gitter-chat-embed {
+  z-index: 9999; }
+
+body {
+  font-family: "Lato";
+  background-color: #FFF;
+  color: rgba(0, 0, 0, 0.84);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.58;
+  letter-spacing: -.003em; }
+
+.docs-header {
+  font-family: "Roboto";
+  background-color: #E84B39;
+  color: #F1C40F; }
+
+.docs-header h2, .docs-header h1 {
+  color: #F1C40F; }
+
+.docs-header a {
+  color: #F1C40F;
+  text-decoration: underline; }
+
+.docs-header img.stryker-img {
+  max-width: 500px; }
+
+img.stryker-versions-img {
+  max-width: 220px;
+  padding: 20px; }
+
+.icon-box {
+  color: #B74934;
+  font-size: 1.8em; }
+
+h1, h2, h3, .icon-box {
+  color: #B74934; }
+
+h1, h2, h3 {
+  font-family: "Roboto"; }
+
+.navbar-footer .navbar-text {
+  font-size: 0.7em; }
+
+.navbar-footer {
+  border-top: 1px solid; }
+
+.navbar {
+  font-size: 14px;
+  font-family: "Roboto";
+  letter-spacing: 0.075rem; }
+
+pre {
+  padding: 0;
+  text-align: left;
+  font-size: 15px; }
+
+.fa {
+  font-size: 30px; }
+
+#stryker-shirt-image img {
+  max-width: 100%;
+  width: auto;
+  height: auto; }
+
+.blog-preview p {
+  color: rgba(0, 0, 0, 0.84); }
+
+.blog-date {
+  font-size: 14px;
+  display: block; }

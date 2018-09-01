@@ -2,21 +2,6 @@
     z-index: 9999;
 }
 
-@media (min-width:768px){
-    .container{
-        width:700px 
-   }
-}
-@media (min-width:992px){
-    .container{
-        width:800px 
-   }
-}
-@media (min-width:1200px){
-    .container{
-        width:800px; 
-   }
-}
 body {
     font-family: "Lato";
     background-color: #FFF;
@@ -66,20 +51,7 @@ h1, h2, h3 {
     font-family: "Roboto";
     letter-spacing: 0.075rem;
 }
-#forkme_banner {
-    background: #0090ff url("../images/blacktocat.png") no-repeat scroll 95% 50%;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    color: #fff;
-    display: block;
-    font-weight: 700;
-    padding: 10px 50px 10px 10px;
-    position: fixed;
-    right: 10px;
-    top: 0;
-    z-index: 10;
-}
+
 pre{
     padding: 0;
     text-align: left;
@@ -103,24 +75,4 @@ pre{
 .blog-date {
     font-size: 14px;
     display:block;
-}
-
-.preview-ribbon:after{
-    content: "Preview";
-    position: absolute;
-    width: 100px;
-    height: 25px;
-    background: blue;
-    top: 30px;
-    right: 20px;
-    text-align: center;
-    font-size: 13px;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    font-weight: bold;  
-    color: #fff;
-    line-height: 27px;
-    -ms-transform:rotate(45deg);
-    -webkit-transform:rotate(45deg);
-    transform:rotate(45deg);
 }

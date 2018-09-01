@@ -63,12 +63,6 @@ module.exports = function (grunt) {
           livereload: true,
           host: 'localhost',
           hostname: 'localhost',
-          // directory: {
-          //   filter(filename, index, files, dir) {
-          //     console.log('test');
-          //   },
-          //   path
-          // },
           middleware: (_, _1, middlewares) => {
             middlewares.unshift((req, _, next) => {
               if (!req.url.endsWith('/') && req.url.indexOf('.') === -1) {
@@ -78,17 +72,14 @@ module.exports = function (grunt) {
             });
             return middlewares;
           }
-
-          //   return middlewares;
-          // },
         }
       }
     },
 
     sass: {
-      bootstrap: {
-        src: ['src/scss/custom.scss'],
-        dest: 'css/bootstrap.css'
+      all: {
+        src: ['src/scss/all.scss'],
+        dest: 'css/all.css'
       }
     },
 
