@@ -13,40 +13,41 @@ body {
 }
 .docs-header {
     font-family: "Roboto";
-    background-color: #E84B39;
-    color: #F1C40F;
+    background-color: $primary;
+    color: $accent;
 }
 
 .docs-header h2, .docs-header h1 {
-    color: #F1C40F;
+    color: $accent;
 }
 
-.docs-header a {
-    color: #F1C40F;
-    text-decoration: underline;
-}
 .docs-header img.stryker-img {
     max-width: 500px;
 }
-img.stryker-versions-img{ max-width: 220px; padding: 20px}
+
+img.stryker-versions-img { 
+    max-width: 220px; 
+    padding: 20px
+}
+
 .icon-box {
-    color: #B74934;
     font-size: 1.8em;
 }
+
 h1, h2, h3, .icon-box {
-    color: #B74934;
-}
-h1, h2, h3 {
+    color: $secondary;
     font-family: "Roboto";
 }
-.navbar-footer .navbar-text{
+
+.navbar-footer .navbar-text {
     font-size: 0.7em;
 }
-.navbar-footer{
+
+.navbar-footer {
     border-top: 1px solid;
 }
 
-pre{
+pre {
     padding: 0;
     text-align: left;
     font-size: 15px;
@@ -55,12 +56,6 @@ pre{
 .fa {
     font-size: 30px;
 }
-#stryker-shirt-image img {
-    max-width: 100%;
-    width: auto;
-    height: auto;
-}
-
 
 .blog-preview p {
     color: rgba(0, 0, 0, 0.84);
