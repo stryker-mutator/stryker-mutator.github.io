@@ -46,5 +46,26 @@ self.addEventListener('activate', e => {
 // Call Fetch Event
 self.addEventListener('fetch', e => {
   console.log('Service Worker: Fetching');
-  e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
+  e.respondWith(
+    caches.match(e.request).then(response => {
+      // Cache hit - return response
+      if(response) {
+        return response;
+      }
+
+      const fetchRequest = e.request.clone();
+      return fetch(fetchRequest).then(response => {
+        if(!response || response.status !== 200 || response.type !== 'basic') {
+          return response;
+        }
+        const responseToCache = response.clone();
+
+        caches.open(cacheName).then(cache => {
+          cache.put(e.request, responseToCache);
+        });
+
+        return response;
+      }).catch(e => console.log("Failed to fetch"));
+    })
+  );
 });
