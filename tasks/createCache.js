@@ -1,5 +1,50 @@
-const cacheName = '0.0.0';
-const cacheAssets = ['/blog/2016-12-30/stryker-0-5-5.html', '/blog/2017-01-01/happy-new-stryker.html', '/blog/2017-01-17/introduction-to-mutation-testing.html', '/blog/2017-02-21/stryker-weekend.html', '/blog/2017-06-10/stryker-0-6-4.html', '/blog/2017-07-14/road-to-stryker-1-0.html', '/blog/2017-08-11/stryker-0-8-0.html', '/blog/2017-10-06/typescript-support.html', '/blog/2017-10-28/new-html-report.html', '/blog/2017-12-01/babel-support.html', '/blog/2018-01-10/typescript-coverage-analysis-support.html', '/blog/2018-01-26/webpack-support.html', '/blog/2018-02-08/get-your-mutation-score-badge-now.html', '/blog/2018-04-04/use-git-to-select-files.html', '/blog.html', '/dist/all.bundle.js', '/dist/all.css', '/example.html', '/faq.html', '/handbook.html', '/index.html', '/mutators.html', '/plugins.html', '/quickstart.html', '/src/blog/2017-10-28/new-html-report.pug', '/stryker/home.html', '/stryker/index.html', '/stryker-net/index.html', '/stryker4s/index.html', '/technical-reference.html'];
+const fs = require('fs');
+const path = require('path');
+
+let packageJSON = require('../package.json');
+
+const root = path.join(__dirname, '..');
+
+/**
+ * @param { String } v
+ * @returns { String } bumped version
+ */
+function versionBump(v) {
+  v = v.split('.');
+  v[2]++;
+  return v.join('.');
+}
+
+const version = versionBump(packageJSON.version);
+
+packageJSON.version = version;
+packageJSON = JSON.stringify(packageJSON, null, 2);
+
+/**
+ * @param { string } dir
+ * @param { Array } filelist
+ * @returns { Array } all html files, all.css and all.bundle.js
+ */
+const walkSync = (dir, filelist = []) => {
+  fs.readdirSync(dir).forEach(file => {
+    const isDirectory = fs.statSync(path.join(dir, file)).isDirectory();
+    if (isDirectory && file !== 'node_modules') {
+      filelist = walkSync(path.join(dir, file), filelist);
+    } else if (!isDirectory && file.match(/.html|all.bundle.js|all.css/)) {
+      filelist = filelist.concat(path.join(dir, file).replace(root, '').replace(/\\/gu, '/'));
+    }
+  });
+  return filelist;
+};
+
+/**
+ * @param { String } v
+ * @param { Array } f
+ * @returns { String } sw.js data
+ */
+function write(v, f) {
+return `const cacheName = "${v}";
+const cacheAssets = ${JSON.stringify(f)}
 self.addEventListener('install', e => {
   console.log('Service Worker: Installed');
 
@@ -54,3 +99,10 @@ self.addEventListener('fetch', e => {
     })
   );
 });
+`;
+}
+
+const template = write(version, walkSync(root));
+console.log(template);
+fs.writeFileSync(path.join(__dirname, '..', 'sw.js'), template, 'utf-8');
+fs.writeFileSync(path.join(__dirname, '..', 'package.json'), packageJSON, 'utf-8');

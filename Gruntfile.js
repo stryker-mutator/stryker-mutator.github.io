@@ -60,7 +60,7 @@ module.exports = function (grunt) {
         stats: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
       },
       prod: webpackConfig,
-      dev: Object.assign({}, webpackConfig, { mode: 'development' })
+      dev: { ...webpackConfig, mode: 'development' }
     },
 
     connect: {
@@ -95,7 +95,7 @@ module.exports = function (grunt) {
         options: {
           data: require('./src/fillViewModel.js'),
           filters: { // Add markdown-it-named-headers as plugin
-            'markdown-it': function (text, options) {
+            'markdown-it': function (text) {
               return md.render(text, {
                 plugins: ['markdown-it-named-headers'],
                 html: true
