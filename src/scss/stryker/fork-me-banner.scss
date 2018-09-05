@@ -1,9 +1,9 @@
 #forkme_banner {
-    background: #0090ff no-repeat scroll 95% 50%;
+    background: $blue no-repeat scroll 95% 50%;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    color: #fff;
+    color: $white;
     display: block;
     font-weight: 700;
     padding: 10px;
@@ -15,7 +15,7 @@
 
 #forkme_banner i {
     font-size: 25px;
-    margin-left: 5px;
+    margin: 0px 5px;
 }
 
 #forkme_banner:hover {
