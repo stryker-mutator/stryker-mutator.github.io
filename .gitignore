@@ -1,1 +1,5 @@
 node_modules
+/stryker
+/stryker-net
+/stryker4s
+/example.html

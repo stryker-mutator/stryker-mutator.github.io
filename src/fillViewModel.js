@@ -75,7 +75,10 @@ const menu = new Menu([
     new MenuItem('plugins', 'Plugins'),
     new MenuItem('handbook', 'Handbook')
   ]),
-  new MenuItem('stryker-net', 'For C#', [new MenuItem('', 'Getting started')]),
+  new MenuItem('stryker-net', 'For C#', [
+    new MenuItem('index', 'Introduction'),
+    new MenuItem('quickstart', 'Quickstart')
+  ]),
   new MenuItem('stryker4s', 'For Scala', [new MenuItem('', 'Getting started')]),
   new MenuItem('blog', 'Blog'),
   new MenuItem('handbook', 'Handbook', null, { url: 'https://github.com/stryker-mutator/stryker-handbook#readme', attributes: { target: '_blank' } }),
