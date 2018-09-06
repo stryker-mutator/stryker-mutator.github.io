@@ -6,8 +6,7 @@
   "scripts": {
     "start": "grunt serve",
     "test": "grunt build",
-    "build": "grunt build && npm run cache",
-    "cache": "node ./tasks/createCache.js",
+    "build": "grunt build",
     "sdedit": "sdedit run src/diagrams/1.lifecycle.sd src/diagrams/2.initial-test-run.sd src/diagrams/3.mutation-test.sd src/diagrams/4.run-test.sd"
   },
   "repository": {
