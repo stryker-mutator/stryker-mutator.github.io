@@ -4,7 +4,8 @@ $accent: #F1C40F;
 $code-color: $secondary;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
-@import "../../node_modules/highlight.js/styles/solarized-light";
+@import "../../node_modules/highlight.js/styles/xcode";
+@import "./stryker/container-fix.scss";
 @import "./stryker/fork-me-banner";
 @import "./stryker/preview-ribbon";
 @import "./stryker/typography";

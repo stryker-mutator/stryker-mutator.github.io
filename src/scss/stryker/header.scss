@@ -8,3 +8,10 @@
     font-family: "Roboto";
     letter-spacing: 0.075rem;
 }
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    &:hover {
+        color: #fff;
+    }
+}
