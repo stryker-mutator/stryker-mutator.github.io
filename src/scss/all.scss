@@ -1,8 +1,7 @@
 $primary: #E84B39;
 $secondary: #b74934;
 $accent: #F1C40F;
-
-$enable-rounded: false;
+$code-color: $secondary;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/highlight.js/styles/xcode";
@@ -12,3 +11,4 @@ $enable-rounded: false;
 @import "./stryker/typography";
 @import "./stryker/header";
 @import "./stryker/fix-collapse-animation";
+@import "./stryker/sticky-top"

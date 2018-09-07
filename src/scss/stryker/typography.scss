@@ -15,6 +15,7 @@ body {
     font-family: "Roboto";
     background-color: $primary;
     color: $accent;
+    border-radius: 0px;
 }
 
 .docs-header h2, .docs-header h1 {
@@ -65,6 +66,10 @@ pre {
 }
 
 .blog-date {
-    font-size: 14px;
+    font-size: $font-size-sm;
     display:block;
+}
+
+code {
+    border-radius: 5px;
 }

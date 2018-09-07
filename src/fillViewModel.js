@@ -19,10 +19,19 @@ class MenuItem {
     this.childItems.forEach(_ => _.activate(selectedMenuItems));
   }
 
-  activeTitle() {
+  get fullTitle() {
     const activeChild = this.childItems.find(_ => _.isActive);
     if (activeChild) {
-      return `${activeChild.activeTitle()} - ${this.title}`;
+      return `${activeChild.fullTitle} - ${this.title}`;
+    } else {
+      return this.title;
+    }
+  }
+
+  get activeTitle() {
+    const activeChild = this.childItems.find(_ => _.isActive);
+    if (activeChild) {
+      return activeChild.activeTitle;
     } else {
       return this.title;
     }
@@ -31,7 +40,6 @@ class MenuItem {
   get attributes() {
     return this.options.attributes;
   }
-
 
   get url() {
     if (this.options.url) {
@@ -42,7 +50,7 @@ class MenuItem {
         url += '/';
       }
       if (this.parent) {
-        return `${this.parent.name}/${url}`;
+        url = `${this.parent.url}${url}`;
       }
       return url;
     }
@@ -56,17 +64,24 @@ class Menu extends MenuItem {
   }
   activate(currentUrl) {
     const selectedMenuItems = Object.freeze(currentUrl.substr(0, currentUrl.lastIndexOf('.')).split('/'));
-    // this.menuItems.forEach(_ => _.activate(selectedMenuItems));
     super.activate(selectedMenuItems);
   }
 }
 
 const menu = new Menu([
-  new MenuItem('stryker', 'For JavaScript', [new MenuItem('', 'Getting started')]),
-  new MenuItem('stryker-net', 'For C#', [new MenuItem('', 'Getting started')]),
+  new MenuItem('stryker', 'For JavaScript', [
+    new MenuItem('index', 'Introduction'),
+    new MenuItem('quickstart', 'Quickstart'),
+    new MenuItem('plugins', 'Plugins'),
+    new MenuItem('handbook', 'Handbook')
+  ]),
+  new MenuItem('stryker-net', 'For C#', [
+    new MenuItem('index', 'Introduction'),
+    new MenuItem('quickstart', 'Quickstart')
+  ]),
   new MenuItem('stryker4s', 'For Scala', [new MenuItem('', 'Getting started')]),
   new MenuItem('blog', 'Blog'),
-  new MenuItem('handbook', 'Handbook'),
+  new MenuItem('handbook', 'Handbook', null, { url: 'https://github.com/stryker-mutator/stryker-handbook#readme', attributes: { target: '_blank' } }),
   new MenuItem('example', 'An example'),
   new MenuItem('dashboard', 'Dashboard', undefined, { url: 'https://dashboard.stryker-mutator.io', attributes: { target: '_blank' } })
 ]);
@@ -80,7 +95,6 @@ module.exports = function (dest) {
     menu.activate(currentUrl);
     const viewModel = {
       name: 'Stryker',
-      currentTitle: menu.activeTitle(),
       menu,
       blogs,
       currentBlog: currentBlog(currentUrl),

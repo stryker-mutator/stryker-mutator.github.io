@@ -1,0 +1,64 @@
+extends ../layout/section-layout.pug
+
+block content
+    section.row
+        .col-md-12
+            :markdown-it
+                Install Stryker using [NuGet](https://nodejs.org).
+    section.row
+        .col-md-12
+            h3 #[span.badge.badge-primary 1] Install
+            :markdown-it
+                To install Stryker.NET on your test project add the following lines to the root of your .csproj file. on your test project.
+
+                ```
+                <ItemGroup>
+                    <DotNetCliToolReference Include="StrykerMutator.DotNetCoreCli" Version="*" />
+                    <PackageReference Include="StrykerMutator.DotNetCoreCli" Version="*" />
+                </ItemGroup>
+                ```
+                After adding the references, install the packages by executing dotnet restore inside the project folder.
+
+                ```
+                dotnet restore 
+                ```
+            hr/
+    section.row
+        .col-md-12
+            h3 #[span.badge.badge-primary 2] Let's kill some mutants
+            p Run Stryker.NET to mutation test your project
+            pre.stryker-install
+                code 
+                    | dotnet stryker
+            hr/
+    section.row
+        .col-md-12
+            h3 #[span.badge.badge-primary 3] Configure
+            :markdown-it
+                Stryker will always look for a `stryker-config.json` file in the root of the test project. When found it will use the parameters in the file.
+
+                ```js
+                {
+                    "stryker-config":
+                    {
+                        "reporter":"Console",
+                        "logConsole":"info",
+                        "timeoutMS":10000,
+                        "logFile":true,
+                        "projectName":"ExampleProject.csproj"
+                    }
+                }
+                ```
+                Al the arguments in the configuration are optional. 
+                
+                ### Note
+                In some cases Stryker cannot run without the `projectName` argument. Specify the name of the referenced project that should be mutated here. Stryker can only mutate one project in a single run. When it finds more references it will use the name in `projectName` to find the one project to mutate.
+
+                For more information on what these options mean, take a look at the [Stryker.NET readme](https://github.com/stryker-mutator/stryker-net/blob/master/src/Stryker.CLI/README.md)
+
+                ### Console
+                All arguments can also be passed through the console.
+                ```
+                dotnet stryker --logConsole debug
+                ```
+                 Arguments both assigned in the config file and the console will use the value assigned in the console.
