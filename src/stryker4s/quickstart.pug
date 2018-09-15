@@ -1,0 +1,42 @@
+extends ../layout/section-layout.pug
+
+block content
+    section.row
+        .col-md-12
+            :markdown-it
+                Install Stryker4s by clone the [Stryker4s repository](https://github.com/stryker-mutator/stryker4s)
+    section.row
+        .col-md-12
+            h3 #[span.badge.badge-primary 1] Prepare
+            :markdown-it
+                Make sure you have Java installed. Open a terminal / command prompt and change directory to the Stryker4s repository. 
+    section.row
+        .col-md-12
+            h3 #[span.badge.badge-primary 3] Configure
+            :markdown-it
+                After cloning the repository, create a `stryker4s.conf` file in the root of the Stryker4s repository. 
+                The configuration below contains a good starting point to run Stryker4s with the command test-runner. 
+                You will have to edit the `base-dir` to match the codebase you want to mutate. 
+                Also, make sure the `test-runner` is configured with the commands you need to run your unit tests.
+                
+                ```hocon
+                    stryker4s {
+                      files: [
+                        "foo/bar/src/main/**/*.scala"
+                      ]
+                       base-dir: "/tmp/project"
+                       log-level: INFO
+                       test-runner: {
+                        type=commandrunner
+                        command: "sbt"
+                        args: "test"
+                      }
+                       reporters: ["console"]
+                    }
+                ```
+    section.row
+        .col-md-12
+            h3 #[span.badge.badge-primary 3] Let's kill some mutants
+            :markdown-it
+                Stryker will run based on the given configuration in the `stryker4s.conf`. 
+                Running stryker now is easy, just do a simpel `sbt run` and Stryker4s will (hopefully) kill the mutants! 
