@@ -37,17 +37,6 @@ module.exports = function (grunt) {
       html: ['generated-root']
     },
     watch: watchConfig,
-    sdedit: {
-      sequence: {
-        expand: true,
-        cwd: 'src',
-        src: ['**/*.sd'],
-        dest: 'images',
-        extDot: 'last',
-        ext: '.png'
-      }
-    },
-
     webpack: {
       options: {
         stats: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
