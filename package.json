@@ -8,7 +8,7 @@
     "test": "grunt build",
     "build": "grunt build",
     "prerelease": "npm run build",
-    "release": "echo 'should be releasing.... now'"
+    "release": "node tasks/publish.js"
   },
   "repository": {
     "type": "git",
