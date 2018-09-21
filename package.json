@@ -6,8 +6,7 @@
   "scripts": {
     "start": "grunt serve",
     "test": "grunt build",
-    "build": "grunt build",
-    "sdedit": "sdedit run src/diagrams/1.lifecycle.sd src/diagrams/2.initial-test-run.sd src/diagrams/3.mutation-test.sd src/diagrams/4.run-test.sd"
+    "build": "grunt build"
   },
   "repository": {
     "type": "git",
@@ -50,6 +49,7 @@
     "Alex van Assem <avassem@gmail.com>",
     "Maarten Mulders <mthmulders@users.noreply.github.com>",
     "Hugo van Rijswijk <hugo.v.rijswijk@gmail.com>",
+    "Legopiraat <gijs.venne@hotmail.com>",
     "Philipp Weissenbacher <philipp.weissenbacher@gmail.com>",
     "Simon de Lang <Simon.DeLang@infosupport.com>",
     "Gianfrancø Palumbo <gianpaj@users.noreply.github.com>",
@@ -59,7 +59,6 @@
     "Bartosz Leoniak <bartosz.leoniak@wp.pl>",
     "Cristiano Mazzarini <mazzcris@users.noreply.github.com>",
     "Jelle Peters <JellePetersHAN@users.noreply.github.com>",
-    "Legopiraat <gijs.venne@hotmail.com>",
     "Maarten Mulders <m.th.mulders@xs4all.nl>",
     "Peter <peter.fessel@live.de>",
     "legopiraat <3492598+legopiraat@users.noreply.github.com>",
