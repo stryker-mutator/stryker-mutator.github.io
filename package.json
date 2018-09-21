@@ -6,7 +6,9 @@
   "scripts": {
     "start": "grunt serve",
     "test": "grunt build",
-    "build": "grunt build"
+    "build": "grunt build",
+    "prerelease": "npm run build",
+    "release": "echo 'should be releasing.... now'"
   },
   "repository": {
     "type": "git",
