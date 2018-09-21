@@ -19,24 +19,31 @@ block content
                 You will have to edit the `base-dir` to match the codebase you want to mutate. 
                 Also, make sure the `test-runner` is configured with the commands you need to run your unit tests.
                 
-                ```hocon
-                    stryker4s {
-                      files: [
-                        "foo/bar/src/main/**/*.scala"
-                      ]
-                       base-dir: "/tmp/project"
-                       log-level: INFO
-                       test-runner: {
-                        type=commandrunner
-                        command: "sbt"
-                        args: "test"
-                      }
-                       reporters: ["console"]
-                    }
+                ```
+                stryker4s {
+                  files: [
+                    "foo/bar/src/main/**/*.scala"
+                  ]
+                   base-dir: "/tmp/project"
+                   log-level: INFO
+                   test-runner: {
+                    type: commandrunner
+                    command: "sbt"
+                    args: "test"
+                  }
+                   reporters: ["console"]
+                }
                 ```
     section.row
         .col-md-12
             h3 #[span.badge.badge-primary 3] Let's kill some mutants
             :markdown-it
                 Stryker will run based on the given configuration in the `stryker4s.conf`. 
-                Running stryker now is easy, just do a simpel `sbt run` and Stryker4s will (hopefully) kill the mutants! 
+                Running stryker now is easy, just do a simpel `sbt run` and Stryker4s will (hopefully) kill the mutants!
+
+    section.row
+        .col-md-12
+            h3 #[span.badge.badge-primary 4] Having trouble? 
+            :markdown-it
+                Having troubles? Try enabling debug logging by adding log-level: 'debug' to your `stryker4s.conf`.
+                If you are having issues please let us know by [reporting an issue](https://github.com/stryker-mutator/stryker4s/issues/new) or talk to us on [Gitter](https://gitter.im/stryker-mutator/stryker4s).
