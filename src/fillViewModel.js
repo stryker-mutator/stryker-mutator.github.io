@@ -86,8 +86,8 @@ const menu = new Menu([
 
   ]),
   new MenuItem('blog', 'Blog'),
-  new MenuItem('handbook', 'Handbook', null, { url: 'https://github.com/stryker-mutator/stryker-handbook#readme', attributes: { target: '_blank' } }),
   new MenuItem('example', 'An example'),
+  new MenuItem('handbook', 'Handbook', null, { url: 'https://github.com/stryker-mutator/stryker-handbook#readme', attributes: { target: '_blank' } }),
   new MenuItem('dashboard', 'Dashboard', undefined, { url: 'https://dashboard.stryker-mutator.io', attributes: { target: '_blank' } })
 ]);
 
