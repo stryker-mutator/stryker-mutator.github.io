@@ -153,6 +153,7 @@ function readBlogs() {
 }
 
 function getCurrentUrl(dest) {
+  dest = dest.replace('generated-root/', '');
   if (dest === 'index.html') {
     return '/';
   } else {

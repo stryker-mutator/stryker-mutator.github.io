@@ -9,11 +9,10 @@ const mkdirpAsPromised = promisify(mkdirp);
 
 module.exports = function (grunt) {
   grunt.registerMultiTask('sass', 'compile sass', function () {
-    let done = this.async(),
-      promises;
+    let done = this.async();
     mkdirpAsPromised(path.dirname(this.data.dest))
       .then(() => Promise.all(this.filesSrc.map((file) =>
-        renderAsPromised({ file })
+        renderAsPromised({ file, outFile: this.data.dest })
           .then(({ css }) => writeFileAsPromised(this.data.dest, css))
           .then(() => grunt.log.ok(`Written ${this.data.dest}`))
       )))

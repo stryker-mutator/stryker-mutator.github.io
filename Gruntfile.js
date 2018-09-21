@@ -34,8 +34,7 @@ module.exports = function (grunt) {
 
   const config = {
     clean: {
-      html: ['*.html', 'blog/**/*.html'],
-      blog: 'blog'
+      html: ['generated-root']
     },
     watch: watchConfig,
     sdedit: {
@@ -61,6 +60,7 @@ module.exports = function (grunt) {
       server: {
         options: {
           open: true,
+          base: ['root', 'generated-root'],
           livereload: true,
           host: 'localhost',
           hostname: 'localhost',
@@ -80,7 +80,7 @@ module.exports = function (grunt) {
     sass: {
       all: {
         src: ['src/scss/all.scss'],
-        dest: 'dist/all.css'
+        dest: 'generated-root/css/all.css'
       }
     },
 
@@ -102,7 +102,7 @@ module.exports = function (grunt) {
 
         cwd: 'src',
         src: ['**/*.pug', '!layout/*.pug'],
-        dest: './',
+        dest: 'generated-root',
         ext: '.html',
         expand: true
       }
