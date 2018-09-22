@@ -7,7 +7,6 @@
     "start": "grunt serve",
     "test": "grunt build",
     "build": "grunt build",
-    "prerelease": "npm run build",
     "release": "node tasks/publish.js"
   },
   "repository": {
