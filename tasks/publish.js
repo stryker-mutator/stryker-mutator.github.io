@@ -23,7 +23,7 @@ function sh(command) {
 }
 
 function copy(from, to) {
-  log(`Copying ${from}...`);
+  log(`Copying ${from} -> ${to}...`);
   return new Promise((res, rej) => {
     ncp(from, to, function (err) {
       if (err) {
@@ -67,9 +67,10 @@ async function publish() {
         throw new Error(`Working directory is not clean${EOL}${gitStatus}`);
       }
       await sh('npx grunt build');
+      await copy('root', 'out');
+      await copy('generated-root', 'out');
       await sh('git checkout master');
-      await copy('root', '.');
-      await copy('generated-root', '.');
+      await copy('out', '.');
       await rm('.@(bithoundrc|editorconfig)');
       await rm('@(src|generated-root|root)');
       await rm('@(package.json|package-lock.json|webpack.config.js|Gruntfile.js)');
