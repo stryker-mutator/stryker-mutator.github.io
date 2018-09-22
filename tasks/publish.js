@@ -67,6 +67,7 @@ async function publish() {
         throw new Error(`Working directory is not clean${EOL}${gitStatus}`);
       }
       await sh('npx grunt build');
+      await sh('git add package.json'); // the grunt contributors task changes newlines for some reason
       await copy('root', 'out');
       await copy('generated-root', 'out');
       await sh('git checkout master');
