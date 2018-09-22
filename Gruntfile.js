@@ -1,8 +1,6 @@
 const markdownIt = require('./tasks/markdown-it');
 const webpackConfig = require('./webpack.config');
 
-const sass = require('./tasks/grunt-sass');
-
 
 module.exports = function (grunt) {
 
