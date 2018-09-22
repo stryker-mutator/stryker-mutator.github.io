@@ -1,5 +1,8 @@
-const md = require('jstransformer')(require('jstransformer-markdown-it'));
+const markdownIt = require('./tasks/markdown-it');
 const webpackConfig = require('./webpack.config');
+
+const sass = require('./tasks/grunt-sass');
+
 
 module.exports = function (grunt) {
 
@@ -63,14 +66,8 @@ module.exports = function (grunt) {
       compile: {
         options: {
           data: require('./src/fillViewModel.js'),
-          filters: { // Add markdown-it-named-headers as plugin
-            'markdown-it': function (text) {
-              return md.render(text, {
-                plugins: ['markdown-it-named-headers'],
-                html: true
-              }).body;
-            }
-
+          filters: { 
+            'markdown-it': markdownIt
           }
         },
         pretty: true,
