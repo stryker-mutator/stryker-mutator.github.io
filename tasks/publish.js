@@ -71,9 +71,7 @@ async function publish() {
       await copy('generated-root', 'out');
       await sh('git checkout master');
       await copy('out', '.');
-      await rm('.@(bithoundrc|editorconfig)');
-      await rm('@(src|generated-root|root)');
-      await rm('@(package.json|package-lock.json|webpack.config.js|Gruntfile.js)');
+      await rm('out');
       await sh('git add .');
       await sh('git commit -m "Publish"');
       await sh('git push');
