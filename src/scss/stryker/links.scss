@@ -1,0 +1,7 @@
+a[target="_blank"]:after {
+    content: ' 🗗';
+}
+
+.navbar-nav a:after { 
+    content: '';
+}
