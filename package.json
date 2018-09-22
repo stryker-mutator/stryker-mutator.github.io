@@ -43,7 +43,9 @@
     "jstransformer-markdown-it": "^2.0.0",
     "markdown-it-named-headers": "0.0.4",
     "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
     "node-sass": "^4.9.3",
+    "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
     "webpack": "^4.19.1"
   },
