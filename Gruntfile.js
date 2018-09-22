@@ -1,8 +1,6 @@
 const md = require('jstransformer')(require('jstransformer-markdown-it'));
 const webpackConfig = require('./webpack.config');
 
-const sass = require('./tasks/grunt-sass');
-
 module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-pug');
@@ -11,22 +9,17 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-npm');
-  sass(grunt);
 
   const watchConfig = {
     options: {
       livereload: true
-    },
-    sass: {
-      files: ['src/**/*.scss'],
-      tasks: ['sass']
     },
     pug: {
       files: ['src/**/*.pug', 'src/**/*.js', 'src/**/*.json'],
       tasks: ['pug']
     },
     webpack: {
-      files: ['src/js/**/*.js'],
+      files: ['src/js/**/*.js', 'src/scss/**/*.scss', 'webpack.config.js'],
       tasks: ['webpack:dev']
     }
   };
@@ -66,13 +59,6 @@ module.exports = function (grunt) {
       }
     },
 
-    sass: {
-      all: {
-        src: ['src/scss/all.scss'],
-        dest: 'generated-root/css/all.css'
-      }
-    },
-
     pug: {
       compile: {
         options: {
@@ -106,6 +92,6 @@ module.exports = function (grunt) {
 
 
   grunt.initConfig(config);
-  grunt.registerTask('serve', ['clean', 'webpack:dev', 'sass', 'pug', 'connect', 'watch']);
-  grunt.registerTask('build', ['clean', 'webpack:prod', 'sass', 'pug', 'npm-contributors']);
+  grunt.registerTask('serve', ['clean', 'webpack:dev', 'pug', 'connect', 'watch']);
+  grunt.registerTask('build', ['clean', 'webpack:prod', 'pug', 'npm-contributors']);
 };
