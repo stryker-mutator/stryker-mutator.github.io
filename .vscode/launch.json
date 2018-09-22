@@ -9,6 +9,12 @@
             "args": [
                 "pug"
             ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Publish",
+            "program": "${workspaceFolder}/tasks/publish"
         }
     ]
 }
