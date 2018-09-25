@@ -20,14 +20,15 @@ block content
             }
         }
         ```
-        If we follow the transform, compile, test and collect the results step base approach we would have to compile our code three times. 
+        If we apply the mutation one by one we would need to compile the code base three times. 
         If we assume the compile time of this program is 10 seconds, we already have 30 seconds of compile time for one full mutation run. 
         This would quickly get out of hand when the code base is bigger and has more mutations available.
         
         ## Mutation switching
         Mutation switching to the rescue! So how is mutation switching faster than compiling each mutation on its own? 
         The steps are quite similar but have some minor differences. First, All possible mutations are identified for the whole code base. 
-        Secondly, all mutations are applied to the code base using a [Scala Pattern match](https://docs.scala-lang.org/tour/pattern-matching.html). 
+        Secondly, all mutations are applied to the code base using a [Scala Pattern match](https://docs.scala-lang.org/tour/pattern-matching.html) 
+        with the original satement in the default case, and activated using environment variables.
         If we look at the same code example as used previously we would get the following code base after the mutations are applied. 
     
         ```scala
@@ -51,7 +52,7 @@ block content
         but because of the increased size of the code base the compilation time will be a bit longer but that does not way up 
         against the full recompilation as before. If the compilation time for the code base would be 15 seconds we will still 
         gain 15 seconds which is already a significant performance booster. So we gained a lot of performance without losing any 
-        flexibility because of the ability to turn mutations on and off. 
+        flexibility because of the ability to turn mutations on and off using the environment variable. 
         
         ## Top statements
         With mutation switching, we reduced compilation times by a lot but soon noticed there was one more problem to tackle. 
@@ -70,7 +71,7 @@ block content
             .filterNot(_.equals(specialNumber))
         }
         ```
-         With this code base `filter` and `filterNot` could be mutated to there counterparts. 
+        With this code base `filter` and `filterNot` could be mutated to there counterparts. 
         This would give us the following code base if we implement the pattern match at the direct position. 
         ```scala
         def isEven(number: Int): Boolean = number % 2 == 0
@@ -90,7 +91,7 @@ block content
         }
         ```
         As you can see it's already a lot more complicated and the code doesn't even compile! 
-        To reduce a lot of complexity and make the code actually compile we need to take a deeper look in the abstract syntax tree 
+        To reduce a lot of the complexity and make the code actually compile we need to take a deeper look in the abstract syntax tree 
         and find the corresponding top statements which is `numbers` in our case. If we implement mutation switching using top statements
         we can reduce the code complexity and generate the following code. 
         ```Scala
@@ -107,9 +108,9 @@ block content
           }
         }
         ```
-        This enables us to get clean, readable pattern matches and avoid the compilation errors. 
+        This enables us to get clean, readable pattern matches and avoid compilation errors like we've seen before. 
         
         ## Conclusion
-        With the combination of mutation switching and traversing back to the stop statements Stryker4s is able to apply mutations to the codebase 
+        With the combination of mutation switching and traversing back to the top statements Stryker4s is able to apply mutations to the codebase 
         in a clean and understandable fashion and keep the chances of compilation errors to a minimum. 
-        We hope this gave some cool insights into Stryker and happy mutating! 
+        We hope this blog gave some insights on how Stryker4s and Stryker.Net apply mutats into your code, happy mutating! 
