@@ -5,13 +5,13 @@ block content
 
         As you might have noticed, we've redesigned [our website](/). It is focussed to help you get started on the platform of choice. 
 
-        * [Get started with Stryker.NET](/stryker-net/quickstart)
-        * [Get started with Stryker4s](/stryker4s/quickstart)
+        * [Get started with Stryker.NET](/stryker-net/quickstart) (preview)
+        * [Get started with Stryker4s](/stryker4s/quickstart) (preview)
         * [Get started with Stryker](/stryker/quickstart) (for JavaScript / TypeScript)
 
         ## New platforms
 
-        As you might know, both C# and Scala run on entirely different platforms compared to Stryker (which runs on NodeJS) does. This is the main reason we decided to implement them as
+        As you might know, both C# and Scala run on entirely different platforms compared to Stryker (which runs on NodeJS). This is the main reason we decided to implement them as
         separate frameworks. [Stryker.NET](/stryker-net) is written in C# and runs as a .NET Core application, while [Stryker4s](/stryker4s) is written in Scala and runs on the JVM (Java Virtual Machine).
         As of now, a version of Stryker.NET can be found on nuget.org, the package manager for the .NET platform. In due time, Stryker4s can be found on Maven Central.
 
@@ -39,17 +39,20 @@ block content
         Though the 3 frameworks have their own code base, there are actually a lot of points on which we're planning to collaborate.
 
         * **One vocabulary**\
-          Terms like _mutant_, _survived_ and _mutator_ will mean the same across versions. We will even share the names
-          of the mutators, see [the supported mutators in our handbook](https://github.com/stryker-mutator/stryker-handbook/blob/master/mutator-types.md#supported-mutators)
+          Terms like _mutant_, _survived_ and _mutator_ will mean the same across platforms. We will even share the names
+          for the mutators, see [the supported mutators in our handbook](https://github.com/stryker-mutator/stryker-handbook/blob/master/mutator-types.md#supported-mutators)
           for a comprehensive list of supported mutators.
+        * **One website**\
+          We'll keep things together with [one website](/). This will help visibility for all platforms and keep things simple for our users.
         * **One html reporter**\
-          We're redesigning our html report as [HTML 5 web components](https://www.webcomponents.org/). Interested to help? Please let us know! [github repository here](https://github.com/stryker-mutator/mutation-testing-elements).
+          We're redesigning our html report as [HTML 5 web components](https://www.webcomponents.org/). It really is it's own thing and might even be used for other mutation testing frameworks out there.
+          Interested to help? Please let us know! [Github repository here](https://github.com/stryker-mutator/mutation-testing-elements).
         * **One dashboard**\
           We're planning on supporting our [mutation testing dashboard](https://dashboard.stryker-mutator.io) for all 3 implementations.
 
-        ## What about good old Stryker (for JavaScript and friends)?
+        ## What about good old Stryker?
 
-        You might wonder what this all means for Stryker. Well, not much. The core developers are still here, focussed as ever. 
+        You might wonder what this all means for Stryker (for JavaScript and friends). Well, not much. The core developers are still here, focussed as ever. 
         We're still focussing on getting the 1.0 release out there for you.
         We had to invest some time in the overhead of setting this all up, but it will result in better and more complete frameworks in the end.
         
