@@ -4,15 +4,16 @@
     "cSpell.enabledLanguageIds": [
         "csharp",
         "go",
+        "jade",
         "javascript",
         "javascriptreact",
+        "json",
         "markdown",
         "php",
         "plaintext",
         "text",
         "typescript",
         "typescriptreact",
-        "yml",
-        "jade"
+        "yml"
     ]
 }
