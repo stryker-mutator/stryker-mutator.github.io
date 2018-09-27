@@ -1,3 +1,4 @@
+const path = require('path');
 const fs = require('fs');
 
 class MenuItem {
@@ -63,7 +64,7 @@ class Menu extends MenuItem {
     this.isActive = true;
   }
   activate(currentUrl) {
-    const selectedMenuItems = Object.freeze(currentUrl.substr(0, currentUrl.lastIndexOf('.')).split('/'));
+    const selectedMenuItems = Object.freeze(currentUrl.split('/'));
     super.activate(selectedMenuItems);
   }
 }
@@ -137,13 +138,14 @@ function readBlogs() {
     const blog = {};
 
     files.forEach(fileName => {
-      if (fileName === "blog.json") {
+      const fileParts = path.parse(fileName);
+      if (fileName === 'blog.json') {
         const json = JSON.parse(fs.readFileSync(baseBlogFolder + dirName + '/blog.json'));
         blog.title = json.title;
         blog.description = json.description;
         blog.date = json.date;
-      } else if (fileName.endsWith('.pug')) {
-        blog.url = '/blog/' + dirName + '/' + fileName.substr(0, fileName.length - 4) + '.html';
+      } else if (fileParts.ext === '.pug') {
+        blog.url = `/blog/${dirName}/${fileParts.name}`;
       }
     });
 
@@ -154,9 +156,14 @@ function readBlogs() {
 
 function getCurrentUrl(dest) {
   dest = dest.replace('generated-root/', '');
+  const fileParts = path.parse(dest);
   if (dest === 'index.html') {
     return '/';
   } else {
-    return `/${dest}`;
+    if (fileParts.dir) {
+      return `/${fileParts.dir}/${fileParts.name}`;
+    } else {
+      return `/${fileParts.name}`;
+    }
   }
 }
