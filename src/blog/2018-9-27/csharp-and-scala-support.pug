@@ -1,6 +1,17 @@
 extends ../../layout/blog-layout.pug
 block content
     :markdown-it
+        ## New platforms
+
+        As you might know, both C# and Scala run on entirely different platforms compared to Stryker (which runs on NodeJS). This is the main reason we decided to implement them as
+        separate frameworks. [Stryker.NET](/stryker-net) is written in C# and runs as a .NET Core application, while [Stryker4s](/stryker4s) is written in Scala and runs on the JVM (Java Virtual Machine).
+        As of now, a version of Stryker.NET can be found on nuget.org, the package manager for the .NET platform. In due time, Stryker4s can be found on Maven Central.
+
+        Stryker.NET is the result of the internship of [Richard](https://github.com/richardwerkman).  
+        Stryker4s is the result of the internship of [Hugo](https://github.com/hugo-vrijswijk).
+
+        Thanks to them both for their hard work and continued support.
+
         ## Getting started
 
         As you might have noticed, we've redesigned [our website](/). It is focussed to help you get started on the platform of choice. 
@@ -8,17 +19,6 @@ block content
         * [Get started with Stryker.NET](/stryker-net/quickstart) (preview)
         * [Get started with Stryker4s](/stryker4s/quickstart) (preview)
         * [Get started with Stryker](/stryker/quickstart) (for JavaScript / TypeScript)
-
-        ## New platforms
-
-        As you might know, both C# and Scala run on entirely different platforms compared to Stryker (which runs on NodeJS). This is the main reason we decided to implement them as
-        separate frameworks. [Stryker.NET](/stryker-net) is written in C# and runs as a .NET Core application, while [Stryker4s](/stryker4s) is written in Scala and runs on the JVM (Java Virtual Machine).
-        As of now, a version of Stryker.NET can be found on nuget.org, the package manager for the .NET platform. In due time, Stryker4s can be found on Maven Central.
-
-        Stryker.NET is the result of the internship of [Richard](https://github.com/richardwerkman)  
-        Stryker4s is the result of the internship of [Hugo](https://github.com/hugo-vrijswijk).
-
-        Thanks to them both for their hard work and continued support.
 
         ## One design mentality
         
@@ -53,7 +53,7 @@ block content
         ## What about good old Stryker?
 
         You might wonder what this all means for Stryker (for JavaScript and friends). Well, not much. The core developers are still here, focussed as ever. 
-        We're still focussing on getting the 1.0 release out there for you.
+        We're still focused on getting the 1.0 release out there for you.
         We had to invest some time in the overhead of setting this all up, but it will result in better and more complete frameworks in the end.
         
 
