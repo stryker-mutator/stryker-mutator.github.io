@@ -6,7 +6,7 @@ block prepend content
             .card.sticky-top-70.mb-3
                 each item in menu.childItems
                     if item.isActive
-                        .card-header=item.title
+                        .card-header=item.menuTitle
                         ul.list-group.list-group-flush
                         each childItem in item.childItems
                             li.list-group-item
