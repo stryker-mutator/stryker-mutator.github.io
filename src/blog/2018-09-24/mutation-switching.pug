@@ -2,14 +2,14 @@ extends ../../layout/blog-layout.pug
 block content
     :markdown-it
         
-        We are very excited because Stryker has a few new friends in the Stryker landscape! One of those new friends is Stryker4s(cala). 
+        We are very excited because Stryker has a few new friends! One of those new friends is Stryker4s(cala). 
         With Stryker now being available for Scala, we opened up a whole new landscape for people to get started with mutation testing. 
         The adaptation of Scala gave us a lot of joy but also a lot of new problems. One of those problems was the Scala compiler, 
         we all know it's not the [fastest of its kind](https://scala-ci.typesafe.com/grafana/dashboard/db/scala-benchmark?from=1429139130109&to=1492531027936h&orgId=1&var-branch=2.11.x&var-branch=2.12.x&var-branch=2.13.x&var-source=scala&var-bench=HotScalacBenchmark.compile&var-host=scalabench@scalabench@) 
-        and many many hours are being put in to make it as fast as possible. With the goals of stryker in mind (It's easy to use and fast to run) 
-        we needed to come up with an intelligent way to deal with compilation time.
+        and many many hours are being put in to make it as fast as possible. With the goals of Stryker in mind > It's easy to use and fast to run. 
+        This means we needed to come up with an intelligent way to deal with compilation time.
         
-        ## Compiling each mutation
+        ## Attempt one: Compiling each mutation
         One way of introducing mutations to a codebase is mutating one statement, compile to code, run tests and gather the results. 
         This is a logical choice because you have the maximum flexibility and are certain what effect the mutant had. 
         When looking at the following example there are three mutations possible, we can change the `>` into `>=`, `<` and  `==`.
@@ -23,13 +23,23 @@ block content
         If we apply the mutation one by one we would need to compile the code base three times. 
         If we assume the compile time of this program is 10 seconds, we already have 30 seconds of compile time for one full mutation run. 
         This would quickly get out of hand when the code base is bigger and has more mutations available.
+
+        ## Attempt two: Mutating bytecode
+        As you might know Scala gets compiled to Java bytecode. This gives us an alternative approach to introduce mutations in a codebase. 
+        We would be able to mutate this bytecode and that would eliminate the need for recompilation. 
+        
+        Like always there is a but, Scala doesn't guarantee that the bytecode output will be the same for each version of the compiler or even JDK version.
+        This would make manipulating bytecode complicated, unpredictable and hard to maintain when looking at multiple versions of the language.
+
+        Looking at speed, mutating bytecode is a good solution but because of possible incompibilities, we needed to come up with a different solution.
         
         ## Mutation switching
-        Mutation switching to the rescue! So how is mutation switching faster than compiling each mutation on its own? 
+        Mutation switching to the rescue! So how is mutation switching faster and more reliable than compiling each mutation or mutating bytecode? 
         The steps are quite similar but have some minor differences. First, All possible mutations are identified for the whole code base. 
-        Secondly, all mutations are applied to the code base using a [Scala Pattern match](https://docs.scala-lang.org/tour/pattern-matching.html) 
-        with the original satement in the default case, and activated using environment variables.
-        If we look at the same code example as used previously we would get the following code base after the mutations are applied. 
+        Secondly, all mutations are applied to the code base using a [Scala Pattern match](https://docs.scala-lang.org/tour/pattern-matching.html).
+        The pattern match always has a default case containing the original statement. Lastly we use an environment variable to activate a mutant. 
+
+        If we look at the same code example as used previously we would get the following code after the mutations are applied. 
     
         ```scala
         class Numbers {
@@ -47,18 +57,16 @@ block content
             }  
         }
         ```
-        All possible mutations are implemented in the pattern match with an identifier so we can turn on specific mutations 
-        and a default case so the code will work normally one none of the mutants are activated. Now the code base only needs to be compiled once, 
-        but because of the increased size of the code base the compilation time will be a bit longer but that does not way up 
-        against the full recompilation as before. If the compilation time for the code base would be 15 seconds we will still 
-        gain 15 seconds which is already a significant performance booster. So we gained a lot of performance without losing any 
-        flexibility because of the ability to turn mutations on and off using the environment variable. 
+        All possible mutations are implemented in the pattern match with an identifier so we can turn on specific mutations. 
+        The default case will be used when none of the mutants are activated. Now the code base only needs to be compiled once, 
+        but because of the increased size of the code base the compilation time will be a bit longer. This extra compilation time
+        is negligible compared to the overhead of compiling each mutant. For example, if the compilation time for this code base 
+        would be 15 seconds we will still gain 15 seconds compared to compiling each mutation. So we gained a lot of performance 
+        without losing any flexibility, because of the ability to turn mutations on and off using the environment variable. 
         
         ## Top statements
-        With mutation switching, we reduced compilation times by a lot but soon noticed there was one more problem to tackle. 
-        Previously a very trivial example was used. With this statement, it was easy to mutate using mutation switching. 
-        But what if the statements get more complex? How can complex code be avoided? Because the more complex the code is the higher change compilation errors occur. 
-        For example
+        Mutation switching sure is great, but let's take a look at a more complex example.
+
         ```scala
         def isEven(number: Int): Boolean = number % 2 == 0
         def isOdd(number: Int): Boolean = !isEven(number)
@@ -73,6 +81,7 @@ block content
         ```
         With this code base `filter` and `filterNot` could be mutated to there counterparts. 
         This would give us the following code base if we implement the pattern match at the direct position. 
+
         ```scala
         def isEven(number: Int): Boolean = number % 2 == 0
         def isOdd(number: Int): Boolean = !isEven(number)
@@ -81,19 +90,19 @@ block content
 
         def filterOddAnd(specialNumber: Int): List[Int] = {
           numbers.(sys.env.get("ACTIVE_MUTATION") match {
-            case Some("1") => .filter(isOdd)
-            case _ => .filterNot(isOdd)
+            case Some("0") => .filter(isOdd)
+            case _         => .filterNot(isOdd)
           }).
           (sys.env.get("ACTIVE_MUTATION") match {
             case Some("1") =>  .filterNot(_.equals(specialNumber))
-            case _ =>  .filter(_.equals(specialNumber))
+            case _         =>  .filter(_.equals(specialNumber))
           })
         }
         ```
-        As you can see it's already a lot more complicated and the code doesn't even compile! 
-        To reduce a lot of the complexity and make the code actually compile we need to take a deeper look in the abstract syntax tree 
-        and find the corresponding top statements which is `numbers` in our case. If we implement mutation switching using top statements
-        we can reduce the code complexity and generate the following code. 
+        Because we wrapped the functions right on the spot we produced code that doesn't evem compile!
+        To make the code compile we need to take a deeper look in the abstract syntax tree. 
+        We are searching for the parent statement in this abstract syntax tree, which is `numbers` in our case. 
+        If we implement mutation switching using the parent statement we can generate the following code. 
         ```Scala
         def isEven(number: Int): Boolean = number % 2 == 0
         def isOdd(number: Int): Boolean = !isEven(number)
@@ -104,13 +113,13 @@ block content
           sys.env.get("ACTIVE_MUTATION") match {
             case Some("0") => numbers.filterNot(isOdd).filter(_.equals(specialNumber))
             case Some("1") => numbers.filter(isOdd).filter(_.equals(specialNumber))
-            case _                => numbers.filter(isOdd).filterNot(_.equals(specialNumber))
+            case _         => numbers.filter(isOdd).filterNot(_.equals(specialNumber))
           }
         }
         ```
         This enables us to get clean, readable pattern matches and avoid compilation errors like we've seen before. 
         
         ## Conclusion
-        With the combination of mutation switching and traversing back to the top statements Stryker4s is able to apply mutations to the codebase 
+        With the combination of mutation switching and traversing to the parent statements Stryker4s is able to apply mutations to the codebase 
         in a clean and understandable fashion and keep the chances of compilation errors to a minimum. 
-        We hope this blog gave some insights on how Stryker4s and Stryker.Net apply mutats into your code, happy mutating! 
+        We hope this blog gave some insights on how Stryker4s and Stryker.Net apply mutants into your code, happy mutating! 
