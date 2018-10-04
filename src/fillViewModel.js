@@ -42,6 +42,10 @@ class MenuItem {
     return this.options.attributes;
   }
 
+  get menuTitle() {
+    return this.options.menuTitle || this.title;
+  }
+
   get url() {
     if (this.options.url) {
       return this.options.url;
@@ -75,7 +79,7 @@ const menu = new Menu([
     new MenuItem('quickstart', 'Quickstart'),
     new MenuItem('plugins', 'Plugins'),
     new MenuItem('handbook', 'Handbook')
-  ]),
+  ], { menuTitle: 'For JavaScript & Friends' }),
   new MenuItem('stryker-net', 'For C#', [
     new MenuItem('index', 'Introduction'),
     new MenuItem('quickstart', 'Quickstart')
