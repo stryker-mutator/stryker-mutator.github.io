@@ -1,5 +1,5 @@
 {
     "title": "Mutation switching",
-    "description": "How do Stryker4s and Stryker.Net use mutation switching to reduce compilation time?",
+    "description": "How do Stryker4s and Stryker.NET use mutation switching to dramatically improve performance?",
     "date": "30 September 2018"
 }
