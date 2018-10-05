@@ -126,8 +126,8 @@ block content
           })
         }
         ```
-        Because we wrapped the functions right on the spot we produced code that doesn't evem compile!
-        To make the code compile we need to take a deeper look in the abstract syntax tree. 
+        Because we wrapped the functions right on the spot we produced code that doesn't even compile!
+        To make the code compile we need to take a closer look at the abstract syntax tree. 
         We are searching for the parent statement in this abstract syntax tree, which is `numbers` in our case. 
         If we implement mutation switching using the parent statement we can generate the following code. 
         ```Scala
@@ -144,7 +144,7 @@ block content
           }
         }
         ```
-        This enables us to get clean, readable pattern matches and avoid compilation errors like we've seen before. 
+        This enables us to get clean, readable pattern matches and avoid compilation errors.
         
         ## What's next?
 
@@ -158,4 +158,4 @@ block content
         ## Conclusion
         With the combination of mutation switching and traversing to the parent statements Stryker4s is able to apply mutations to the codebase 
         in a clean and understandable fashion and keep the chances of compilation errors to a minimum. 
-        We hope this blog gave some insights on how Stryker4s and Stryker.NET apply mutants into your code, happy mutating! 
+        We hope this blog gave some insight on mutation switching works and how Stryker4s uses this to its advantage. Happy mutating! 
