@@ -6,16 +6,16 @@ block content
             :markdown-it
                 # Frequently Asked Questions
                 Here you will find the answer to the most common issues first-time users of Stryker encounter.  
-                If this page does not answer your question, please feel free to [![Gitter](https://badges.gitter.im/stryker-mutator/stryker.svg)](https://gitter.im/stryker-mutator/stryker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
+                If this page doesn't answer your question, please feel free to [![Gitter](https://badges.gitter.im/stryker-mutator/stryker.svg)](https://gitter.im/stryker-mutator/stryker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
                 If you think you've encountered a bug, please also contact us on Gitter first, before submitting a bug report.
 
                 ## Q: Stryker is slow! How do I speed it up?  
-                **A: Improve your tests' performance**  
+                **A: Improve your tests' performance**. 
                 As we're running *your* tests, the first thing you should do, is to improve the performance of your unit tests.
                 For example: when running tests in a browser, try to reduce the number of files loaded in the browser. 
 
                 **A: Only mutate what's needed**  
-                Make sure you're not mutating unnecessary files (e.g. test files, third party code, etc.)  
+                Make sure you're not mutating unnecessary files (e.g. test files, third party code, etc.).
                 Double-check your `files` and `mutate` settings.
 
                 **A: Create a RAM disk/drive**  
@@ -26,7 +26,7 @@ block content
                 ## Q: So, what is this "mutation score"?
                 **A: It's the percentage of mutants that have been killed.**  
                 We suppose that mutants to the original source code will be `killed` by a unit test.
-                If that is not the case, the mutant has `survived`.
+                If that is not the case, the mutant will `survive`.
                 That's not good - so the higher the mutation score, the better is the quality of your tests! 
                 
                 To determine the mutation score, Stryker calculates the following numbers:
@@ -50,16 +50,16 @@ block content
                           // perform some logic
                       }
 
-                  Stryker could decide to mutate the `moreDataAvailable` into the constant `true` (Stryker would not do this, but let's say that he does), thus creating an infinite loop.
+                  Stryker could decide to mutate the `moreDataAvailable` into the constant `true` (Stryker would not do this, but let's say that he does.), thus creating an infinite loop.
 
                 * `No coverage` means that the original, unmodified code did not have test coverage, As such, every mutant would survive and is as such considered 'survived'.
-                * `Error` is used to indicate that an `Error` was thrown while running a test. This could be due to a mutant, but that is not always the case. Due to that, in this situation the mutant is *not* considered killed.
+                * An `Error` is used to indicate that an `Error` was thrown while running a test. This could be due to a mutant, but that is not always the case. Due to that, in this situation, the mutant is *not* considered being killed.
 
-                  An example of an `Error` due to mutant would be a line of code like this:
+                  An example of an `Error` due to a mutant would be a line of code like this:
 
                       const fs = require('f' + 's');
 
-                  Stryker could decide to mutate the `+` into a `-`, which would result in `AssertionError: missing path at Module.require (module.js:496:3)`. In such cases, Stryker will report
+                  Stryker could decide to mutate the `+` into a `-`, which would result in `AssertionError: missing path at Module.require (module.js:496:3)`. In such cases, Stryker will report:
                   
                   > 1 mutant(s) caused an error and were therefore not accounted for in the mutation score
 
