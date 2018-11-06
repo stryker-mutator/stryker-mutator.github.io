@@ -3,8 +3,8 @@ $secondary: #b74934;
 $accent: #F1C40F;
 $code-color: $secondary;
 
-@import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/highlight.js/styles/github";
+@import "./bootstrap";
 @import "./stryker/container-fix";
 @import "./stryker/fork-me-banner";
 @import "./stryker/preview-ribbon";
