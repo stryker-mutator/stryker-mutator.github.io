@@ -35,7 +35,7 @@ block content
             :markdown-it
                 ## What is mutation testing?
 
-                Bugs, or *mutants*, are automatically inserted into your production code. Your tests are run for each mutant.
+                Bugs, or *mutants*, are automatically inserted into your production code. Your tests are ran for each mutant.
                 If your tests *fail* then the mutant is *killed*.
                 If your tests passed, the mutant *survived*.
                 The higher the percentage of mutants killed, the more *effective* your tests are.
@@ -48,8 +48,8 @@ block content
             :markdown-it
                 ## But wait, what about code coverage?
 
-                Well... code coverage doesn't really tell you anything about the effectiveness of your tests. Think about it,
-                when was the last time you saw a test without an assertion, purely to increase the code coverage.
+                Well... code coverage doesn't really tell you everything about the effectiveness of your tests. Think about it,
+                when was the last time you saw a test without an assertion, purely to increase the code coverage?
 
                 Imagine a sandwich covered with paste. Code coverage would tell you the bread is 80% covered with paste. 
                 Mutation testing, on the other hand, would tell you it is actually *chocolate* paste and not... well... something else.
@@ -59,14 +59,15 @@ block content
                 ## Meet: Stryker
 
                 Sounds complicated? Don't worry, Stryker has your back. It uses one design mentality to implement mutation testing on 3 platforms.
-                It's _easy to use_ and _fast to run_. Stryker will only mutate _your source code_, making sure to there are no false positives.
+                It's _easy to use_ and _fast to run_. Stryker will only mutate _your source code_, making sure there are no false positives.
     .row
         .col-md-12
             :markdown-it
 
                 ## An example
 
-                Say you're building an online casino, users can only enter the casino when they're over 18. So you write the following piece of code to check if someone is allowed to use the website:
+                Say you're building an online casino.
+                Users can only enter the casino when they're over 18. So you write the following piece of code to check if someone is allowed to use the website:
 
                 ```js
                 function isUserOldEnough(user) {
@@ -74,7 +75,7 @@ block content
                 }
                 ```
 
-                Stryker will find the return statement and decide to change it in a number of ways:
+                Stryker will find the return statement and decide to change it in several ways:
                 
                 ```js
                 /* 1 */ return user.age > 18;
@@ -83,9 +84,9 @@ block content
                 /* 4 */ return true;
                 ```
 
-                We call those modifications mutants. After the mutants have been found, they are applied one by one and your tests will be executed against them. 
-                If at least one of your tests fail, we say the mutant is *killed*. That's what we want! If no tests fail, it *survived*. 
-                The better your tests, the less mutants survive.
+                We call those modifications mutants. After the mutants have been found, they are applied one by one and your tests are executed against them. 
+                If at least one of your tests fail, we say the mutant is *killed*. That's what we want! If no test fails, it *survived*. 
+                The better your tests, the fewer mutants survive.
     
                 Stryker will output the results in various different formats. One of the easiest to read is the clear text reporter:
 
@@ -101,7 +102,7 @@ block content
                   +                 return true;
                 ```
 
-                The clear text reporter will output how exactly your code was modified and which mutator was used. It will then tell us if a mutant was killed, meaning that at least one test failed, or if it survived. The second mutation in this example is marked as a survivor. This means there is probably a test missing that explicitly tests for an age lower than 18.
+                The clear text reporter will output how exactly your code was modified and which mutator was used. It will then tell us if a mutant was killed, meaning that at least one test failed, or if it survived. The second mutation in this example is marked as a survivor. This means there is probably a test missing that explicitly tests for age lower than 18.
     .row
         .col-md-12
             h2 Features
