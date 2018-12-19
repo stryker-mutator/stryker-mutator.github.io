@@ -39,26 +39,34 @@ block content
 
                 ```js
                 {
-                    "stryker-config":
-                    {
-                        "reporter":"Console",
-                        "logConsole":"info",
-                        "timeoutMS":10000,
-                        "logFile":true,
-                        "projectName":"ExampleProject.csproj"
-                    }
-                }
+					"stryker-config":
+					{
+						"reporter":"Console",
+						"log-level":"info",
+						"timeout-ms":10000,
+						"log-file":true,
+						"project-file":"ExampleProject.csproj",
+						"max-concurrent-test-runners":4,
+						"max-concurrent-test-runners": {
+							"threshold-options": {
+								"threshold-high":80,
+								"threshold-low":70,
+								"threshold-break":60
+							}
+						}
+					}
+				}
                 ```
                 All the arguments in the configuration are optional. 
                 
                 ### Note
-                In some cases Stryker cannot run without the `projectName` argument. Specify the name of the referenced project that should be mutated here. Stryker can only mutate one project in a single run. When it finds more references it will use the name in `projectName` to find the one project to mutate.
+                In some cases Stryker cannot run without the `project-file` argument. Specify the name of the referenced project that should be mutated here. Stryker can only mutate one project in a single run. When it finds more references it will use the name in `project-file` to find the one project to mutate.
 
                 For more information on what these options mean, take a look at the [Stryker.NET readme](https://github.com/stryker-mutator/stryker-net/blob/master/src/Stryker.CLI/README.md)
 
                 ### Console
                 All arguments can also be passed through the console.
                 ```
-                dotnet stryker --logConsole debug
+                dotnet stryker --log-level debug
                 ```
                  Arguments both assigned in the config file and the console will use the value assigned in the console.
