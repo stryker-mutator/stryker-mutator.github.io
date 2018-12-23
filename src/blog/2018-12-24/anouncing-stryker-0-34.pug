@@ -24,9 +24,10 @@ block content
 
         Stryker always was and always will be test runner agnostic. It doesn't care which test runner you use.
         However, it always required you to install a test runner plugin. 
-        Are you using Jest? Install the 'stryker-jest-runner'. Want to use mocha? Than the 'stryker-mocha-runner' is just what you need.
+        Are you using Jest? Install the 'stryker-jest-runner'. Want to use mocha? Then the 'stryker-mocha-runner' is just what you need.
         This works great if the test runner of choice is supported, but what do you do when your test runner isn't supported?
-        Like [Ava.js](https://github.com/stryker-mutator/stryker/issues/243), or [node-tap](https://github.com/stryker-mutator/stryker/issues/325) or 
+        Like [Ava.js](https://github.com/stryker-mutator/stryker/issues/243) or [node-tap](https://github.com/stryker-mutator/stryker/issues/325)
+        or [Intern](https://github.com/stryker-mutator/stryker/issues/430) or 
         maybe you have a custom `npm test` command. This is why we've added the `'command'` test runner.
 
         Configure it in your stryker configuration:
