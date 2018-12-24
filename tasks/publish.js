@@ -84,9 +84,9 @@ async function publish() {
   }
 }
 
-if (process.env.TRAVIS_PULL_REQUEST === releaseRequirements.pullRequest
-  && process.env.TRAVIS_BRANCH === releaseRequirements.branch
-  && process.env.TRAVIS_NODE_VERSION === releaseRequirements.nodeVersion) {
+if (process.env.TRAVIS_PULL_REQUEST === PUBLISH_REQUIREMENTS.pullRequest
+  && process.env.TRAVIS_BRANCH === PUBLISH_REQUIREMENTS.branch
+  && process.env.TRAVIS_NODE_VERSION === PUBLISH_REQUIREMENTS.nodeVersion) {
   console.log('Alright man, let\'s do this!');
   publish()
     .then(() => console.log('Publish done'))
