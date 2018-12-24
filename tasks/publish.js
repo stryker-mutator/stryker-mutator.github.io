@@ -63,7 +63,6 @@ async function publish() {
   if (process.cwd() !== desiredCwd) {
     log(`Please run from ${desiredCwd}`)
   } else {
-    log(`Current branch ${branch} OK, proceeding`);
     const gitStatus = await sh('git status --short');
     if (gitStatus) {
       throw new Error(`Working directory is not clean${EOL}${gitStatus}`);
