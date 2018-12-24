@@ -73,6 +73,7 @@ async function publish() {
       await sh('git checkout master');
       await copy('out', '.');
       await rm('out');
+      await rm('generated-root');
       await sh('git add .');
       await sh('git commit -m "Publish"');
       await sh('git push');
