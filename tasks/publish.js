@@ -13,7 +13,7 @@ const PUBLISH_REQUIREMENTS = {
 };
 
 console.log(`Running on branch ${process.env.TRAVIS_BRANCH}, version ${process.env.TRAVIS_NODE_VERSION}, pull request: ${process.env.TRAVIS_PULL_REQUEST}`);
-console.log(`Release requirements: ${JSON.stringify(releaseRequirements, null, 2)}`);
+console.log(`Release requirements: ${JSON.stringify(PUBLISH_REQUIREMENTS, null, 2)}`);
 
 function sh(command) {
   return new Promise((res, rej) => {
