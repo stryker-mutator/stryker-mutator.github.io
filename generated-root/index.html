@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker: undefined"><title>Stryker Mutator</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Lato"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="google-site-verification" content="dcR3wjiLytpKDUxRuQskHBDnuZmrf58jOUjMANVpOn0"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/css/all.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"></head><body><nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary flex-column flex-md-row"><div class="container">   <a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="30" height="30"></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/stryker/" title="stryker">For JavaScript</a></li><li class="nav-item"><a class="nav-link" href="/stryker-net/" title="stryker-net">For C#</a></li><li class="nav-item"><a class="nav-link" href="/stryker4s/" title="stryker4s">For Scala</a></li><li class="nav-item"><a class="nav-link" href="/blog" title="blog">Blog</a></li><li class="nav-item"><a class="nav-link" href="/example" title="example">An example</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/stryker-mutator/stryker-handbook#readme" title="handbook" target="_blank">Handbook</a></li><li class="nav-item"><a class="nav-link" href="https://dashboard.stryker-mutator.io" title="dashboard" target="_blank">Dashboard</a></li></ul></div></div><a class="d-flex align-items-center" href="https://github.com/stryker-mutator/" id="forkme_banner"> <span class="d-none d-lg-block">View me on GitHub</span><i class="fab fa-github"></i></a></nav><main><div class="docs-header jumbotron jumbotron-fluid"><div class="container"><div class="row d-flex align-items-center"><div class="col-md-6 text-center"><h1 class="display-1">Stryker</h1><p class="lead">Test your tests with mutation testing.</p></div><div class="col-md-6 text-center d-none d-md-block"><img class="stryker-img" src="/images/strykerman.png" alt="Stryker"></div><div class="col-md-6 text-center d-block d-md-none d-lg-none"><img class="stryker-img" src="/images/gun.png" alt="Stryker"></div></div></div></div><div class="container mt-3"><div class="row"><div class="col-md-12 text-center"><h2>Getting started with Stryker</h2><div class="row"><a class="col-md-4" title="Stryker for JavaScript and friends" href="/stryker/"><figure><img class="stryker-versions-img" src="/images/JavascriptLogo.png" alt="JavaScript"><figcaption>JavaScript and friends</figcaption></figure></a><a class="col-md-4" title="Stryker for C#" href="/stryker-net/"><figure class="preview-ribbon"><img class="stryker-versions-img" src="/images/CSharpLogo.png" alt="C#"><figcaption>C#</figcaption></figure></a><a class="col-md-4" title="Stryker for Scala" href="/stryker4s/"><figure class="preview-ribbon"><img class="stryker-versions-img" src="/images/ScalaLogo.png" alt="Scala"><figcaption>Scala</figcaption></figure></a></div></div></div><div class="row"><div class="col-md-12 mt-3"><h2 id="what-is-mutation-testing">What is mutation testing?</h2>
+<p>Bugs, or <em>mutants</em>, are automatically inserted into your production code. Your tests are run for each mutant.
+If your tests <em>fail</em> then the mutant is <em>killed</em>.
+If your tests passed, the mutant <em>survived</em>.
+The higher the percentage of mutants killed, the more <em>effective</em> your tests are.</p>
+<p>It's really that simple.</p>
+<p>Still confused? Why not taking a look at <a href="/example">our example page</a> and try it out yourself?</p>
+</div></div><div class="row"><div class="col-md-12"><h2 id="but-wait-what-about-code-coverage">But wait, what about code coverage?</h2>
+<p>Well... code coverage doesn't really tell you anything about the effectiveness of your tests. Think about it,
+when was the last time you saw a test without an assertion, purely to increase the code coverage.</p>
+<p>Imagine a sandwich covered with paste. Code coverage would tell you the bread is 80% covered with paste.
+Mutation testing, on the other hand, would tell you it is actually <em>chocolate</em> paste and not... well... something else.</p>
+</div></div><div class="row"><div class="col-md-12"><h2 id="meet-stryker">Meet: Stryker</h2>
+<p>Sounds complicated? Don't worry, Stryker has your back. It uses one design mentality to implement mutation testing on 3 platforms.
+It's <em>easy to use</em> and <em>fast to run</em>. Stryker will only mutate <em>your source code</em>, making sure to there are no false positives.</p>
+</div></div><div class="row"><div class="col-md-12"><h2 id="an-example">An example</h2>
+<p>Say you're building an online casino, users can only enter the casino when they're over 18. So you write the following piece of code to check if someone is allowed to use the website:</p>
+<pre><code class="language-js">function isUserOldEnough(user) {
+  return user.age &gt;= 18;
+}
+</code></pre>
+<p>Stryker will find the return statement and decide to change it in a number of ways:</p>
+<pre><code class="language-js">/* 1 */ return user.age &gt; 18;
+/* 2 */ return user.age &lt; 18;
+/* 3 */ return false;
+/* 4 */ return true;
+</code></pre>
+<p>We call those modifications mutants. After the mutants have been found, they are applied one by one and your tests will be executed against them.
+If at least one of your tests fail, we say the mutant is <em>killed</em>. That's what we want! If no tests fail, it <em>survived</em>.
+The better your tests, the less mutants survive.</p>
+<p>Stryker will output the results in various different formats. One of the easiest to read is the clear text reporter:</p>
+<pre><code class="language-shell">  Mutant killed: /yourPath/yourFile.js: line 10:27
+  Mutator: BinaryOperator
+  -                 return user.age &gt;= 18;
+  +                 return user.age &gt; 18;
+
+  Mutant survived: /yourPath/yourFile.js: line 10:27
+  Mutator: RemoveConditionals
+  -                 return user.age &gt;= 18;
+  +                 return true;
+</code></pre>
+<p>The clear text reporter will output how exactly your code was modified and which mutator was used. It will then tell us if a mutant was killed, meaning that at least one test failed, or if it survived. The second mutation in this example is marked as a survivor. This means there is probably a test missing that explicitly tests for an age lower than 18.</p>
+</div></div><div class="row"><div class="col-md-12"><h2>Features</h2></div></div><div class="row mt-3"><div class="col-md-4 col-sm-6"><div class="row"><div class="col-md-2 col-2 icon-box"><i class="fa fa-crosshairs"></i></div><div class="col-md-10 col-10 mt-2"><h3 id="mutations">Mutations</h3>
+<p>Control <a href="/mutators.html">more than 30 supported mutations</a>, or write your own.</p>
+</div></div></div><div class="col-md-4 col-sm-6"><div class="row"><div class="col-md-2 col-2 icon-box"><i class="fa fa-shipping-fast"></i></div><div class="col-md-10 col-10 mt-2"><h3 id="speed">Speed</h3>
+<p>Use code analysis and parallel test runner processes to speed things up.</p>
+</div></div></div><div class="col-md-4 col-sm-6"><div class="row"><div class="col-md-2 col-2 icon-box"><i class="fa fa-globe-americas"></i></div><div class="col-md-10 col-10 mt-2"><h3 id="test-runner-agnostic">Test runner agnostic</h3>
+<p>Run tests with your favorite test runner.</p>
+</div></div></div></div><div class="row"><div class="col-md-4 col-sm-6"><div class="row"><div class="col-md-2 col-2 icon-box"><i class="fa fa-users"></i></div><div class="col-md-10 col-10 mt-2"><h3 id="open-source">Open source</h3>
+<p>Free as in Speech. Maintained by the open source community at
+<a href="http://github.com/stryker-mutator/stryker" target="_blank">GitHub</a>.</p>
+</div></div></div><div class="col-md-4 col-sm-6"><div class="row"><div class="col-md-2 col-2 icon-box"><i class="fa fa-cogs"></i></div><div class="col-md-10 col-10 mt-2"><h3 id="multilingual">Multilingual</h3>
+<p>Stryker has support for <a href="/stryker/">JavaScript &amp; TypeScript</a>, <a href="/stryker-net/">C#</a> and <a href="/stryker4s/">Scala</a></p>
+</div></div></div><div class="col-md-4 col-sm-6"><div class="row"><div class="col-md-2 col-2 icon-box"><i class="fa fa-chart-bar"></i></div><div class="col-md-10 col-10 mt-2"><h3 id="clever-reports">Clever reports</h3>
+<p>Use <a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-html-reporter" target="_blank">clever reports</a>
+to sniff out surviving mutants and improve test effectiveness.</p>
+</div></div></div></div><div class="row"><div class="col-md-12 mt-3"><h2>Info Support</h2><p>Stryker is sponsored by <a href="https://www.infosupport.com/" target="_blank">Info Support</a>. They provide our awesome swag, host Stryker hackathons and provide time for their developers to work on Stryker and other open source projects. Check them out at <a href="https://opensource.infosupport.com/" target="_blank">opensource.infosupport.com</a>.</p>
+</div></div><div class="row"><div class="col-md-12"><blockquote class="blockquote">
+<p class="mb-0">For someone who hates mutants... you certainly keep some strange company.</p>
+<footer class="blockquote-footer">Professor X</footer>
+</blockquote>
+<blockquote class="blockquote">
+<p class="mb-0">Oh, they serve their purpose... as long as they can be controlled.</p>
+<footer class="blockquote-footer">William Stryker</footer>
+</blockquote></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-104444094-1', 'auto');
+ga('send', 'pageview');</script><div class="gitter-open-chat-button">Need help?</div><script>((window.gitter = {}).chat = {}).options = { room: 'stryker-mutator/stryker', activationElement: '.gitter-open-chat-button' };</script><script async defer src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></div></main></body></html>

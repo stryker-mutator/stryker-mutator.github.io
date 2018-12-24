@@ -1,0 +1,109 @@
+.gitter-chat-embed {
+    z-index: 9999;
+}
+
+@media (min-width:768px){
+    .container{
+        width:700px 
+   }
+}
+@media (min-width:992px){
+    .container{
+        width:800px 
+   }
+}
+@media (min-width:1200px){
+    .container{
+        width:800px; 
+   }
+}
+body {
+    padding-top: 50px;
+    font-family: "Lato";
+    background-color: #FFF;
+    color: rgba(0, 0, 0, 0.84);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.58;
+    letter-spacing: -.003em;
+}
+.docs-header {
+    font-family: "Roboto";
+    background-color: #B74934;
+    color: #F1C40F;
+}
+
+.docs-header h2 {
+    color: #F1C40F;
+}
+
+.docs-header a {
+    color: #F1C40F;
+    text-decoration: underline;
+}
+.docs-header img.stryker-img {
+    max-width: 220px;
+}
+.icon-box {
+    color: #B74934;
+    font-size: 1.8em;
+}
+.icon-box i{
+    margin-top: 15px;
+}
+h1, h2, h3, .icon-box {
+    color: #B74934;
+}
+h1, h2, h3 {
+    font-family: "Roboto";
+}
+.navbar-footer .navbar-text{
+    font-size: 0.7em;
+}
+.navbar-footer{
+    border-top: 1px solid;
+}
+
+.navbar {
+    font-size: 14px;
+    font-family: "Roboto";
+    letter-spacing: 0.075rem;
+}
+#forkme_banner {
+    background: #0090ff url("../images/blacktocat.png") no-repeat scroll 95% 50%;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: block;
+    font-weight: 700;
+    padding: 10px 50px 10px 10px;
+    position: fixed;
+    right: 10px;
+    top: 0;
+    z-index: 10;
+}
+pre{
+    padding: 0;
+    text-align: left;
+    font-size: 15px;
+}
+
+.fa {
+    font-size: 30px;
+}
+#stryker-shirt-image img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+
+.blog-preview p {
+    color: rgba(0, 0, 0, 0.84);
+}
+
+.blog-date {
+    font-size: 14px;
+    display:block;
+}

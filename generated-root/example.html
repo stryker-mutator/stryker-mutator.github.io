@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker: undefined"><title>An example - Stryker Mutator</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Lato"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="google-site-verification" content="dcR3wjiLytpKDUxRuQskHBDnuZmrf58jOUjMANVpOn0"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/css/all.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"></head><body><nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary flex-column flex-md-row"><div class="container">   <a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="30" height="30"></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/stryker/" title="stryker">For JavaScript</a></li><li class="nav-item"><a class="nav-link" href="/stryker-net/" title="stryker-net">For C#</a></li><li class="nav-item"><a class="nav-link" href="/stryker4s/" title="stryker4s">For Scala</a></li><li class="nav-item"><a class="nav-link" href="/blog" title="blog">Blog</a></li><li class="nav-item active"><a class="nav-link" href="/example" title="example">An example</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/stryker-mutator/stryker-handbook#readme" title="handbook" target="_blank">Handbook</a></li><li class="nav-item"><a class="nav-link" href="https://dashboard.stryker-mutator.io" title="dashboard" target="_blank">Dashboard</a></li></ul></div></div><a class="d-flex align-items-center" href="https://github.com/stryker-mutator/" id="forkme_banner"> <span class="d-none d-lg-block">View me on GitHub</span><i class="fab fa-github"></i></a></nav><main><div class="container mt-3"><h1 id="welcome-to-the-robobar">Welcome to the RoboBar</h1>
+<blockquote>
+<p>An introduction to mutation testing</p>
+</blockquote>
+<p><em>How code coverage of 100% could mean only 60% is tested.</em></p>
+<img class="rounded img-fluid mb-2" alt="RoboBar" src="/images/RoboBar.png"><h2 id="tldr">TL;DR</h2>
+<p>No time to run the example yourself? Don't worry, we did it for you. Open it right in your browser:</p>
+<ul>
+<li><a href="https://stryker-mutator.io/robobar-example/" target="_blank">The RoboBar website</a></li>
+<li><a href="https://stryker-mutator.io/robobar-example/reports/coverage/index.html" target="_blank">Coverage report</a></li>
+<li><a href="https://stryker-mutator.io/robobar-example/reports/mutation/html/index.html" target="_blank">Mutation report</a></li>
+</ul>
+<h2 id="what-is-this">What is this?</h2>
+<p>The RoboBar is a small application to demo mutation testing. It actually has a fair amount of unit tests.
+When we wrote this application, we didn't even try our best to write bad tests.
+We just focussed on code coverage and didn't practice Test Driven Development.
+It turns out it's really easy to write bad tests or forget a few important test cases.
+The RoboBar even has a fairly large bug. Finding it is pretty easy using the mutation report.
+Why don't you give it a try? 😁</p>
+<h2 id="try-it-yourself">Try it yourself</h2>
+<ol>
+<li>Install <a href="https://git-scm.com" target="_blank">git</a></li>
+<li>Install <a href="https://nodejs.org/" target="_blank">nodejs</a></li>
+<li>Open command prompt and clone this repository:<pre><code>git clone https://github.com/stryker-mutator/robobar-example
+</code></pre>
+</li>
+<li>Change directory into the robobar and install the dependencies.<pre><code>cd robobar-example
+npm install
+</code></pre>
+</li>
+<li>Run tests with npm. This will generate a code coverage report.<pre><code>npm test
+</code></pre>
+</li>
+<li>Review the 100% code coverage score. Open up the code coverage report located in the <code>reports/coverage</code> directory.</li>
+<li>Run mutation testing with <a href="https://stryker-mutator.io" target="_blank">Stryker</a><pre><code>npm run stryker
+</code></pre>
+</li>
+<li>Review the 50% mutation score. Open up the mutation report located in the <code>reports/mutation</code> directory.</li>
+<li>Run the website with <code>npm start</code>. Can you find the bug?</li>
+</ol>
+<h2 id="try-to-install-stryker-yourself">Try to install stryker yourself.</h2>
+<p>If you want to install stryker yourself, step back in history using git:</p>
+<pre><code>git checkout e92b8d4
+npm install
+</code></pre>
+<p>After that you can install stryker for yourself:</p>
+<pre><code class="language-js">npm i -g stryker-cli
+stryker init
+</code></pre>
+<p>Choose the following options in the questionnaire:</p>
+<ul>
+<li>Install stryker?: <code>Yes</code></li>
+<li>Test runner: <code>Karma</code></li>
+<li>Test framework: <code>Jasmine</code></li>
+<li>Language: <code>javascript</code></li>
+<li>Transformations: <em>none</em></li>
+<li>Reporters: <code>html, clear text, progress</code></li>
+</ul>
+<p>After the plugins are installed, try it out:</p>
+<pre><code>stryker run
+</code></pre>
+<footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-104444094-1', 'auto');
+ga('send', 'pageview');</script><div class="gitter-open-chat-button">Need help?</div><script>((window.gitter = {}).chat = {}).options = { room: 'stryker-mutator/stryker', activationElement: '.gitter-open-chat-button' };</script><script async defer src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></div></main></body></html>

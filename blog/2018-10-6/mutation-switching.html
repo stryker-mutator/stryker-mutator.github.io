@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker: Blog"><title>Blog - Stryker Mutator</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Lato"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="google-site-verification" content="dcR3wjiLytpKDUxRuQskHBDnuZmrf58jOUjMANVpOn0"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/css/all.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"></head><body><nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary flex-column flex-md-row"><div class="container">   <a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="30" height="30"></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/stryker/" title="stryker">For JavaScript</a></li><li class="nav-item"><a class="nav-link" href="/stryker-net/" title="stryker-net">For C#</a></li><li class="nav-item"><a class="nav-link" href="/stryker4s/" title="stryker4s">For Scala</a></li><li class="nav-item active"><a class="nav-link" href="/blog" title="blog">Blog</a></li><li class="nav-item"><a class="nav-link" href="/example" title="example">An example</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/stryker-mutator/stryker-handbook#readme" title="handbook" target="_blank">Handbook</a></li><li class="nav-item"><a class="nav-link" href="https://dashboard.stryker-mutator.io" title="dashboard" target="_blank">Dashboard</a></li></ul></div></div><a class="d-flex align-items-center" href="https://github.com/stryker-mutator/" id="forkme_banner"> <span class="d-none d-lg-block">View me on GitHub</span><i class="fab fa-github"></i></a></nav><main><div class="container mt-3"><div class="row"><div class="col-md-12"><h1>Mutation switching in Stryker4s</h1><p>Published: 6 October 2018</p><p class="lead">Learn how Stryker4s uses mutation switching to improve performance.</p><p>We are very happy with Stryker's new friends! One of those new friends is Stryker4s(cala).
+Scala developers can now use mutation testing to improve their tests!
+Creating a mutation testing framework for Scala comes with many challenges.
+One of those challenges is the Scala compiler itself.
+We all know it's not the <a href="https://scala-ci.typesafe.com/grafana/dashboard/db/scala-benchmark?from=1429139130109&amp;to=1492531027936h&amp;orgId=1&amp;var-branch=2.11.x&amp;var-branch=2.12.x&amp;var-branch=2.13.x&amp;var-source=scala&amp;var-bench=HotScalacBenchmark.compile&amp;var-host=scalabench@scalabench@" target="_blank" rel="noopener">fastest in its kind</a>.
+One of the main goals of Stryker is to be fast. This means we need to come up with an intelligent way to introduce the mutants into the source code.</p>
+<h2 id="attempt-one%3A-compiling-each-mutation">Attempt one: Compiling each mutation</h2>
+<p>One way of introducing mutants to a codebase is by mutating one statement, compile the code, run tests, gather the results and repeat.
+This seems like a logical choice because it mimics the way a developer would go about it.</p>
+<p>Let's look at an example.</p>
+<pre><code class="language-scala">class Numbers {
+    def greaterThan(a: Int, b: Int): Boolean = {
+        a &gt; b
+        // Mutant 1: a &gt;= b
+        // Mutant 2: a &lt; b
+        // Mutant 3: a == b
+    }
+}
+</code></pre>
+<p>As you can see, there are three possible mutants:</p>
+<ol>
+<li>Change <code>&gt;</code> to <code>&gt;=</code></li>
+<li>Change <code>&gt;</code> to <code>&lt;</code></li>
+<li>Change <code>&gt;</code> to <code>==</code></li>
+</ol>
+<p>If we apply the mutation one by one, we would need to compile the code base three times.
+If we assume the compile time of this program is 10 seconds, we already have 30 seconds of compile time for one full mutation run.
+This would quickly get out of hand when the codebase is bigger and generates more mutants.</p>
+<h2 id="attempt-two%3A-mutating-bytecode">Attempt two: Mutating bytecode</h2>
+<p>As you might know, Scala gets compiled to Java bytecode. This gives us an alternative way to introduce mutations in a codebase.
+We would be able to mutate the bytecode directly, eliminating the need for recompiling.</p>
+<p>The main challenge with this approach is that <a href="https://docs.scala-lang.org/overviews/core/binary-compatibility-of-scala-releases.html" target="_blank" rel="noopener">Scala doesn't guarantee the bytecode output for each version of the compiler</a> (or even JDK version).
+Even the jump from Scala 2.12 to 2.13 produces different bytecode. This would make manipulating bytecode complicated, unpredictable and hard to maintain.</p>
+<p>Furthermore, if you mutate the bytecode, it can be difficult to reproduce the exact Scala code that you changed.
+Details, like the exact location, are not represented in bytecode.
+Scala makes this extra challenging, as 1 <code>.scala</code> file can easily result in 100 <code>.class</code> files in bytecode.</p>
+<p>For performance reasons, mutating bytecode might sound like a fast solution, but you would still need to load (or hot reload) the mutated class files
+for each mutant.</p>
+<p>There should be a better solution out there, right?</p>
+<h2 id="solution%3A-mutation-switching">Solution: Mutation switching</h2>
+<p>Mutation switching to the rescue! So how is mutation switching both <em>faster</em> and <em>more reliable</em> than compiling each mutation or mutating bytecode?
+The steps are quite similar to &quot;Compiling each mutant&quot;, but with some big differences:</p>
+<ol>
+<li>All mutants are identified for the whole codebase.</li>
+<li>All mutants are applied to the codebase <strong>at the same time</strong> using a <a href="https://docs.scala-lang.org/tour/pattern-matching.html" target="_blank" rel="noopener">Scala Pattern match</a>.</li>
+<li>All mutants are tested one by one, with only <strong>one mutant active at a time</strong>, using an environment variable.</li>
+</ol>
+<p>Step 2 is where the magic happens. Let's take a look at the same code example as used previously, right after the mutations are applied.</p>
+<pre><code class="language-scala">class Numbers {
+    def greaterThan(a: Int, b: Int): Boolean = {  
+        sys.env.get(&quot;ACTIVE_MUTATION&quot;) match {  
+            case Some(&quot;0&quot;) =&gt;  
+                a &gt;= b  
+            case Some(&quot;1&quot;) =&gt;  
+                a &lt; b  
+            case Some(&quot;2&quot;) =&gt;  
+                a == b  
+            case _ =&gt;  
+                a &gt; b  
+        }
+    }  
+}
+</code></pre>
+<p>All possible mutations are implemented in the pattern match. An identifier is used to turn on/off, or <em>switch</em>, specific mutations.
+The default case will be used when none of the mutants are active. Now the code base only needs to be compiled once.
+The extra time compilation takes because of its increased size is negligible compared to the overhead of compiling each mutant.
+For example, if the compilation time for this code base
+would be 15 seconds we will still gain 15 seconds compared to compiling each mutation.</p>
+<p>We gain performance without losing flexibility. It's a win-win scenario.</p>
+<h2 id="top-statements">Top statements</h2>
+<p>Mutation switching sure is great, but let's take a look at a more complex example.</p>
+<pre><code class="language-scala">def isEven(number: Int): Boolean = number % 2 == 0
+def isOdd(number: Int): Boolean = !isEven(number)
+
+val numbers: List[Int] = 1 to 100 toList
+
+def filterOddAnd(specialNumber: Int): List[Int] = {
+  numbers
+    .filter(isOdd)
+    .filterNot(_.equals(specialNumber))
+}
+</code></pre>
+<p>With this code base <code>filter</code> and <code>filterNot</code> could be mutated to there counterparts.
+This would give us the following code base if we implement the pattern match at the direct position.</p>
+<pre><code class="language-scala">def isEven(number: Int): Boolean = number % 2 == 0
+def isOdd(number: Int): Boolean = !isEven(number)
+
+val numbers: List[Int] = 1 to 100 toList
+
+def filterOddAnd(specialNumber: Int): List[Int] = {
+  numbers.(sys.env.get(&quot;ACTIVE_MUTATION&quot;) match {
+    case Some(&quot;0&quot;) =&gt; .filter(isOdd)
+    case _         =&gt; .filterNot(isOdd)
+  }).
+  (sys.env.get(&quot;ACTIVE_MUTATION&quot;) match {
+    case Some(&quot;1&quot;) =&gt;  .filterNot(_.equals(specialNumber))
+    case _         =&gt;  .filter(_.equals(specialNumber))
+  })
+}
+</code></pre>
+<p>Because we wrapped the functions right on the spot we produced code that doesn't even compile!
+To make the code compile we need to take a closer look at the abstract syntax tree.
+We are searching for the parent statement in this abstract syntax tree, which is <code>numbers</code> in our case.
+If we implement mutation switching using the parent statement, we can generate the following code.</p>
+<pre><code class="language-Scala">def isEven(number: Int): Boolean = number % 2 == 0
+def isOdd(number: Int): Boolean = !isEven(number)
+
+val numbers: List[Int] = 1 to 100 toList
+
+def filterOddAnd(specialNumber: Int): List[Int] = {
+  sys.env.get(&quot;ACTIVE_MUTATION&quot;) match {
+    case Some(&quot;0&quot;) =&gt; numbers.filterNot(isOdd).filter(_.equals(specialNumber))
+    case Some(&quot;1&quot;) =&gt; numbers.filter(isOdd).filter(_.equals(specialNumber))
+    case _         =&gt; numbers.filter(isOdd).filterNot(_.equals(specialNumber))
+  }
+}
+</code></pre>
+<p>This enables us to get clean, readable pattern matches and avoid compilation errors.</p>
+<h2 id="what's-next%3F">What's next?</h2>
+<p>With mutation switching in place, the road is clear for even bigger performance improvements. Right now, we're not
+keeping the testing process alive. We simply run <code>sbt test</code> with the correct mutant switched on.
+Keeping the test process alive and rerunning the tests after switching mutants is where we can really put the pedal to the metal!</p>
+<p>Interested to help? We're very much looking for contributions! Take a look at our <a href="https://github.com/stryker-mutator/stryker4s/issues" target="_blank" rel="noopener">issue tracker</a>
+or contact us on <a href="https://gitter.im/stryker-mutator/stryker4s" target="_blank" rel="noopener">gitter</a>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>With the combination of mutation switching and traversing to the parent statements Stryker4s is able to apply mutations to the codebase
+in a clean and understandable fashion and keep the chances of compilation errors to a minimum.
+We hope this blog gave some insight on mutation switching works and how Stryker4s uses this to its advantage. Happy mutating!</p>
+<p>Want to get in touch? Find us on <a href="https://gitter.im/stryker-mutator/stryker" target="_blank">Gitter</a> or <a href="https://twitter.com/stryker_mutator" target="_blank">Twitter</a>.</p><a href="/blog.html" title="blog">Back to blogs</a></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-104444094-1', 'auto');
+ga('send', 'pageview');</script><div class="gitter-open-chat-button">Need help?</div><script>((window.gitter = {}).chat = {}).options = { room: 'stryker-mutator/stryker', activationElement: '.gitter-open-chat-button' };</script><script async defer src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></div></main></body></html>

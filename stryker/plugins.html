@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker: Plugins"><title>Plugins - For JavaScript - Stryker Mutator</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Lato"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="google-site-verification" content="dcR3wjiLytpKDUxRuQskHBDnuZmrf58jOUjMANVpOn0"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/css/all.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"></head><body><nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary flex-column flex-md-row"><div class="container">   <a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="30" height="30"></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav"><li class="nav-item active"><a class="nav-link" href="/stryker/" title="stryker">For JavaScript</a></li><li class="nav-item"><a class="nav-link" href="/stryker-net/" title="stryker-net">For C#</a></li><li class="nav-item"><a class="nav-link" href="/stryker4s/" title="stryker4s">For Scala</a></li><li class="nav-item"><a class="nav-link" href="/blog" title="blog">Blog</a></li><li class="nav-item"><a class="nav-link" href="/example" title="example">An example</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/stryker-mutator/stryker-handbook#readme" title="handbook" target="_blank">Handbook</a></li><li class="nav-item"><a class="nav-link" href="https://dashboard.stryker-mutator.io" title="dashboard" target="_blank">Dashboard</a></li></ul></div></div><a class="d-flex align-items-center" href="https://github.com/stryker-mutator/stryker" id="forkme_banner"> <span class="d-none d-lg-block">View me on GitHub</span><i class="fab fa-github"></i></a></nav><main><div class="container mt-3"><div class="row"><div class="col-md-3"><div class="card sticky-top-70 mb-3"><div class="card-header">For JavaScript &amp; Friends</div><ul class="list-group list-group-flush"></ul><li class="list-group-item"><a class="d-block" href="/stryker/index" title="index">Introduction</a></li><li class="list-group-item"><a class="d-block" href="/stryker/quickstart" title="quickstart">Quickstart</a></li><li class="list-group-item">Plugins</li><li class="list-group-item"><a class="d-block" href="/stryker/handbook" title="handbook">Handbook</a></li></div></div><div class="col"><h1>Plugins</h1><p>Stryker supports a number of plugins, which are listed below. You can also <a href="https://www.npmjs.com/search?q=stryker-plugin" target="_blank" rel="noopener">search npm for the stryker-plugin tag</a>.</p>
+<p>Don't worry about the reporters if you're just starting out. The needed plugins will be installed for you if you're following out <a href="/stryker/quickstart">quickstart</a>.</p>
+<p>Missing something? Feel free to create an <a href="https://github.com/stryker-mutator/stryker/issues" target="_blank" rel="noopener">issue</a> or</p>
+<h2 id="test-runners">Test runners</h2>
+<ul>
+<li>Jest (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-jest-runner" target="_blank" rel="noopener">stryker-jest-runner</a>)</li>
+<li>Karma (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-karma-runner" target="_blank" rel="noopener">stryker-karma-runner</a>)</li>
+<li>Mocha (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-mocha-runner" target="_blank" rel="noopener">stryker-mocha-runner</a>)</li>
+</ul>
+<h2 id="test-frameworks">Test frameworks</h2>
+<p>Stryker is test framework agnostic, however if you plugin hooks to the test framework you are using, it can significantly improve the performance
+by using <code>coverageAnalysis: 'perTest'</code>. For more information about coverage analysis, see the <a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker#coverage-analysis" target="_blank" rel="noopener">stryker readme</a>.</p>
+<ul>
+<li>Jasmine (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-jasmine" target="_blank" rel="noopener">stryker-jasmine</a>)</li>
+<li>Mocha (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-mocha-runner" target="_blank" rel="noopener">stryker-mocha-runner</a>)</li>
+</ul>
+<h2 id="reporters">Reporters</h2>
+<p>Stryker already has 4 reporters build in:</p>
+<ul>
+<li><code>progress</code>: Report progress during mutation testing.</li>
+<li><code>dots</code>: Report progress as dots during mutation testing.</li>
+<li><code>clear-text</code>: A clear text report at the end of the mutation testing phase.</li>
+<li><code>event-recorder</code>: Write all events to disk. Useful for debug purposes (default location: 'reports/mutation/events')</li>
+</ul>
+<p>The html reporter can be installed a separate dependency. It can generate <a href="https://stryker-mutator.github.io/stryker-html-reporter" target="_blank" rel="noopener">an html report</a>.
+For more info, see the <a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-html-reporter#readme" target="_blank" rel="noopener">stryker-html-reporter readme</a></p>
+<h2 id="mutators">Mutators</h2>
+<p>The actual mutating part of your code is done via a mutator plugin.</p>
+<ul>
+<li><strong>JavaScript</strong> (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-javascript-mutator" target="_blank" rel="noopener">stryker-javascript-mutator</a>) <br>
+Can mutate JavaScript files using babel as a parser. It can also mutate <a href="https://flow.org/" target="_blank" rel="noopener">flow-js</a> code.</li>
+<li><strong>TypeScript</strong> (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-typescript" target="_blank" rel="noopener">stryker-typescript-mutator</a>) <br>
+Can mutate TypeScript files using the TypeScript parser.</li>
+<li><strong>Vue</strong> (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-javascript-mutator" target="_blank" rel="noopener">stryker-javascript-mutator</a>) <br>
+Can mutate both JavaScript, TypeScript and *.vue files. It falls back on the JavaScript mutator or the TypeScript mutator for the actual mutating.</li>
+</ul>
+<h2 id="config-writers">Config writers</h2>
+<p>A config writer is a plugin that can rewrite your stryker configuration during initialization.
+It is used by a few packages. We're thinking about deprecating it as it can lead to complicated setups with unexpected results.</p>
+<h2 id="%3Cyour-plugin-here%3E">&lt;Your plugin here&gt;</h2>
+<p>You can write your own plugins for Stryker. Interested? Come and have a chat at <a href="https://gitter.im/stryker-mutator/stryker" target="_blank" rel="noopener">our gitter</a>.</p>
+</div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-104444094-1', 'auto');
+ga('send', 'pageview');</script><div class="gitter-open-chat-button">Need help?</div><script>((window.gitter = {}).chat = {}).options = { room: 'stryker-mutator/stryker', activationElement: '.gitter-open-chat-button' };</script><script async defer src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></div></main></body></html>
