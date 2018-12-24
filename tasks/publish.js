@@ -63,29 +63,24 @@ async function publish() {
   if (process.cwd() !== desiredCwd) {
     log(`Please run from ${desiredCwd}`)
   } else {
-    const branch = await sh('git rev-parse --abbrev-ref HEAD');
-    if (branch !== PUBLISH_REQUIREMENTS.branch) {
-      log(`Current branch ${branch} !== ${PUBLISH_REQUIREMENTS.branch}, skipping website publish`);
-    } else {
-      log(`Current branch ${branch} OK, proceeding`);
-      const gitStatus = await sh('git status --short');
-      if (gitStatus) {
-        throw new Error(`Working directory is not clean${EOL}${gitStatus}`);
-      }
-      await sh('npx grunt build');
-      await sh('git add package.json'); // the grunt contributors task changes newlines for some reason
-      await copy('root', 'out');
-      await copy('generated-root', 'out');
-      await sh(`git remote add gh-publish https://${process.env.GIT_TOKEN}@github.com/stryker-mutator/stryker.git`);
-      await sh('git fetch gh-publish');
-      await sh('git checkout --track -b master gh-publish/master');
-      await copy('out', '.');
-      await rm('out');
-      await rm('generated-root');
-      await sh('git add .');
-      await sh('git commit -m "Publish"');
-      await sh('git push');
+    log(`Current branch ${branch} OK, proceeding`);
+    const gitStatus = await sh('git status --short');
+    if (gitStatus) {
+      throw new Error(`Working directory is not clean${EOL}${gitStatus}`);
     }
+    await sh('npx grunt build');
+    await sh('git add package.json'); // the grunt contributors task changes newlines for some reason
+    await copy('root', 'out');
+    await copy('generated-root', 'out');
+    await sh(`git remote add gh-publish https://${process.env.GIT_TOKEN}@github.com/stryker-mutator/stryker-mutator.github.io.git`);
+    await sh('git fetch gh-publish');
+    await sh('git checkout --track -b master gh-publish/master');
+    await copy('out', '.');
+    await rm('out');
+    await rm('generated-root');
+    await sh('git add .');
+    await sh('git commit -m "Publish"');
+    await sh('git push');
   }
 }
 
