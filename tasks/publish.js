@@ -5,9 +5,15 @@ const path = require('path');
 const rimraf = require('rimraf');
 ncp.limit = 16;
 
+
 const PUBLISH_REQUIREMENTS = {
-  branch: 'develop'
-}
+  pullRequest: 'false',
+  branch: 'develop',
+  nodeVersion: 'node'
+};
+
+console.log(`Running on branch ${process.env.TRAVIS_BRANCH}, version ${process.env.TRAVIS_NODE_VERSION}, pull request: ${process.env.TRAVIS_PULL_REQUEST}`);
+console.log(`Release requirements: ${JSON.stringify(releaseRequirements, null, 2)}`);
 
 function sh(command) {
   return new Promise((res, rej) => {
@@ -70,7 +76,9 @@ async function publish() {
       await sh('git add package.json'); // the grunt contributors task changes newlines for some reason
       await copy('root', 'out');
       await copy('generated-root', 'out');
-      await sh('git checkout master');
+      await sh(`git remote add gh-publish https://${process.env.GIT_TOKEN}@github.com/stryker-mutator/stryker.git`);
+      await sh('git fetch gh-publish');
+      await sh('git checkout --track -b master gh-publish/master');
       await copy('out', '.');
       await rm('out');
       await rm('generated-root');
@@ -81,7 +89,13 @@ async function publish() {
   }
 }
 
-publish()
-  .then(() => console.log('Publish done'))
-  .catch(error => console.error(`Publish failed ${error}`))
-
+if (process.env.TRAVIS_PULL_REQUEST === releaseRequirements.pullRequest
+  && process.env.TRAVIS_BRANCH === releaseRequirements.branch
+  && process.env.TRAVIS_NODE_VERSION === releaseRequirements.nodeVersion) {
+  console.log('Alright man, let\'s do this!');
+  publish()
+    .then(() => console.log('Publish done'))
+    .catch(error => console.error(`Publish failed ${error}`))
+} else {
+  console.log('That means no publish for you buddy');
+}
