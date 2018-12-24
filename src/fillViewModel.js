@@ -137,7 +137,7 @@ function readBlogs() {
   const blogs = [];
   const baseBlogFolder = 'src/blog/';
   const directories = fs.readdirSync(baseBlogFolder);
-  directories.sort().reverse().forEach(dirName => {
+  directories.sort(dateSort).forEach(dirName => {
     const files = fs.readdirSync(baseBlogFolder + dirName);
     const blog = {};
 
@@ -156,6 +156,18 @@ function readBlogs() {
     blogs.push(blog);
   });
   return blogs;
+}
+
+function dateSort(a, b) {
+  const dateA = Date.parse(a);
+  const dateB = Date.parse(b);
+  if (dateA < dateB) {
+    return 1;
+  } else if (dateB < dateA) {
+    return -1;
+  } else {
+    return 0;
+  }
 }
 
 function getCurrentUrl(dest) {
