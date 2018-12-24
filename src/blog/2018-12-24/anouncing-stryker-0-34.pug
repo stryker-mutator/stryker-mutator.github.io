@@ -43,8 +43,11 @@ block content
         }
         ```
 
-        Stryker ships with the command test runner, so no need for additional plugins. The command test runner will simply run your `npm test` script. 
-        If the exit code is `0`, the tests succeeded. If not, they failed. Stryker is limited to optimize for performance, so if your test runner is supported via a test runner plugin, that would still be the way to go.
+        Stryker ships with the command test runner, so it doesn't need additional plugins. The command test runner will simply run your `npm test` script. 
+        If the exit code is `0`, the tests succeeded. If not, they failed. 
+        
+        Stryker is limited in the ways it can optimize for performance. For example, it starts a fresh node process for each test run.
+        So if your test runner is supported via a test runner plugin, that would still be the way to go.
         
         The command test runner runs `npm test` by default. You can configure a different command with the `commandRunner` configuration key.
 
@@ -123,6 +126,7 @@ block content
         ## What's next?
 
         We're still focussing on getting v1 out of the door. We're reasonably certain it will happen in Q1 of next year.
-        V1 will mostly be removing deprecated features and an introduction of SemVer with possibly a release cadence. 
+        V1 will mostly be removing deprecated features. We'll also introduce a more predictable release schedule with
+        strict [Semantic Versioning](https://semver.org/spec/v2.0.0.html) policies. Stay tuned.
 
         Input on these new features or the v1 preparations are welcome!
