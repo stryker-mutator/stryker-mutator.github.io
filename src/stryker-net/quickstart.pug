@@ -39,23 +39,23 @@ block content
 
                 ```js
                 {
-					"stryker-config":
-					{
-						"reporter":"Console",
-						"log-level":"info",
-						"timeout-ms":10000,
-						"log-file":true,
-						"project-file":"ExampleProject.csproj",
-						"max-concurrent-test-runners":4,
-						"max-concurrent-test-runners": {
-							"threshold-options": {
-								"threshold-high":80,
-								"threshold-low":70,
-								"threshold-break":60
-							}
-						}
-					}
-				}
+                    "stryker-config":
+                    {      
+                        "reporter":"Console",					
+                        "log-level":"info",
+                        "timeout-ms":10000,
+                        "log-file":true,
+                        "project-file":"ExampleProject.csproj",
+                        "max-concurrent-test-runners":4,
+                        "max-concurrent-test-runners": {
+                            "threshold-options": {
+                                "threshold-high":80,
+                                "threshold-low":70,
+                                "threshold-break":60
+                            }
+                        }
+                    }
+                }
                 ```
                 All the arguments in the configuration are optional. 
                 
