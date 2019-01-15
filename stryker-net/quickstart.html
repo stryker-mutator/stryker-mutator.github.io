@@ -11,22 +11,39 @@
 <hr/></div></section><section class="row"><div class="col-md-12"><h3><span class="badge badge-primary">2</span> Let's kill some mutants</h3><p>Run Stryker.NET to mutation test your project</p><pre class="stryker-install"><code> dotnet stryker</code></pre><hr/></div></section><section class="row"><div class="col-md-12"><h3><span class="badge badge-primary">3</span> Configure</h3><p>Stryker will always look for a <code>stryker-config.json</code> file in the root of the test project. When found it will use the parameters in the file.</p>
 <pre><code class="language-js">{
     &quot;stryker-config&quot;:
-    {
-        &quot;reporter&quot;:&quot;Console&quot;,
-        &quot;logConsole&quot;:&quot;info&quot;,
-        &quot;timeoutMS&quot;:10000,
-        &quot;logFile&quot;:true,
-        &quot;projectName&quot;:&quot;ExampleProject.csproj&quot;
+    {      
+        &quot;reporters&quot;:[
+            &quot;ConsoleProgressBar&quot;,
+            &quot;ConsoleReport&quot;
+        ],  
+        &quot;log-level&quot;:&quot;info&quot;,
+        &quot;timeout-ms&quot;:10000,
+        &quot;log-file&quot;:true,
+        &quot;project-file&quot;:&quot;ExampleProject.csproj&quot;,
+        &quot;max-concurrent-test-runners&quot;:4,
+        &quot;threshold-high&quot;:80,
+        &quot;threshold-low&quot;:70,
+        &quot;threshold-break&quot;:60,
+        &quot;files-to-exclude&quot;: [
+            &quot;./ExampleClass.cs&quot;,
+            &quot;./ExampleDirectory/&quot;,
+            &quot;./ExampleDirectory/ExampleClass2.cs&quot;,
+            &quot;C:\\ExampleRepo\\ExampleDirectory\\ExampleClass.cs&quot;
+        ],
+        &quot;excluded-mutations&quot;: [
+            &quot;string&quot;,
+            &quot;Logical operators&quot;
+        ]
     }
 }
 </code></pre>
 <p>All the arguments in the configuration are optional.</p>
 <h3 id="note">Note</h3>
-<p>In some cases Stryker cannot run without the <code>projectName</code> argument. Specify the name of the referenced project that should be mutated here. Stryker can only mutate one project in a single run. When it finds more references it will use the name in <code>projectName</code> to find the one project to mutate.</p>
+<p>In some cases Stryker cannot run without the <code>project-file</code> argument. Specify the name of the referenced project that should be mutated here. Stryker can only mutate one project in a single run. When it finds more references it will use the name in <code>project-file</code> to find the one project to mutate.</p>
 <p>For more information on what these options mean, take a look at the <a href="https://github.com/stryker-mutator/stryker-net/blob/master/src/Stryker.CLI/README.md" target="_blank" rel="noopener">Stryker.NET readme</a></p>
 <h3 id="console">Console</h3>
 <p>All arguments can also be passed through the console.</p>
-<pre><code>dotnet stryker --logConsole debug
+<pre><code>dotnet stryker --log-level debug
 </code></pre>
 <p>Arguments both assigned in the config file and the console will use the value assigned in the console.</p>
 </div></section></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
