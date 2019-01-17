@@ -4,46 +4,32 @@ block content
     section.row
         .col-md-12
             :markdown-it
-                Install Stryker4s by cloning the [Stryker4s repository](https://github.com/stryker-mutator/stryker4s)
+                Install Stryker using [sbt](https://www.scala-sbt.org/).
     section.row
         .col-md-12
-            h3 #[span.badge.badge-primary 1] Prepare
+            //- h3 #[span.badge.badge-primary 1] Prepare
             :markdown-it
-                Make sure you have Java installed. Open a terminal / command prompt and change directory to the Stryker4s repository. 
-    section.row
-        .col-md-12
-            h3 #[span.badge.badge-primary 3] Configure
-            :markdown-it
-                After cloning the repository, create a `stryker4s.conf` file in the root of the Stryker4s repository. 
-                The configuration below shows all the default options Stryker4s uses. You can edit ones you want to change, or remove the ones that look good for your project. The default configuration will start a command test-runner for sbt. 
-                You will have to edit the `base-dir` to match the codebase you want to mutate. 
-                Also, make sure the `test-runner` is configured with the commands you need to run your unit tests.    
-                ```conf
-                stryker4s {
-                    log-level=INFO
-                    mutate=[
-                        "**/main/scala/**/*.scala"
-                    ]
-                    reporters=[
-                        console
-                    ]
-                    test-runner {
-                        args=test
-                        command=sbt
-                        type=commandrunner
-                    }
-                }
-                ```
-    section.row
-        .col-md-12
-            h3 #[span.badge.badge-primary 3] Let's kill some mutants
-            :markdown-it
-                Stryker will run based on the given configuration in the `stryker4s.conf`. 
-                Running stryker now is easy, just do a simple `sbt run` and Stryker4s will (hopefully) kill the mutants!
+                ### 1 Install
 
-    section.row
-        .col-md-12
-            h3 #[span.badge.badge-primary 4] Having trouble? 
-            :markdown-it
-                Having troubles? Try enabling debug logging by adding log-level: 'debug' to your `stryker4s.conf`.
+                To install Stryker4s on your project, add the following line to `project/plugins.sbt`:
+
+                ```scala
+                addSbtPlugin("io.stryker-mutator" % "sbt-stryker4s" % "0.1.0")
+                ```
+
+                ### 2 Configure
+
+                Stryker4s will look for a `stryker4s.conf` file in the root of your project. If found it will use the configured values. All arguments in the configuration (and the file itself) are optional. You can find the possible values on our configuration page on [GitHub](https://github.com/stryker-mutator/stryker4s/blob/master/docs/CONFIGURATION.md#configuration).
+
+                ### 3 Let's kill some mutants
+
+                Run Stryker4s to mutation test your project:
+
+                ```shell
+                sbt stryker
+                ```
+ 
+                ### 4 Having trouble? 
+
+                Having troubles? Try enabling debug logging by adding `log-level: debug` to your `stryker4s.conf`.
                 If you are having issues please let us know by [reporting an issue](https://github.com/stryker-mutator/stryker4s/issues/new) or talk to us on [Gitter](https://gitter.im/stryker-mutator/stryker4s).
