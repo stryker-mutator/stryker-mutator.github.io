@@ -26,7 +26,7 @@ block content
             p Optionally, you could also install stryker and the stryker-api directly yourself.
             pre.stryker-install
                 code 
-                    | npm install --save-dev stryker stryker-api
+                    | npm install --save-dev @stryker-mutator/core
             :markdown-it
                 If you choose to not install the stryker-cli, use `./node_modules/.bin/stryker` instead of `stryker` for the rest of the quickstart.
             hr/
@@ -47,7 +47,7 @@ block content
             :markdown-it
                 After the init is done, inspect the `stryker.conf.js` file. 
                 Update the `files` and `mutate` properties if appropriate.
-                For more information on what these options mean, take a look at the [Stryker readme](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker#readme)
+                For more information on what these options mean, take a look at the [Stryker readme](https://github.com/stryker-mutator/stryker/tree/master/packages/core#readme)
             hr/
     section.row
         .col-md-12
@@ -63,7 +63,7 @@ block content
             :markdown-it
                 Having troubles? Try enabling debug logging by adding `logLevel: 'debug'` to your stryker.conf.js. 
                 To also see output of your test runner, use `logLevel: 'trace'`. 
-                You can also have a look at the [readme file of stryker](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker#readme) for more information about the configuration.
+                You can also have a look at the [readme file of stryker](https://github.com/stryker-mutator/stryker/tree/master/packages/core#readme) for more information about the configuration.
                 Please [report any issues](http://github.com/stryker-mutator/stryker/issues) you have or let us know [via gitter](https://gitter.im/stryker-mutator/stryker).
 
                 Want to help the Stryker community? Awesome! You can help by writing plugins, document issues or simply writing docs.
