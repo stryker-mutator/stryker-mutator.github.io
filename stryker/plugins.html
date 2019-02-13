@@ -3,16 +3,18 @@
 <p>Missing something? Feel free to create an <a href="https://github.com/stryker-mutator/stryker/issues" target="_blank" rel="noopener">issue</a> or</p>
 <h2 id="test-runners">Test runners</h2>
 <ul>
-<li>Jest (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-jest-runner" target="_blank" rel="noopener">stryker-jest-runner</a>)</li>
-<li>Karma (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-karma-runner" target="_blank" rel="noopener">stryker-karma-runner</a>)</li>
-<li>Mocha (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-mocha-runner" target="_blank" rel="noopener">stryker-mocha-runner</a>)</li>
+<li>Jasmine (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/jasmine-runner" target="_blank" rel="noopener">@stryker-mutator/jasmine-runner</a>)</li>
+<li>Jest (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/jest-runner" target="_blank" rel="noopener">@stryker-mutator/jest-runner</a>)</li>
+<li>Karma (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/karma-runner" target="_blank" rel="noopener">@stryker-mutator/karma-runner</a>)</li>
+<li>Mocha (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/mocha-runner" target="_blank" rel="noopener">@stryker-mutator/mocha-runner</a>)</li>
+<li>Web Component Tester (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/wct-runner" target="_blank" rel="noopener">@stryker-mutator/wct-runner</a>)</li>
 </ul>
 <h2 id="test-frameworks">Test frameworks</h2>
 <p>Stryker is test framework agnostic, however if you plugin hooks to the test framework you are using, it can significantly improve the performance
-by using <code>coverageAnalysis: 'perTest'</code>. For more information about coverage analysis, see the <a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker#coverage-analysis" target="_blank" rel="noopener">stryker readme</a>.</p>
+by using <code>coverageAnalysis: 'perTest'</code>. For more information about coverage analysis, see the <a href="https://github.com/stryker-mutator/stryker/tree/master/packages/core#coverageanalysis-string" target="_blank" rel="noopener">stryker readme</a>.</p>
 <ul>
-<li>Jasmine (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-jasmine" target="_blank" rel="noopener">stryker-jasmine</a>)</li>
-<li>Mocha (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-mocha-runner" target="_blank" rel="noopener">stryker-mocha-runner</a>)</li>
+<li>Jasmine (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/jasmine-framework" target="_blank" rel="noopener">@stryker-mutator/jasmine-framework</a>)</li>
+<li>Mocha (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/mocha-runner" target="_blank" rel="noopener">@stryker-mutator/mocha-runner</a>)</li>
 </ul>
 <h2 id="reporters">Reporters</h2>
 <p>Stryker already has 4 reporters build in:</p>
@@ -22,16 +24,16 @@ by using <code>coverageAnalysis: 'perTest'</code>. For more information about co
 <li><code>clear-text</code>: A clear text report at the end of the mutation testing phase.</li>
 <li><code>event-recorder</code>: Write all events to disk. Useful for debug purposes (default location: 'reports/mutation/events')</li>
 </ul>
-<p>The html reporter can be installed a separate dependency. It can generate <a href="https://stryker-mutator.github.io/stryker-html-reporter" target="_blank" rel="noopener">an html report</a>.
-For more info, see the <a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-html-reporter#readme" target="_blank" rel="noopener">stryker-html-reporter readme</a></p>
+<p>The html reporter can be installed a separate dependency. It can generate <a href="https://stryker-mutator.io/stryker-html-reporter" target="_blank" rel="noopener">a html report</a>.
+For more info, see the <a href="https://github.com/stryker-mutator/stryker/tree/master/packages/html-reporter#readme" target="_blank" rel="noopener">@stryker-mutator/html-reporter readme</a></p>
 <h2 id="mutators">Mutators</h2>
 <p>The actual mutating part of your code is done via a mutator plugin.</p>
 <ul>
-<li><strong>JavaScript</strong> (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-javascript-mutator" target="_blank" rel="noopener">stryker-javascript-mutator</a>) <br>
+<li><strong>JavaScript</strong> (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/javascript-mutator" target="_blank" rel="noopener">@stryker-mutator/javascript-mutator</a>) <br>
 Can mutate JavaScript files using babel as a parser. It can also mutate <a href="https://flow.org/" target="_blank" rel="noopener">flow-js</a> code.</li>
-<li><strong>TypeScript</strong> (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-typescript" target="_blank" rel="noopener">stryker-typescript-mutator</a>) <br>
+<li><strong>TypeScript</strong> (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/typescript" target="_blank" rel="noopener">@stryker-mutator/typescript-mutator</a>) <br>
 Can mutate TypeScript files using the TypeScript parser.</li>
-<li><strong>Vue</strong> (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-javascript-mutator" target="_blank" rel="noopener">stryker-javascript-mutator</a>) <br>
+<li><strong>Vue</strong> (<a href="https://github.com/stryker-mutator/stryker/tree/master/packages/vue-mutator" target="_blank" rel="noopener">@stryker-mutator/vue-mutator</a>) <br>
 Can mutate both JavaScript, TypeScript and *.vue files. It falls back on the JavaScript mutator or the TypeScript mutator for the actual mutating.</li>
 </ul>
 <h2 id="config-writers">Config writers</h2>

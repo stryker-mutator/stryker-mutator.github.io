@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker: Blog"><title>Blog - Stryker Mutator</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Lato"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="google-site-verification" content="dcR3wjiLytpKDUxRuQskHBDnuZmrf58jOUjMANVpOn0"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/css/all.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"></head><body><nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary flex-column flex-md-row"><div class="container">   <a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="30" height="30"></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/stryker/" title="stryker">For JavaScript</a></li><li class="nav-item"><a class="nav-link" href="/stryker-net/" title="stryker-net">For C#</a></li><li class="nav-item"><a class="nav-link" href="/stryker4s/" title="stryker4s">For Scala</a></li><li class="nav-item active"><a class="nav-link" href="/blog" title="blog">Blog</a></li><li class="nav-item"><a class="nav-link" href="/example" title="example">An example</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/stryker-mutator/stryker-handbook#readme" title="handbook" target="_blank">Handbook</a></li><li class="nav-item"><a class="nav-link" href="https://dashboard.stryker-mutator.io" title="dashboard" target="_blank">Dashboard</a></li></ul></div></div><a class="d-flex align-items-center" href="https://github.com/stryker-mutator/" id="forkme_banner"> <span class="d-none d-lg-block">View me on GitHub</span><i class="fab fa-github"></i></a></nav><main><div class="container mt-3"><div class="row"><div class="col-md-12"><h1>Announcing Stryker 1.0</h1><p>Published: 13 February 2019</p><p class="lead">Stryker 1.0 is here! This is an important milestone for mutation testing in JavaScript and TypeScript.</p><p>If you’re unfamiliar with Stryker and mutation testing, now is the perfect time to try it out!
+We've updated <a href="/stryker/quickstart">our quickstart</a>, so go ahead and start using Stryker today.
+Stryker can help you to improve your test quality by inserting bugs in your code and validating
+that your tests can find them. The output is a comprehensive report telling you exactly what your unit tests missed.</p>
+<h2 id="what's-new">What's new</h2>
+<p>Here you find a list of all the new features in Stryker 1.0 (alphabetical order):</p>
+<figure><img src="/images/blogs/tumble-weed.jpg"><figcaption> <em>Nothing to see here</em></figcaption></figure><p>That's right! We chose to not introduce new features. Instead, we've <em>removed all deprecated functionality</em>.
+Also, we've renamed all packages to be part of the @stryker-mutator <a href="https://docs.npmjs.com/orgs/" target="_blank" rel="noopener">organization on NPM</a>.</p>
+<h2 id="migrating-from-stryker-0.x">Migrating from Stryker 0.x</h2>
+<p>Please use this migration guide to update your older Stryker version. If you're feeling adventurous 🤠🐊, you can skip to step 3.</p>
+<ol>
+<li>
+<p><strong>Make sure you're on the latest version of 0.x</strong></p>
+<p>Please make sure you're on the latest 0.x version first. Here is a list of all the latest versions:</p>
+<ul>
+<li><code>grunt-stryker@0.13.17</code></li>
+<li><code>stryker-api@0.24.1</code></li>
+<li><code>stryker-babel-transpiler@0.10.1</code></li>
+<li><code>stryker-html-reporter@0.18.1</code></li>
+<li><code>stryker-jasmine-runner@0.4.1</code></li>
+<li><code>stryker-jasmine@0.12.1</code></li>
+<li><code>stryker-javascript-mutator@0.14.1</code></li>
+<li><code>stryker-jest-runner@1.4.1</code></li>
+<li><code>stryker-karma-runner@0.24.1</code></li>
+<li><code>stryker-mocha-framework@0.15.1</code></li>
+<li><code>stryker-mocha-runner@0.17.1</code></li>
+<li><code>@stryker-mutator/test-helpers@0.1.1</code></li>
+<li><code>stryker-typescript@0.18.1</code></li>
+<li><code>stryker-vue-mutator@0.4.1</code></li>
+<li><code>stryker-wct-runner@0.3.1</code></li>
+<li><code>stryker-webpack-transpiler@0.9.1</code></li>
+<li><code>stryker@0.35.1</code></li>
+</ul>
+<p>First update them in your package.json file, next use <code>npm install</code> (or <code>yarn install</code>) to install the versions.</p>
+</li>
+<li>
+<p><strong>Fix all deprecation warnings</strong></p>
+<p>If you're on the latest 0.x release, run <code>npx stryker run</code> and fix any deprecation warnings that are logged.
+If Stryker runs without deprecation warnings, you're ready to upgrade</p>
+</li>
+<li>
+<p><strong>Update your global stryker-cli</strong></p>
+<p>If you've installed the <code>stryker-cli</code>, please update that one as well: <code>npm i -g stryker-cli</code></p>
+</li>
+<li>
+<p><strong>Upgrade your dependencies</strong></p>
+<p>Update your package.json file.</p>
+<ul>
+<li><code>stryker</code> ➡ <code>@stryker-mutator/core</code></li>
+<li><code>stryker-api</code> ➡ <em>none, this can be removed</em></li>
+<li><code>stryker-babel-transpiler</code> ➡ <code>@stryker-mutator/babel-transpiler</code></li>
+<li><code>grunt-stryker</code> ➡ <code>@stryker-mutator/grunt-stryker</code></li>
+<li><code>stryker-html-reporter</code> ➡ <code>@stryker-mutator/html-reporter</code></li>
+<li><code>stryker-jasmine</code> ➡ <code>@stryker-mutator/jasmine-framework</code></li>
+<li><code>stryker-jasmine-runner</code> ➡ <code>@stryker-mutator/jasmine-runner</code></li>
+<li><code>stryker-javascript-mutator</code> ➡ <code>@stryker-mutator/javascript-mutator</code></li>
+<li><code>stryker-jest-runner</code> ➡ <code>@stryker-mutator/jest-runner</code></li>
+<li><code>stryker-karma-runner</code> ➡ <code>@stryker-mutator/karma-runner</code></li>
+<li><code>stryker-mocha-framework</code> ➡ <code>@stryker-mutator/mocha-framework</code></li>
+<li><code>stryker-mocha-runner</code> ➡ <code>@stryker-mutator/mocha-runner</code></li>
+<li><code>stryker-mutator-specification</code> ➡ <code>@stryker-mutator/mutator-specification</code></li>
+<li><code>stryker-test-helpers</code> ➡ <code>@stryker-mutator/test-helpers</code></li>
+<li><code>stryker-typescript</code> ➡ <code>@stryker-mutator/typescript</code></li>
+<li><code>stryker-util</code> ➡ <code>@stryker-mutator/util</code></li>
+<li><code>stryker-vue-mutator</code> ➡ <code>@stryker-mutator/vue-mutator</code></li>
+<li><code>stryker-wct-runner</code> ➡ <code>@stryker-mutator/wct-runner</code></li>
+<li><code>stryker-webpack-transpiler</code> ➡ <code>@stryker-mutator/webpack-transpiler</code></li>
+</ul>
+<p>The versioning of these dependencies start at 1.0.0, so feel free to use <code>^1.0.0</code> to specify the version.</p>
+<p>After updating your package.json, you'll need to run <code>npm install</code> (or <code>yarn install</code>) once more.</p>
+</li>
+<li>
+<p><strong>Take it for a spin</strong></p>
+<p>Stryker should now work as expected. Try it out with: <code>npx stryker run</code>.</p>
+</li>
+</ol>
+<h2 id="release-cycle">Release cycle</h2>
+<p>From now on we'll adhere to strict <a href="https://semver.org/spec/v2.0.0.html" target="_blank" rel="noopener">semantic versioning</a>, or semver for short.
+This means that it's easy to distinguish between bug fixes, new features or breaking changes just
+by looking at the version number.</p>
+<p>Futhermore, we've decided to use <em>fixed versioning</em> for our packages, meaning that all <code>@stryker-mutator/*</code> packages
+will <em>have the same version number</em>. For example, if your local <code>@stryker-mutator/core</code> version is <code>1.0.0</code>, your
+<code>@stryker-mutator/html-reporter</code> should also be at that exact version. This makes maintaining your Stryker dependencies a breeze.</p>
+<p>This is comparable to how Angular or React do their versioning.</p>
+<h2 id="release-schedule">Release schedule</h2>
+<p>We'll be releasing about as often as we were doing. The key difference is that we'll be extra focused on
+semver. Since we will be dropping support for old NodeJS versions as soon as
+<a href="https://github.com/nodejs/Release#release-schedule" target="_blank" rel="noopener">it reaches end-of-life</a>,
+expect <em>at least</em> one major release a year, (however, we might do more major releases).
+So you can expect a v2 release around April 30th, since we'll be dropping Node.JS 6 support at that time
+(the best birthday gift for me each year 🎁)</p>
+<p>We'll also keep a healthy deprecation policy, making sure that deprecated features remain in tact for at least one major release.</p>
+<p>Want to get in touch? Find us on <a href="https://gitter.im/stryker-mutator/stryker" target="_blank">Gitter</a> or <a href="https://twitter.com/stryker_mutator" target="_blank">Twitter</a>.</p><a href="/blog.html" title="blog">Back to blogs</a></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-104444094-1', 'auto');
+ga('send', 'pageview');</script><div class="gitter-open-chat-button">Need help?</div><script>((window.gitter = {}).chat = {}).options = { room: 'stryker-mutator/stryker', activationElement: '.gitter-open-chat-button' };</script><script async defer src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></div></main></body></html>
