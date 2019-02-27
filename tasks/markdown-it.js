@@ -24,9 +24,40 @@ function link_open(tokens, idx, options, _ /*env*/ , self) {
   return self.renderToken(tokens, idx, options);
 };
 
+// Source - https://github.com/nodejs/nodejs.dev/blob/master/src/util/createSlug.js
+function slugify(title) {
+  let slug = title.toLowerCase().trim();
+
+  const sets = [
+    {to: '-and-', from: /&/ }, // Replace &
+    {to: '-', from: /(\/|_|,|:|;|\\|\ |\.|\?)/g } // Replace /_,:;\.? and whitespace
+  ];
+  
+  sets.forEach(set => {
+    slug = slug.replace(set.from, set.to);
+  });
+
+  return slug
+    .replace(/[^\w\-]+/g, '') // Remove any non word characters
+    .replace(/\-\-+/g, '-')   // Replace multiple hyphens with single
+    .replace(/^-/, '')        // Remove any leading hyphen
+    .replace(/-$/, '');       // Remove any trailing hyphen
+}
+
 module.exports = function markdownIt(text) {
   return md.render(text, {
-    plugins: ['markdown-it-anchor'], // Make sure headers have id's so they can be anchored
+    plugins: [
+      [
+        'markdown-it-anchor', // Make sure headers have id's so they can be anchored
+        {
+          permalink: true,
+          permalinkBefore: true,
+          permalinkSymbol: '',
+          permalinkClass: 'stryker-permalink',
+          slugify
+        }
+      ]
+    ],
     html: true,
     renderRules: {
       link_open
