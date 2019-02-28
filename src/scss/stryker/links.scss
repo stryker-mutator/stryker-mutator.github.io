@@ -19,7 +19,7 @@ a[target="_blank"]:after {
 h1, h2, h3 {
     display: flex;
     align-items: center;
-    scroll-margin-block: 70px;
+    scroll-margin: 70px;
     &:hover {
         .stryker-permalink {
             visibility: visible;
