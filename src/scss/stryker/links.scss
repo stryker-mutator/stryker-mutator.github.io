@@ -7,40 +7,25 @@ a[target="_blank"]:after {
 }
 
 .stryker-permalink {
-    &::before {
-        content: "🔗";
-        text-decoration: none;
-        visibility: hidden;
-        font-size: 15px;
-        float: left;
-        margin-left: -20px;
-        padding-right: 4px;
-    }
+    visibility: hidden;
+    font-size: 15px;
+    float: left;
+    margin-left: -20px;
     &:hover {
         text-decoration: none;
-        &::before {
-            visibility: visible;
-        }
     }
 }
 
 h1, h2, h3 {
     display: flex;
     align-items: center;
-    padding-top: 70px;
-    margin-top: -70px;
+    scroll-margin-block: 70px;
     &:hover {
         .stryker-permalink {
-            &::before {
-                visibility: visible;
-            }
+            visibility: visible;
         }
     }
-    &::before {
-        display: block; 
-        content: " "; 
-        margin-top: -75px; 
-        height: 75px; 
-        visibility: hidden; 
+    .text-center & {
+        justify-content: center;
     }
 }

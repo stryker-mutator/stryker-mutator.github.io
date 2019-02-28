@@ -52,7 +52,7 @@ module.exports = function markdownIt(text) {
         {
           permalink: true,
           permalinkBefore: true,
-          permalinkSymbol: '',
+          permalinkSymbol: '🔗',
           permalinkClass: 'stryker-permalink',
           slugify
         }
