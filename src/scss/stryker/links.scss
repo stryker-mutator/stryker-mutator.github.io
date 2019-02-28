@@ -7,21 +7,19 @@ a[target="_blank"]:after {
 }
 
 .stryker-permalink {
-    width: 25px;
-    height: 25px;
-    font-size: 15px;
-    float: left;
-    margin-left: -25px;
-    vertical-align: center;
-    display: flex;
-    align-items: center;
     &::before {
-        content: ""
+        content: "🔗";
+        text-decoration: none;
+        visibility: hidden;
+        font-size: 15px;
+        float: left;
+        margin-left: -20px;
+        padding-right: 4px;
     }
     &:hover {
         text-decoration: none;
         &::before {
-            content: "🔗"
+            visibility: visible;
         }
     }
 }
@@ -34,7 +32,7 @@ h1, h2, h3 {
     &:hover {
         .stryker-permalink {
             &::before {
-                content: "🔗"
+                visibility: visible;
             }
         }
     }
