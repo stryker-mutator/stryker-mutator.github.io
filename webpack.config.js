@@ -13,7 +13,7 @@ module.exports = {
         { loader: 'file-loader', options: { name: 'css/[name].css' } }, // Extract css into seperate file
         'postcss-loader',
         'extract-loader',
-        'css-loader?-minimize', // translates CSS into CommonJS modules
+        'css-loader', // translates CSS into CommonJS modules
         'sass-loader' // compiles Sass to CSS, using Node Sass
       ]
     }]
