@@ -1,69 +1,97 @@
 extends ../../layout/blog-layout.pug
 block content
     :markdown-it
-    
-        Stryker just stepped up to become the standard for mutation testing .NET. With version 0.10 you can finaly test your tests on .NET Framework projects. This was a highly needed feature since most .NET projects still are running on .NET Framework and not on the new .NET Core.
+        
+        ## Stryker.NET version 0.10
+        For people who have been following Stryker.NET over the last few months this change might not be a surprise. In version 0.10 we bring Stryker to .NET Framework. For both .NET Core and .NET Framework we have a set of features available.
 
-        ## Upgrade to 0.10
+        For them who don't know Stryker.NET yet, here are some feature highlights:
+        
+        #### Measure your .NET Core or .NET Framework test quality
+        We do this by placing mutations inside your code and running your unit tests on each mutation. We support a wide range of mutations, so we cover a lot of your logic. An overview of our mutations can be found [here](/stryker-net/mutators).
+        
+        #### Create a visual HTML report with the Stryker.NET run output
+        Directly after your run, a report is available with insights in your test quality. It shows what mutations were made and if your tests cought the mutant!
+    img(alt="stryker", src="/images/stryker-net/html-report-net.png" class="img-fluid")
+
+    :markdown-it
+        
+        #### VSTest integration
+        We hook right into vstest to execute your unit tests. This means we support the three main test frameworks:
+        - XUnit
+        - NUnit
+        - MSTest
+
+        Also this improves performance, as we keep the vstest connection alive between testruns.
+
+        #### See the testrun progress during a Stryker.NET run with a visual progress bar
+        During a Stryker.NET run you can track the progress and preview the mutant stats. It also shows an indication of the remaining time to finish.
+    img(alt="stryker", src="/images/stryker-net/progress-bar-net.png" class="img-fluid")
+    br
+    br
+    :markdown-it
+
+        #### Multi-platform
+        You can run Stryker.NET on Windows, Mac and Linux since it runs on .NET Core.
+
+        ## Start using Stryker.NET
         If you have been using Stryker.NET before, you might notice that the installation has changed. Please follow these steps to correctly upgrade and keep your Stryker up to date.
         
-        #### 1. Installation
-        To install stryker **globally** (.NET CORE 2.2+):
+        ### 1. Installation
+        #### Install stryker **globally***:
 
-        `dotnet tool install -g dotnet-stryker`
+        ```
+        dotnet tool install -g dotnet-stryker
+        ```
 
-        To install stryker **locally** (.NET Core 3.0+): 
+    p *Global install needs .NET Core runtime 2.2+ to be installed
+    :markdown-it
+
+        #### Install stryker **locally***: 
         Create a file called dotnet-tools.json in your project folder. You should check this file into source control to make sure all team members have access to Stryker and other tools specified here.
 
-        `dotnet new tool-manifest` 
+        ```
+        dotnet new tool-manifest
+        ```
 
         Then install stryker without the -g flag while executing the following command in the project folder
 
-        `dotnet tool install dotnet-stryker`
+        ```
+        dotnet tool install dotnet-stryker
+        ```
 
-        #### 2. Install dependencies
+    p *Local install needs .NET Core runtime 3.0+ to be installed
+    :markdown-it
+        ### 2. Install dependencies
         For .NET Core projects this step can be skipped.
         
         For .NET Framework projects, make sure [nuget.exe](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools#windows) is installed on your system. Please follow their installation instructions.
 
-        #### 3. Remove old references
-        The old way of installing stryker is deprecated and replaced by the dotnet core tool. You can remove the old references from your test project since they won't be updated anymore.
+        ### 3. Remove old references
+        The old way of installing stryker is deprecated and replaced by the dotnet core tool. You can remove the old `DotNetCliToolReference` from your test project since they won't be updated anymore.
 
+        ### 4. Have fun using stryker!
+        You can now kick off stryker using 
+        ```
+        dotnet stryker
+        ```
 
-        ~~`<ItemGroup>`~~
-
-        ~~`<DotNetCliToolReference Include="StrykerMutator.DotNetCoreCli" Version="0.9.0" />`~~
-
-        ~~`<PackageReference Include="StrykerMutator.DotNetCoreCli" Version="0.9.0" />`~~
-
-        ~~`</ItemGroup>`~~
-
-        #### 4. Have fun using stryker!
-        You can now kick off stryker using `dotnet stryker` or `dotnet-stryker`
+        On .NET Framework projects we need your solution file. You can provide this using:
+        ```
+        dotnet stryker --solution-path "../MySolution.sln"
+        ```
 
         If stryker is installed as a dotnet core 3.0 local tool, use the following instead:
 
-        `dotnet tool run dotnet-stryker`
-
-        ## The challenges
-        While designing .NET Framework support we needed to solve some challenges first. These can help understand why we made our design choices:
-        
-        #### Q: How can our tool run on both .NET Core and .NET Framework?
-        A: Switch to [.NET Core tools](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools). A global tool can be executed everywhere, so it does not need to be installed on your .NET Framework project.
-        With .NET Core 3.0 we should be able to install tools on projects too. On .NET core 2.2 the global installation is the only way.
-        
-        #### Q: How can we execute tests disregarding their target framework and test framework?
-        A: Integrate with VSTest. The VSTest platform already supports all we need. This also brings us some performance gain, and opens up the path to filtering test cases in the future.
-        
-        #### Q: How can we easily read project files in different formats?
-        A: There is a tool for that. [Buildalyzer](https://github.com/daveaglick/Buildalyzer) was created to make analyzing project files easier than ever before.
-        #### Q: How can we compile .NET Framework projects without any dependencies.
-        A: We can't. We need the help of MSBuild and NuGet CLI for this. Luckily most (if not all) windows systems have MSBuild installed. However, NuGet CLI should be installed by hand.
-        #### Q: How can we provide the Roslyn compiler all references it needs?
-        A: Our previous way of listing all referenced projects and nuget dependencies was by executing an MSBuild task on the project file. By using a global tool we can't inject an MSBuild target. We had to work around this. Luckily Buildalyzer can provide us this information. It can list all referenced projects and nuget dependencies for both .NET Core and .NET Framework projects. This gave us the chance to clean up our 
+        ```
+        dotnet tool run dotnet-stryker
+        ```
 
         ## What's next?
-        The following moths we will be focusing on performance and stability. The filtering of testcases should improve speed greatly. 
+        The following months we will be focusing on performance and stability. The main next feature will be coverage analysis. How does that work?
 
+        We use code coverage analysis to spot mutations that cannot be killed by any test. If we spot this, we mark the mutant with a `no-coverage` flag. This means we won't have to test that mutant which saves valuable time.
+
+        ## Contribute
         Want to help make Stryker.NET even better? Check out our [contribution guide](https://github.com/stryker-mutator/stryker-net/blob/master/CONTRIBUTING.md) and [backlog](https://waffle.io/stryker-mutator/stryker-net) to see what help we need.
         
