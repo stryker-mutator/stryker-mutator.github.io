@@ -3,12 +3,12 @@ block content
     :markdown-it
         
         ## Stryker.NET version 0.10
-        For people who have been following Stryker.NET over the last few months this change might not be a surprise. In version 0.10 we bring Stryker to .NET Framework. For both .NET Core and .NET Framework we have a set of features available.
+        For people who have been following Stryker.NET over the last few months this change might not be a surprise. In version 0.10 Stryker.NET welcomes .NET Framework. For both .NET Core and .NET Framework Stryker.NET has a set of features available.
 
         For them who don't know Stryker.NET yet, here are some feature highlights:
         
         #### Measure your .NET Core or .NET Framework test quality
-        We do this by placing mutations inside your code and running your unit tests on each mutation. We support a wide range of mutations, so we cover a lot of your logic. An overview of our mutations can be found [here](/stryker-net/mutators).
+        Stryker.NET does this by placing mutations inside your code and running your unit tests on each mutation. To cover as much logic as possible Stryker.NET provides a wide range of mutations. An overview of these mutations can be found [here](/stryker-net/mutators).
         
         #### Create a visual HTML report with the Stryker.NET run output
         Directly after your run, a report is available with insights in your test quality. It shows what mutations were made and if your tests cought the mutant!
@@ -17,12 +17,12 @@ block content
     :markdown-it
         
         #### VSTest integration
-        We hook right into vstest to execute your unit tests. This means we support the three main test frameworks:
+        Stryker.NET hooks right into vstest to execute your unit tests. This means support for the three most used test frameworks:
         - XUnit
         - NUnit
         - MSTest
 
-        Also this improves performance, as we keep the vstest connection alive between testruns.
+        Also this improves performance, as Stryker.NET keeps the vstest connection alive between testruns.
 
         #### See the testrun progress during a Stryker.NET run with a visual progress bar
         During a Stryker.NET run you can track the progress and preview the mutant stats. It also shows an indication of the remaining time to finish.
@@ -76,7 +76,7 @@ block content
         dotnet stryker
         ```
 
-        On .NET Framework projects we need your solution file. You can provide this using:
+        On .NET Framework projects the solution file is required. You can provide this using:
         ```
         dotnet stryker --solution-path "../MySolution.sln"
         ```
@@ -90,7 +90,7 @@ block content
         ## What's next?
         The following months we will be focusing on performance and stability. The main next feature will be coverage analysis. How does that work?
 
-        We use code coverage analysis to spot mutations that cannot be killed by any test. If we spot this, we mark the mutant with a `no-coverage` flag. This means we won't have to test that mutant which saves valuable time.
+        Stryker.NET will use code coverage analysis to spot mutations that cannot be killed by any test. When this is spotted, the mutant will be marked with a `no-coverage` flag. This means the mutant won't have to be tested which saves valuable time.
 
         ## Contribute
         Want to help make Stryker.NET even better? Check out our [contribution guide](https://github.com/stryker-mutator/stryker-net/blob/master/CONTRIBUTING.md) and [backlog](https://waffle.io/stryker-mutator/stryker-net) to see what help we need.
