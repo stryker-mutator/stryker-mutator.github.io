@@ -7,5 +7,7 @@ import { register } from './navbar-toggle';
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('shell', shell);
 hljs.registerLanguage('scala', scala);
+hljs.registerLanguage('cs', scala);
+hljs.registerLanguage('xml', scala);
 hljs.initHighlightingOnLoad();
 register();

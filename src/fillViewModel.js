@@ -82,13 +82,15 @@ const menu = new Menu([
   ], { menuTitle: 'For JavaScript & Friends' }),
   new MenuItem('stryker-net', 'For C#', [
     new MenuItem('index', 'Introduction'),
-    new MenuItem('quickstart', 'Quickstart')
-  ]),
+    new MenuItem('quickstart', 'Quickstart'),
+    new MenuItem('configuration', 'Configuration'),
+    new MenuItem('reporters', 'Reporters'),
+    new MenuItem('mutators', 'Mutators')
+  ], { menuTitle: 'Stryker.NET' }),
   new MenuItem('stryker4s', 'For Scala', [
     new MenuItem('index', 'Introduction'),
     new MenuItem('quickstart', 'Quickstart'),
     new MenuItem('handbook', 'Handbook')
-
   ]),
   new MenuItem('blog', 'Blog'),
   new MenuItem('example', 'An example'),
