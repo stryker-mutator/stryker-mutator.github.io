@@ -7,7 +7,7 @@
 <li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-typescript/CHANGELOG.md" target="_blank" rel="noopener">stryker-typescript changelog</a></li>
 <li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-webpack-transpiler/CHANGELOG.md" target="_blank" rel="noopener">stryker-webpack-transpiler changelog</a></li>
 </ul>
-<h2 id="sandboxes">Sandboxes</h2>
+<h2 id="sandboxes"><a class="stryker-permalink" href="#sandboxes" aria-hidden="true">🔗</a> Sandboxes</h2>
 <p>Stryker only works on copies of your source code. A copy is called a <em>sandbox</em>. It creates as much of them as you want parallel test runners.
 You don't want a big sandbox. Just imagine what would happen if all your node_modules end up in there! That's why Stryker allows you to configure
 the files to load into it.</p>
@@ -17,7 +17,7 @@ modified your files array (without you knowing it) only added to the complexity.
 Just <a href="https://github.com/nicojs/angular-stryker-example/blob/72d85e19657247a77faa8e12587d3d301147b2bd/stryker.conf.js#L6" target="_blank" rel="noopener">a small look at the angular example file</a>
 will leave you scratching your head.</p>
 <p>Further more, you had properties like <code>included</code>, <code>transpiled</code> and <code>mutated</code>. It was kind of a mess really.</p>
-<h2 id="remove-your-files-configuration">Remove your <code>files</code> configuration</h2>
+<h2 id="remove-your-files-configuration"><a class="stryker-permalink" href="#remove-your-files-configuration" aria-hidden="true">🔗</a> Remove your <code>files</code> configuration</h2>
 <p>No longer! From release 0.21 of Stryker, the files array is <em>optional</em>. Please remove it. Everything should work as expected.
 Stryker will fallback to a sane default: your git database. It does this by executing the following command:
 <code>git ls-files --others --exclude-standard --cached</code>. The result should be exactly what you want in your sandbox
@@ -25,7 +25,7 @@ Stryker will fallback to a sane default: your git database. It does this by exec
 you can still use the <code>files</code> property with an array of strings.</p>
 <p>Stryker also stopped keeping track of <code>included</code>, <code>transpiled</code> and <code>mutated</code> properties. For <code>mutate</code> please use the
 designated <a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker#source-code-files-to-mutate" target="_blank" rel="noopener"><code>mutate</code> top level stryker property</a>.</p>
-<h2 id="breaking-change!">Breaking change!</h2>
+<h2 id="breaking-change"><a class="stryker-permalink" href="#breaking-change" aria-hidden="true">🔗</a> Breaking change!</h2>
 <p>Unfortunately we couldn't create this feature without some breaking changes. The biggest one is that we've had to remove the old
 <code>InputFileDescriptor</code> object way of defining your input file.</p>
 <p>This:</p>
@@ -42,7 +42,7 @@ no longer the case. To see what this means for you, please consult the readme of
 <li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-typescript/README.md" target="_blank" rel="noopener">stryker-typescript readme</a></li>
 <li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-webpack-transpiler/README.md" target="_blank" rel="noopener">stryker-webpack-transpiler readme</a></li>
 </ul>
-<h2 id="what's-next%3F">What's next?</h2>
+<h2 id="whats-next"><a class="stryker-permalink" href="#whats-next" aria-hidden="true">🔗</a> What's next?</h2>
 <p>With this major refactoring out of the way we will hone in to our next target: an actual v1 release.
 We've opened up <a href="https://github.com/stryker-mutator/stryker/issues/654" target="_blank" rel="noopener">issue 654</a> to keep track of our
 progress on this front. Want to help? Or curious about our plans? Please get in touch.</p>

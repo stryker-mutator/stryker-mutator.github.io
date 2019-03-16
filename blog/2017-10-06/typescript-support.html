@@ -7,7 +7,7 @@
 <li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-mocha-runner/CHANGELOG.md" target="_blank" rel="noopener">stryker-mocha-runner changelog</a></li>
 <li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-mocha-framework/CHANGELOG.md" target="_blank" rel="noopener">stryker-mocha-framework changelog</a></li>
 </ul>
-<h2 id="language-agnostic">Language agnostic</h2>
+<h2 id="language-agnostic"><a class="stryker-permalink" href="#language-agnostic" aria-hidden="true">🔗</a> Language agnostic</h2>
 <p>Stryker is now language agnostic. This means that you can use Stryker to mutation test <em>any</em> language that
 transpiles down to JavaScript (as long as you have the correct plugin for it). TypeScript is the first language that is
 fully supported in this way.</p>
@@ -16,7 +16,7 @@ fully supported in this way.</p>
 <li>Changed the Mutator plugin api</li>
 <li>Add a Transpiler plugin api</li>
 </ul>
-<h3 id="mutator-plugin-api">Mutator plugin api</h3>
+<h3 id="mutator-plugin-api"><a class="stryker-permalink" href="#mutator-plugin-api" aria-hidden="true">🔗</a> Mutator plugin api</h3>
 <p>With the previous Mutator plugin, it was possible to mutate a single Abstract Syntax Tree (AST) node. It was a neat little feature,
 but was never used outside of the core Stryker package. This plugin was also specific to JavaScript.
 As Stryker is now language agnostic, we decided to move the Mutator api to a higher level of abstraction.
@@ -26,7 +26,7 @@ It is at this moment still part of the main Stryker npm module, but we have plan
 We also added a <a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-typescript/src/TypescriptMutator.ts" target="_blank" rel="noopener"><code>'typescript'</code> mutator</a>
 as part of the new stryker-typescript npm module.</p>
 <p>You can find the new <a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-api/src/mutant/Mutator.ts" target="_blank" rel="noopener">api definition here</a>.</p>
-<h3 id="transpiler-plugin-api">Transpiler plugin api</h3>
+<h3 id="transpiler-plugin-api"><a class="stryker-permalink" href="#transpiler-plugin-api" aria-hidden="true">🔗</a> Transpiler plugin api</h3>
 <p>With a transpiler plugin, it possible to transform any source code before Stryker runs your tests.
 It is also used to transpile each mutant in the same way. This allows maximum freedom when
 mutating source code, without having to worry about the resulting JavaScript code.
@@ -35,7 +35,7 @@ meaning that Stryker will force coverage analysis to be <code>'off'</code> when 
 <p>We created the <a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-typescript/src/TypescriptTranspiler.ts" target="_blank" rel="noopener"><code>'typescript'</code> transpiler</a>
 as part of the new <code>stryker-typescript</code> npm module.</p>
 <p>You can find the new <a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-api/src/transpile/Transpiler.ts" target="_blank" rel="noopener">api definition here</a></p>
-<h2 id="the-typescript-mutation-testing-framework">The TypeScript mutation testing framework</h2>
+<h2 id="the-typescript-mutation-testing-framework"><a class="stryker-permalink" href="#the-typescript-mutation-testing-framework" aria-hidden="true">🔗</a> The TypeScript mutation testing framework</h2>
 <p><a href="https://github.com/stryker-mutator/stryker/pull/376" target="_blank" rel="noopener">Original PR</a></p>
 <p>Stryker now supports TypeScript. This means that Stryker is now able to work
 directly on your TypeScript code, no need to first transpile it yourself and run Stryker on the transpiled code.
@@ -44,7 +44,7 @@ This has the following advantages:</p>
 <li>Far less false-positives,</li>
 <li>Your stryker reports will now show your code, instead of transpiled code.</li>
 </ul>
-<h3 id="%22there's-a-plugin-for-that%22">&quot;There's a plugin for that&quot;</h3>
+<h3 id="theres-a-plugin-for-that"><a class="stryker-permalink" href="#theres-a-plugin-for-that" aria-hidden="true">🔗</a> &quot;There's a plugin for that&quot;</h3>
 <p>All Stryker plugins to help you with TypeScript are part of a single npm module: <a href="https://www.npmjs.com/package/stryker-typescript" target="_blank" rel="noopener">stryker-typescript</a>.
 It contains 3 plugins that work together:</p>
 <ol>
@@ -65,7 +65,7 @@ It contains 3 plugins that work together:</p>
     });
 }
 </code></pre>
-<h3 id="great!-but-what-about-performance%3F">Great! But what about performance?</h3>
+<h3 id="great-but-what-about-performance"><a class="stryker-permalink" href="#great-but-what-about-performance" aria-hidden="true">🔗</a> Great! But what about performance?</h3>
 <p>You might be thinking all this has a negative impact on performance.
 After all, we have to transpile the TypeScript code for each mutant we want to test.
 When running Stryker on itself we notice that it takes less time than before when we were mutating JavaScript.
@@ -80,7 +80,7 @@ for example. It might mutate:</p>
 <p>Although this would be valid in JavaScript, it is <em>invalid</em> in TypeScript.
 This means that the mutant will result in a <code>TranspileError</code>. It is <em>not</em> tested and <em>not</em> calculated into your mutation score.
 Less work means it can be faster.</p>
-<h2 id="what's-next%3F">What's next?</h2>
+<h2 id="whats-next"><a class="stryker-permalink" href="#whats-next" aria-hidden="true">🔗</a> What's next?</h2>
 <p>Next, we want to further improve upon our TypeScript support. For example we want to add support
 for <a href="https://github.com/stryker-mutator/stryker/tree/master/packages/stryker#type-of-coverage-analysis" target="_blank" rel="noopener">coverage analysis</a>
 when using a transpiler. We're also thinking about an es6 mutator using Babel under the hood.</p>

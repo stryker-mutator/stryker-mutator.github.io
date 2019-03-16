@@ -4,7 +4,7 @@ Creating a mutation testing framework for Scala comes with many challenges.
 One of those challenges is the Scala compiler itself.
 We all know it's not the <a href="https://scala-ci.typesafe.com/grafana/dashboard/db/scala-benchmark?from=1429139130109&amp;to=1492531027936h&amp;orgId=1&amp;var-branch=2.11.x&amp;var-branch=2.12.x&amp;var-branch=2.13.x&amp;var-source=scala&amp;var-bench=HotScalacBenchmark.compile&amp;var-host=scalabench@scalabench@" target="_blank" rel="noopener">fastest in its kind</a>.
 One of the main goals of Stryker is to be fast. This means we need to come up with an intelligent way to introduce the mutants into the source code.</p>
-<h2 id="attempt-one%3A-compiling-each-mutation">Attempt one: Compiling each mutation</h2>
+<h2 id="attempt-one-compiling-each-mutation"><a class="stryker-permalink" href="#attempt-one-compiling-each-mutation" aria-hidden="true">🔗</a> Attempt one: Compiling each mutation</h2>
 <p>One way of introducing mutants to a codebase is by mutating one statement, compile the code, run tests, gather the results and repeat.
 This seems like a logical choice because it mimics the way a developer would go about it.</p>
 <p>Let's look at an example.</p>
@@ -26,7 +26,7 @@ This seems like a logical choice because it mimics the way a developer would go 
 <p>If we apply the mutation one by one, we would need to compile the code base three times.
 If we assume the compile time of this program is 10 seconds, we already have 30 seconds of compile time for one full mutation run.
 This would quickly get out of hand when the codebase is bigger and generates more mutants.</p>
-<h2 id="attempt-two%3A-mutating-bytecode">Attempt two: Mutating bytecode</h2>
+<h2 id="attempt-two-mutating-bytecode"><a class="stryker-permalink" href="#attempt-two-mutating-bytecode" aria-hidden="true">🔗</a> Attempt two: Mutating bytecode</h2>
 <p>As you might know, Scala gets compiled to Java bytecode. This gives us an alternative way to introduce mutations in a codebase.
 We would be able to mutate the bytecode directly, eliminating the need for recompiling.</p>
 <p>The main challenge with this approach is that <a href="https://docs.scala-lang.org/overviews/core/binary-compatibility-of-scala-releases.html" target="_blank" rel="noopener">Scala doesn't guarantee the bytecode output for each version of the compiler</a> (or even JDK version).
@@ -37,7 +37,7 @@ Scala makes this extra challenging, as 1 <code>.scala</code> file can easily res
 <p>For performance reasons, mutating bytecode might sound like a fast solution, but you would still need to load (or hot reload) the mutated class files
 for each mutant.</p>
 <p>There should be a better solution out there, right?</p>
-<h2 id="solution%3A-mutation-switching">Solution: Mutation switching</h2>
+<h2 id="solution-mutation-switching"><a class="stryker-permalink" href="#solution-mutation-switching" aria-hidden="true">🔗</a> Solution: Mutation switching</h2>
 <p>Mutation switching to the rescue! So how is mutation switching both <em>faster</em> and <em>more reliable</em> than compiling each mutation or mutating bytecode?
 The steps are quite similar to &quot;Compiling each mutant&quot;, but with some big differences:</p>
 <ol>
@@ -67,7 +67,7 @@ The extra time compilation takes because of its increased size is negligible com
 For example, if the compilation time for this code base
 would be 15 seconds we will still gain 15 seconds compared to compiling each mutation.</p>
 <p>We gain performance without losing flexibility. It's a win-win scenario.</p>
-<h2 id="top-statements">Top statements</h2>
+<h2 id="top-statements"><a class="stryker-permalink" href="#top-statements" aria-hidden="true">🔗</a> Top statements</h2>
 <p>Mutation switching sure is great, but let's take a look at a more complex example.</p>
 <pre><code class="language-scala">def isEven(number: Int): Boolean = number % 2 == 0
 def isOdd(number: Int): Boolean = !isEven(number)
@@ -116,13 +116,13 @@ def filterOddAnd(specialNumber: Int): List[Int] = {
 }
 </code></pre>
 <p>This enables us to get clean, readable pattern matches and avoid compilation errors.</p>
-<h2 id="what's-next%3F">What's next?</h2>
+<h2 id="whats-next"><a class="stryker-permalink" href="#whats-next" aria-hidden="true">🔗</a> What's next?</h2>
 <p>With mutation switching in place, the road is clear for even bigger performance improvements. Right now, we're not
 keeping the testing process alive. We simply run <code>sbt test</code> with the correct mutant switched on.
 Keeping the test process alive and rerunning the tests after switching mutants is where we can really put the pedal to the metal!</p>
 <p>Interested to help? We're very much looking for contributions! Take a look at our <a href="https://github.com/stryker-mutator/stryker4s/issues" target="_blank" rel="noopener">issue tracker</a>
 or contact us on <a href="https://gitter.im/stryker-mutator/stryker4s" target="_blank" rel="noopener">gitter</a>.</p>
-<h2 id="conclusion">Conclusion</h2>
+<h2 id="conclusion"><a class="stryker-permalink" href="#conclusion" aria-hidden="true">🔗</a> Conclusion</h2>
 <p>With the combination of mutation switching and traversing to the parent statements Stryker4s is able to apply mutations to the codebase
 in a clean and understandable fashion and keep the chances of compilation errors to a minimum.
 We hope this blog gave some insight on mutation switching works and how Stryker4s uses this to its advantage. Happy mutating!</p>
