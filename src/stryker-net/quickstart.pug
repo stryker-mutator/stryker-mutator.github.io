@@ -7,8 +7,9 @@ block content
                 Install Stryker using [NuGet](https://www.nuget.org/).
     section.row
         .col-md-12
-            h3 #[span.badge.badge-primary 1] Install
             :markdown-it
+                ## 1 Install
+                
                 To install Stryker.NET on your test project add the following lines to the root of your .csproj file. on your test project.
 
                 ```
@@ -25,16 +26,20 @@ block content
             hr/
     section.row
         .col-md-12
-            h3 #[span.badge.badge-primary 2] Let's kill some mutants
-            p Run Stryker.NET to mutation test your project
-            pre.stryker-install
-                code 
-                    | dotnet stryker
+            :markdown-it
+                ## 2 Let's kill some mutants
+
+                Stryker.NET to mutation test your project
+
+                ```
+                dotnet stryker
+                ```
             hr/
     section.row
         .col-md-12
-            h3 #[span.badge.badge-primary 3] Configure
             :markdown-it
+                ## 3 Configure
+
                 Stryker will always look for a `stryker-config.json` file in the root of the test project. When found it will use the parameters in the file.
 
                 ```js
