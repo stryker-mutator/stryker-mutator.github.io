@@ -5,3 +5,27 @@ a[target="_blank"]:after {
 .navbar-nav a:after { 
     content: '';
 }
+
+.stryker-permalink {
+    visibility: hidden;
+    font-size: 15px;
+    float: left;
+    margin-left: -20px;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+h1, h2, h3 {
+    display: flex;
+    align-items: center;
+    scroll-margin: 70px;
+    &:hover {
+        .stryker-permalink {
+            visibility: visible;
+        }
+    }
+    .text-center & {
+        justify-content: center;
+    }
+}
