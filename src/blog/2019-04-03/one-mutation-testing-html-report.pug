@@ -2,16 +2,16 @@ extends ../../layout/blog-layout.pug
 block content
     :markdown-it
         If you've used Stryker before, you'll know that it produces a gorgeous report you can view in the browser.
-        It works by generating html files based on the events thrown by Stryker's main process.
+        It works by generating HTML files based on the events raised by Stryker.
         During development of Stryker4s and Stryker.NET, we realized that producing the same report would be a lot of
         work. 
         
-        Instead of rebuilding the generating of HTML files for each Stryker implementation, we've decided to move the logic of presenting the report to your browser.
+        Instead of a new HTML reporter implementation for each Stryker framework, we've decided to move the logic of presenting the report to your browser.
         That way, any framework can support an HTML report simply by producing a JSON file.
+        
         We call it [mutation testing elements](https://github.com/stryker-mutator/mutation-testing-elements#readme) and 
         it is implemented using the mature
         [web components suite of features](https://www.w3.org/TR/components-intro/).
-
         You can now use it in Stryker, Stryker.NET and Stryker4s
 
         ## 👷‍ Usage
@@ -35,15 +35,13 @@ block content
         ![Directory](/images/blogs/mutation-testing-elements-directory.png)
 
         ![File](/images/blogs/mutation-testing-elements-file.png)
-
-        It might look pretty familiar, that's because it is based on the old Stryker implementation.
-        
+       
         Mutation testing elements comes with batteries included:
         
         📊 Calculates and displays the mutation score and other metrics  
         📁 Group results into directories  
         👓 Show mutants directly in your source code  
-        😎 Code highlighting with [highlightjs](https://highlightjs.org/)  
+        😎 Highlight code with embedded [highlightjs](https://highlightjs.org/)  
         🧙‍ Filter mutants based on the outcome  
         🔗 Deep linking using anchors (uses fragment, so path will not be contaminated)  
         ✨ A nice (yet basic) UI with embedded [bootstrap](https://getbootstrap.com) css  
@@ -64,7 +62,8 @@ block content
         </body>
         ``` 
 
-        Instead of loading the report data from a source, it also supports direct property binding:
+        Loading from an external source (using `src="..."`) only works if you serve the HTML file from a server.
+        Use property binding to also support opening your HTML report from disk directly.
 
         ```js
         document.querySelector('mutation-test-report-app').report = {
@@ -78,21 +77,21 @@ block content
         For more information on how to use it, as well as where to find the JavaScript implementation, please see the [readme of mutation testing elements](https://github.com/stryker-mutator/mutation-testing-elements/tree/master/packages/mutation-testing-elements#readme)
         on github. Want to contribute or suggest changes? Feel free to do so in the [mutation testing elements mono repo](https://github.com/stryker-mutator/mutation-testing-elements).
 
-        ## 🔮 What's next?
+        ## 💪 Call to action
 
-        If you've read the introduction of this article, you might have noticed that mutation testing elements 
-        is designed for all mutation testing frameworks, not just Stryker. 
-        In the near future, you might see [mutation testing elements coming to a mutation testing framework near you](https://github.com/infection/infection/issues/340#issuecomment-477148001).
+        Mutation testing elements is here to help out all mutation testing frameworks.
+        We've contacted the guys over at [Infection](https://infection.github.io/) (PHP) 
+        and they will [support it in the future](https://github.com/infection/infection/issues/340#issuecomment-477148001).
+         
         If your mutation testing framework isn't supported, why not open up an issue at their side.
+        Or better yet, implement it in a pull request. Most of them are open source after all.
         Spread the word 💖 to help us grow 🌳.
+
+        ## 🔮 What's next?
         
-        We're also planning to upgrade the [Stryker dashboard](https://dashboard.stryker-mutator.io) to support
-        the mutation testing elements, so it will be easy to host the report from your build server in the cloud.
+        We're planning to upgrade the [Stryker dashboard](https://dashboard.stryker-mutator.io). 
+        Right now it already supports [showing a mutation score badge](/blog/2018-02-08/get-your-mutation-score-badge-now).
+        In the future, you will be able to host your entire mutation testing report there. Stay tuned.
 
         Happy mutation testing!
-
-
-
-
-
         
