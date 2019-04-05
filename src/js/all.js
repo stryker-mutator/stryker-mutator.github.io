@@ -12,5 +12,6 @@ hljs.registerLanguage('shell', shell);
 hljs.registerLanguage('scala', scala);
 hljs.registerLanguage('cs', cs);
 hljs.registerLanguage('xml', xml);
+hljs.registerLanguage('html', xml);
 hljs.initHighlightingOnLoad();
 register();
