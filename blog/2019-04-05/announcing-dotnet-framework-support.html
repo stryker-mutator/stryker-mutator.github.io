@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker: Blog"><title>Blog - Stryker Mutator</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Lato"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="google-site-verification" content="dcR3wjiLytpKDUxRuQskHBDnuZmrf58jOUjMANVpOn0"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/css/all.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"></head><body><nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary flex-column flex-md-row"><div class="container">   <a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="30" height="30"></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/stryker/" title="stryker">For JavaScript</a></li><li class="nav-item"><a class="nav-link" href="/stryker-net/" title="stryker-net">For C#</a></li><li class="nav-item"><a class="nav-link" href="/stryker4s/" title="stryker4s">For Scala</a></li><li class="nav-item active"><a class="nav-link" href="/blog" title="blog">Blog</a></li><li class="nav-item"><a class="nav-link" href="/example" title="example">An example</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/stryker-mutator/stryker-handbook#readme" title="handbook" target="_blank">Handbook</a></li><li class="nav-item"><a class="nav-link" href="https://dashboard.stryker-mutator.io" title="dashboard" target="_blank">Dashboard</a></li></ul></div></div><a class="d-flex align-items-center" href="https://github.com/stryker-mutator/" id="forkme_banner"> <span class="d-none d-lg-block">View me on GitHub</span><i class="fab fa-github"></i></a></nav><main><div class="container mt-3"><div class="row"><div class="col-md-12"><h1>Announcing Stryker.NET 0.10 with .NET Framework support</h1><p>Published: 5 April 2019</p><p class="lead">Stryker.NET 0.10 is here! This brings new features to mutation testing for .NET. Read all about these features in this blog.</p><p>Stryker.NET has been under very active development. Up to now, we focussed on performance and .NET core.
+That all changes with v0.10, as we now also support <strong>.NET Framework</strong>. Both frameworks are supported now,
+with 100% feature parity. We also introduce some cool new features.</p>
+<p>In this article we want to briefly recap what mutation testing is.
+After that we'll explain how you install and use Stryker.NET.
+We also want to highlight some cool new features, before we end with a quick look at what's next.
+Jump right into it:</p>
+<p><a href="#mutation-testing">👾 Mutation testing</a><br>
+<a href="#start-using-stryker-net">💪 Start using Stryker.NET</a><br>
+<a href="#vstest-integration">⏩ VSTest integration</a><br>
+<a href="#new-html-report">📊 New HTML report</a><br>
+<a href="#progress-bar">🏃‍ Progress bar</a><br>
+<a href="#whats-next">🔮 What's next?</a></p>
+<h2 id="mutation-testing"><a class="stryker-permalink" href="#mutation-testing" aria-hidden="true">🔗</a> 👾 Mutation testing</h2>
+<p>For those of you who might not be familiar with Stryker.NET and Mutation Testing, here is a brief reminder.
+Please see <a href="/example">our RoboBar example</a> for the full introduction.</p>
+<p>Stryker.NET places <em>mutants</em> (bugs) inside your source code. After that, it runs your tests for each mutant.
+If at least one tests fails, that's great! Your tests just killed that mutant. If not, too bad, the mutant survived.
+Apparently, you're missing a test.</p>
+<p>Calculating the percentage of mutants that were killed results in the mutation score. The higher the number, the better.
+It is the only way to measure <em>your tests effectiveness</em>. It's really as simple as that.</p>
+<p>To cover as much logic as possible Stryker.NET provides a wide range of mutations.
+An overview of these mutations can be found <a href="/stryker-net/mutators">here</a>.
+You can run Stryker.NET with .NET Core on Windows, Mac and Linux as well as .NET Framework on Windows.</p>
+<h2 id="start-using-stryker-net"><a class="stryker-permalink" href="#start-using-stryker-net" aria-hidden="true">🔗</a> 💪 Start using Stryker.NET</h2>
+<p>Stryker.NET is now installed as a (global) <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools" target="_blank" rel="noopener">dotnet tool</a>
+instead of a <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/extensibility" target="_blank" rel="noopener">Per-project tool</a>.
+This has the advantage of not competing with your local project dependencies, but this also means that
+Stryker.NET has to be installed globally on your system. From .NET core 3.0, you will be able to install dotnet tools locally inside your project.</p>
+<ol>
+<li>
+<p>Installation</p>
+<p>Install <strong>globally</strong> (.NET Core runtime 2.2+):</p>
+<pre><code>dotnet tool install -g dotnet-stryker
+</code></pre>
+<p>Or install <strong>locally</strong> (.NET Core runtime 3.0+):</p>
+<pre><code class="language-shell">cd my-test-project
+dotnet new tool-manifest
+dotnet tool install dotnet-stryker
+</code></pre>
+<p>This will create a file called dotnet-tools.json in your project folder. You should check this file into source control to make sure all team members have access to Stryker and other tools specified here.</p>
+<pre><code>dotnet tool install dotnet-stryker
+</code></pre>
+</li>
+<li>
+<p>Install NuGet</p>
+<p>For .NET Core projects this step can be skipped.<br>
+For .NET Framework projects, make sure <code>nuget.exe</code> is installed on your system.
+Please follow their <a href="(https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools#windows)" target="_blank" rel="noopener">installation instructions</a>.</p>
+</li>
+<li>
+<p>Remove old references</p>
+<p>Remove the old <code>DotNetCliToolReference</code> from your test project since they won't be updated anymore.</p>
+</li>
+<li>
+<p>Have fun using stryker!</p>
+<p>You can now kick off stryker using</p>
+<pre><code>dotnet stryker --solution-path &quot;../MySolution.sln&quot;
+</code></pre>
+<p>If stryker is installed as a dotnet core 3.0 local tool, use the following instead:</p>
+<pre><code>dotnet tool run dotnet-stryker --solution-path &quot;../MySolution.sln&quot;
+</code></pre>
+</li>
+</ol>
+<h2 id="vstest-integration"><a class="stryker-permalink" href="#vstest-integration" aria-hidden="true">🔗</a> ⏩ VSTest integration</h2>
+<p>Stryker.NET now hooks right into VSTest to execute your unit tests instead of running your tests from the command line.
+This means a big performance boost, because it keeps the VSTest connection alive between test runs.
+Because Stryker.NET supports VSTest, this performance boost wil work for most test frameworks, including <a href="https://xunit.github.io/" target="_blank" rel="noopener">XUnit</a>,
+<a href="https://nunit.org/" target="_blank" rel="noopener">NUnit</a> and <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest" target="_blank" rel="noopener">MSTest</a>.</p>
+<h2 id="new-html-report"><a class="stryker-permalink" href="#new-html-report" aria-hidden="true">🔗</a> 📊 New HTML report</h2>
+<p>This might catch your eye. As of v0.10, Stryker.NET comes with an HTML reporter.
+It shows a report in your browser with insights in your test quality, directly after your run Stryker.<br>
+It even goes into detail and shows you exactly what mutants were made and if your tests killed them!</p>
+<img class="img-fluid" alt="stryker" src="/images/stryker-net/html-report-net.png"><p>It uses the generic <a href="https://github.com/stryker-mutator/mutation-testing-elements" target="_blank" rel="noopener">mutation-testing-elements</a>,
+which is an open standard for reporting mutation test results. See our <a href="https://stryker-mutator.io/blog/2019-04-03/one-mutation-testing-html-report" target="_blank" rel="noopener">previous blog</a> for more information about the mutation-testing-elements</p>
+<h2 id="progress-bar"><a class="stryker-permalink" href="#progress-bar" aria-hidden="true">🔗</a> 🏃‍ Progress bar</h2>
+<p>You can now track the progress of the mutation testing process, as well as preview the mutant stats.
+It also includes an indication of the remaining time to finish.</p>
+<img class="img-fluid" alt="stryker" src="/images/stryker-net/progress-bar-net.png"><br><br><h2 id="whats-next"><a class="stryker-permalink" href="#whats-next" aria-hidden="true">🔗</a> 🔮 What's next?</h2>
+<p>The following months we will be focusing on performance and stability.
+The main next feature will be coverage analysis. How does that work?</p>
+<p>Stryker.NET will use code coverage analysis to find mutants that are not covered by your tests.
+If it's not covered, it cannot be killed by any test, right? The mutant will be marked as <code>no coverage</code>,
+meaning the mutant survived while we saved valuable time.</p>
+<h2 id="contribute"><a class="stryker-permalink" href="#contribute" aria-hidden="true">🔗</a> Contribute</h2>
+<p>Want to help make Stryker.NET even better?
+Check out our <a href="https://github.com/stryker-mutator/stryker-net/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener">contribution guide</a>
+and <a href="https://waffle.io/stryker-mutator/stryker-net" target="_blank" rel="noopener">backlog</a> to see what help we need.</p>
+<p>Special thanks to <a href="https://github.com/stryker-mutator/stryker-net/commits?author=dupdob" target="_blank" rel="noopener">@dubdop</a> for all his contributions. Keep up the good work! 💪</p>
+<p>Want to get in touch? Find us on <a href="https://gitter.im/stryker-mutator/stryker" target="_blank">Gitter</a> or <a href="https://twitter.com/stryker_mutator" target="_blank">Twitter</a>.</p><a href="/blog.html" title="blog">Back to blogs</a></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-104444094-1', 'auto');
+ga('send', 'pageview');</script><div class="gitter-open-chat-button">Need help?</div><script>((window.gitter = {}).chat = {}).options = { room: 'stryker-mutator/stryker', activationElement: '.gitter-open-chat-button' };</script><script async defer src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></div></main></body></html>
