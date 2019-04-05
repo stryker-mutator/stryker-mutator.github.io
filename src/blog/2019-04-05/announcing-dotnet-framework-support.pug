@@ -63,8 +63,8 @@ block content
         2. Install NuGet
         
            For .NET Core projects this step can be skipped.      
-           For .NET Framework projects, make sure [nuget.exe](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools#windows) is installed on your system. 
-           Please follow their installation instructions.
+           For .NET Framework projects, make sure `nuget.exe` is installed on your system. 
+           Please follow their [installation instructions]((https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools#windows)).
 
         3. Remove old references
         
@@ -74,18 +74,13 @@ block content
         
             You can now kick off stryker using 
             ```
-            dotnet stryker
-            ```
-
-            On .NET Framework projects the solution file is required. You can provide this using:
-            ```
             dotnet stryker --solution-path "../MySolution.sln"
             ```
 
             If stryker is installed as a dotnet core 3.0 local tool, use the following instead:
 
             ```
-            dotnet tool run dotnet-stryker
+            dotnet tool run dotnet-stryker --solution-path "../MySolution.sln"
             ```
 
         ## ⏩ VSTest integration
