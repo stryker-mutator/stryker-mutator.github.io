@@ -10,12 +10,16 @@ We have a small workflow in place for [DRY](https://en.wikipedia.org/wiki/Don%27
 [source files (*.pug)] -> [build process] -> [output files (*.html)]
 ``` 
 
+<<<<<<< HEAD
 The idea here is we update, add, delete the _source_ files and _generate_ the html files based on that. 
 For source files, please use the `develop` branch. We will never use the master branch for this, as the master branch contains only _output files_.
 Pull requests should also target the develop branch.
 
 Whenever a PR is merged to `develop`, it is automatically published to the master branch via a travis build. 
 TODO: We would still like to have some basic end-to-end tests to see if the website functions as expected.
+=======
+The idea here is we update, add, delete the _source_ files and _generate_ the html files based on that. However we still check in the html output into git, because github does not support this workflow natively. It can only serve the html files it is given. 
+>>>>>>> be102a5fc4f9cfe3a44a07b4f4ec85d82713e2f5
 
 ## Run locally
 

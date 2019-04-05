@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker: Quickstart"><title>Quickstart - For C# - Stryker Mutator</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Lato"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="google-site-verification" content="dcR3wjiLytpKDUxRuQskHBDnuZmrf58jOUjMANVpOn0"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/css/all.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"></head><body><nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary flex-column flex-md-row"><div class="container">   <a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="30" height="30"></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/stryker/" title="stryker">For JavaScript</a></li><li class="nav-item active"><a class="nav-link" href="/stryker-net/" title="stryker-net">For C#</a></li><li class="nav-item"><a class="nav-link" href="/stryker4s/" title="stryker4s">For Scala</a></li><li class="nav-item"><a class="nav-link" href="/blog" title="blog">Blog</a></li><li class="nav-item"><a class="nav-link" href="/example" title="example">An example</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/stryker-mutator/stryker-handbook#readme" title="handbook" target="_blank">Handbook</a></li><li class="nav-item"><a class="nav-link" href="https://dashboard.stryker-mutator.io" title="dashboard" target="_blank">Dashboard</a></li></ul></div></div><a class="d-flex align-items-center" href="https://github.com/stryker-mutator/stryker-net" id="forkme_banner"> <span class="d-none d-lg-block">View me on GitHub</span><i class="fab fa-github"></i></a></nav><main><div class="container mt-3"><div class="row"><div class="col-md-3"><div class="card sticky-top-70 mb-3"><div class="card-header">Stryker.NET</div><ul class="list-group list-group-flush"></ul><li class="list-group-item"><a class="d-block" href="/stryker-net/index" title="index">Introduction</a></li><li class="list-group-item">Quickstart</li></div></div><div class="col"><h1>Quickstart</h1><section class="row"><div class="col-md-12"><p>Install Stryker using <a href="https://www.nuget.org/" target="_blank" rel="noopener">NuGet</a>.</p>
+</div></section><section class="row"><div class="col-md-12"><p>Global install</p>
+<pre><code>dotnet tool install -g dotnet-stryker
+</code></pre>
+<p>Project install
+Starting from dotnet core 3.0 dotnet tools can also be installed on a project level. This requires the following steps:</p>
+<p>Create a file called <code>dotnet-tools.json</code> in your project folder. You can checkin to version control to make sure all team members have access to stryker</p>
+<pre><code>dotnet new tool-manifest
+</code></pre>
+<p>Then install stryker without the -g flag while executing the following command in the project folder</p>
+<pre><code>dotnet tool install dotnet-stryker
+</code></pre>
+<p>Update stryker dotnet tool
+Dotnet global tools do not auto update. To update stryker as a global tool run dotnet tool update</p>
+<hr/></div></section><section class="row"><div class="col-md-12"><h3><span class="badge badge-primary">2</span> Let's kill some mutants</h3><p>Run Stryker.NET to mutation test your project.</p><pre class="stryker-install"><code> dotnet stryker</code></pre><p>Make sure the command is executed with the <code>test</code> project as current directory.</p>
+<hr/></div></section><section class="row"><div class="col-md-12"><h2 id="3-configure"><a class="stryker-permalink" href="#3-configure" aria-hidden="true">🔗</a> 3 Configure</h2>
+<p>Stryker will always look for a <code>stryker-config.json</code> file in the root of the test project. When found it will use the parameters in the file.</p>
+<h4 id="example-config-file"><a class="stryker-permalink" href="#example-config-file" aria-hidden="true">🔗</a> Example config file</h4>
+<pre><code class="language-js">{
+    &quot;stryker-config&quot;:
+    {      
+        &quot;reporters&quot;:[
+            &quot;ConsoleProgressBar&quot;,
+            &quot;ConsoleReport&quot;
+        ],  
+        &quot;log-level&quot;:&quot;info&quot;,
+        &quot;timeout-ms&quot;:10000,
+        &quot;log-file&quot;:true,
+        &quot;project-file&quot;:&quot;ExampleProject.csproj&quot;,
+        &quot;max-concurrent-test-runners&quot;:4,
+        &quot;threshold-high&quot;:80,
+        &quot;threshold-low&quot;:70,
+        &quot;threshold-break&quot;:60,
+        &quot;files-to-exclude&quot;: [
+            &quot;./ExampleClass.cs&quot;,
+            &quot;./ExampleDirectory/&quot;,
+            &quot;./ExampleDirectory/ExampleClass2.cs&quot;,
+            &quot;C:\\ExampleRepo\\ExampleDirectory\\ExampleClass.cs&quot;
+        ],
+        &quot;excluded-mutations&quot;: [
+            &quot;string&quot;,
+            &quot;Logical operators&quot;
+        ]
+    }
+}
+</code></pre>
+<p>All the arguments in the configuration are optional.</p>
+<h3 id="note"><a class="stryker-permalink" href="#note" aria-hidden="true">🔗</a> Note</h3>
+<p>In some cases Stryker cannot run without the <code>project-file</code> argument. Specify the name of the referenced project that should be mutated here. Stryker can only mutate one project in a single run. When it finds more references it will use the name in <code>project-file</code> to find the one project to mutate.</p>
+<p>For more information on what these options mean, take a look at the <a href="https://github.com/stryker-mutator/stryker-net/blob/master/src/Stryker.CLI/README.md" target="_blank" rel="noopener">Stryker.NET readme</a></p>
+<h3 id="console"><a class="stryker-permalink" href="#console" aria-hidden="true">🔗</a> Console</h3>
+<p>All arguments can also be passed through the console.</p>
+<pre><code>dotnet stryker --log-level debug
+</code></pre>
+<p>Arguments both assigned in the config file and the console will use the value assigned in the console.</p>
+</div></section></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-104444094-1', 'auto');
+ga('send', 'pageview');</script><div class="gitter-open-chat-button">Need help?</div><script>((window.gitter = {}).chat = {}).options = { room: 'stryker-mutator/stryker', activationElement: '.gitter-open-chat-button' };</script><script async defer src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></div></main></body></html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker: Blog"><title>Blog - Stryker Mutator</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Lato"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="google-site-verification" content="dcR3wjiLytpKDUxRuQskHBDnuZmrf58jOUjMANVpOn0"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/css/all.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"></head><body><nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary flex-column flex-md-row"><div class="container">   <a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="30" height="30"></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/stryker/" title="stryker">For JavaScript</a></li><li class="nav-item"><a class="nav-link" href="/stryker-net/" title="stryker-net">For C#</a></li><li class="nav-item"><a class="nav-link" href="/stryker4s/" title="stryker4s">For Scala</a></li><li class="nav-item active"><a class="nav-link" href="/blog" title="blog">Blog</a></li><li class="nav-item"><a class="nav-link" href="/example" title="example">An example</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/stryker-mutator/stryker-handbook#readme" title="handbook" target="_blank">Handbook</a></li><li class="nav-item"><a class="nav-link" href="https://dashboard.stryker-mutator.io" title="dashboard" target="_blank">Dashboard</a></li></ul></div></div><a class="d-flex align-items-center" href="https://github.com/stryker-mutator/" id="forkme_banner"> <span class="d-none d-lg-block">View me on GitHub</span><i class="fab fa-github"></i></a></nav><main><div class="container mt-3"><div class="row"><div class="col-md-12"><h1>One mutation testing HTML report</h1><p>Published: 3 March 2019</p><p class="lead">Introducing Mutation Testing Elements. The generic html report for all mutation testing frameworks.</p><p>If you've used Stryker before, you'll know that it produces a gorgeous report you can view in the browser.
+It works by generating HTML files based on the events raised by Stryker.
+During development of Stryker4s and Stryker.NET, we realized that producing the same report would be a lot of
+work.</p>
+<p>Instead of a new HTML reporter implementation for each Stryker framework, we've decided to move the logic of presenting the report to your browser.
+That way, any framework can support an HTML report simply by producing a JSON file.</p>
+<p>We call it <a href="https://github.com/stryker-mutator/mutation-testing-elements#readme" target="_blank" rel="noopener">mutation testing elements</a> and
+it is implemented using the mature
+<a href="https://www.w3.org/TR/components-intro/" target="_blank" rel="noopener">web components suite of features</a>.
+You can now use it in Stryker, Stryker.NET and Stryker4s</p>
+<h2 id="usage"><a class="stryker-permalink" href="#usage" aria-hidden="true">🔗</a> 👷‍ Usage</h2>
+<p>To enable the new HTML reporter, simply update to the latest Stryker release and
+enable the HTML reporter in the implementation of your choice.</p>
+<ul>
+<li><strong>Stryker</strong> (since v1.2)<br>
+Enable by adding <code>'html'</code> to your <code>reporters</code> in your <code>stryker.conf.js</code> file.</li>
+<li><strong>Stryker4s</strong> (since v0.3.1)<br>
+Enable by adding <code>&quot;html&quot;</code> to your <code>reporters</code> in your <code>stryker4s.conf</code> file.</li>
+<li><strong>Stryker.NET</strong> (since v0.9)<br>
+Enable <code>&quot;html&quot;</code> as reporter in your <code>stryker-config.json</code> file.</li>
+</ul>
+<p>Upgrading should be painless.</p>
+<h2 id="show-me-the-money"><a class="stryker-permalink" href="#show-me-the-money" aria-hidden="true">🔗</a> 💸 Show me the money</h2>
+<p>See two screenshots taken from a mutation testing report of Stryker itself 🎉</p>
+<p><img src="/images/blogs/mutation-testing-elements-directory.png" alt="Directory"></p>
+<p><img src="/images/blogs/mutation-testing-elements-file.png" alt="File"></p>
+<p>Mutation testing elements comes with batteries included:</p>
+<p>📊 Calculates and displays the mutation score and other metrics<br>
+📁 Group results into directories<br>
+👓 Show mutants directly in your source code<br>
+😎 Highlight code with embedded <a href="https://highlightjs.org/" target="_blank" rel="noopener">highlightjs</a><br>
+🧙‍ Filter mutants based on the outcome<br>
+🔗 Deep linking using anchors (uses fragment, so path will not be contaminated)<br>
+✨ A nice (yet basic) UI with embedded <a href="https://getbootstrap.com" target="_blank" rel="noopener">bootstrap</a> css<br>
+🎓 Adheres to <a href="https://developers.google.com/web/fundamentals/web-components/best-practices" target="_blank" rel="noopener">custom element best practices</a></p>
+<h2 id="how-it-works"><a class="stryker-permalink" href="#how-it-works" aria-hidden="true">🔗</a> 💭 How it works</h2>
+<p>Using mutation testing elements is as simple as loading the JavaScript bundle and adding
+the <code>mutation-test-report-app</code> to your page, pointing the <code>src</code> to a json file that contains the
+mutation testing results to be displayed.</p>
+<pre><code class="language-html">&lt;body&gt;
+&lt;script src=&quot;https://www.unpkg.com/mutation-testing-elements@1.0.2/dist/mutation-test-elements.js&quot;&gt;&lt;/script&gt;
+&lt;mutation-test-report-app src=&quot;mutation-report.json&quot;&gt;
+    Your browser does not support custom elements. Please use a modern browser.
+&lt;/mutation-test-report-app&gt;
+&lt;/body&gt;
+</code></pre>
+<p>Loading from an external source (using <code>src=&quot;...&quot;</code>) only works if you serve the HTML file from a server.
+Use property binding to also support opening your HTML report from disk directly.</p>
+<pre><code class="language-js">document.querySelector('mutation-test-report-app').report = {
+    /*... report data ...*/
+}
+</code></pre>
+<p>The report json should adhere to the <a href="https://github.com/stryker-mutator/mutation-testing-elements/tree/master/packages/mutation-testing-report-schema#readme" target="_blank" rel="noopener">mutation testing report json schema</a>,
+we've designed it with this specific goal in mind.</p>
+<p>For more information on how to use it, as well as where to find the JavaScript implementation, please see the <a href="https://github.com/stryker-mutator/mutation-testing-elements/tree/master/packages/mutation-testing-elements#readme" target="_blank" rel="noopener">readme of mutation testing elements</a>
+on github. Want to contribute or suggest changes? Feel free to do so in the <a href="https://github.com/stryker-mutator/mutation-testing-elements" target="_blank" rel="noopener">mutation testing elements mono repo</a>.</p>
+<h2 id="call-to-action"><a class="stryker-permalink" href="#call-to-action" aria-hidden="true">🔗</a> 💪 Call to action</h2>
+<p>Mutation testing elements is here to help out all mutation testing frameworks.
+We've contacted the guys over at <a href="https://infection.github.io/" target="_blank" rel="noopener">Infection</a> (PHP)
+and they will <a href="https://github.com/infection/infection/issues/340#issuecomment-477148001" target="_blank" rel="noopener">support it in the future</a>.</p>
+<p>If your mutation testing framework isn't supported, why not open up an issue at their side.
+Or better yet, implement it in a pull request. Most of them are open source after all.
+Spread the word 💖 to help us grow 🌳.</p>
+<h2 id="whats-next"><a class="stryker-permalink" href="#whats-next" aria-hidden="true">🔗</a> 🔮 What's next?</h2>
+<p>We're planning to upgrade the <a href="https://dashboard.stryker-mutator.io" target="_blank" rel="noopener">Stryker dashboard</a>.
+Right now it already supports <a href="/blog/2018-02-08/get-your-mutation-score-badge-now">showing a mutation score badge</a>.
+In the future, you will be able to host your entire mutation testing report there. Stay tuned.</p>
+<p>Happy mutation testing!</p>
+<p>Want to get in touch? Find us on <a href="https://gitter.im/stryker-mutator/stryker" target="_blank">Gitter</a> or <a href="https://twitter.com/stryker_mutator" target="_blank">Twitter</a>.</p><a href="/blog.html" title="blog">Back to blogs</a></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-104444094-1', 'auto');
+ga('send', 'pageview');</script><div class="gitter-open-chat-button">Need help?</div><script>((window.gitter = {}).chat = {}).options = { room: 'stryker-mutator/stryker', activationElement: '.gitter-open-chat-button' };</script><script async defer src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></div></main></body></html>

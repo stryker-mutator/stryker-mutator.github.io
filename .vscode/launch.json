@@ -4,17 +4,11 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Grunt pug",
+            "name": "Grunt sdedit",
             "program": "${workspaceFolder}/node_modules/grunt/bin/grunt",
             "args": [
-                "pug"
+                "sdedit"
             ]
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Publish",
-            "program": "${workspaceFolder}/tasks/publish"
         }
     ]
 }
