@@ -83,12 +83,11 @@ const menu = new Menu([
   new MenuItem('stryker-net', 'For C#', [
     new MenuItem('index', 'Introduction'),
     new MenuItem('quickstart', 'Quickstart')
-  ]),
+  ], { menuTitle: 'Stryker.NET' }),
   new MenuItem('stryker4s', 'For Scala', [
     new MenuItem('index', 'Introduction'),
     new MenuItem('quickstart', 'Quickstart'),
     new MenuItem('handbook', 'Handbook')
-
   ]),
   new MenuItem('blog', 'Blog'),
   new MenuItem('example', 'An example'),
