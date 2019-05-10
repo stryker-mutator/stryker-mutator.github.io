@@ -14,7 +14,12 @@ module.exports = {
         'postcss-loader',
         'extract-loader',
         'css-loader', // translates CSS into CommonJS modules
-        'sass-loader' // compiles Sass to CSS, using Node Sass
+        {
+          loader: "sass-loader",
+          options: {
+            implementation: require('sass')
+          }
+        }
       ]
     }]
   }
