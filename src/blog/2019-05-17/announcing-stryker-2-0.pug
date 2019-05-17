@@ -7,22 +7,24 @@ block content
 
         If you run into any issues using the latest version of Stryker, please let us know!
 
-        ## Breaking changes
+        ## 🔥 Breaking changes
+        
         This major release comes with some breaking changes:
         1. NodeJS version 8 or higher is now required to run Stryker
         2. The code of Stryker is now es2017 code instead of es5
 
-        ## Deprecations
+        ## 👴 Deprecations
+
         The use of mocha version 5 and below is deprecated. Please upgrade to mocha 6 or above. See [their changelog](https://github.com/mochajs/mocha/blob/master/CHANGELOG.md#600--2019-02-18) for more information about upgrading.
         Support for mocha version 5 and below will be removed in the future (with Stryker v3 probably).
 
-        ## What's new
-        Prettier has been removed as a direct dependency. We use prettier when initially writing your stryker.conf.js to disk. 
-        We now run prettier using the npx command instead of packaging it with Stryker.
-
-        We've updated our source-map dependency to enable lazy loading. This ensures that coverage data is only mapped when (and if) it's required.
-
-        VueJS files are only mutated when they contain `<script>` blocks.
+        ## ✨ What's new
+        Not a big list of new features this time around. Mainly housekeeping and other optimizations. Here you'll find a list of small improvements.
+        
+        * Prettier has been removed as a direct dependency. We use prettier when initially writing your stryker.conf.js to disk (with `stryker init`). 
+        We now run prettier using the npx command instead of packaging it with Stryker, keeping Stryker lean and mean.
+        * We've updated our source-map dependency to enable lazy loading. This ensures that coverage data is only mapped when (and if) it's required.
+        * VueJS files are only mutated when they contain `<script>` blocks.
         
         ## Migration
         Migrating to the latest major version is easy! Just update all `@stryker-mutator` dependencies to at least version 2.0.0. If you are still using version 0.x.x, then please look at [our blog post regarding stryker v1](https://stryker-mutator.io/blog/2019-02-13/announcing-stryker-1-0).
