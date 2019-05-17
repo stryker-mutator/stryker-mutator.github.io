@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker: Blog"><title>Blog - Stryker Mutator</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Lato"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="google-site-verification" content="dcR3wjiLytpKDUxRuQskHBDnuZmrf58jOUjMANVpOn0"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/css/all.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"></head><body><nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary flex-column flex-md-row"><div class="container">   <a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="30" height="30"></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/stryker/" title="stryker">For JavaScript</a></li><li class="nav-item"><a class="nav-link" href="/stryker-net/" title="stryker-net">For C#</a></li><li class="nav-item"><a class="nav-link" href="/stryker4s/" title="stryker4s">For Scala</a></li><li class="nav-item active"><a class="nav-link" href="/blog" title="blog">Blog</a></li><li class="nav-item"><a class="nav-link" href="/example" title="example">An example</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/stryker-mutator/stryker-handbook#readme" title="handbook" target="_blank">Handbook</a></li><li class="nav-item"><a class="nav-link" href="https://dashboard.stryker-mutator.io" title="dashboard" target="_blank">Dashboard</a></li></ul></div></div><a class="d-flex align-items-center" href="https://github.com/stryker-mutator/" id="forkme_banner"> <span class="d-none d-lg-block">View me on GitHub</span><i class="fab fa-github"></i></a></nav><main><div class="container mt-3"><div class="row"><div class="col-md-12"><h1>Announcing Stryker 2.0</h1><p>Published: 17 May 2019</p><p class="lead">Stryker 2.0 is here! Officially dropping support for Node 6 and some housekeeping.</p><p>A new major version of Stryker for JavaScript and TypeScript has been released: version 2.0.0.
+This blog post will cover some of the changes. For a full list of changes, please read <a href="https://github.com/stryker-mutator/stryker/blob/master/CHANGELOG.md#200-2019-05-17" target="_blank" rel="noopener">our changelog</a>.</p>
+<p>If you run into any issues using the latest version of Stryker, please let us know!</p>
+<h2 id="migration"><a class="stryker-permalink" href="#migration" aria-hidden="true">🔗</a> 🚀 Migration</h2>
+<p>Migrating to the latest major version is easy! Just update all <code>@stryker-mutator</code> dependencies to at least version 2.0.0. If you are still using version 0.x.x, then please look at <a href="https://stryker-mutator.io/blog/2019-02-13/announcing-stryker-1-0" target="_blank" rel="noopener">our blog post regarding stryker v1</a>.</p>
+<p>If you're new to Stryker, please see <a href="/stryker/quickstart">our quickstart</a>. Have fun with mutation testing!</p>
+<h2 id="breaking-changes"><a class="stryker-permalink" href="#breaking-changes" aria-hidden="true">🔗</a> 🔥 Breaking changes</h2>
+<p>This major release comes with some breaking changes:</p>
+<ol>
+<li>NodeJS version 8 or higher is now required to run Stryker</li>
+<li>The code of Stryker is now es2017 code instead of es5</li>
+</ol>
+<h2 id="whats-new"><a class="stryker-permalink" href="#whats-new" aria-hidden="true">🔗</a> ✨ What's new</h2>
+<p>Not a big list of new features this time around. Mainly housekeeping and other optimizations. Here you'll find a list of small improvements.</p>
+<ul>
+<li>Prettier has been removed as a direct dependency. We use prettier when initially writing your stryker.conf.js to disk (with <code>stryker init</code>).
+We now run prettier using the npx command instead of packaging it with Stryker, keeping Stryker lean and mean.</li>
+<li>We've updated our source-map dependency to enable lazy loading. This ensures that coverage data is only mapped when (and if) it's required.</li>
+<li>VueJS files are only mutated when they contain <code>&lt;script&gt;</code> blocks.</li>
+</ul>
+<h2 id="deprecations"><a class="stryker-permalink" href="#deprecations" aria-hidden="true">🔗</a> 👴 Deprecations</h2>
+<p>Since Stryker v1, we've introduced a deprecation policy. This means that we'll support features for one major release after we've deprecated them.
+This is a (small) list of stuff we've deprecated. You'll also get a warning if you still use them in your setup.</p>
+<ul>
+<li>The use of mocha version 5 and below is deprecated. This is mainly because of big changes the way you configure mocha.
+Please upgrade to mocha 6 or above. See <a href="https://github.com/mochajs/mocha/blob/master/CHANGELOG.md#600--2019-02-18" target="_blank" rel="noopener">their changelog</a> for more information about upgrading.
+Support for mocha version 5 and below will be removed in the future (with Stryker v3 probably).</li>
+<li>The <code>onScoreCalculated</code> internal reporter event is deprecated. Please use <code>onMutationTestReportReady</code> and calculate the score using <a href="https://github.com/stryker-mutator/mutation-testing-elements/tree/master/packages/mutation-testing-metrics#readme" target="_blank" rel="noopener">mutation-testing-metrics</a>.
+All reporters maintained by the Stryker team are already migrated.</li>
+</ul>
+<h2 id="release-schedule"><a class="stryker-permalink" href="#release-schedule" aria-hidden="true">🔗</a> 📅 Release schedule</h2>
+<p>We'll keep improving Stryker by fixing nasty bugs, improving code (and test) quality and by adding new features.
+The next major release of Stryker will probably be at the start of 2020 due to the LTS support of NodeJS version 8 ending.</p>
+<p>Want to get in touch? Find us on <a href="https://gitter.im/stryker-mutator/stryker" target="_blank">Gitter</a> or <a href="https://twitter.com/stryker_mutator" target="_blank">Twitter</a>.</p><a href="/blog.html" title="blog">Back to blogs</a></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-104444094-1', 'auto');
+ga('send', 'pageview');</script><div class="gitter-open-chat-button">Need help?</div><script>((window.gitter = {}).chat = {}).options = { room: 'stryker-mutator/stryker', activationElement: '.gitter-open-chat-button' };</script><script async defer src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script></div></main></body></html>
