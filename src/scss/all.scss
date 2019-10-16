@@ -5,6 +5,7 @@ $code-color: $secondary;
 
 @import "../../node_modules/highlight.js/styles/github";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "./stryker/container-fix";
 @import "./stryker/fork-me-banner";
 @import "./stryker/preview-ribbon";
