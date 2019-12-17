@@ -1,0 +1,61 @@
+extends ../../layout/blog-layout.pug
+block content
+    :markdown-it
+    
+        Running mutation testing can be time-consuming.
+        Using your PC to do it is fine for small projects, but for bigger projects, you really want to run it in a CI/CD pipeline.  
+
+        This is also something we've experienced developing Stryker.
+        At first, we would run Stryker on Stryker every week.
+        But as our codebase grew, this became impractical. 
+
+        Luckily, running mutation testing in your CI/CD pipeline is a trivial task.
+        Most mutation testing frameworks can be run from the command line.
+        This is also true for the Stryker family of frameworks.
+        The problem becomes: what is a convenient way to read the mutation testing report 👀?
+        Manually downloading files and opening them in your browser isn't a way anyone should be forced to spend an afternoon.
+
+        ## Meet: Stryker Dashboard
+        
+        The Stryker Dashboard aims to solve that problem. It's now possible to host your mutation testing report right there. Some examples:
+        * [Stryker](https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker/master)
+        * [Stryker4s](https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker4s/master)
+        * [Stryker.NET](https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker-net/master)
+
+        ## Where can I get my own? 
+        
+        Getting up and running with the dashboard is simple. 
+
+        🎯 Navigate to https://dashboard.stryker-mutator.io and log in with your GitHub account.  
+        ✅ Enable the Stryker Dashboard for your repository.  
+        🔑 Configure Stryker to run with the "dashboard" reporter with your personal API key. See [the dashboard article on the Stryker handbook for the details](https://github.com/stryker-mutator/stryker-handbook/blob/master/dashboard.md)  
+        🏃‍♀️ Run Stryker.NET, Stryker4s or Stryker and upload your first report.
+
+        ## Features
+        
+        The Stryker Dashboard now has several features out-of-the-box:
+        
+        💄 Store and show gorgeous reports.  
+        🥇 Brag about your mutation score with the mutation score badge in your README.md file.  
+        🔀 Support Git workflows out of the box with mutation reports per branch, tag and even hash.  
+        🐉 Support for Monorepos out of the box. Multiple reports are aggregated to show a report of all your modules.  
+        🤝 Supports all Stryker implementations, as well as other frameworks that support the [mutation-testing-report schema](https://github.com/stryker-mutator/mutation-testing-elements/tree/master/packages/mutation-testing-report-schema).
+        It even supports sending your report through a cURL request. See [the Stryker handbook](https://github.com/stryker-mutator/stryker-handbook/blob/master/dashboard.md) for more details.  
+        💸 Free for open source projects.
+        
+        ## What's next?
+
+        We'd like to get more mutation testing frameworks on board. Together, we'll be able to spread the word about mutation testing 
+        and test quality by making it more visible. Please use the dashboard for your open source projects as well.
+
+        We're looking to improve the dashboard further. You can expect more features and open source git providers to be added. 
+        We're always looking for feedback, please don't hesitate to create [an issue](https://github.com/stryker-mutator/stryker-dashboard/issues/new). 
+
+        The latest versions of Stryker, Stryker4s, and Stryker.NET all support the dashboard reporter.
+        We are also eating our own dog food here 🍴🐶🥫.
+        We welcome PR's to help improve our own Mutation Score through pull requests as well. 
+        Improving tests is a good way to get to know a new code base.
+
+
+
+
