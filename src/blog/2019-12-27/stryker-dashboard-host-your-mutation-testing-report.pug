@@ -3,7 +3,8 @@ block content
     :markdown-it
     
         If you're new to mutation testing, it's a way to measure how effective your tests are at finding bugs.
-        Please take a look at [our RoboBar 🤖🍷 example](/example) and see how 100% code coverage doesn't mean that everything is tested.
+        Please take a look at [our RoboBar 🤖🍷 example](/example) and see how even 100% code coverage doesn't tell the whole story.
+        Mutation testing is the only way to make sure your code is tested.
 
         Mutation testing is done by a mutation testing framework. After a mutation test run, you'll get a report that gives you all the details.
         Since mutation testing is still growing in popularity, there wasn't a convenient way yet to view the report in the cloud.
@@ -20,6 +21,8 @@ block content
 
         ## Some examples
       
+        Click on the links below to see some examples of mutation testing reports hosted in the Stryker Dashboard.
+
         * [Stryker ![badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fstryker-mutator%2Fstryker%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker/master)
         * [Stryker4s ![badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fstryker-mutator%2Fstryker4s%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker4s/master)
         * [Stryker.NET ![badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fstryker-mutator%2Fstryker-net%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker-net/master)
@@ -29,9 +32,11 @@ block content
         Mutation testing can be time-consuming.
         Using your PC to do it is fine for small projects, but for bigger projects, you really want to run it in your CI/CD pipeline.  
 
-        This is also something we've experienced developing Stryker.
+        This is also something we've experienced developing Stryker, the mutation testing framework for JavaScript and TypeScript.
         At first, we would run Stryker on Stryker every week.
-        But as our codebase grew, this became impractical. Luckily, running mutation testing in your CI/CD pipeline is a trivial task.
+        But as our codebase grew, this became impractical. 
+        
+        Luckily, running mutation testing in your CI/CD pipeline is a trivial task.
         Most mutation testing frameworks can be run from the command line.
         This is also true for the Stryker family of frameworks.
 
