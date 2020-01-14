@@ -1,31 +1,36 @@
 a[target="_blank"]:after {
-    content: ' \1F5D7';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: " \f35d";
+  font-size: 0.9rem;
 }
 
-.navbar-nav a:after { 
-    content: '';
+.navbar-nav a:after {
+  content: "";
 }
 
 .stryker-permalink {
-    visibility: hidden;
-    font-size: 15px;
-    float: left;
-    margin-left: -20px;
-    &:hover {
-        text-decoration: none;
-    }
+  visibility: hidden;
+  font-size: 15px;
+  float: left;
+  margin-left: -20px;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
-h1, h2, h3 {
-    display: flex;
-    align-items: center;
-    scroll-margin: 70px;
-    &:hover {
-        .stryker-permalink {
-            visibility: visible;
-        }
+h1,
+h2,
+h3 {
+  display: flex;
+  align-items: center;
+  scroll-margin: 70px;
+  &:hover {
+    .stryker-permalink {
+      visibility: visible;
     }
-    .text-center & {
-        justify-content: center;
-    }
+  }
+  .text-center & {
+    justify-content: center;
+  }
 }
