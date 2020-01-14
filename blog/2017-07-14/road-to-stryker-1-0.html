@@ -8,7 +8,7 @@
 <p>The way Stryker achieves all this, is using a plugin model. Want to use a different test runner?
 Create a class that implements the <a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-api/src/test_runner/TestRunner.ts" target="_blank" rel="noopener">TestRunner interface</a> and you're done.
 However, Stryker does one assumption: your source code can be directly executed in your environment.</p>
-<h2 id="road-to-v1"><a class="stryker-permalink" href="#road-to-v1" aria-hidden="true">🔗</a> Road to v1</h2>
+<h2 id="road-to-v1"><a class="stryker-permalink" href="#road-to-v1">🔗</a> Road to v1</h2>
 <p>We're very happy with the results so far, but we're far from done. The JavaScript world is constantly evolving.
 A couple of examples of modern use cases are:</p>
 <ul>
@@ -20,13 +20,13 @@ A couple of examples of modern use cases are:</p>
 </ul>
 <p>In order to stay relevant, these use cases need to be supported in a user friendly way.
 Only then are we comfortable with tagging Stryker with a version <em>1</em> tag.</p>
-<h2 id="false-assumption"><a class="stryker-permalink" href="#false-assumption" aria-hidden="true">🔗</a> False assumption</h2>
+<h2 id="false-assumption"><a class="stryker-permalink" href="#false-assumption">🔗</a> False assumption</h2>
 <p>If you look at the modern use cases, they have something in common:
 your code cannot be directly executed in your JavaScript environment. It's not even JavaScript in some cases.
 It first needs to be compiled, transpiled and/or bundled, before it can be executed.
 For the sake of this article, let's call this step <a href="https://en.wikipedia.org/wiki/Source-to-source_compiler" target="_blank" rel="noopener">transpiling</a>.
 This makes the assumption that Stryker does a false one: <strong>it should not assume the code you write is the code that gets executed</strong>.</p>
-<h2 id="first-attempt"><a class="stryker-permalink" href="#first-attempt" aria-hidden="true">🔗</a> First attempt</h2>
+<h2 id="first-attempt"><a class="stryker-permalink" href="#first-attempt">🔗</a> First attempt</h2>
 <p>We've had a lot of discussion within the Stryker team on how to support these use cases.
 One possibility is to first transpile your code before we run the normal Stryker process on it.</p>
 <p>In the end we decided against this approach, because it comes with a big downside: it will cause a lot of false positives.</p>
@@ -44,7 +44,7 @@ However, <code>'the answer is ' - b</code> is <em>not a valid TypeScript express
 <pre><code class="language-bash">The left-hand side of an arithmetic operation must be of type 'any', 'number' or an enum type.
 </code></pre>
 <p>This is why we refer to it as a false positive. This mutation shouldn't be tested, because it's a waste of resources and it impacts the mutation score. This is why we shouldn't blindly mutate transpiled code.</p>
-<h2 id="open-heart-surgery"><a class="stryker-permalink" href="#open-heart-surgery" aria-hidden="true">🔗</a> Open heart surgery</h2>
+<h2 id="open-heart-surgery"><a class="stryker-permalink" href="#open-heart-surgery">🔗</a> Open heart surgery</h2>
 <p>The only solution for supporting these use cases is to transpile the code after it has been mutated. This way, we can make sure only valid mutations are done to your code because
 we <em>teach</em> Stryker which mutations are valid and which are invalid and we won't have to worry about code that gets generated during the transpilation.</p>
 <p>However, we don't want to just hard code it all in Stryker, because that would force a dependency on TypeScript, Babel, Webpack, etc.
@@ -57,7 +57,7 @@ Let's call this the <code>transpiler</code> plugin. Examples of these plugins ma
 <li>Initial test run</li>
 <li>Mutation testing</li>
 </ol>
-<h3 id="step-1-initial-test-run"><a class="stryker-permalink" href="#step-1-initial-test-run" aria-hidden="true">🔗</a> Step 1: Initial test run</h3>
+<h3 id="step-1-initial-test-run"><a class="stryker-permalink" href="#step-1-initial-test-run">🔗</a> Step 1: Initial test run</h3>
 <p>Starting from the top left: Stryker starts by reading your Stryker configuration file.
 After that, we read in the source files into memory. As you might have noticed, these will be the <em>typescript files</em>.
 Next up: it's the new <code>stryker-typescript-transpiler</code> plugin's time to shine. It will transpile the *.ts files into *.js files
@@ -70,7 +70,7 @@ In the next step, Stryker will write mutations to different Sandboxes and run yo
 We need a control step to make sure your tests pass under normal circumstances. Also: this is where
 we measure your code coverage results for every test (if your test framework and test runner support it), which
 are used to speed up mutation testing.</p>
-<h3 id="step-2-mutation-testing"><a class="stryker-permalink" href="#step-2-mutation-testing" aria-hidden="true">🔗</a> Step 2: Mutation testing</h3>
+<h3 id="step-2-mutation-testing"><a class="stryker-permalink" href="#step-2-mutation-testing">🔗</a> Step 2: Mutation testing</h3>
 <p>After the initial test run completed successfully, we proceed with the actual mutation testing. The first step here
 is about figuring out how we can mutate your source code. This is again done by the <code>stryker-typescript-transpiler</code> plugin.
 It will mutate the TypeScript specific <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" target="_blank" rel="noopener">abstract syntax tree</a>, but <em>only
@@ -81,12 +81,12 @@ JavaScript part, because that is the recipe to mutate the JavaScript code in the
 This will allow Stryker to do mutation testing without needing to compile the code for each mutant, which would be disastrous for performance.
 The TypeScript part of a mutant can be used to report the mutated code to the end user. So the mutants that will be reported
 in the exact code and language that the end user uses.</p>
-<h2 id="plain-javascript-projects"><a class="stryker-permalink" href="#plain-javascript-projects" aria-hidden="true">🔗</a> Plain JavaScript projects</h2>
+<h2 id="plain-javascript-projects"><a class="stryker-permalink" href="#plain-javascript-projects">🔗</a> Plain JavaScript projects</h2>
 <p>Back to plain JavaScript projects. What will change for them? The answer is: not much.
 We'll basically move the current logic for mutating code to a new <code>stryker-javascript-transpiler</code> plugin.
 It will be a pass-through transpiler, meaning that the code you write will be used directly.
 Mutating of JavaScript code will move to this plugin as well.</p>
-<h2 id="want-to-help"><a class="stryker-permalink" href="#want-to-help" aria-hidden="true">🔗</a> Want to help?</h2>
+<h2 id="want-to-help"><a class="stryker-permalink" href="#want-to-help">🔗</a> Want to help?</h2>
 <p>Want to help? Great! We're really looking for people interested in helping us reach our goal of supporting all JavaScript based projects!</p>
 <p>Want to get in touch? Find us on <a href="https://gitter.im/stryker-mutator/stryker" target="_blank">Gitter</a> or <a href="https://twitter.com/stryker_mutator" target="_blank">Twitter</a>.</p><a href="/blog.html" title="blog">Back to blogs</a></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

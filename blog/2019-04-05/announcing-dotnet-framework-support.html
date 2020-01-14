@@ -11,7 +11,7 @@ Jump right into it:</p>
 <a href="#new-html-report">📊 New HTML report</a><br>
 <a href="#progress-bar">🏃‍ Progress bar</a><br>
 <a href="#whats-next">🔮 What's next?</a></p>
-<h2 id="mutation-testing"><a class="stryker-permalink" href="#mutation-testing" aria-hidden="true">🔗</a> 👾 Mutation testing</h2>
+<h2 id="mutation-testing"><a class="stryker-permalink" href="#mutation-testing">🔗</a> 👾 Mutation testing</h2>
 <p>For those of you who might not be familiar with Stryker.NET and Mutation Testing, here is a brief reminder.
 Please see <a href="/example">our RoboBar example</a> for the full introduction.</p>
 <p>Stryker.NET places <em>mutants</em> (bugs) inside your source code. After that, it runs your tests for each mutant.
@@ -22,7 +22,7 @@ It is the only way to measure <em>your tests effectiveness</em>. It's really as 
 <p>To cover as much logic as possible Stryker.NET provides a wide range of mutations.
 An overview of these mutations can be found <a href="/stryker-net/mutators">here</a>.
 You can run Stryker.NET with .NET Core on Windows, Mac and Linux as well as .NET Framework on Windows.</p>
-<h2 id="start-using-stryker-net"><a class="stryker-permalink" href="#start-using-stryker-net" aria-hidden="true">🔗</a> 💪 Start using Stryker.NET</h2>
+<h2 id="start-using-stryker-net"><a class="stryker-permalink" href="#start-using-stryker-net">🔗</a> 💪 Start using Stryker.NET</h2>
 <p>Stryker.NET is now installed as a (global) <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools" target="_blank" rel="noopener">dotnet tool</a>
 instead of a <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/extensibility" target="_blank" rel="noopener">Per-project tool</a>.
 This has the advantage of not competing with your local project dependencies, but this also means that
@@ -62,27 +62,27 @@ Please follow their <a href="(https://docs.microsoft.com/en-us/nuget/install-nug
 </code></pre>
 </li>
 </ol>
-<h2 id="vstest-integration"><a class="stryker-permalink" href="#vstest-integration" aria-hidden="true">🔗</a> ⏩ VSTest integration</h2>
+<h2 id="vstest-integration"><a class="stryker-permalink" href="#vstest-integration">🔗</a> ⏩ VSTest integration</h2>
 <p>Stryker.NET now hooks right into VSTest to execute your unit tests instead of running your tests from the command line.
 This means a big performance boost, because it keeps the VSTest connection alive between test runs.
 Because Stryker.NET supports VSTest, this performance boost wil work for most test frameworks, including <a href="https://xunit.github.io/" target="_blank" rel="noopener">XUnit</a>,
 <a href="https://nunit.org/" target="_blank" rel="noopener">NUnit</a> and <a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest" target="_blank" rel="noopener">MSTest</a>.</p>
-<h2 id="new-html-report"><a class="stryker-permalink" href="#new-html-report" aria-hidden="true">🔗</a> 📊 New HTML report</h2>
+<h2 id="new-html-report"><a class="stryker-permalink" href="#new-html-report">🔗</a> 📊 New HTML report</h2>
 <p>This might catch your eye. As of v0.10, Stryker.NET comes with an HTML reporter.
 It shows a report in your browser with insights in your test quality, directly after your run Stryker.<br>
 It even goes into detail and shows you exactly what mutants were made and if your tests killed them!</p>
 <img class="img-fluid" alt="stryker" src="/images/stryker-net/html-report-net.png"><p>It uses the generic <a href="https://github.com/stryker-mutator/mutation-testing-elements" target="_blank" rel="noopener">mutation-testing-elements</a>,
 which is an open standard for reporting mutation test results. See our <a href="https://stryker-mutator.io/blog/2019-04-03/one-mutation-testing-html-report" target="_blank" rel="noopener">previous blog</a> for more information about the mutation-testing-elements</p>
-<h2 id="progress-bar"><a class="stryker-permalink" href="#progress-bar" aria-hidden="true">🔗</a> 🏃‍ Progress bar</h2>
+<h2 id="progress-bar"><a class="stryker-permalink" href="#progress-bar">🔗</a> 🏃‍ Progress bar</h2>
 <p>You can now track the progress of the mutation testing process, as well as preview the mutant stats.
 It also includes an indication of the remaining time to finish.</p>
-<img class="img-fluid" alt="stryker" src="/images/stryker-net/progress-bar-net.png"><br><br><h2 id="whats-next"><a class="stryker-permalink" href="#whats-next" aria-hidden="true">🔗</a> 🔮 What's next?</h2>
+<img class="img-fluid" alt="stryker" src="/images/stryker-net/progress-bar-net.png"><br><br><h2 id="whats-next"><a class="stryker-permalink" href="#whats-next">🔗</a> 🔮 What's next?</h2>
 <p>The following months we will be focusing on performance and stability.
 The main next feature will be coverage analysis. How does that work?</p>
 <p>Stryker.NET will use code coverage analysis to find mutants that are not covered by your tests.
 If it's not covered, it cannot be killed by any test, right? The mutant will be marked as <code>no coverage</code>,
 meaning the mutant survived while we saved valuable time.</p>
-<h2 id="contribute"><a class="stryker-permalink" href="#contribute" aria-hidden="true">🔗</a> Contribute</h2>
+<h2 id="contribute"><a class="stryker-permalink" href="#contribute">🔗</a> Contribute</h2>
 <p>Want to help make Stryker.NET even better?
 Check out our <a href="https://github.com/stryker-mutator/stryker-net/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener">contribution guide</a>
 and <a href="https://waffle.io/stryker-mutator/stryker-net" target="_blank" rel="noopener">backlog</a> to see what help we need.</p>

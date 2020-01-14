@@ -11,7 +11,7 @@
 <li><a href="#init-presets">Init presets</a></li>
 <li><a href="#web-component-tester-test-runner-plugin">Web component tester test runner plugin</a></li>
 </ul>
-<h2 id="command-test-runner"><a class="stryker-permalink" href="#command-test-runner" aria-hidden="true">🔗</a> Command test runner</h2>
+<h2 id="command-test-runner"><a class="stryker-permalink" href="#command-test-runner">🔗</a> Command test runner</h2>
 <p>Stryker always was and always will be test runner agnostic. It doesn't care which test runner you use.
 However, it always required you to install a test runner plugin.
 Are you using Jest? Install the 'stryker-jest-runner'. Want to use mocha? Then the 'stryker-mocha-runner' is just what you need.
@@ -35,7 +35,7 @@ If the exit code is <code>0</code>, the tests succeeded. If not, they failed.</p
 So if your test runner is supported via a test runner plugin, that would still be the way to go.</p>
 <p>The command test runner runs <code>npm test</code> by default. You can configure a different command with the <code>commandRunner</code> configuration key.</p>
 <p>Special thanks to <a href="https://twitter.com/DiegoRBaquero" target="_blank" rel="noopener">Diego R.B.</a> for inspiring us to implement this.</p>
-<h2 id="zero-configuration"><a class="stryker-permalink" href="#zero-configuration" aria-hidden="true">🔗</a> Zero configuration</h2>
+<h2 id="zero-configuration"><a class="stryker-permalink" href="#zero-configuration">🔗</a> Zero configuration</h2>
 <p>Stryker now chooses sensible defaults for all settings. Meaning that you can now run Stryker without any configuration.
 It will look for *.js files to mutate in your <code>src</code> and <code>lib</code> directories (excluding obvious test files, like app.spec.js).
 Coverage analysis will be turned off and the <a href="#command-test-runner">command test runner</a> is used.</p>
@@ -50,7 +50,7 @@ to change. For example:</p>
 </code></pre>
 <p>Again, special thanks to <a href="https://twitter.com/DiegoRBaquero" target="_blank" rel="noopener">Diego R.B.</a> for inspiring us to implement this.</p>
 <p>With this feature in place, Stryker is now effectively a drop in replacement for <a href="https://github.com/TheSoftwareDesignLab/mutode" target="_blank" rel="noopener">mutode</a>.</p>
-<h2 id="init-presets"><a class="stryker-permalink" href="#init-presets" aria-hidden="true">🔗</a> Init presets</h2>
+<h2 id="init-presets"><a class="stryker-permalink" href="#init-presets">🔗</a> Init presets</h2>
 <p>With <code>stryker init</code> (either using the <a href="https://github.com/stryker-mutator/stryker-cli" target="_blank" rel="noopener">stryker-cli</a>, or using <code>npx stryker init</code>)
 you can initialize Stryker in your repository. It asks questions via a questionnaire, like &quot;Which test runner do you want to use?&quot; and
 &quot;Which test framework do you want to use?&quot;. Sometimes you might not know the answer to those questions. It also might take a lot more
@@ -67,7 +67,7 @@ None/other
 <p>Choosing for a preset immediately gets you started! It creates the configuration file and installs the correct plugins.
 Choosing <code>None/other</code> here will still take you to the normal questionnaire.</p>
 <p>Special thanks to <a href="https://github.com/Wmaarts" target="_blank" rel="noopener">wmaarts</a> for adding this feature.</p>
-<h2 id="web-component-tester-plugin"><a class="stryker-permalink" href="#web-component-tester-plugin" aria-hidden="true">🔗</a> Web component tester plugin</h2>
+<h2 id="web-component-tester-plugin"><a class="stryker-permalink" href="#web-component-tester-plugin">🔗</a> Web component tester plugin</h2>
 <p>With this release of Stryker, we've also released version 0.1.0 of the stryker-wct-runner. Install it with:</p>
 <pre><code class="language-shell">$ npm install --save-dev stryker-wct-runner
 </code></pre>
@@ -81,7 +81,7 @@ The <a href="https://www.npmjs.com/package/web-component-tester" target="_blank"
 However, it doesn't support any of the coverage analysis performance features for now. If you want those to be supported,
 please open an issue. You're also welcome to take a look at the <a href="https://github.com/Polymer/tools/issues/created_by/nicojs" target="_blank" rel="noopener">issues we've opened at Polymer side</a>.
 Any help there is really appreciated.</p>
-<h2 id="whats-next"><a class="stryker-permalink" href="#whats-next" aria-hidden="true">🔗</a> What's next?</h2>
+<h2 id="whats-next"><a class="stryker-permalink" href="#whats-next">🔗</a> What's next?</h2>
 <p>We're still focussing on getting v1 out of the door. We're reasonably certain it will happen in Q1 of next year.
 V1 will mostly be removing deprecated features. We'll also introduce a more predictable release schedule with
 strict <a href="https://semver.org/spec/v2.0.0.html" target="_blank" rel="noopener">Semantic Versioning</a> policies. Stay tuned.</p>

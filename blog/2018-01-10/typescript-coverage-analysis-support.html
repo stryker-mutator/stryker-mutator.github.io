@@ -4,7 +4,7 @@ focussing on the new feature.</p>
 <ul>
 <li><a href="https://github.com/stryker-mutator/stryker/pull/559" target="_blank" rel="noopener">feat(coverage analysis): Support transpiled code #559</a></li>
 </ul>
-<div class="row"><div class="col-md-12"><h2 id="coverage-analysis"><a class="stryker-permalink" href="#coverage-analysis" aria-hidden="true">🔗</a> Coverage analysis</h2>
+<div class="row"><div class="col-md-12"><h2 id="coverage-analysis"><a class="stryker-permalink" href="#coverage-analysis">🔗</a> Coverage analysis</h2>
 <p>It might not sound particularly sexy, but (code) coverage analysis is an important feature of any mutation testing framework.
 Mutation testing takes a long time. The most effective way to save time, is to do less work.</p>
 <p>Take this small piece of JavaScript code:</p>
@@ -32,7 +32,7 @@ describe('Math', () =&gt; {
     });
 });
 </code></pre>
-</div><div class="col-md-12"><h3 id="coverage-analysis-all"><a class="stryker-permalink" href="#coverage-analysis-all" aria-hidden="true">🔗</a> Coverage analysis: 'all'</h3>
+</div><div class="col-md-12"><h3 id="coverage-analysis-all"><a class="stryker-permalink" href="#coverage-analysis-all">🔗</a> Coverage analysis: 'all'</h3>
 <p>As you can see the <code>sum</code> and <code>product</code> functions are reasonably well tested, but the the <code>difference</code> function isn't tested at all.</p>
 <p>For example: what would the result be for the mutant that changes <code>a - b</code> to <code>a + b</code>? It doesn't even make sense to test it,
 anyone can see it will survive anyway.</p>
@@ -41,7 +41,7 @@ collect code coverage results during the initial test run phase*. If a mutant mu
 it will be marked as <em>'no coverage'</em> (which translates to <em>survived</em> during the score calculation) without ever testing it.
 This can safe minutes on larger code bases.</p>
 <p>* Coverage analysis is not supported for Jest yet.</p>
-<h3 id="coverage-analysis-pertest"><a class="stryker-permalink" href="#coverage-analysis-pertest" aria-hidden="true">🔗</a> Coverage analysis: 'perTest'</h3>
+<h3 id="coverage-analysis-pertest"><a class="stryker-permalink" href="#coverage-analysis-pertest">🔗</a> Coverage analysis: 'perTest'</h3>
 <p>Nice! We're already saving time by analyzing a simple code coverage result. But if we take a closer look, we see that we can save even more time.</p>
 <p>Take the <code>product</code> function for example: we want to test the mutant that changes <code>a * b</code> to <code>a / b</code>. We see that it is covered by a test, so
 we cannot skip the actual testing of this mutant. However, we can save time by only running the one test that covers this mutant.</p>
@@ -50,7 +50,7 @@ collect code coverage results <em>per test</em> during the initial test run phas
 a mutant to run for that mutant (again, not supported for Jest yet). This might seem like a small improvements,
 but in big projects with 100s of tests, it quickly adds up to minutes.</p>
 <p>It is important to realize that this does not influence the quality of the resulting report at all. It simply less work to reach the same conclusion.</p>
-</div></div><div class="row"><div class="col-md-12"><h2 id="the-challenge-with-transpiled-code"><a class="stryker-permalink" href="#the-challenge-with-transpiled-code" aria-hidden="true">🔗</a> The challenge with transpiled code</h2>
+</div></div><div class="row"><div class="col-md-12"><h2 id="the-challenge-with-transpiled-code"><a class="stryker-permalink" href="#the-challenge-with-transpiled-code">🔗</a> The challenge with transpiled code</h2>
 <p>Now that we have a firm understanding of coverage analysis and why it is important, lets dive into the new stuff.
 After all, coverage analysis is nothing new for Stryker, it has been there for a long time.
 However, it gets more complicated when you add a transpiler to the (delicious) mutation testing mix.</p>
@@ -80,18 +80,18 @@ var Math = /** @class */ (function () {
 </code></pre>
 </div></div><div class="row"><div class="col-md-12"><p>Even with this small example, you can already see that the location of <code>a + b</code> in source code vs transpiled code is totally different.
 We need to translate the location of a mutant to the actual transpiled location somehow.</p>
-<h2 id="bridging-the-gap"><a class="stryker-permalink" href="#bridging-the-gap" aria-hidden="true">🔗</a> Bridging the gap</h2>
+<h2 id="bridging-the-gap"><a class="stryker-permalink" href="#bridging-the-gap">🔗</a> Bridging the gap</h2>
 <p>Luckily, any respectable transpiler can produce <a href="https://www.thecssninja.com/javascript/source-mapping" target="_blank" rel="noopener">source maps</a>.
 They are used by code editors and browsers to debug source code while executing transpiled/minified/bundled code.
 And, as of now, this is what is used by Stryker to calculate the transpiled location.</p>
 <p>So if you select coverage analysis 'all' or 'perTest' while transpiling using typescript, the stryker-typescript transpiler
 plugin will produce source maps during the initial test run. Stryker will use those source maps to translate the transpiled location
 of all mutants.</p>
-<h2 id="show-me-the-numbers"><a class="stryker-permalink" href="#show-me-the-numbers" aria-hidden="true">🔗</a> Show me the numbers</h2>
+<h2 id="show-me-the-numbers"><a class="stryker-permalink" href="#show-me-the-numbers">🔗</a> Show me the numbers</h2>
 <p>Unfortunately, we do not have a good performance testing mechanism for Stryker yet (PRs and ideas are welcome!),
 but the results for mutation testing on Stryker itself are very promising, shaving off about 6 minutes for single run,
 about a 50% performance increase.</p>
-<h2 id="whats-next"><a class="stryker-permalink" href="#whats-next" aria-hidden="true">🔗</a> What's next?</h2>
+<h2 id="whats-next"><a class="stryker-permalink" href="#whats-next">🔗</a> What's next?</h2>
 <p>Next up we'll work on getting this performance increase to all supported transpilers.
 We're also working behind the scenes on a transpiler plugin for webpack. Which you can also expect
 within the next couple of weeks.</p>

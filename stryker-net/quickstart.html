@@ -13,9 +13,9 @@ Starting from dotnet core 3.0 dotnet tools can also be installed on a project le
 <p>Update stryker dotnet tool
 Dotnet global tools do not auto update. To update stryker as a global tool run dotnet tool update</p>
 <hr/></div></section><section class="row"><div class="col-md-12"><h3><span class="badge badge-primary">2</span> Let's kill some mutants</h3><p>Run Stryker.NET to mutation test your project.</p><pre class="stryker-install"><code> dotnet stryker</code></pre><p>Make sure the command is executed with the <code>test</code> project as current directory.</p>
-<hr/></div></section><section class="row"><div class="col-md-12"><h2 id="3-configure"><a class="stryker-permalink" href="#3-configure" aria-hidden="true">🔗</a> 3 Configure</h2>
+<hr/></div></section><section class="row"><div class="col-md-12"><h2 id="3-configure"><a class="stryker-permalink" href="#3-configure">🔗</a> 3 Configure</h2>
 <p>Stryker will always look for a <code>stryker-config.json</code> file in the root of the test project. When found it will use the parameters in the file.</p>
-<h4 id="example-config-file"><a class="stryker-permalink" href="#example-config-file" aria-hidden="true">🔗</a> Example config file</h4>
+<h4 id="example-config-file"><a class="stryker-permalink" href="#example-config-file">🔗</a> Example config file</h4>
 <pre><code class="language-js">{
     &quot;stryker-config&quot;:
     {      
@@ -45,10 +45,10 @@ Dotnet global tools do not auto update. To update stryker as a global tool run d
 }
 </code></pre>
 <p>All the arguments in the configuration are optional.</p>
-<h3 id="note"><a class="stryker-permalink" href="#note" aria-hidden="true">🔗</a> Note</h3>
+<h3 id="note"><a class="stryker-permalink" href="#note">🔗</a> Note</h3>
 <p>In some cases Stryker cannot run without the <code>project-file</code> argument. Specify the name of the referenced project that should be mutated here. Stryker can only mutate one project in a single run. When it finds more references it will use the name in <code>project-file</code> to find the one project to mutate.</p>
 <p>For more information on what these options mean, take a look at the <a href="https://github.com/stryker-mutator/stryker-net/blob/master/src/Stryker.CLI/README.md" target="_blank" rel="noopener">Stryker.NET readme</a></p>
-<h3 id="console"><a class="stryker-permalink" href="#console" aria-hidden="true">🔗</a> Console</h3>
+<h3 id="console"><a class="stryker-permalink" href="#console">🔗</a> Console</h3>
 <p>All arguments can also be passed through the console.</p>
 <pre><code>dotnet stryker --log-level debug
 </code></pre>

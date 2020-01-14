@@ -5,7 +5,7 @@
 <li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-mocha-runner/CHANGELOG.md" target="_blank" rel="noopener">stryker-mocha-runner changelog</a></li>
 <li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-mocha-framework/CHANGELOG.md" target="_blank" rel="noopener">stryker-mocha-framework changelog</a></li>
 </ul>
-<h2 id="new-quickstart"><a class="stryker-permalink" href="#new-quickstart" aria-hidden="true">🔗</a> New quickstart</h2>
+<h2 id="new-quickstart"><a class="stryker-permalink" href="#new-quickstart">🔗</a> New quickstart</h2>
 <p>A new version of Stryker has been released that comes with a new way to initialize your project: an interactive questionnaire.</p>
 <p>Previously, when you wanted to start using Stryker in your project, you probably used the quickstart on the website.
 Instead of evolving the quickstart on the website, we've chosen to build it right into Stryker. Try it out: <code>stryker init</code>.</p>
@@ -20,7 +20,7 @@ Instead of evolving the quickstart on the website, we've chosen to build it righ
 <p><strong>A note for plugin creators</strong>: <code>stryker init</code> will automatically find your plugin as long as you add the correct keywords to your <code>package.json</code> file.
 More on that in a separate article or take a look at the PR.</p>
 <p>Please take a look at <a href="https://github.com/stryker-mutator/stryker/pull/269" target="_blank" rel="noopener">PR #269 for more details</a></p>
-</div><div class="thumbnail col-sm-2"><img src="../../images/blogs/old-quickstart.png"><div class="caption text-center"> <h4>Old quickstart</h4></div></div></div><h2 id="new-clear-text-reporter-summary"><a class="stryker-permalink" href="#new-clear-text-reporter-summary" aria-hidden="true">🔗</a> New clear-text reporter summary</h2>
+</div><div class="thumbnail col-sm-2"><img src="../../images/blogs/old-quickstart.png"><div class="caption text-center"> <h4>Old quickstart</h4></div></div></div><h2 id="new-clear-text-reporter-summary"><a class="stryker-permalink" href="#new-clear-text-reporter-summary">🔗</a> New clear-text reporter summary</h2>
 <p>The summary at the end of the clear-text reporter got a new look:</p>
 <pre><code>-----------|---------|----------|-----------|------------|----------|---------|
 File       | % score | # killed | # timeout | # survived | # no cov | # error |
@@ -34,7 +34,7 @@ Circle.js  |   33.33 |        2 |         0 |          2 |        2 |       0 |
 of score results per directory/file. This should be used as a single source of truth for all reporters.
 We're planning to migrate the stryker-html-reporter to this new way of working.</p>
 <p>Please take a look at <a href="https://github.com/stryker-mutator/stryker/pull/309" target="_blank" rel="noopener">PR #309 for more details</a></p>
-<h2 id="stryker-mocha-framework"><a class="stryker-permalink" href="#stryker-mocha-framework" aria-hidden="true">🔗</a> Stryker mocha framework</h2>
+<h2 id="stryker-mocha-framework"><a class="stryker-permalink" href="#stryker-mocha-framework">🔗</a> Stryker mocha framework</h2>
 <p>Previously, the stryker-mocha-framework was included in the stryker-mocha-runner package. We've noticed that this was quite confusing.
 That's why it's now migrated in it's own package.</p>
 <p><strong>BREAKING CHANGE:</strong> If you are using <code>testRunner: 'mocha', testFramework: 'mocha'</code> right now,
@@ -42,7 +42,7 @@ please also install stryker-mocha-framework when upgrading from stryker-mocha-ru
 <p>The stryker-mocha-framework currently only supports test runner 'mocha'. You'll get a warning when you configure an other runner.
 As configuring a test framework is always optional, you'll still be able to run your mocha tests in karma.</p>
 <p>Please take a look at <a href="https://github.com/stryker-mutator/stryker/pull/308" target="_blank" rel="noopener">PR #308 for more details</a></p>
-<h2 id="new-mutator"><a class="stryker-permalink" href="#new-mutator" aria-hidden="true">🔗</a> New mutator</h2>
+<h2 id="new-mutator"><a class="stryker-permalink" href="#new-mutator">🔗</a> New mutator</h2>
 <p>Please welcome our latest mutator: <strong>boolean substitution</strong>. It mutates your code in 3 ways:</p>
 <pre><code>true -&gt; false
 false -&gt; true
