@@ -1,4 +1,6 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
   entry: ['./src/js/all.js', './src/scss/all.scss'],
   output: {
@@ -7,20 +9,17 @@ module.exports = {
   },
   mode: 'production',
   module: {
-    rules: [{
-      test: /\.scss$/,
-      use: [
-        { loader: 'file-loader', options: { name: 'css/[name].css' } }, // Extract css into seperate file
-        'postcss-loader',
-        'extract-loader',
-        'css-loader', // translates CSS into CommonJS modules
-        {
-          loader: "sass-loader",
-          options: {
-            implementation: require('sass')
-          }
-        }
-      ]
-    }]
-  }
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ]
+      }
+    ]
+  },
+  plugins: [new MiniCssExtractPlugin({ filename: 'css/all.css' })]
 };
