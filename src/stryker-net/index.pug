@@ -2,17 +2,13 @@ extends ../layout/section-layout.pug
 
 block content
     :markdown-it
-        Welcome to the Stryker for .NET documentation. Stryker for Stryker.NET is also known as Stryker for C# or stryker-net.
+        Welcome to the Stryker for .NET documentation. Stryker for Stryker.NET is a spin-off of the original Stryker 
+        project for C#. It supports both .NET Framework and .NET Core projects. 
 
-        ### Stryker.NET
-        Stryker.NET offers you mutation testing for your .NET Core and .NET Framework projects. It allows you to test your tests by temporarily inserting bugs. Stryker.NET is installed using NuGet.
+    p
+    p
+        a.btn.btn-primary.btn-lg(href="/stryker-net/quickstart") Get started now
+    p
 
     img(alt="stryker", src="/images/stryker-net/stryker-net.png" class="img-fluid")
-
-    :markdown-it
-        For instructions on how to get started using Stryker.NET see the [quickstart](/stryker-net/quickstart).
-
-        For a full guide on how to configure Stryker.NET see our [configuration guide](https://github.com/stryker-mutator/stryker-net/blob/master/docs/Configuration.md).
-
-        Looking for our [mutators](https://github.com/stryker-mutator/stryker-net/blob/master/docs/Mutators.md) or [reporters](https://github.com/stryker-mutator/stryker-net/blob/master/docs/Reporters.md)?
-    br
+    

@@ -4,51 +4,121 @@ block content
     section.row
         .col-md-12
             :markdown-it
-                Install Stryker using [NuGet](https://www.nuget.org/).
+                Welcome to the quick start guide! Use this guide to get 
+                started with your first mutation testing run using Stryker.
+
+                This guide covers the following topics:
+
+                * Installation
+                * Running mutation tests
+                * Changing the configuration
+
+                Let's get started installing Stryker.
     section.row
         .col-md-12
+            h2 Installation
             :markdown-it
-                Global install
+                Stryker is available as a package on on 
+                [NuGet](https://www.nuget.org/). There's two ways in which you 
+                can install Stryker:
+
+                * As a global tool
+                * As a local tool in your project
+
+                We recommend that projects running .NET Core 3.x use the 
+                local tool installation. If you're running .NET Core 2.x you 
+                should use the global tool installation.
+
+                Let's start with the global tool installation process.
+    section.row
+        .col-md-12
+            h3 Install as a global tool
+            :markdown-it
+                Run the following command to install stryker as a global tool.
+
                 ```
                 dotnet tool install -g dotnet-stryker
                 ```
 
-                Project install
-                Starting from dotnet core 3.0 dotnet tools can also be installed on a project level. This requires the following steps:
+                Once you've installed stryker as a global tool, it becomes 
+                available as a command in your terminal. 
 
-                Create a file called `dotnet-tools.json` in your project folder. You can checkin to version control to make sure all team members have access to stryker
+                Note: Global tools are not automatically updated, you have to
+                do this yourself. You can update Stryker using the command
+                `dotnet tool update -g dotnet-stryker`.
 
+                Let's take a look at the local tool installation next.
+
+            h3 Install as a local tool
+            :markdown-it
+                While running stryker as a global tool works fine in many cases,
+                it can be interesting to run stryker as a local tool.
+                
+                Starting from .NET Core 3.0 dotnet tools can also be installed 
+                on a project level. This has the advantage that you can use a 
+                different version of a tool based on the requirements of your 
+                project.
+                
+                To install Stryker as a local tool, follow these steps:
+
+                First, open a new terminal window and navigate to your test 
+                project. 
+
+                Then,create a new tools manifest in your test project by 
+                executing the following command: 
+                
                 ```
                 dotnet new tool-manifest
                 ```
 
-                Then install stryker without the -g flag while executing the following command in the project folder
+                This will create a new file `tool-manifest.json` which contains 
+                information about which tools are used in the project and what 
+                version should be used.
+
+                Make sure you commit `tool-manifest.json` to source control, 
+                so you can restore the installed tools at a later date using the 
+                command `dotnet tool restore`.
+
+                Next, install the Stryker tooling using the command:
 
                 ```
                 dotnet tool install dotnet-stryker
                 ```
 
-                Update stryker dotnet tool
-                Dotnet global tools do not auto update. To update stryker as a global tool run dotnet tool update
+                This adds Stryker to the tool manifest and makes it available 
+                in the terminal. 
+
             hr/
     section.row
         .col-md-12
-            h3 #[span.badge.badge-primary 2] Let's kill some mutants
-            p Run Stryker.NET to mutation test your project.
-            pre.stryker-install
-                code 
-                    | dotnet stryker
+            h2 Running mutation tests
             :markdown-it
-                Make sure the command is executed with the `test` project as current directory.
+                Once you have Stryker installed, you can start mutation testing.
+                Run the following command from the test project folder where
+                you want to start mutation testing:
+
+                ```
+                dotnet stryker
+                ```
+
+                When you run the command, Stryker will perform the following tasks:
+
+                1. First, the test project is built.
+                2. Then, a set of mutations is generated for the project that is being tested.
+                3. After that, the mutation tests are run based on the list of tests and mutations.
+
+                At the end of the test run, a HTML report is generated. The URL 
+                for this is printed to the terminal window.
             hr/
     section.row
         .col-md-12
+            h2 Changing the configuration
             :markdown-it
-                ## 3 Configure
+                The default test configuration isn't suitable for all projects.
+                Stryker uses the `stryker-config.json` file in the root of the 
+                test project to configure the test run. A sample of a 
+                configuration file is displayed below:
 
-                Stryker will always look for a `stryker-config.json` file in the root of the test project. When found it will use the parameters in the file.
-
-                #### Example config file
                 ```js
                 {
                     "stryker-config":
@@ -65,11 +135,8 @@ block content
                         "threshold-high":80,
                         "threshold-low":70,
                         "threshold-break":60,
-                        "files-to-exclude": [
-                            "./ExampleClass.cs",
-                            "./ExampleDirectory/",
-                            "./ExampleDirectory/ExampleClass2.cs",
-                            "C:\\ExampleRepo\\ExampleDirectory\\ExampleClass.cs"
+                        "mutate": [
+                            "**/*.cs"
                         ],
                         "excluded-mutations": [
                             "string",
@@ -78,16 +145,17 @@ block content
                     }
                 }
                 ```
-                All the arguments in the configuration are optional. 
                 
-                ### Note
-                In some cases Stryker cannot run without the `project-file` argument. Specify the name of the referenced project that should be mutated here. Stryker can only mutate one project in a single run. When it finds more references it will use the name in `project-file` to find the one project to mutate.
+                Note that this file is entirely optional. It allows you to 
+                specify exactly what source files to mutate and what project
+                should be mutated during a test run.
 
-                For more information on what these options mean, take a look at the [Stryker.NET readme](https://github.com/stryker-mutator/stryker-net/blob/master/src/Stryker.CLI/README.md)
+                You can also modify how results are reported and when to break 
+                the build if insufficient mutations have been killed by your 
+                tests.
 
-                ### Console
-                All arguments can also be passed through the console.
-                ```
-                dotnet stryker --log-level debug
-                ```
-                 Arguments both assigned in the config file and the console will use the value assigned in the console.
+                Please refer to [the configuration guide](https://github.com/stryker-mutator/stryker-net/blob/master/docs/Configuration.md) 
+                for more information on the available configuration options.
+
+
+                
