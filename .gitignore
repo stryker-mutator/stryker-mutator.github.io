@@ -19,6 +19,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-docs/stryker
-docs/stryker4s
-docs/stryker-net
+/docs/stryker
+/docs/stryker4s
+/docs/stryker-net
+
+!/docs/stryker/**/*.html
+/docs/stryker-net
+!/docs/stryker4s/**/*.html
