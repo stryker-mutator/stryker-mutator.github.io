@@ -34,8 +34,24 @@ function filesInDir(dir, acc) {
       }
     });
 
+  let dirname;
+  switch (dir) {
+    case 'stryker-net':
+      dirname = 'Stryker.NET';
+      break;
+    case 'stryker4s':
+      dirname = 'Stryker4s';
+      break;
+    case 'stryker':
+      dirname = 'Stryker';
+      break;
+    default:
+      dirname = dir;
+      break;
+  }
+
   return {
-    [dir]: files,
+    [dirname]: files,
     ...directories
       .map(d => filesInDir(d, fullDir))
       .reduce((prev, curr) => {

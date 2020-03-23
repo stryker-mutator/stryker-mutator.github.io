@@ -19,7 +19,7 @@ module.exports = {
       },
       links: [
         {
-          to: 'docs/Stryker Mutator/doc1',
+          to: 'docs/Introduction/doc1',
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'left'
@@ -40,11 +40,11 @@ module.exports = {
           items: [
             {
               label: 'Style Guide',
-              to: 'docs/Stryker Mutator/doc1'
+              to: 'docs/Introduction/doc1'
             },
             {
               label: 'Second Doc',
-              to: 'docs/Stryker Mutator/doc1'
+              to: 'docs/Introduction/doc1'
             }
           ]
         },
