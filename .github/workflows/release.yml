@@ -1,0 +1,29 @@
+name: Publish GitHub pages
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  publish-gh-pages:
+    name: Publish GitHub pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Setup git env
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.GITHUB_DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git config --global push.default simple
+      - name: Publish GitHub pages
+        run: |
+          npm ci
+          GIT_USER=hugo-vrijswijk USE_SSH=true npm run deploy
