@@ -2,12 +2,16 @@
   "name": "stryker-mutator.github.io",
   "version": "0.0.0",
   "description": "Package for our github page",
-  "main": "Gruntfile.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "grunt serve",
-    "test": "grunt build",
-    "build": "grunt build",
-    "release": "node tasks/publish.js"
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "prebuild": "npm run clone:docs",
+    "prestart": "npm run clone:docs",
+    "clean": "rimraf docs/stryker docs/stryker4s docs/stryker-net",
+    "clone:docs": "./clone_docs.sh"
   },
   "repository": {
     "type": "git",
@@ -24,61 +28,22 @@
     "url": "https://github.com/stryker-mutator/stryker-mutator.github.io/issues"
   },
   "homepage": "https://github.com/stryker-mutator/stryker-mutator.github.io#readme",
-  "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^1.3.0",
-    "bootstrap": "^4.4.1",
-    "css-loader": "^3.4.2",
-    "cssnano": "^4.1.10",
-    "fibers": "^4.0.2",
-    "grunt": "^1.0.4",
-    "grunt-cli": "^1.3.2",
-    "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-connect": "^2.1.0",
-    "grunt-contrib-pug": "^2.0.0",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-npm": "0.0.2",
-    "grunt-webpack": "^3.1.3",
-    "highlight.js": "^9.17.1",
-    "jstransformer": "^1.0.0",
-    "jstransformer-markdown-it": "^2.1.0",
-    "markdown-it-anchor": "^5.2.5",
-    "mini-css-extract-plugin": "^0.9.0",
-    "mkdirp": "^0.5.1",
-    "ncp": "^2.0.0",
-    "postcss-loader": "^3.0.0",
-    "postcss-preset-env": "^6.7.0",
-    "rimraf": "^3.0.0",
-    "sass": "^1.24.4",
-    "sass-loader": "^8.0.2",
-    "webpack": "^4.41.5"
+  "dependencies": {
+    "@docusaurus/core": "^2.0.0-alpha.48",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.48",
+    "classnames": "^2.2.6",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
   },
-  "contributors": [
-    "Simon de Lang <simondelang@gmail.com>",
-    "Hugo van Rijswijk <hugo.v.rijswijk@gmail.com>",
-    "Arpad <ArpadKolkert@gmail.com>",
-    "Hugo van Rijswijk <hugo.vanrijswijk@infosupport.com>",
-    "nicojs <jansennico@gmail.com>",
-    "Alex van Assem <avassem@gmail.com>",
-    "Maarten Mulders <mthmulders@users.noreply.github.com>",
-    "legopiraat <3492598+legopiraat@users.noreply.github.com>",
-    "Bartosz Leoniak <bartosz.leoniak@wp.pl>",
-    "Legopiraat <gijs.venne@hotmail.com>",
-    "Nico Jansen <nico.jansen@infosupport.com>",
-    "Philipp Weissenbacher <philipp.weissenbacher@gmail.com>",
-    "Simon de Lang <Simon.DeLang@infosupport.com>",
-    "Gianfrancø Palumbo <gianpaj@users.noreply.github.com>",
-    "Richard Werkman <Richard.Werkman@infosupport.com>",
-    "Adrian Heine né Lang <mail@adrianheine.de>",
-    "BartB <btvanderburgt@gmail.com>",
-    "Cristiano Mazzarini <mazzcris@users.noreply.github.com>",
-    "Florent Pellet <github@florentpellet.com>",
-    "Jelle Peters <JellePetersHAN@users.noreply.github.com>",
-    "Julien Roy <royto81+github@gmail.com>",
-    "Maarten Mulders <m.th.mulders@xs4all.nl>",
-    "Olle Lauri Boström <ollebostr@gmail.com>",
-    "Peter <peter.fessel@live.de>",
-    "Richard Werkman <Richard1158@gmail.com>",
-    "legopiraat <gijs.venne@hotmail.com>",
-    "stavroskasidis <stavroskasidis@users.noreply.github.com>"
-  ]
+  "browserslist": {
+    "production": [
+      "defaults",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

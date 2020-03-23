@@ -1,5 +1,0 @@
-{
-    "title": "Announcing Stryker 0.34",
-    "description": "Stryker 0.34 is here. If you're unfamiliar with mutation testing, it's a way to test the effectiveness of your tests. Stryker is the mutation testing framework for JavaScript and TypeScript. This new version comes with features to help you get started. It's never been this easy to mutation test your JS project!",
-    "date": "24 December 2018"
-}
