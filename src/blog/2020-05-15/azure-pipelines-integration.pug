@@ -1,9 +1,9 @@
 extends ../../layout/blog-layout.pug
 block content
     :markdown-it
-        When using continuous integration it can be hard to keep track of your test quality. By integrating Stryker in your build pipelines you can ensure your test quality stays at the same level. No matter how many changes your code gets to see.
+        When using continuous integration it can be hard to keep track of quality. By integrating Stryker in your build pipelines you can ensure a continued focus on test quality, no matter how many changes your code gets to see.
 
-        To reach this point we had to improve a few points:  
+        To reach the point where we felt comfortable with integrating Stryker in build pipelines we had to improve a few things:  
         [🚀 Speed](#speed)  
         [🔎 Git integration](#git-integration)  
         [✨ Reporting](#reporting)  
@@ -62,7 +62,7 @@ block content
     br
     :markdown-it
 
-        The extension will add a new tab to your build result page. It loads your html report directly from the pipeline artifacts and shows it without downloading.
+        The extension will add a new tab to your build result page. This new tab will contain the full html report that is also available locally and on the stryker dashboard.
 
         How to use the extension:
         - Install the [extension](https://marketplace.visualstudio.com/items?itemName=stryker-mutator.mutation-report-publisher) on your azure devops environment
