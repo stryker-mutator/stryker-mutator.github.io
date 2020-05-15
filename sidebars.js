@@ -23,8 +23,8 @@ function filesInDir(dir, acc) {
    */
   const directories = [];
   inDirectory
-    .filter(_ => !_.startsWith('.'))
-    .forEach(f => {
+    .filter((_) => !_.startsWith('.'))
+    .forEach((f) => {
       const fullPath = `${fullDir}/${f}`;
       if (fs.lstatSync(fullPath).isDirectory()) {
         directories.push(f);
@@ -36,11 +36,11 @@ function filesInDir(dir, acc) {
 
   let dirname;
   switch (dir) {
-    case 'stryker-net':
-      dirname = 'Stryker.NET';
-      break;
     case 'stryker4s':
       dirname = 'Stryker4s';
+      break;
+    case 'stryker-net':
+      dirname = 'Stryker.NET';
       break;
     case 'stryker':
       dirname = 'Stryker';
@@ -53,10 +53,10 @@ function filesInDir(dir, acc) {
   return {
     [dirname]: files,
     ...directories
-      .map(d => filesInDir(d, fullDir))
+      .map((d) => filesInDir(d, fullDir))
       .reduce((prev, curr) => {
         return { ...prev, ...curr };
-      }, {})
+      }, {}),
   };
 }
 

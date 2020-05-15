@@ -15,22 +15,28 @@ module.exports = {
       title: 'Stryker Mutator',
       logo: {
         alt: 'Stryker Mutator Logo',
-        src: 'img/logo.png'
+        src: 'img/logo.png',
       },
       links: [
         {
           to: 'docs/Introduction/doc1',
           activeBasePath: 'docs',
           label: 'Docs',
-          position: 'left'
+          position: 'left',
+        },
+        {
+          to: 'docs/Introduction/doc2',
+          activeBasePath: 'docs',
+          label: 'For JavaScript',
+          position: 'left',
         },
         { to: 'blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/stryker-mutator/stryker-mutator.github.io',
           label: 'GitHub',
-          position: 'right'
-        }
-      ]
+          position: 'right',
+        },
+      ],
     },
     footer: {
       style: 'dark',
@@ -40,13 +46,13 @@ module.exports = {
           items: [
             {
               label: 'Style Guide',
-              to: 'docs/Introduction/doc1'
+              to: 'docs/Introduction/doc1',
             },
             {
               label: 'Second Doc',
-              to: 'docs/Introduction/doc1'
-            }
-          ]
+              to: 'docs/Introduction/doc1',
+            },
+          ],
         },
         {
           title: 'Community',
@@ -54,30 +60,30 @@ module.exports = {
             {
               label: 'Slack',
               href:
-                'https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM'
-            }
-          ]
+                'https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM',
+            },
+          ],
         },
         {
           title: 'Social',
           items: [
             {
               label: 'Blog',
-              to: 'blog'
+              to: 'blog',
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/stryker-mutator/'
+              href: 'https://github.com/stryker-mutator/',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/stryker_mutator'
-            }
-          ]
-        }
+              href: 'https://twitter.com/stryker_mutator',
+            },
+          ],
+        },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Stryker Mutator, Inc. Built with Docusaurus.`
-    }
+      copyright: `Copyright © ${new Date().getFullYear()} Stryker Mutator, Inc. Built with Docusaurus.`,
+    },
   },
   presets: [
     [
@@ -85,12 +91,12 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/master/website/'
+          editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/master/website/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css')
-        }
-      }
-    ]
-  ]
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      },
+    ],
+  ],
 };
