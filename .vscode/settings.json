@@ -1,18 +1,18 @@
 {
-    "cSpell.enabled": true,
-        // Specify file types to spell check.
-    "cSpell.enabledLanguageIds": [
-        "csharp",
-        "go",
-        "javascript",
-        "javascriptreact",
-        "markdown",
-        "php",
-        "plaintext",
-        "text",
-        "typescript",
-        "typescriptreact",
-        "yml",
-        "jade"
-    ]
+  "cSpell.enabled": true,
+  // Specify file types to spell check.
+  "cSpell.enabledLanguageIds": [
+    "csharp",
+    "go",
+    "javascript",
+    "javascriptreact",
+    "markdown",
+    "php",
+    "plaintext",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "yml",
+    "jade"
+  ]
 }

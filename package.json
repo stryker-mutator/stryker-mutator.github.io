@@ -11,7 +11,8 @@
     "prebuild": "npm run clone:docs",
     "prestart": "npm run clone:docs",
     "clean": "rimraf docs/stryker docs/stryker4s docs/stryker-net",
-    "clone:docs": "./clone_docs.sh"
+    "clone:docs": "./clone_docs.sh",
+    "lint": "prettier --check --ignore-path=.gitignore ."
   },
   "repository": {
     "type": "git",
@@ -45,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
   }
 }
