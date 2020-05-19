@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker: Blog"><title>Blog - Stryker Mutator</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Lato"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="google-site-verification" content="dcR3wjiLytpKDUxRuQskHBDnuZmrf58jOUjMANVpOn0"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/css/all.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"></head><body><nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary flex-column flex-md-row"><div class="container">   <a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="30" height="30"></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/stryker/" title="stryker">For JavaScript</a></li><li class="nav-item"><a class="nav-link" href="/stryker-net/" title="stryker-net">For C#</a></li><li class="nav-item"><a class="nav-link" href="/stryker4s/" title="stryker4s">For Scala</a></li><li class="nav-item active"><a class="nav-link" href="/blog" title="blog">Blog</a></li><li class="nav-item"><a class="nav-link" href="/example" title="example">An example</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/stryker-mutator/stryker-handbook#readme" title="handbook" target="_blank">Handbook</a></li><li class="nav-item"><a class="nav-link" href="https://dashboard.stryker-mutator.io" title="dashboard" target="_blank">Dashboard</a></li></ul></div></div><a class="d-flex align-items-center" href="https://github.com/stryker-mutator/" id="forkme_banner"> <span class="d-none d-lg-block">View me on GitHub</span><i class="fab fa-github"></i></a></nav><main><div class="container mt-3"><div class="row"><div class="col-md-12"><h1>Integrating Stryker.NET in your azure pipelines</h1><p>Published: 19 May 2020</p><p class="lead">Over the past few months we have been working hard to integrate Stryker.NET with azure pipelines. Learn how you can leverage our new features to include mutation testing in your continuous integration.</p><p>When using continuous integration it can be hard to keep track of quality. By integrating Stryker in your build pipelines you can ensure a continued focus on test quality, no matter how many changes your code gets to see.</p>
+<p>To reach the point where we felt comfortable with integrating Stryker in build pipelines we had to improve a few things:<br>
+<a href="#speed">🚀 Speed</a><br>
+<a href="#git-integration">🔎 Git integration</a><br>
+<a href="#reporting">✨ Reporting</a><br>
+<a href="#forcing-test-quality">⛔ Forcing test quality</a></p>
+<h2 id="speed"><a class="stryker-permalink" href="#speed">🔗</a> 🚀 Speed</h2>
+<p>Stryker.NET is now faster than ever! This means you can run mutation testing for every pull request without waiting too long for your build to succeed.</p>
+<p>Some performance improvements we have implemented:</p>
+<ul>
+<li>Mutation switching
+<ul>
+<li>We compile all mutants at once using conditional statements around the mutations. When testing the mutants we only have to flip the switch to turn it on 🔛</li>
+</ul>
+</li>
+<li>Integration with VSTest
+<ul>
+<li>This is the fastest way to run your tests. And VSTest supports all well known test frameworks.</li>
+</ul>
+</li>
+<li>Coverage analysis
+<ul>
+<li>We do not test mutants that are not covered by any test. And we only run the tests that cover the mutant when testing that mutant.</li>
+</ul>
+</li>
+<li>Testing mutants in parallel
+<ul>
+<li>We run multiple test sessions at once to test the mutants even faster.</li>
+</ul>
+</li>
+<li>Using the same test session for non overlapping mutants
+<ul>
+<li>Mutants that are in a different file and have no overlapping covered tests are run in the same test session to remove the overhead of starting a new test session.</li>
+</ul>
+</li>
+</ul>
+<p>By implementing all these performance tweaks we can now proudly say we are fast enough to use in your pipeline! So if performance was holding you back, now is the moment to give Stryker.NET a try! 🚀</p>
+<h2 id="git-integration"><a class="stryker-permalink" href="#git-integration">🔗</a> 🔎 Git integration</h2>
+<p>On large projects we can also use git to filter changed files in a pull request. That way only the changed code will be mutated. This helps to use mutation testing in pull request even on the largest projects.</p>
+<p>How does this work? Simply run Stryker.NET with the following command in your PR build:</p>
+<pre><code>dotnet stryker --diff
+</code></pre>
+<p>This will use the master branch as base by default. If you use a different branch as base for your pull requests you can change the base branch like this:</p>
+<pre><code>dotnet stryker --diff --git-source &quot;coalesce(variables['System.PullRequest.TargetBranch'], variables['Build.SourceBranch'])&quot;
+</code></pre>
+<p>This will get the pull request target branch, or the build source branch if no pull request target branch is available.</p>
+<p>💡 Tip:
+You can use this feature locally too, if you want to quickly mutate your new feature.</p>
+<h2 id="reporting"><a class="stryker-permalink" href="#reporting">🔗</a> ✨ Reporting</h2>
+<p>Another feature we are proud of is our integration with azure devops.</p>
+<p>You can now display the html report in your azure devops environment using an <a href="https://marketplace.visualstudio.com/items?itemName=stryker-mutator.mutation-report-publisher" target="_blank" rel="noopener">azure devops extension</a>.</p>
+<img class="img-fluid" alt="Azure devops extension in action" src="/images/blogs/azure-devops-extension1.png"><br><br><img class="img-fluid" alt="Azure devops extension in action" src="/images/blogs/azure-devops-extension3.png"><br><br><p>The extension will add a new tab to your build result page. This new tab will contain the full html report that is also available locally and on the stryker dashboard.</p>
+<p>How to use the extension:</p>
+<ul>
+<li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=stryker-mutator.mutation-report-publisher" target="_blank" rel="noopener">extension</a> on your azure devops environment</li>
+<li>Run <code>dotnet stryker</code> in your pipeline.</li>
+<li>Make sure the <code>html reporter</code> is enabled (default).</li>
+<li>Add the <code>publish mutation report</code> task to your pipeline (after <code>dotnet stryker</code>)</li>
+<li>Pass the path to the html report</li>
+</ul>
+<p>Example:</p>
+<img class="img-fluid" alt="Azure devops extension example" src="/images/blogs/azure-devops-extension2.png"><br><br><p>💡 Note: The extension does work for other mutation test frameworks as well. As long as the framework outputs a html report and you provide the location to the task, it will be displayed in your build result tab.</p>
+<h2 id="forcing-test-quality"><a class="stryker-permalink" href="#forcing-test-quality">🔗</a> ⛔ Forcing test quality</h2>
+<p>It's great that it is now possible to monitor the test quality automatically. But if you want to take a step even further towards maintaining your test quality you can set a breaking threshold.</p>
+<p>This will break your pipeline if a minimum mutation score wasn't reached.</p>
+<p>How to use custom thresholds:</p>
+<pre><code>dotnet stryker --threshold-high 90 --threshold-low 75 --threshold-break 60
+</code></pre>
+<p>or in <code>stryker-config.json</code></p>
+<pre><code>{
+    &quot;stryker-config&quot;:
+    {
+        &quot;threshold-high&quot;: 90,
+        &quot;threshold-low&quot;: 75,
+        &quot;threshold-break&quot;: 60
+    }
+}
+</code></pre>
+<p>This will make Stryker return a non-zero exit code when the mutation score is below 60.</p>
+<img class="img-fluid" alt="Azure devops extension example" src="/images/blogs/threshold-break.png"><br><br><p>💡 Tip:
+If you think your mutation score is too low, try to increase the threshold every few months to gradually improve your tests.</p>
+<p>💡 Tip:
+If you can't seem to kill a mutant, maybe the mutated code is not needed and can be safely removed.</p>
+<h2 id="conclusion"><a class="stryker-permalink" href="#conclusion">🔗</a> 🎆 Conclusion</h2>
+<p>With all these features nothing stands in your way to go and add Stryker.NET to your build pipeline.</p>
+<p>If we put all these features together your pipeline could look like this:</p>
+<pre><code>steps:
+- task: UseDotNet@2
+displayName: 'Use .Net Core runtime 3.1.x'
+inputs:
+    packageType: runtime
+    version: 3.1.x
+- task: DotNetCoreCLI@2
+displayName: 'Install dotnet tools for Stryker.CLI'
+inputs:
+    command: custom
+    custom: 'tool restore'
+    workingDirectory: 'src\Stryker.CLI\Stryker.CLI.UnitTest'
+- task: DotNetCoreCLI@2
+displayName: 'Run stryker on Stryker.CLI'
+inputs:
+    command: custom
+    custom: 'stryker --reporters &quot;[''dashboard'', ''html'']&quot; --threshold-high 90 --threshold-low 75 --threshold-break 60 --diff'
+    workingDirectory: 'src\Stryker.CLI\Stryker.CLI.UnitTest'
+- task: stryker-mutator.mutation-report-publisher.publish-mutation-report.publish-mutation-report@0
+displayName: 'Publish Mutation Test Report'
+inputs:
+    reportPattern: 'src\Stryker.CLI\Stryker.CLI.UnitTest\**\mutation-report.html'
+</code></pre>
+<p>If you run into trouble during installation or running, please let us know so we can improve.</p>
+<h2 id="whats-next"><a class="stryker-permalink" href="#whats-next">🔗</a> 🔮 What's next?</h2>
+<p>The upcoming months you can expect even more awesome features and improvements in Stryker.NET.</p>
+<ul>
+<li>The <code>git diff</code> feature will be greatly improved and result in a full report.</li>
+<li>Regex mutator (never seen before in mutation testing)</li>
+<li>Mutating a whole solution at once</li>
+</ul>
+<p>Want to help make Stryker even better? Check out our <a href="https://github.com/stryker-mutator/stryker-net/issues" target="_blank" rel="noopener">open issues</a>. Or help with implementing <a href="https://github.com/stryker-mutator/stryker/issues/1514" target="_blank" rel="noopener">mutation switching for Stryker (js)</a></p>
+<p>Want to get in touch? Find us on <a href="https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM" target="_blank">Slack</a> or <a href="https://twitter.com/stryker_mutator" target="_blank">Twitter</a>.</p><a href="/blog.html" title="blog">Back to blogs</a></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-104444094-1', 'auto');
+ga('send', 'pageview');</script></div></main></body></html>
