@@ -15,11 +15,11 @@ block content
 
         Some performance improvements we have implemented:
         - Mutation switching
-            - We compile all mutants at once using conditional statements around the mutations. When testing the mutants we only have to flip the switch to turn in on 🔛
+            - We compile all mutants at once using conditional statements around the mutations. When testing the mutants we only have to flip the switch to turn it on 🔛
         - Integration with VSTest
             - This is the fastest way to run your tests. And VSTest supports all well known test frameworks.
         - Coverage analysis
-            - We do not test mutants that are not covered by any test. And we only run the tests that cover a mutant when testing the mutant.
+            - We do not test mutants that are not covered by any test. And we only run the tests that cover the mutant when testing that mutant.
         - Testing mutants in parallel
             - We run multiple test sessions at once to test the mutants even faster.
         - Using the same test session for non overlapping mutants
@@ -43,7 +43,7 @@ block content
         dotnet stryker --diff --git-source "coalesce(variables['System.PullRequest.TargetBranch'], variables['Build.SourceBranch'])"
         ```
 
-        This will get the pullrequest target branch, or the build sourcebranch if no pullrequest targetbranch is available.
+        This will get the pull request target branch, or the build source branch if no pull request target branch is available.
 
         💡 Tip:
         You can use this feature locally too, if you want to quickly mutate your new feature.
