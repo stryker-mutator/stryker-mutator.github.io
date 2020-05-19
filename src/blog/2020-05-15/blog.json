@@ -1,0 +1,5 @@
+{
+    "title": "Integrating Stryker.NET in your azure pipelines",
+    "description": "Over the past few months we have been working hard to integrate Stryker.NET with azure pipelines. Learn how you can leverage our new features to include mutation testing in your continuous integration.",
+    "date": "19 May 2020"
+}
