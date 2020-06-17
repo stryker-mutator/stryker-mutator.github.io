@@ -2,9 +2,9 @@ extends ../layout/section-layout.pug
 
 block content
     :markdown-it
-        Stryker supports a number of plugins, which are listed below. You can also [search npm for the stryker-plugin tag](https://www.npmjs.com/search?q=stryker-plugin). 
+        Stryker supports several plugins, which are listed below. You can also [search npm for the stryker-plugin tag](https://www.npmjs.com/search?q=stryker-plugin). 
         
-        Don't worry about the reporters if you're just starting out. The needed plugins will be installed for you if you're following out [quickstart](/stryker/quickstart).
+        Don't worry about the reporters if you're just starting. The needed plugins will be installed for you if you're following out [quickstart](/stryker/quickstart).
 
         Missing something? Feel free to create an [issue](https://github.com/stryker-mutator/stryker/issues) or 
 
@@ -18,15 +18,14 @@ block content
 
         ## Test frameworks
 
-        Stryker is test framework agnostic, however if you plugin hooks to the test framework you are using, it can significantly improve the performance
-         by using `coverageAnalysis: 'perTest'`. For more information about coverage analysis, see the [stryker readme](https://github.com/stryker-mutator/stryker/tree/master/packages/core#coverageanalysis-string).
+        Stryker is test framework agnostic; however, if you plugin hooks to the test framework you are using, it can significantly improve the performance by using `coverageAnalysis: 'perTest'`. For more information about coverage analysis, see the [stryker readme](https://github.com/stryker-mutator/stryker/tree/master/packages/core#coverageanalysis-string).
                     
         * Jasmine ([@stryker-mutator/jasmine-framework](https://github.com/stryker-mutator/stryker/tree/master/packages/jasmine-framework))
         * Mocha ([@stryker-mutator/mocha-runner](https://github.com/stryker-mutator/stryker/tree/master/packages/mocha-runner))
 
         ## Reporters
         
-        Stryker already has 4 reporters build in:
+        Stryker already has four reporters build in:
         * `progress`: Report progress during mutation testing.
         * `dots`: Report progress as dots during mutation testing.
         * `clear-text`: A clear text report at the end of the mutation testing phase.
@@ -51,4 +50,4 @@ block content
         It is used by a few packages. We're thinking about deprecating it as it can lead to complicated setups with unexpected results.
 
         ## \<Your plugin here\>
-        You can write your own plugins for Stryker. Interested? Come and have a chat at [our Slack](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM).
+        You can write your plugins for Stryker. Interested? Come and have a chat at [our Slack](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM).
