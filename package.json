@@ -26,7 +26,7 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.3.0",
     "bootstrap": "^4.4.1",
-    "css-loader": "^3.4.2",
+    "css-loader": "^3.6.0",
     "cssnano": "^4.1.10",
     "fibers": "^4.0.2",
     "grunt": "^1.0.4",
