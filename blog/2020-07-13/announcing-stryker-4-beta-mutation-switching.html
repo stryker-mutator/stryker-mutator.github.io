@@ -22,7 +22,7 @@
 <p>Mutation switching is a way to simultaneously put all mutants into your code while making sure only one mutant is active at the same time. Let's take a look at an example.</p>
 <p>Let's take this.</p>
 <pre><code class="language-js">function add(a, b) {
-return a + b;
+  return a + b;
 }
 </code></pre>
 <p>When you feed this code to Stryker, it will generate two mutants:</p>
@@ -40,8 +40,8 @@ return a + b;
 <p>Stryker can now run your tests twice while changing which mutant is active in the process. Mutation switching can improve performance dramatically, depending on the type of project. For example, when you bundle your code with webpack before running the tests, then webpack only needs to run once. The same goes for TypeScript projects where you compile your code before testing.</p>
 <h2 id="instrumentation-with-babel"><a class="stryker-permalink" href="#instrumentation-with-babel">🔗</a> 🐠 Instrumentation with Babel</h2>
 <p>Mutation Switching is a significant performance improvement, but it means that Stryker is required to perform some complex transformations of the <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" target="_blank" rel="noopener">Abstract Syntax Tree (AST)</a>.</p>
-<p>Doing this <em>instrumentation</em> means visiting each node of the AST to collect and place mutants. This instrumentation is implemented with the <a href="babeljs.io/">Babel</a> parser <em>only</em> and now ships with <code>@stryker-mutator/core</code>. We're taking advantage of Babel 7's support to parse and print TypeScript code.</p>
-<p>This means that it is <em>no longer needed to configure the <code>mutator</code></em> in your Stryker configuration. Stryker will always use the new mutation instrumenter. It supports TypeScript, JavaScript, Flow, and JSX. It even can even parse HTML in <code>.html</code> or <code>.vue</code> files and mutate the script tags inside them. It also picks up your babel configuration out-of-the-box, so no custom configuration is needed.</p>
+<p>Doing this <em>instrumentation</em> means visiting each node of the AST to collect and place mutants. This instrumentation is implemented with the <a href="babeljs.io/">Babel</a> parser and now ships with <code>@stryker-mutator/core</code>. We're taking advantage of Babel 7's support to parse and print any type of JavaScript, including TypeScript code.</p>
+<p>This means that it is <em>no longer needed to configure the <code>mutator</code></em> in your Stryker configuration. Stryker will always use the new mutation instrumenter. It supports TypeScript, JavaScript, Flow, and JSX. It even supports mutating script tags in <code>.html</code> or <code>.vue</code> files. It also picks up your babel configuration out-of-the-box, so no custom configuration is needed.</p>
 <h2 id="build-command-support"><a class="stryker-permalink" href="#build-command-support">🔗</a> 👷‍‍ Build command support</h2>
 <p>With mutation switching, all mutants are placed in the code at the same time. This also means that it only has to be built (transpiled or bundled) once.</p>
 <p><em>Note: not all projects need building. Simple projects might deploy JS code as is, or the test runner might take care of this step for you. For example, running your tests with <code>ts-node</code> or <code>babel/register</code> or running it with <code>Jest</code> or <code>Karma</code> with the <a href="https://github.com/webpack-contrib/karma-webpack" target="_blank" rel="noopener">webpack plugin</a>.</em></p>
@@ -66,11 +66,13 @@ return a + b;
 <p>(tsconfig.json is the default setting for &quot;tsconfigFile&quot;).</p>
 <p>Please see <a href="https://github.com/stryker-mutator/stryker/tree/epic/mutation-switching/packages/typescript-checker#readme" target="_blank" rel="noopener">the TypeScript checker's readme for more details</a></p>
 <h2 id="more-coverage-analysis"><a class="stryker-permalink" href="#more-coverage-analysis">🔗</a> ☔ More coverage analysis</h2>
-<p>Coverage analysis is a way to speed up mutation testing. Stryker always came with three flavors:
-&quot;off&quot;: No coverage analysis
-&quot;all&quot;: Coverage is measured for the entire test suite. Mutants that are not covered by even one test are marked with &quot;NoCoverage&quot;
-&quot;perTest&quot;: Coverage is measured per test. Only tests that cover a specific mutant are run for that mutant.
-Running with &quot;perTest&quot; coverage yields a significant performance improvement (usually between 40% and 60%). However, most projects were unable to take advantage of it because Stryker relied on a complex mechanism of <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a> code coverage combined with hooks in the test runner. It only worked in scenarios without complicated transpiling or bundling.</p>
+<p>Coverage analysis is a way to speed up mutation testing. Stryker always came with three flavors:</p>
+<ul>
+<li>&quot;off&quot;: No coverage analysis</li>
+<li>&quot;all&quot;: Coverage is measured for the entire test suite. Mutants that are not covered by even one test are marked with &quot;NoCoverage&quot;</li>
+<li>&quot;perTest&quot;: Coverage is measured per test. Only tests that cover a specific mutant are run for that mutant.</li>
+</ul>
+<p>Running with &quot;perTest&quot; coverage yields a significant performance improvement (usually between 40% and 60%). However, most projects were unable to take advantage of it because Stryker relied on a complex mechanism of <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a> code coverage combined with hooks in the test runner. It only worked in scenarios without complicated transpiling or bundling.</p>
 <p>With the introduction of mutation switching, the instrumenter is responsible for inserting coverage instrumentation into the code. This means that Stryker can measure mutant coverage, <em>regardless of which bundler/transpiler you are using</em>. The only requirement is that Stryker needs to be able to hook into the test runner. This is currently supported for <code>@stryker-mutator/mocha-runner</code>, <code>@stryker-mutator/karma-runner</code> and <code>@stryker-mutator/jasmine-runner</code>. Support for <a href="https://github.com/stryker-mutator/stryker/issues/2316" target="_blank" rel="noopener"><code>@stryker-mutator/jest-runner</code> is planned</a>.</p>
 <h2 id="other-changes"><a class="stryker-permalink" href="#other-changes">🔗</a> 🧹 Other changes</h2>
 <p>We also decided to take this opportunity to improve the maintainability of the Stryker code further. That's why we've decided to drop support for two more plugin types.</p>
