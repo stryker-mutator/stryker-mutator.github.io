@@ -107,7 +107,7 @@ block content
       "off": No coverage analysis
       "all": Coverage is measured for the entire test suite. Mutants that are not covered by even one test are marked with "NoCoverage"
       "perTest": Coverage is measured per test. Only tests that cover a specific mutant are run for that mutant.
-      Running with "perTest" coverage yields a significant performance improvement (usually between 40% and 60%). However, most projects were unable to take advantage of it because Stryker relied on a complex mechanism of [instanbul](https://istanbul.js.org/) code coverage combined with hooks in the test runner. It only worked in scenarios without complicated transpiling or bundling.
+      Running with "perTest" coverage yields a significant performance improvement (usually between 40% and 60%). However, most projects were unable to take advantage of it because Stryker relied on a complex mechanism of [istanbul](https://istanbul.js.org/) code coverage combined with hooks in the test runner. It only worked in scenarios without complicated transpiling or bundling.
 
       With the introduction of mutation switching, the instrumenter is responsible for inserting coverage instrumentation into the code. This means that Stryker can measure mutant coverage, _regardless of which bundler/transpiler you are using_. The only requirement is that Stryker needs to be able to hook into the test runner. This is currently supported for `@stryker-mutator/mocha-runner`, `@stryker-mutator/karma-runner` and `@stryker-mutator/jasmine-runner`. Support for [`@stryker-mutator/jest-runner` is planned](https://github.com/stryker-mutator/stryker/issues/2316).
       
