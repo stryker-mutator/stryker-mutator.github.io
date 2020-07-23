@@ -28,7 +28,7 @@ function filesInDir(dir, acc) {
       const fullPath = `${fullDir}/${f}`;
       if (fs.lstatSync(fullPath).isDirectory()) {
         directories.push(f);
-      } else if (f.endsWith('.md')) {
+      } else if (f.endsWith('.md') || f.endsWith('.mdx')) {
         const withoutMd = f.split('.md')[0];
         files.push(`${dir}/${withoutMd}`);
       }

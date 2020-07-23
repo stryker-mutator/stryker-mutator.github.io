@@ -1,0 +1,85 @@
+---
+sidebar_label: Robobar
+title: Welcome to the RoboBar 🤖🍷
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+An introduction to mutation testing
+
+_How code coverage of 100% could mean only 60% is tested._
+
+<img alt="RoboBar application" src={useBaseUrl('images/RoboBar.png')} />
+
+## TL;DR
+
+No time to run the example yourself? Don't worry. We did it for you. Open it right in your browser:
+
+- [The RoboBar website](https://stryker-mutator.io/robobar-example/)
+- [Coverage report](https://stryker-mutator.io/robobar-example/reports/coverage/index.html)
+- [Mutation report](https://stryker-mutator.io/robobar-example/reports/mutation/html/index.html)
+
+## What is this?
+
+The RoboBar is a small application to demonstrate mutation testing. It actually has a fair number of unit tests.
+When we wrote this application, we didn't even try our best to write bad tests.
+We just focussed on code coverage and didn't practice Test Driven Development.
+It turns out it's straightforward to write bad tests or forget a few essential test cases.
+The RoboBar even has a reasonably large bug. Finding it is pretty easy using the mutation report.
+Why don't you give it a try? 😁
+
+## Try it yourself
+
+1. Install [git](https://git-scm.com)
+1. Install [nodejs](https://nodejs.org/)
+1. Open command prompt and clone this repository:
+   ```bash
+   git clone https://github.com/stryker-mutator/robobar-example
+   ```
+1. Change directory into the robobar and install the dependencies.
+   ```bash
+   cd robobar-example
+   npm install
+   ```
+1. Run tests with npm. This will generate a code coverage report.
+   ```bash
+   npm test
+   ```
+1. Review the 100% code coverage score. Open up the code coverage report located in the `reports/coverage` directory.
+1. Run mutation testing with [Stryker](https://stryker-mutator.io)
+   ```bash
+   npm run stryker
+   ```
+1. Review the 50% mutation score. Open up the mutation report located in the `reports/mutation` directory.
+1. Run the website with `npm start`. Can you find the bug?
+
+## Try to install stryker yourself.
+
+If you want to install stryker yourself, step back in history using git:
+
+```bash
+git checkout e92b8d4
+npm install
+```
+
+After that you can install stryker for yourself:
+
+```bash
+npm i -g stryker-cli
+stryker init
+```
+
+Choose the following options in the questionnaire:
+
+- Install stryker?: `Yes`
+- Test runner: `Karma`
+- Test framework: `Jasmine`
+- Language: `javascript`
+- Transformations: _none_
+- Reporters: `html, clear text, progress`
+
+After the plugins are installed, try it out:
+
+```bash
+stryker run
+```

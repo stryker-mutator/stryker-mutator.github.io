@@ -20,29 +20,35 @@ module.exports = {
       links: [
         {
           to: 'docs/',
-          activeBasePath: 'docs',
+          activeBasePath: 'docs/Introduction',
           label: 'Docs',
           position: 'left',
         },
         {
           to: 'docs/Introduction/doc2',
-          activeBasePath: 'docs',
+          activeBasePath: 'docs/stryker/',
           label: 'For JavaScript',
           position: 'left',
         },
         {
           to: 'docs/stryker-net/Configuration',
-          activeBasePath: 'docs',
+          activeBasePath: 'docs/stryker-net',
           label: 'For C#',
           position: 'left',
         },
         {
           to: 'docs/stryker4s/Configuration',
-          activeBasePath: 'docs',
+          activeBasePath: 'docs/stryker4s',
           label: 'For Scala',
           position: 'left',
         },
         { to: 'blog', label: 'Blog', position: 'left' },
+        {
+          to: 'docs/Example/robobar',
+          activeBasePath: 'docs/An example/',
+          label: 'An example',
+          position: 'left',
+        },
         {
           href: 'https://github.com/stryker-mutator/stryker-mutator.github.io',
           label: 'GitHub',
@@ -96,6 +102,14 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Stryker Mutator. Built with Docusaurus.`,
     },
+    prism: {
+      additionalLanguages: ['scala', 'csharp', 'java'],
+    },
+    googleAnalytics: {
+      trackingID: 'UA-104444094-1',
+      // Optional fields.
+      anonymizeIP: true, // Should IPs be anonymized?
+    },
   },
   presets: [
     [
@@ -105,11 +119,14 @@ module.exports = {
           // It is recommended to set document id as docs home page (`docs/` path).
           homePageId: 'Introduction/index',
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/master/',
+          editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/develop/',
         },
         blog: {
           showReadingTime: true,
-          editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/master/',
+          editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/develop/',
+          feedOptions: {
+            type: 'rss',
+          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
