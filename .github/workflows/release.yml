@@ -1,29 +1,32 @@
-name: Publish GitHub pages
+name: Release
 
 on:
   push:
-    branches:
-      - develop
+    branches: ['develop']
 
 jobs:
-  publish-gh-pages:
-    name: Publish GitHub pages
+  build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [14.x]
+
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
         with:
-          node-version: '12.x'
-      - name: Setup git env
-        run: |
-          mkdir ~/.ssh
-          echo "${{ secrets.GITHUB_DEPLOY_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          git config --global push.default simple
-      - name: Publish GitHub pages
-        run: |
-          npm ci
-          GIT_USER=hugo-vrijswijk USE_SSH=true npm run deploy
+          persist-credentials: false
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run build
+        env:
+          CI: true
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: master # The branch the action should deploy to.
+          FOLDER: build # The folder the action should deploy.

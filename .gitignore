@@ -24,5 +24,5 @@ yarn-error.log*
 /docs/stryker-net
 
 !/docs/stryker/**/*.html
-/docs/stryker-net
+!/docs/stryker-net/**/*.html
 !/docs/stryker4s/**/*.html

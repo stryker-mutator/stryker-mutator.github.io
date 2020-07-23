@@ -1,8 +1,7 @@
 {
   "name": "stryker-mutator.github.io",
   "version": "0.0.0",
-  "description": "Package for our github page",
-  "main": "src/index.js",
+  "private": true,
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
@@ -30,15 +29,16 @@
   },
   "homepage": "https://github.com/stryker-mutator/stryker-mutator.github.io#readme",
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.54",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.54",
-    "classnames": "^2.2.6",
+    "@docusaurus/core": "^2.0.0-alpha.58",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.58",
+    "clsx": "^1.1.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
   "browserslist": {
     "production": [
-      "defaults",
+      ">0.2%",
+      "not dead",
       "not op_mini all"
     ],
     "development": [

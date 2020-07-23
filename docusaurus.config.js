@@ -7,7 +7,7 @@ module.exports = {
   tagline: 'Test your tests with mutation testing.',
   url: 'https://stryker-mutator.io',
   baseUrl: '/',
-  favicon: 'img/favicon.ico',
+  favicon: 'images/favicon.ico',
   organizationName: 'stryker-mutator',
   projectName: 'stryker-mutator.github.io',
   themeConfig: {
@@ -15,11 +15,11 @@ module.exports = {
       title: 'Stryker Mutator',
       logo: {
         alt: 'Stryker Mutator Logo',
-        src: 'img/logo.png',
+        src: 'images/stryker.svg',
       },
       links: [
         {
-          to: 'docs/Introduction/doc1',
+          to: 'docs/',
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'left',
@@ -28,6 +28,18 @@ module.exports = {
           to: 'docs/Introduction/doc2',
           activeBasePath: 'docs',
           label: 'For JavaScript',
+          position: 'left',
+        },
+        {
+          to: 'docs/stryker-net/Configuration',
+          activeBasePath: 'docs',
+          label: 'For C#',
+          position: 'left',
+        },
+        {
+          to: 'docs/stryker4s/Configuration',
+          activeBasePath: 'docs',
+          label: 'For Scala',
           position: 'left',
         },
         { to: 'blog', label: 'Blog', position: 'left' },
@@ -46,11 +58,11 @@ module.exports = {
           items: [
             {
               label: 'Style Guide',
-              to: 'docs/Introduction/doc1',
+              to: 'docs/Introduction/doc1/',
             },
             {
               label: 'Second Doc',
-              to: 'docs/Introduction/doc1',
+              to: 'docs/Introduction/doc2/',
             },
           ],
         },
@@ -62,10 +74,14 @@ module.exports = {
               href:
                 'https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM',
             },
+            {
+              label: 'Twitter',
+              href: 'https://twitter.com/stryker-mutator',
+            },
           ],
         },
         {
-          title: 'Social',
+          title: 'More',
           items: [
             {
               label: 'Blog',
@@ -75,14 +91,10 @@ module.exports = {
               label: 'GitHub',
               href: 'https://github.com/stryker-mutator/',
             },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/stryker_mutator',
-            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Stryker Mutator, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Stryker Mutator. Built with Docusaurus.`,
     },
   },
   presets: [
@@ -90,8 +102,14 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
+          // It is recommended to set document id as docs home page (`docs/` path).
+          homePageId: 'Introduction/index',
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/master/website/',
+          editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/master/',
+        },
+        blog: {
+          showReadingTime: true,
+          editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
