@@ -2,7 +2,7 @@
 
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
-<img src="root/images/stryker.svg" width="80">
+<img src="static/images/stryker.svg" width="80">
 
 ### Installation
 

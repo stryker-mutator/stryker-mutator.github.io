@@ -134,4 +134,5 @@ module.exports = {
       },
     ],
   ],
+  plugins: [['@docusaurus/plugin-client-redirects', { redirects: require('./legacy-redirects') }]],
 };
