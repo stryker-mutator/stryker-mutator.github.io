@@ -11,7 +11,8 @@
     "prestart": "npm run clone:docs",
     "clean": "rimraf docs/stryker docs/stryker4s docs/stryker-net",
     "clone:docs": "./clone_docs.sh",
-    "lint": "prettier --check --ignore-path=.gitignore ."
+    "lint": "prettier --check --ignore-path=.gitignore .",
+    "lint:fix": "prettier --write --ignore-path=.gitignore ."
   },
   "repository": {
     "type": "git",
