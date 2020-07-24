@@ -7,7 +7,7 @@
  */
 const redirects = [
   // Content pages
-  { from: '/example', to: '/docs/Example/robobar' },
+  { from: '/example', to: '/docs/Introduction/example' },
   { from: '/mutators', to: '/docs/handbook/mutator-types' },
   { from: ['/plugins', '/stryker/plugins'], to: '/docs/stryker/plugins' },
   { from: ['/quickstart', '/stryker/quickstart'], to: '/docs/stryker/quickstart' },

@@ -20,11 +20,13 @@ module.exports = {
       links: [
         {
           to: 'docs/',
-          activeBasePath: 'docs/Introduction',
+          activeBasePath: 'docs/',
           label: 'Docs',
           position: 'left',
         },
+        { to: 'blog', label: 'Blog', position: 'left' },
         {
+          // TODO: Proper link
           to: 'docs/Introduction/doc2',
           activeBasePath: 'docs/stryker/',
           label: 'For JavaScript',
@@ -42,17 +44,28 @@ module.exports = {
           label: 'For Scala',
           position: 'left',
         },
-        { to: 'blog', label: 'Blog', position: 'left' },
         {
-          to: 'docs/Example/robobar',
-          activeBasePath: 'docs/An example/',
+          to: 'docs/Introduction/example',
+          activeBasePath: 'docs/Introduction/example',
           label: 'An example',
           position: 'left',
         },
         {
-          href: 'https://github.com/stryker-mutator/stryker-mutator.github.io',
-          label: 'GitHub',
+          to: 'docs/stryker-handbook/README',
+          activeBasePath: 'docs/stryker-handbook',
+          label: 'Handbook',
+          position: 'left',
+        },
+        {
+          href: 'https://dashboard.stryker-mutator.io',
+          label: 'Dashboard',
           position: 'right',
+        },
+        {
+          href: 'https://github.com/stryker-mutator/stryker-mutator.github.io',
+          position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
@@ -100,7 +113,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Stryker Mutator. Built with Docusaurus.`,
+      copyright: `Stryker is released under the Apache 2.0 license. Site by the Stryker team (see GitHub). Logo by Selina van den Top.`,
     },
     prism: {
       additionalLanguages: ['scala', 'csharp', 'java'],

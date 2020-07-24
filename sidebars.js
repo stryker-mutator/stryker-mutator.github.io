@@ -3,16 +3,44 @@ const path = require('path');
 const fs = require('fs');
 
 /**
- * @typedef {{[location: string]: string[] | Sidebar}} Sidebar
+ * @param {string} base
+ * @param {string} rest
+ * @returns {string}
  */
+function toRelativePath(base, rest) {
+  if (base === 'docs' || base.length === 0) return rest;
+  else return `${base}/${rest}`;
+}
 
 /**
  * @param {string} dir
- * @param {string} acc
- 
  */
-function filesInDir(dir, acc) {
+function directoryNameMapping(dir) {
+  switch (dir) {
+    case 'stryker4s':
+      return 'Stryker4s';
+    case 'stryker-net':
+    case 'stryker.net':
+      return 'Stryker.NET';
+    case 'stryker':
+      return 'Stryker';
+    case 'stryker-handbook':
+      return 'Handbook';
+    default:
+      return dir;
+  }
+}
+
+/**
+ * @param {string} dir directory we're working on
+ * @param {string} acc full filepath
+ * @param {string} relativePath Path relative to docs directory
+ * @typedef {{[location: string]: (string | Sidebar)[]}} Sidebar
+ * @returns {Sidebar}
+ */
+function filesInDir(dir, acc, relativePath) {
   const fullDir = path.resolve(acc, dir);
+
   const inDirectory = fs.readdirSync(fullDir);
   /**
    * @type {string[]} files
@@ -30,34 +58,16 @@ function filesInDir(dir, acc) {
         directories.push(f);
       } else if (f.endsWith('.md') || f.endsWith('.mdx')) {
         const withoutMd = f.split('.md')[0];
-        files.push(`${dir}/${withoutMd}`);
+        files.push(`${relativePath}/${withoutMd}`);
       }
     });
 
-  let dirname;
-  switch (dir) {
-    case 'stryker4s':
-      dirname = 'Stryker4s';
-      break;
-    case 'stryker-net':
-      dirname = 'Stryker.NET';
-      break;
-    case 'stryker':
-      dirname = 'Stryker';
-      break;
-    default:
-      dirname = dir;
-      break;
-  }
+  let dirname = directoryNameMapping(dir);
 
   return {
-    [dirname]: files,
-    ...directories
-      .map((d) => filesInDir(d, fullDir))
-      .reduce((prev, curr) => {
-        return { ...prev, ...curr };
-      }, {}),
+    [dirname]: [...files, ...directories.map((d) => filesInDir(d, fullDir, toRelativePath(relativePath, d)))],
   };
 }
+const docs = filesInDir('docs', path.resolve('.'), '');
 
-module.exports = { docs: filesInDir('docs', path.resolve('.')) };
+module.exports = docs;
