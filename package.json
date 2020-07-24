@@ -37,7 +37,7 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-npm": "0.0.2",
     "grunt-webpack": "^4.0.2",
-    "highlight.js": "^10.1.1",
+    "highlight.js": "^10.1.2",
     "jstransformer": "^1.0.0",
     "jstransformer-markdown-it": "^2.1.0",
     "markdown-it-anchor": "^5.3.0",
