@@ -18,12 +18,6 @@ module.exports = {
         src: 'images/stryker.svg',
       },
       links: [
-        {
-          to: 'docs/',
-          activeBasePath: 'docs/',
-          label: 'Docs',
-          position: 'left',
-        },
         { to: 'blog', label: 'Blog', position: 'left' },
         {
           // TODO: Proper link
@@ -51,7 +45,7 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'docs/stryker-handbook/README',
+          to: 'docs/',
           activeBasePath: 'docs/stryker-handbook',
           label: 'Handbook',
           position: 'left',
@@ -75,14 +69,11 @@ module.exports = {
         {
           title: 'Docs',
           items: [
-            {
-              label: 'Style Guide',
-              to: 'docs/Introduction/doc1/',
-            },
-            {
-              label: 'Second Doc',
-              to: 'docs/Introduction/doc2/',
-            },
+            // TODO: Fill
+            // {
+            //   label: 'Style Guide',
+            //   to: 'docs/Introduction/doc1/',
+            // },
           ],
         },
         {
@@ -130,7 +121,7 @@ module.exports = {
       {
         docs: {
           // It is recommended to set document id as docs home page (`docs/` path).
-          homePageId: 'Introduction/index',
+          homePageId: 'stryker-handbook/README',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/develop/',
         },
