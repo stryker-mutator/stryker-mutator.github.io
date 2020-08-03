@@ -47,7 +47,7 @@
     "rimraf": "^3.0.2",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",
-    "webpack": "^4.43.0"
+    "webpack": "^4.44.1"
   },
   "contributors": [
     "Simon de Lang <simondelang@gmail.com>",
