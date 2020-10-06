@@ -60,9 +60,10 @@ block content
 
       ```js
       function add(a, b) {
-        if (global.activeMutant === 0) {
+        if (global.activeMutant === 0) { // 👾
         } else {
-          return global.activeMutant === 1? a - b: a+b;
+          return global.activeMutant === 1? a - b: // 👽
+          a+b; 
         }
       }
       ```
@@ -70,17 +71,17 @@ block content
 
       Stryker now runs your tests while changing (or *switching*) the active mutant between runs. Mutation switching can improve performance dramatically, depending on the type of project. 
 
-      You're probably wondering: how much performance improvement? Like all great questions, the answer is: 'it depends'. For example, when you bundle your code with webpack before running the tests, then webpack only needs to run once, a significant performance gain. On the other hand, if you're running Stryker on an ES5 project with mocha, the improvement might not be substantial. In our experience, you can expect somewhere between 20% to 70% speed increase. 
+      You're probably wondering: how much performance improvement? Like all great questions, the answer is: 'it depends'. For example, when you bundle your code with webpack before running the tests, then webpack only needs to run once, a significant performance gain. On the other hand, if you're running Stryker on an ES5 project with mocha, the improvement might not be that substantial. In our experience, you can expect somewhere between 20% to 70% speed increase. 
 
       ## 🐠 Code instrumentation
 
-      Mutation Switching yields a significant performance improvement, but it means that Stryker is required to perform some complex transformations of the [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree).
+      Mutation Switching yields a significant performance improvement, but it means that Stryker is required to perform some complex transformations to the [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree).
 
       Doing this *instrumentation* means visiting each node of the AST to collect and place mutants. This instrumentation is implemented with the [Babel](https://babeljs.io/) parser and now ships with `@stryker-mutator/core`. We're taking advantage of Babel's support for all types of JavaScript, including TypeScript code.
 
-      _Note that this implementation would not have worked even two years ago. We think it is incredible that the Babel maintainers choose to add TypeScript support. We're standing on the shoulders of giants 🎉._
+      _Note that to implement mutation switching in both TypeScript and JavaScript before the release of Babel v7 would have meant implementing it twice. We think it is incredible that the Babel maintainers chose to add TypeScript support. We're standing on the shoulders of giants here 🎉. Without this, we probably wouldn't have done it._
 
-      This instrumentation means you *no longer need to configure the mutator* in your Stryker configuration. Stryker will always use the new mutation instrumenter. It supports TypeScript, JavaScript, Flow, and JSX. It even mutates script tags in `.html` or `.vue` files. It also picks up your babel configuration out-of-the-box, so no custom configuration is needed. Cupcakes for everyone!
+      This instrumentation means you *no longer need to configure the mutator* in your Stryker configuration. Stryker will always use the new mutation instrumenter. It supports TypeScript, JavaScript, Flow, and JSX. It even mutates script tags in `.html` or `.vue` files. It also picks up your babel configuration out-of-the-box, so no custom configuration is needed—cupcakes for everyone 🧁.
 
       ## 👷‍‍ Build command support
 
