@@ -132,7 +132,7 @@ block content
 
       Running with "perTest" coverage analysis allows for significant performance improvement, usually between 40% and 60%. However, most projects were unable to take advantage of it because Stryker relied on [istanbul code coverage](https://istanbul.js.org/) combined with test runner hooks. It only worked in scenarios without transpiling or bundling.
 
-      This changes with version 4. When Stryker instruments your code with mutants, it also injects the coverage instrumentation. No need for instanbul anymore, allowing Stryker to measure mutant coverage, *regardless of which bundler/transpiler you are using*. Hooking into the test runner is the only remaining requirement. All test runner plugins support these hooks, except for the `@stryker-mutator/jest-runner` (although we're planning to support it](https://github.com/stryker-mutator/stryker/issues/2316)).
+      This changes with version 4. When Stryker instruments your code with mutants, it also injects the coverage instrumentation. No need for instanbul anymore, allowing Stryker to measure mutant coverage, *regardless of which bundler/transpiler you are using*. Hooking into the test runner is the only remaining requirement. All test runner plugins support these hooks, except for the `@stryker-mutator/jest-runner` (although we're [planning to support it](https://github.com/stryker-mutator/stryker/issues/2316)).
 
       ## 🧹 Other changes
 
