@@ -103,7 +103,7 @@ block content
 
       Stryker 4.0 removes the transpiler plugin in favor of `--buildCommand`. 
 
-      _Wondering how your TypeScript code compiles even while some mutants create might create type errors? Stryker places `// @no-check` atop your code files. Your TypeScript compiler will ignore any type errors produced by instrumenting your code._
+      _Wondering how your TypeScript code compiles even while some mutants might create type errors? Stryker places `// @no-check` atop your code files. Your TypeScript compiler will ignore any type errors produced by instrumenting your code._
 
       However, you might still want to invalidate mutants that result in a type error, so you won't spend any time looking at them. The new "Checker" plugin helps you here. Checker plugins can choose to invalidate mutants based on rules specific to the checker.
 
@@ -128,7 +128,7 @@ block content
 
       * **"off"**: No coverage analysis
       * **"all"**: Mutant coverage for the entire test suite is measured. Mutants without coverage are marked with "no coverage". But all tests run for mutants that are covered.
-      * **"perTest"**: Mutant coverage is measured per test. Stryker only runs only the tests that cover a specific mutant when it tests that mutant.
+      * **"perTest"**: Mutant coverage is measured per test. Stryker only runs the tests that cover a specific mutant when it tests that mutant.
 
       Running with "perTest" coverage analysis allows for significant performance improvement, usually between 40% and 60%. However, most projects were unable to take advantage of it because Stryker relied on [istanbul code coverage](https://istanbul.js.org/) combined with test runner hooks. It only worked in scenarios without transpiling or bundling.
 
@@ -175,7 +175,7 @@ block content
 
       Stryker currently never mutates _your code_ directly. Instead, it makes a copy of it in a "sandbox" directory, and it mutates your code there. The reason for this should be apparent; you don't want mutants to make there way into production. 
 
-      However, in some corner cases, the simple act of copying your code to a sandbox directory makes running the tests impossible. See [#2163](https://github.com/stryker-mutator/stryker/issues/2163) for some examples. To truly make Stryker work for all JavaScript projects, we will need to allow for "in place" mutation. Don't worry, this will be optional, and we will make sure we will let you know what Stryker is doing 🧐.
+      However, in some corner cases, the simple act of copying your code to a sandbox directory makes running the tests impossible. See [#2163](https://github.com/stryker-mutator/stryker/issues/2163) for some examples. To truly make Stryker work for all JavaScript projects, we will need to allow for "in place" mutation. Don't worry, this will be optional, and we will make sure to let you know what Stryker is doing 🧐.
 
       ## 🎉 Thank you
 
