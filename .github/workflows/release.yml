@@ -24,6 +24,8 @@ jobs:
       - run: npm run build
         env:
           CI: true
+      - name: Merge static assets and generated-root
+        run: cp -r root/* generated-root/
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
