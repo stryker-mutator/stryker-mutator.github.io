@@ -5,6 +5,8 @@ block content
 
       This release marks a fundamental shift in the way Stryker works internally. It now uses "mutation switching", which improves performance and usability, similar to Stryker.NET and Stryker4s already work. This change, unfortunately, couldn't be done without breaking changes. See the breaking changes paragraph if you're interested.
 
+      ***Note: updated on 9 October 2020: add remark about TypeScript 3.7 requirement in [Breaking changes](#breaking-changes).***
+
       Let's get to it!
 
       * [🚀 Getting started](#getting-started)
@@ -128,7 +130,7 @@ block content
 
       * **"off"**: No coverage analysis
       * **"all"**: Mutant coverage for the entire test suite is measured. Mutants without coverage are marked with "no coverage". But all tests run for mutants that are covered.
-      * **"perTest"**: Mutant coverage is measured per test. Stryker only runs the tests that cover a specific mutant when it tests that mutant.
+      * **"perTest"**: Mutant coverage is measured per test. Stryker runs only the tests that cover a specific mutant when it tests that mutant.
 
       Running with "perTest" coverage analysis allows for significant performance improvement, usually between 40% and 60%. However, most projects were unable to take advantage of it because Stryker relied on [istanbul code coverage](https://istanbul.js.org/) combined with test runner hooks. It only worked in scenarios without transpiling or bundling.
 
@@ -152,6 +154,8 @@ block content
 
       * Configuring "transpilers" is no longer supported; please use `--buildCommand` instead.
       * Configuring `mutator` as a string, or configuring `mutator.name` is no longer supported, Stryker will always use its code instrumenter. 
+      * TypeScript 3.7 or higher is required if you're using TypeScript to transpile your code, either via a `--buildCommand` or via a test runner plugin, like [ts-jest](https://www.npmjs.com/package/ts-jest), [karma-webpack](https://www.npmjs.com/package/karma-webpack) or using the [angular-cli](https://www.npmjs.com/package/@angular/cli). If you're dependent on TS <3.7, please consider upgrading, or keep using Stryker V3. This is because the mutation instrumenter heavily leans on the support of `// @ts-nocheck` feature, added in TS3.7.  If you're using another transpiler, like [babel](https://babeljs.io) or [ts-node with `transpileOnly`](https://github.com/TypeStrong/ts-node), then Stryker will work fine.
+      * Because of the requirement for TS 3.7, Angular >=9.0 is required for Angular projects.
       * The `"command"` test runner is now "best-effort". Stryker will use an environment variable to communicate which mutant should be active. Your test command should pass the environment variables to the test environment. We expect this to work for most test runners and test commands out there. One exception is Karma, but since we have the `@stryker-mutator/karma-runner` for this use case, it shouldn't be a problem.
       * Support for the Web Component Tester is dropped. Please see [#2386](https://github.com/stryker-mutator/stryker/issues/2386) for reasoning. 
       * Exporting a `function` from your "stryker.conf.js" file is deprecated. Please export your config as an object instead, or use a stryker.conf.json file. Please see [#2429](https://github.com/stryker-mutator/stryker/issues/2429) for more details.
