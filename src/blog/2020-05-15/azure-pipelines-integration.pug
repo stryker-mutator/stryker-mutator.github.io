@@ -40,7 +40,7 @@ block content
         This will use the master branch as base by default. If you use a different branch as base for your pull requests you can change the base branch like this:
 
         ```
-        dotnet stryker --diff --git-source "coalesce(variables['System.PullRequest.TargetBranch'], variables['Build.SourceBranch'])"
+        dotnet stryker --diff --git-source "coalesce(variables['System.PullRequest.TargetBranch'], variables['Build.SourceBranchName'])"
         ```
 
         This will get the pull request target branch, or the build source branch if no pull request target branch is available.
