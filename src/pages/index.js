@@ -22,7 +22,7 @@ const languages = [
   {
     title: 'Scala',
     imageUrl: 'images/ScalaLogo.png',
-    docsLink: 'docs/stryker4s/configuration',
+    docsLink: 'docs/stryker4s/getting-started',
     isPreview: true,
   },
 ];

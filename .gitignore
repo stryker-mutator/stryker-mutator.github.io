@@ -22,9 +22,9 @@ yarn-error.log*
 /docs/stryker
 /docs/stryker4s
 /docs/stryker-net
-/docs/stryker-handbook
+/docs/mutation-testing-elements
 
 !/docs/stryker/**/*.html
 !/docs/stryker-net/**/*.html
 !/docs/stryker4s/**/*.html
-!/docs/stryker-handbook/**/*.html
+!/docs/mutation-testing-elements/**/*.html

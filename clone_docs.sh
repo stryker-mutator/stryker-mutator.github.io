@@ -42,6 +42,6 @@ function git_clone_docs() (
 
 # stryker does not have docs in docs :(
 # git_clone_docs "stryker"
-# git_clone_docs "mutation-testing-elements"
+git_clone_docs "mutation-testing-elements"
 git_clone_docs "stryker4s"
 git_clone_docs "stryker-net"
