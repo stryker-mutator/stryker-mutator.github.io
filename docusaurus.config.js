@@ -17,7 +17,7 @@ module.exports = {
         alt: 'Stryker Mutator Logo',
         src: 'images/stryker.svg',
       },
-      links: [
+      items: [
         { to: 'blog', label: 'Blog', position: 'left' },
         {
           // TODO: Proper link
@@ -120,8 +120,7 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          // It is recommended to set document id as docs home page (`docs/` path).
-          homePageId: 'stryker-handbook/README',
+          // TODO: set up home directory for blogs (probably stryker-handbook/README): https://v2.docusaurus.io/docs/docs-introduction/#home-page-docs
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/develop/',
         },

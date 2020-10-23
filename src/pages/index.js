@@ -63,7 +63,7 @@ function Home() {
             </div>
           </div>
           <picture className={styles.heroImage}>
-            <source media="(min-width:662px)" srcset="images/strykerman.png"></source>
+            <source media="(min-width:662px)" srcSet="images/strykerman.png"></source>
             <img src="images/gun.png" alt="Strykerman"></img>
           </picture>
         </div>
