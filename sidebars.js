@@ -24,8 +24,6 @@ function directoryNameMapping(dir) {
       return 'Stryker.NET';
     case 'stryker':
       return 'Stryker';
-    case 'stryker-handbook':
-      return 'Handbook';
     default:
       return dir;
   }
