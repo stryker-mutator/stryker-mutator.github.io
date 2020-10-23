@@ -7,11 +7,11 @@
  */
 const redirects = [
   // Content pages
-  { from: '/example', to: '/docs/Introduction/example' },
-  { from: '/mutators', to: '/docs/handbook/mutator-types' },
+  { from: '/example', to: '/docs/general/example' },
+  { from: '/mutators', to: '/docs/General/mutator-types' },
   { from: ['/plugins', '/stryker/plugins'], to: '/docs/stryker/plugins' },
   { from: ['/quickstart', '/stryker/quickstart'], to: '/docs/stryker/quickstart' },
-  { from: ['/faq'], to: '/docs/introduction/faq' },
+  { from: ['/faq'], to: '/docs/general/faq' },
   { from: ['/stryker', '/stryker/index'], to: '/docs/stryker/introduction' },
   { from: ['/stryker-net', '/stryker-net/index', '/stryker-net/quickstart'], to: '/docs/stryker-net/introduction' },
   { from: ['/stryker4s', '/stryker4s/index'], to: '/docs/stryker4s/introduction' },

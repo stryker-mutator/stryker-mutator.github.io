@@ -21,7 +21,7 @@ module.exports = {
         { to: 'blog', label: 'Blog', position: 'left' },
         {
           // TODO: Proper link
-          to: 'docs/Introduction/doc2',
+          to: 'docs/General/doc2',
           activeBasePath: 'docs/stryker/',
           label: 'For JavaScript',
           position: 'left',
@@ -39,15 +39,9 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'docs/Introduction/example',
-          activeBasePath: 'docs/Introduction/example',
+          to: 'docs/General/example',
+          activeBasePath: 'docs/General/example',
           label: 'An example',
-          position: 'left',
-        },
-        {
-          to: 'docs/',
-          activeBasePath: 'docs/stryker-handbook',
-          label: 'Handbook',
           position: 'left',
         },
         {
@@ -70,10 +64,10 @@ module.exports = {
           title: 'Docs',
           items: [
             // TODO: Fill
-            // {
-            //   label: 'Style Guide',
-            //   to: 'docs/Introduction/doc1/',
-            // },
+            {
+              label: 'FAQ',
+              to: 'docs/General/faq',
+            },
           ],
         },
         {

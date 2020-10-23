@@ -24,6 +24,8 @@ function directoryNameMapping(dir) {
       return 'Stryker.NET';
     case 'stryker':
       return 'Stryker';
+    case 'mutation-testing-elements':
+      return 'Mutation Testing';
     default:
       return dir;
   }
