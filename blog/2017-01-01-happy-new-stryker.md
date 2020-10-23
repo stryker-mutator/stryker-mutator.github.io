@@ -14,6 +14,8 @@ exercising your code with unit tests and keeping your stakeholders happy by pres
 But does code coverage tell the entire story? Are your tests actually able to detect bugs? How do you test *your tests*?
 That's the problem [mutation testing](https://en.wikipedia.org/wiki/Mutation_testing) sets out to solve.
 
+<!--truncate-->
+
 ### Mutation testing in JavaScript
 Due to JavaScript's dynamic nature, unit testing has become a fundamental tool to bring a higher level of robustness to JavaScript projects.
 Your average JavaScript app can easily have around 1,000 unit tests. Ensuring that these are actually *effective* can be a full-time job. This is where Stryker comes in.

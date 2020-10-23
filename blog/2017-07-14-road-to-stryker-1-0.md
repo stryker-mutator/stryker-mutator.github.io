@@ -10,6 +10,8 @@ tags: [stryker]
 
 Stryker is about two years old. During this time we achieved a lot. But it's far from finished. So, what's next? Let's take a glimpse in the future.
 
+<!--truncate-->
+
 Some of Strykers achievements are:
         
 * Stryker is the first functional mutation testing framework for JavaScript.

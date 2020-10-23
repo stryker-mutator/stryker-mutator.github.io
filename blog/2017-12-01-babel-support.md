@@ -9,9 +9,12 @@ tags: [stryker]
 ---
 
 A new Stryker plugin that adds support for Babel projects has just been released!
+
 The installation/upgrade scenario's in this blog post can be circumvented by using the [Quickstart](https://stryker-mutator.github.io/quickstart.html) if you don't already use Stryker in your project.
     
 ![](/images/blogs/love-babel.png)
+
+<!--truncate-->
 
 ## New JavaScript mutator
 

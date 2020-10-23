@@ -10,6 +10,8 @@ tags: [stryker]
 
 During the last weekend of January we spent a weekend with ten students from the HAN University and University of Twente developing valuable features for Stryker!
 
+<!--truncate-->
+
 The group was divided into four teams, each with their own goal. Nico Jansen provided a short TypeScript course to get everyone up to speed on developing using TypeScript and after that everyone started working hard on improving Stryker.
 
 ![](/images/blogs/stryker-weekend-team-photo.jpg)

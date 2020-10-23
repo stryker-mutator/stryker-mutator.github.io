@@ -10,6 +10,8 @@ tags: [stryker]
 
 Stryker 0.10 marks the biggest change in Stryker history yet, as we now support running mutation testing on TypeScript code.
 
+<!--truncate-->
+
 For the entire changelog per package:
 
 * [stryker changelog](https://github.com/stryker-mutator/stryker/blob/master/packages/stryker/CHANGELOG.md)

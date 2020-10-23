@@ -10,6 +10,8 @@ tags: [stryker]
 
 The Stryker HTML Reporter version 0.10 has a lot of new features, but more importantly: a sexy new look.
 
+<!--truncate-->
+
 For the entire changelog:
 
 * [stryker-html-reporter changelog](https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-html-reporter/CHANGELOG.md)

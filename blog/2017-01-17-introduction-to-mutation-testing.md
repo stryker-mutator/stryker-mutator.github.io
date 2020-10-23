@@ -11,6 +11,8 @@ tags: [stryker]
 Writing unit tests can be hard. Even for an easy example such as a calculator app. 
 There are unlimited combinations of inputs for a calculator and you're not going to test every single one. So when are you done testing?
 
+<!--truncate-->
+
 Say you're building an online casino, users can only enter the casino when they're over 18. So you write the following piece of code to check if someone is allowed to use the website:
 ```javascript
 function isUserOldEnough(user) {
