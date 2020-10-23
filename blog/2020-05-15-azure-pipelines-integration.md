@@ -14,24 +14,25 @@ Over the past few months we have been working hard to integrate Stryker.NET with
 
 When using continuous integration it can be hard to keep track of quality. By integrating Stryker in your build pipelines you can ensure a continued focus on test quality, no matter how many changes your code gets to see.
 
-## 🚀 Speed 
+## 🚀 Speed
 
 Stryker.NET is now faster than ever! This means you can run mutation testing for every pull request without waiting too long for your build to succeed.
 
 Some performance improvements we have implemented:
+
 - Mutation switching
-    - We compile all mutants at once using conditional statements around the mutations. When testing the mutants we only have to flip the switch to turn it on 🔛
+  - We compile all mutants at once using conditional statements around the mutations. When testing the mutants we only have to flip the switch to turn it on 🔛
 - Integration with VSTest
-    - This is the fastest way to run your tests. And VSTest supports all well known test frameworks.
+  - This is the fastest way to run your tests. And VSTest supports all well known test frameworks.
 - Coverage analysis
-    - We do not test mutants that are not covered by any test. And we only run the tests that cover the mutant when testing that mutant.
+  - We do not test mutants that are not covered by any test. And we only run the tests that cover the mutant when testing that mutant.
 - Testing mutants in parallel
-    - We run multiple test sessions at once to test the mutants even faster.
+  - We run multiple test sessions at once to test the mutants even faster.
 - Using the same test session for non overlapping mutants
-    - Mutants that are in a different file and have no overlapping covered tests are run in the same test session to remove the overhead of starting a new test session.
+  - Mutants that are in a different file and have no overlapping covered tests are run in the same test session to remove the overhead of starting a new test session.
 
 By implementing all these performance tweaks we can now proudly say we are fast enough to use in your pipeline! So if performance was holding you back, now is the moment to give Stryker.NET a try! 🚀
-  
+
 ## 🔎 Git integration
 
 On large projects we can also use git to filter changed files in a pull request. That way only the changed code will be mutated. This helps to use mutation testing in pull request even on the largest projects.
@@ -55,9 +56,9 @@ You can use this feature locally too, if you want to quickly mutate your new fea
 
 ## ✨ Reporting
 
-Another feature we are proud of is our integration with azure devops. 
+Another feature we are proud of is our integration with azure devops.
 
-You can now display the html report in your azure devops environment using an [azure devops extension](https://marketplace.visualstudio.com/items?itemName=stryker-mutator.mutation-report-publisher). 
+You can now display the html report in your azure devops environment using an [azure devops extension](https://marketplace.visualstudio.com/items?itemName=stryker-mutator.mutation-report-publisher).
 
 ![](/images/blogs/azure-devops-extension1.png)
 
@@ -66,6 +67,7 @@ You can now display the html report in your azure devops environment using an [a
 The extension will add a new tab to your build result page. This new tab will contain the full html report that is also available locally and on the stryker dashboard.
 
 How to use the extension:
+
 - Install the [extension](https://marketplace.visualstudio.com/items?itemName=stryker-mutator.mutation-report-publisher) on your azure devops environment
 - Run `dotnet stryker` in your pipeline.
 - Make sure the `html reporter` is enabled (default).
@@ -79,9 +81,9 @@ Example:
 
 ## ⛔ Forcing test quality
 
-It's great that it is now possible to monitor the test quality automatically. But if you want to take a step even further towards maintaining your test quality you can set a breaking threshold. 
+It's great that it is now possible to monitor the test quality automatically. But if you want to take a step even further towards maintaining your test quality you can set a breaking threshold.
 
-This will break your pipeline if a minimum mutation score wasn't reached. 
+This will break your pipeline if a minimum mutation score wasn't reached.
 
 How to use custom thresholds:
 
@@ -147,7 +149,8 @@ If you run into trouble during installation or running, please let us know so we
 
 ## 🔮 What's next?
 
-The upcoming months you can expect even more awesome features and improvements in Stryker.NET. 
+The upcoming months you can expect even more awesome features and improvements in Stryker.NET.
+
 - The `git diff` feature will be greatly improved and result in a full report.
 - Regex mutator (never seen before in mutation testing)
 - Mutating a whole solution at once
