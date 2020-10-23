@@ -34,9 +34,9 @@ const redirects = [
   { from: '/blog/2018-02-08/get-your-mutation-score-badge-now', to: '/blog/get-your-mutation-score-badge-now' },
   { from: '/blog/2018-04-04/use-git-to-select-files', to: '/blog/use-git-to-select-files' },
   { from: '/blog/2018-10-6/mutation-switching', to: '/blog/mutation-switching' },
-  { from: '/blog/2018-12-24/anouncing-stryker-0-34', to: '/blog/anouncing-stryker-0-34' },
+  { from: '/blog/2018-12-24/anouncing-stryker-0-34', to: '/blog/announcing-stryker-0-34' },
   { from: '/blog/2018-12-25/stryker4s-0-1-0-released', to: '/blog/stryker4s-0-1-0-released' },
-  { from: '/blog/2018-9-27/csharp-and-scala-support', to: '/blog/sharp-and-scala-support' },
+  { from: '/blog/2018-9-27/csharp-and-scala-support', to: '/blog/csharp-and-scala-support' },
   { from: '/blog/2019-02-13/announcing-stryker-1-0', to: '/blog/announcing-stryker-1-0' },
   { from: '/blog/2019-04-03/one-mutation-testing-html-report', to: '/blog/one-mutation-testing-html-report' },
   { from: '/blog/2019-04-05/announcing-dotnet-framework-support', to: '/blog/announcing-dotnet-framework-support' },
@@ -46,12 +46,13 @@ const redirects = [
     to: '/blog/stryker-dashboard-host-your-mutation-testing-report',
   },
   { from: '/blog/2020-03-11/stryker-version-3', to: '/blog/stryker-version-3' },
-  { from: '/blog/2020-04-01/anouncing-100-mode', to: '/blog/anouncing-100-mode' },
+  { from: '/blog/2020-04-01/anouncing-100-mode', to: '/blog/announcing-100-mode' },
   { from: '/blog/2020-05-15/azure-pipelines-integration', to: '/blog/azure-pipelines-integration' },
   {
     from: '/blog/2020-07-13/announcing-stryker-4-beta-mutation-switching',
     to: '/blog/announcing-stryker-4-beta-mutation-switching',
   },
+  { from: 'blog/2020-10-07/announcing-stryker-4-mutation-switching', to: 'blog/announcing-stryker-4-mutation-switching'},
 ];
 
 module.exports = redirects;
