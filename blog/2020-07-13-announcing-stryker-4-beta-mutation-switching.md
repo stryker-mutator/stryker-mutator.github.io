@@ -67,7 +67,7 @@ Stryker can now run your tests twice while changing which mutant is active in th
 ## 🐠 Instrumentation with Babel
 Mutation Switching is a significant performance improvement, but it means that Stryker is required to perform some complex transformations of the [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree). 
 
-Doing this _instrumentation_ means visiting each node of the AST to collect and place mutants. This instrumentation is implemented with the [Babel](babeljs.io/) parser and now ships with `@stryker-mutator/core`. We're taking advantage of Babel 7's support to parse and print any type of JavaScript, including TypeScript code. 
+Doing this _instrumentation_ means visiting each node of the AST to collect and place mutants. This instrumentation is implemented with the [Babel](https://babeljs.io/) parser and now ships with `@stryker-mutator/core`. We're taking advantage of Babel 7's support to parse and print any type of JavaScript, including TypeScript code. 
 
 This means that it is _no longer needed to configure the `mutator`_ in your Stryker configuration. Stryker will always use the new mutation instrumenter. It supports TypeScript, JavaScript, Flow, and JSX. It even supports mutating script tags in `.html` or `.vue` files. It also picks up your babel configuration out-of-the-box, so no custom configuration is needed.
 

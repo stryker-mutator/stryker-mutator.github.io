@@ -7,17 +7,15 @@
  */
 const redirects = [
   // Content pages
-  { from: '/example', to: '/docs/general/example' },
-  { from: '/mutators', to: '/docs/General/mutator-types' },
+  { from: '/example', to: '/docs/General/example' },
+  { from: '/mutators', to: '/docs/mutation-testing-elements/supported-mutators' },
   { from: ['/plugins', '/stryker/plugins'], to: '/docs/stryker/plugins' },
-  { from: ['/quickstart', '/stryker/quickstart'], to: '/docs/stryker/quickstart' },
-  { from: ['/faq'], to: '/docs/general/faq' },
-  { from: ['/stryker', '/stryker/index'], to: '/docs/stryker/introduction' },
-  { from: ['/stryker-net', '/stryker-net/index', '/stryker-net/quickstart'], to: '/docs/stryker-net/introduction' },
-  { from: ['/stryker4s', '/stryker4s/index'], to: '/docs/stryker4s/introduction' },
-  { from: ['/stryker/handbook', '/stryker4s/handbook', '/stryker-net/handbook'], to: '/docs/handbook/readme' },
-  { from: '/stryker4s/quickstart', to: '/docs/stryker4s/quickstart' },
-  { from: '/technical-reference', to: '/docs/handbook/technical-reference' },
+  { from: ['/quickstart', '/stryker/quickstart'], to: '/docs/stryker/getting-started' },
+  { from: ['/faq'], to: '/docs/General/faq' },
+  { from: ['/stryker', '/stryker/index'], to: '/docs/stryker/getting-started' },
+  { from: ['/stryker-net', '/stryker-net/index', '/stryker-net/quickstart'], to: '/docs/stryker-net/Introduction' },
+  { from: ['/stryker4s', '/stryker4s/index', '/stryker4s/quickstart'], to: '/docs/stryker4s/getting-started' },
+  { from: ['/stryker/handbook', '/stryker4s/handbook', '/stryker-net/handbook'], to: '/docs/' },
   // Blogs
   { from: '/blog/2016-12-30/stryker-0-5-5', to: '/blog/stryker-0-5-5' },
   { from: '/blog/2017-01-01/happy-new-stryker', to: '/blog/happy-new-stryker' },
@@ -52,7 +50,10 @@ const redirects = [
     from: '/blog/2020-07-13/announcing-stryker-4-beta-mutation-switching',
     to: '/blog/announcing-stryker-4-beta-mutation-switching',
   },
-  { from: 'blog/2020-10-07/announcing-stryker-4-mutation-switching', to: 'blog/announcing-stryker-4-mutation-switching'},
+  {
+    from: '/blog/2020-10-07/announcing-stryker-4-mutation-switching',
+    to: '/blog/announcing-stryker-4-mutation-switching',
+  },
 ];
 
 module.exports = redirects;

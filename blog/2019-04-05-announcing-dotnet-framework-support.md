@@ -34,7 +34,7 @@ Calculating the percentage of mutants that were killed results in the mutation s
 It is the only way to measure _your tests effectiveness_. It's really as simple as that.
 
 To cover as much logic as possible Stryker.NET provides a wide range of mutations. 
-An overview of these mutations can be found [here](/stryker-net/mutators).
+An overview of these mutations can be found [here](../docs/stryker-net/Mutators.md).
 You can run Stryker.NET with .NET Core on Windows, Mac and Linux as well as .NET Framework on Windows.
 
 ## 💪 Start using Stryker.NET
@@ -67,7 +67,7 @@ Stryker.NET has to be installed globally on your system. From .NET core 3.0, you
 
     For .NET Core projects this step can be skipped.      
     For .NET Framework projects, make sure `nuget.exe` is installed on your system. 
-    Please follow their [installation instructions]((https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools#windows)).
+    Please follow their [installation instructions](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools#windows).
 
 3. Remove old references
 
@@ -102,7 +102,7 @@ It even goes into detail and shows you exactly what mutants were made and if you
 ![](/images/stryker-net/html-report-net.png)
 
 It uses the generic [mutation-testing-elements](https://github.com/stryker-mutator/mutation-testing-elements),
-which is an open standard for reporting mutation test results. See our [previous blog](https://stryker-mutator.io/blog/2019-04-03/one-mutation-testing-html-report) for more information about the mutation-testing-elements
+which is an open standard for reporting mutation test results. See our [previous blog](./2019-04-03-one-mutation-testing-html-report.md) for more information about the mutation-testing-elements
 
 ## 🏃‍ Progress bar
 

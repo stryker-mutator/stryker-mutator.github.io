@@ -19,7 +19,7 @@ The installation/upgrade scenario's in this blog post can be circumvented by usi
 
 Ok. Stryker can mutate your code. We support both JavaScript and TypeScript. 
 However, the tests of many web projects first need to be bundled before they can be loaded in the browser for testing.
-Stryker [mutates your source files](/blog/2017-07-14/road-to-stryker-1-0.html#open-heart-surgery), 
+Stryker [mutates your source files](./2017-07-14-road-to-stryker-1-0.md#open-heart-surgery), 
 rather than the resulting JS bundle. This means that you still need to tell Stryker how your bundle is created.
 
 ## Webpack transpiler

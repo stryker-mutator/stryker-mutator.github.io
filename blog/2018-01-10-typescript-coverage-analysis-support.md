@@ -86,7 +86,7 @@ Now that we have a firm understanding of coverage analysis and why it is importa
 After all, coverage analysis is nothing new for Stryker, it has been there for a long time. 
 However, it gets more complicated when you add a transpiler to the (delicious) mutation testing mix.
 
-Please read [our blog article on transpiling code](/blog/2017-10-06/typescript-support.html) if your interested in the details on how transpilers are implemented in Stryker.
+Please read [our blog article on transpiling code](./2017-10-06-typescript-support.md) if your interested in the details on how transpilers are implemented in Stryker.
 For now it is is enough that you understand that Stryker mutates your _source_ code, while running the _transpiled_ code in the test runner.
 Any coverage analysis we collect will only tell us about the _transpiled_ covered code, while the mutants only work on your _source_ code.
 

@@ -1,5 +1,5 @@
 ---
-slug: anouncing-stryker-0-34
+slug: announcing-stryker-0-34
 title: Announcing Stryker 0.34
 author: Nico Jansen
 author_title: Stryker Team
