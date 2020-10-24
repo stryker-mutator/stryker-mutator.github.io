@@ -16,7 +16,7 @@ const languages = [
   {
     title: 'C#',
     imageUrl: 'images/CSharpLogo.png',
-    docsLink: 'docs/stryker-net/Configuration',
+    docsLink: 'docs/stryker-net/introduction',
     isPreview: true,
   },
   {
