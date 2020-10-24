@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Stryker Mutator Blog</title>
+        <link>https://stryker-mutator.io/blog</link>
+        <description>Stryker Mutator Blog</description>
+        <lastBuildDate>Wed, 07 Oct 2020 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Announcing Stryker 4.0 - Mutation Switching]]></title>
+            <link>https://stryker-mutator.io/blog/announcing-stryker-4-mutation-switching</link>
+            <guid>announcing-stryker-4-mutation-switching</guid>
+            <pubDate>Wed, 07 Oct 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[We're proud to announce the next major release of the Stryker mutation testing framework for JavaScript and friends: Stryker 4.0.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Announcing Stryker 4.0 Beta]]></title>
+            <link>https://stryker-mutator.io/blog/announcing-stryker-4-beta-mutation-switching</link>
+            <guid>announcing-stryker-4-beta-mutation-switching</guid>
+            <pubDate>Mon, 13 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[We're excited to announce the beta of the next major release of the Stryker mutation testing framework for JavaScript and friends: Stryker 4.0.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Integrating Stryker.NET in your azure pipelines]]></title>
+            <link>https://stryker-mutator.io/blog/azure-pipelines-integration</link>
+            <guid>azure-pipelines-integration</guid>
+            <pubDate>Fri, 15 May 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Over the past few months we have been working hard to integrate Stryker.NET with azure pipelines. Learn how you can leverage our new features to include mutation testing in your continuous integration.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Announcing Stryker 100% mode]]></title>
+            <link>https://stryker-mutator.io/blog/announcing-100-mode</link>
+            <guid>announcing-100-mode</guid>
+            <pubDate>Wed, 01 Apr 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Over the years, we've been privileged to explain the concept of Mutation Testing to great developers, testers and others.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Announcing Stryker 3.0]]></title>
+            <link>https://stryker-mutator.io/blog/stryker-version-3</link>
+            <guid>stryker-version-3</guid>
+            <pubDate>Wed, 11 Mar 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[With version 3 of Stryker, we've been focussing on usability. We also did some smaller changes worth pointing out.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Host your mutation testing report]]></title>
+            <link>https://stryker-mutator.io/blog/stryker-dashboard-host-your-mutation-testing-report</link>
+            <guid>stryker-dashboard-host-your-mutation-testing-report</guid>
+            <pubDate>Fri, 27 Dec 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[📊 The Stryker Dashboard can now host your mutation testing report in the cloud.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Announcing Stryker 2.0]]></title>
+            <link>https://stryker-mutator.io/blog/announcing-stryker-2-0</link>
+            <guid>announcing-stryker-2-0</guid>
+            <pubDate>Fri, 17 May 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[A new major version of Stryker for JavaScript and TypeScript has been released: version 2.0.0.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Announcing Stryker.NET 0.10 with .NET Framework support]]></title>
+            <link>https://stryker-mutator.io/blog/announcing-dotnet-framework-support</link>
+            <guid>announcing-dotnet-framework-support</guid>
+            <pubDate>Fri, 05 Apr 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[Stryker.NET 0.10 is here! This brings new features to mutation testing for .NET. Read all about these features in this blog.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[One mutation testing HTML report]]></title>
+            <link>https://stryker-mutator.io/blog/one-mutation-testing-html-report</link>
+            <guid>one-mutation-testing-html-report</guid>
+            <pubDate>Wed, 03 Apr 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[If you've used Stryker before, you'll know that it produces a gorgeous report you can view in the browser.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Announcing Stryker 1.0]]></title>
+            <link>https://stryker-mutator.io/blog/announcing-stryker-1-0</link>
+            <guid>announcing-stryker-1-0</guid>
+            <pubDate>Wed, 13 Feb 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[Stryker 1.0 is here! This is an important milestone for mutation testing in JavaScript and TypeScript.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Stryker4s 0.1.0 released]]></title>
+            <link>https://stryker-mutator.io/blog/stryker4s-0-1-0-released</link>
+            <guid>stryker4s-0-1-0-released</guid>
+            <pubDate>Tue, 25 Dec 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[This is the first official release of Stryker4s! Bringing easy mutation testing to Scala sbt projects. And it comes with some great features.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Announcing Stryker 0.34]]></title>
+            <link>https://stryker-mutator.io/blog/announcing-stryker-0-34</link>
+            <guid>announcing-stryker-0-34</guid>
+            <pubDate>Mon, 24 Dec 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[Stryker 0.34 is here. This new version comes with features to help you get started. It's never been this easy to mutation test your JS project!]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Mutation switching in Stryker4s]]></title>
+            <link>https://stryker-mutator.io/blog/mutation-switching</link>
+            <guid>mutation-switching</guid>
+            <pubDate>Sat, 06 Oct 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[Learn how Stryker4s uses mutation switching to improve performance.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Introducing Stryker.NET and Stryker4s]]></title>
+            <link>https://stryker-mutator.io/blog/csharp-and-scala-support</link>
+            <guid>csharp-and-scala-support</guid>
+            <pubDate>Thu, 27 Sep 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[We're excited to announce that we're doubling the number of supported languages for Stryker. We already had support for JavaScript and Typescript, and now both C# and Scala are supported as preview versions. Try them out and let us know what you think.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Use git to select files]]></title>
+            <link>https://stryker-mutator.io/blog/use-git-to-select-files</link>
+            <guid>use-git-to-select-files</guid>
+            <pubDate>Wed, 04 Apr 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[The 0.21 release of Stryker simplifies configuration by using your git database.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Get your mutation score badge now!]]></title>
+            <link>https://stryker-mutator.io/blog/get-your-mutation-score-badge-now</link>
+            <guid>get-your-mutation-score-badge-now</guid>
+            <pubDate>Thu, 08 Feb 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[We're launching our Stryker Dashboard today.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Webpack support is here]]></title>
+            <link>https://stryker-mutator.io/blog/webpack-support</link>
+            <guid>webpack-support</guid>
+            <pubDate>Fri, 26 Jan 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[Stryker now supports bundling your code using webpack before running your tests.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[TypeScript coverage analysis support]]></title>
+            <link>https://stryker-mutator.io/blog/typescript-coverage-analysis-support</link>
+            <guid>typescript-coverage-analysis-support</guid>
+            <pubDate>Wed, 10 Jan 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[Let's start this new year strong. Stryker 0.18 adds coverage analysis support for transpilers, starting with the TypeScript transpiler.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Stryker adds Babel support]]></title>
+            <link>https://stryker-mutator.io/blog/babel-support</link>
+            <guid>babel-support</guid>
+            <pubDate>Fri, 01 Dec 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[A new Stryker plugin that adds support for Babel projects has just been released!]]></description>
+        </item>
+        <item>
+            <title><![CDATA[New HTML reporter]]></title>
+            <link>https://stryker-mutator.io/blog/new-html-report</link>
+            <guid>new-html-report</guid>
+            <pubDate>Sat, 28 Oct 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[The Stryker HTML Reporter version 0.10 has a lot of new features, but more importantly: a sexy new look.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[TypeScript support]]></title>
+            <link>https://stryker-mutator.io/blog/typescript-support</link>
+            <guid>typescript-support</guid>
+            <pubDate>Fri, 06 Oct 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[Stryker 0.10 marks the biggest change in Stryker history yet, as we now support running mutation testing on TypeScript code.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Stryker 0.8 release]]></title>
+            <link>https://stryker-mutator.io/blog/stryker-0-8-0</link>
+            <guid>stryker-0-8-0</guid>
+            <pubDate>Fri, 11 Aug 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[Stryker 0.8 just released with better CI integration and configurable thresholds.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Road to Stryker 1.0]]></title>
+            <link>https://stryker-mutator.io/blog/road-to-stryker-1-0</link>
+            <guid>road-to-stryker-1-0</guid>
+            <pubDate>Fri, 14 Jul 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[Stryker is about two years old. During this time we achieved a lot. But it's far from finished. So, what's next? Let's take a glimpse in the future.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Stryker 0.6.4 released]]></title>
+            <link>https://stryker-mutator.io/blog/stryker-0-6-4</link>
+            <guid>stryker-0-6-4</guid>
+            <pubDate>Sat, 10 Jun 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release of Stryker brings a number of new features and improvements. Including a new quickstart and a number of reporter improvements.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Stryker weekend]]></title>
+            <link>https://stryker-mutator.io/blog/stryker-weekend</link>
+            <guid>stryker-weekend</guid>
+            <pubDate>Tue, 21 Feb 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[During the last weekend of January we spent a weekend with ten students from the HAN University and University of Twente developing valuable features for Stryker!]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Introduction to mutation testing]]></title>
+            <link>https://stryker-mutator.io/blog/introduction-to-mutation-testing</link>
+            <guid>introduction-to-mutation-testing</guid>
+            <pubDate>Tue, 17 Jan 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[Writing unit tests can be hard. Even for an easy example such as a calculator app.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Happy new Stryker!]]></title>
+            <link>https://stryker-mutator.io/blog/happy-new-stryker</link>
+            <guid>happy-new-stryker</guid>
+            <pubDate>Sun, 01 Jan 2017 00:00:00 GMT</pubDate>
+            <description><![CDATA[2017 - The year to invest into test quality]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Stryker 0.5.5 released!]]></title>
+            <link>https://stryker-mutator.io/blog/stryker-0-5-5</link>
+            <guid>stryker-0-5-5</guid>
+            <pubDate>Fri, 30 Dec 2016 00:00:00 GMT</pubDate>
+            <description><![CDATA[The full changelog can be found on GitHub. In this post we'll dive into a couple of new features.]]></description>
+        </item>
+    </channel>
+</rss>
