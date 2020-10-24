@@ -7,6 +7,7 @@ module.exports = {
   tagline: 'Test your tests with mutation testing.',
   url: 'https://stryker-mutator.io',
   baseUrl: '/',
+  onBrokenLinks: 'throw',
   favicon: 'images/favicon.ico',
   organizationName: 'stryker-mutator',
   projectName: 'stryker-mutator.github.io',

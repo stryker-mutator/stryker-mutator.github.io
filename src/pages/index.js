@@ -5,35 +5,38 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
+import MutationsSvg from '../icons/mutations.svg';
+import TargetSvg from '../icons/target.svg';
+import PublicSvg from '../icons/public.svg';
+import GroupsSvg from '../icons/groups.svg';
+import TranslateSvg from '../icons/translate.svg';
+import AssessmentSvg from '../icons/assessment.svg';
 
 const languages = [
   {
     title: 'JavaScript and friends',
     imageUrl: 'images/JavascriptLogo.png',
     docsLink: 'docs/stryker/getting-started',
-    isPreview: false,
   },
   {
     title: 'C#',
     imageUrl: 'images/CSharpLogo.png',
     docsLink: 'docs/stryker-net/introduction',
-    isPreview: true,
   },
   {
     title: 'Scala',
     imageUrl: 'images/ScalaLogo.png',
     docsLink: 'docs/stryker4s/getting-started',
-    isPreview: true,
   },
 ];
 
-function Language({ imageUrl, title, isPreview, docsLink }) {
+function Language({ imageUrl, title, docsLink }) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
     <div className={clsx('col col--4', styles.feature)}>
       {imgUrl && (
         <a href={docsLink}>
-          <figure className={clsx('text--center', isPreview && styles.previewRibbon)}>
+          <figure className={clsx('text--center')}>
             <img className={styles.languageImage} src={imgUrl} alt={title} />
             <figcaption>{title}</figcaption>
           </figure>
@@ -42,6 +45,12 @@ function Language({ imageUrl, title, isPreview, docsLink }) {
     </div>
   );
 }
+
+export const Feature = ({ children }) => (
+  <div className="col col--4">
+    <div className="feature">{children}</div>
+  </div>
+);
 
 function Home() {
   const context = useDocusaurusContext();
@@ -58,7 +67,7 @@ function Home() {
                 className={clsx('button button--outline button--secondary button--lg', styles.getStarted)}
                 to={useBaseUrl('docs/')}
               >
-                Get Started
+                Introduction
               </Link>
             </div>
           </div>
@@ -69,18 +78,96 @@ function Home() {
         </div>
       </header>
       <main>
-        {languages && languages.length > 0 && (
-          <section className={styles.languages}>
-            <div className="container">
-              <h2 className="text--center">Getting started with Stryker</h2>
-              <div className="row">
-                {languages.map((props, idx) => (
-                  <Language key={idx} {...props} />
-                ))}
+        <section className={styles.languages}>
+          <div className={clsx('container')}>
+            <div className={clsx('row', styles.sectionHeader)}>
+              <div className="col col--12 text--center">
+                <h2>Getting started with Stryker</h2>
+                <div className="row">
+                  {languages.map((props, idx) => (
+                    <Language key={idx} {...props} />
+                  ))}
+                </div>
               </div>
             </div>
-          </section>
-        )}
+          </div>
+        </section>
+
+        <section>
+          <div className={clsx('container')}>
+            <div className={clsx('row', styles.sectionHeader)}>
+              <div className="col col--12 text--center">
+                <h2>Features</h2>
+              </div>
+            </div>
+            <div className="row">
+              <Feature>
+                <div className={styles.featureTitle}>
+                  <MutationsSvg className={styles.featureIcon} />
+                  <h3>Mutations</h3>
+                </div>
+                <p>
+                  Control more than{' '}
+                  <a href="/docs/mutation-testing-elements/supported-mutators">30 supported mutations</a>.
+                </p>
+              </Feature>
+
+              <Feature>
+                <div className={styles.featureTitle}>
+                  <TargetSvg className={styles.featureIcon} />
+                  <h3>Speed</h3>
+                </div>
+                <p>Use code analysis and parallel test runner processes to speed things up.</p>
+              </Feature>
+
+              <Feature>
+                <div className={styles.featureTitle}>
+                  <PublicSvg className={styles.featureIcon} />
+                  <h3>Test runner agnostic</h3>
+                </div>
+                <p>Run tests with your favorite test runner.</p>
+              </Feature>
+
+              <Feature>
+                <div className={styles.featureTitle}>
+                  <GroupsSvg className={styles.featureIcon} />
+                  <h3>Open source</h3>
+                </div>
+                <p>
+                  Free as in Speech. Maintained by the open source community at{' '}
+                  <a href="https://github.com/stryker-mutator">GitHub</a>.
+                </p>
+              </Feature>
+
+              <Feature>
+                <div className={styles.featureTitle}>
+                  <TranslateSvg className={styles.featureIcon} />
+                  <h3>Multilingual</h3>
+                </div>
+                <p>
+                  Stryker has support for <a href="/docs/stryker/introduction">JavaScript &amp; TypeScript</a>,{' '}
+                  <a href="/docs/stryker-net/Introduction">C#</a> and{' '}
+                  <a href="/docs/stryker4s/getting-started">Scala</a>.
+                </p>
+              </Feature>
+
+              <Feature>
+                <div className={styles.featureTitle}>
+                  <AssessmentSvg className={styles.featureIcon} />
+                  <h3>Clever reports</h3>
+                </div>
+                <p>
+                  Use{' '}
+                  <a href="https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker/master">
+                    clever reports
+                  </a>{' '}
+                  to sniff out surviving mutants and improve test effectiveness.
+                </p>
+              </Feature>
+            </div>
+            <br></br>
+          </div>
+        </section>
       </main>
     </Layout>
   );

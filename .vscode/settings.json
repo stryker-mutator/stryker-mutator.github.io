@@ -14,5 +14,8 @@
     "typescriptreact",
     "yml",
     "jade"
-  ]
+  ],
+  "files.associations": {
+    "*.mdx": "markdown"
+  }
 }
