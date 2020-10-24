@@ -4,17 +4,17 @@ This is the contribution guide for [stryker-mutator.github.io](https://stryker-m
 
 ## Way we work
 
-We have a small workflow in place for [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) source files using [pugjs](https://pugjs.org) (previously known as _jade_).
+We have a small workflow in place for [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) source files markdown files with Docusaurus.
 
 ```
-[source files (*.pug)] -> [build process] -> [output files (*.html)]
+[source files (*.md)] -> [build process] -> [output files (*.html)]
 ```
 
 The idea here is we update, add, delete the _source_ files and _generate_ the html files based on that.
 For source files, please use the `develop` branch. We will never use the master branch for this, as the master branch contains only _output files_.
 Pull requests should also target the develop branch.
 
-Whenever a PR is merged to `develop`, it is automatically published to the master branch via a travis build.
+Whenever a PR is merged to `develop`, it is automatically published to the master branch via a GitHub action.
 TODO: We would still like to have some basic end-to-end tests to see if the website functions as expected.
 
 ## Run locally
@@ -27,6 +27,8 @@ cd stryker-mutator.github.io
 npm install
 npm start
 ```
+
+We use some newer Git versions to clone docs from other repo's, the minimum required Git version you need is [2.25](https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/).
 
 The website should be opened in your browser of choice. Changes you make to the source files are automatically picked up and updated in your browser.
 

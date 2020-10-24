@@ -23,11 +23,8 @@ function git_clone_docs() (
   else
     echo "Cloning $1..."
     # Else create new empty git repository and pull only docs folder to it
-    mkdir "$localdir"
+    git clone $remoteUrl --no-checkout $localdir --depth 1
     cd "$localdir"
-
-    git init
-    git remote add -f origin "$remoteUrl"
 
     # Tell git to only checkout docs folder
     git sparse-checkout init
