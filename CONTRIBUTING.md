@@ -28,7 +28,8 @@ npm install
 npm start
 ```
 
-We use some newer Git versions to clone docs from other repo's, the minimum required Git version you need is [2.25](https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/).
+**Note 1: Make sure you use at least Git version [2.25](https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/)**  
+**Note 2: On Windows, please use Git Bash or WSL**
 
 The website should be opened in your browser of choice. Changes you make to the source files are automatically picked up and updated in your browser.
 
