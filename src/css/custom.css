@@ -50,3 +50,8 @@ html[data-theme='dark'] .header-github-link:before {
 :root[data-theme='dark'] article.margin-bottom--xl > footer > div:nth-child(1) > a {
   color: var(--stryker-yellow);
 }
+
+/* Button should always have white text, even on light mode */
+:root[data-theme='light'] .hero--primary .button:not(.button--active):not(:hover) {
+  color: var(--ifm-font-color-base-inverse);
+}
