@@ -37,33 +37,22 @@ The website should be opened in your browser of choice. Changes you make to the 
 ### Update the main index.html page
 
 1. Run the website locally.
-1. Update the `src/index.pug`
+1. Update the `src/pages/index.js`
 1. Make sure the website looks fine in your browser
 1. Make the pull request
 
 ### Add a blog article
 
-1. Create a new folder under `src/blog`. Name of the folder should be the (targeted) publish date.
-1. Add a `blog.json` file. This file contains the title, summary and date in clear text. This is used to provide the overview on the [/blog.html](http://stryker-mutator.github.io/blog.html) page. You can use this template:
-   ````json
-   {
-       "title": "[your title]",
-       "description": "[your description]",
-       "date": "[your date]"
-   }   ```
-   ````
-1. Add the `.pug` file to the folder. This is the blog content itself. You can write it in the native pug language or using markdown. Use this template for markdown:
+1. Create a new markdown file under `blog/`. Look at the other blog articles for inspiration about what metadata you need to add
+2. Test the website locally to see if the blog article looks fine.
+3. Make the PR.
 
-   ```pug
-   extends ../../layout/blog-layout.pug
+### Update the documentation
 
-   block content
-       :markdown-it
-           Your content here
-   ```
-
-1. Test the website locally to see if the blog article looks fine.
-1. Make the PR.
+1. Documentation is located under `docs/`
+   1. Documentation for Stryker, Stryker4s, Stryker.NET and mutation-testing-elements are located in their respective repositories
+2. Test the website locally to see if the new documentation looks fine.
+3. Make the PR.
 
 ## Commit messages
 
