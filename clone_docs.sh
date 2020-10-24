@@ -8,7 +8,7 @@ shopt -s extglob
 
 function git_clone_docs() (
   remoteUrl="https://github.com/stryker-mutator/$1.git"
-  localdir="./$1"
+  localdir="$1"
 
   cd docs
 
@@ -21,14 +21,14 @@ function git_clone_docs() (
     # Move files back into docs to pull
     mv !(docs) docs
   else
-    echo "Cloning $1..."
+    echo "Cloning $localdir..."
     # Else create new empty git repository and pull only docs folder to it
-    git clone $remoteUrl --no-checkout $localdir --depth 1
+    git clone $remoteUrl $localdir --depth 1
     cd "$localdir"
 
     # Tell git to only checkout docs folder
     git sparse-checkout init
-    git sparse-checkout set '/docs'
+    git sparse-checkout set 'docs'
   fi
 
   git pull origin master

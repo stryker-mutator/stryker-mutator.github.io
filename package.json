@@ -10,7 +10,7 @@
     "prebuild": "npm run clone:docs",
     "prestart": "npm run clone:docs",
     "clean": "docusaurus clear && rimraf docs/{stryker,stryker4s,stryker-net,mutation-testing-elements}",
-    "clone:docs": "./clone_docs.sh",
+    "clone:docs": "bash clone_docs.sh",
     "lint": "prettier --check --ignore-path=.gitignore .",
     "lint:fix": "prettier --write --ignore-path=.gitignore ."
   },
