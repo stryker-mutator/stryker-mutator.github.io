@@ -1,8 +1,8 @@
-[![Gitter](https://badges.gitter.im/stryker-mutator/stryker.svg)](https://gitter.im/stryker-mutator/stryker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Slack Chat](https://img.shields.io/badge/slack-chat-brightgreen.svg?logo=slack)](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM)
 
-<img src="root/images/stryker.svg" width="80">
+<img src="static/images/stryker.svg" width="80">
 
-# stryker-mutator.github.io
+### stryker-mutator.github.io
 
 The repository for [stryker-mutator.github.io](https://stryker-mutator.github.io)
 

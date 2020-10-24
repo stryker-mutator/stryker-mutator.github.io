@@ -1,7 +1,0 @@
-@include media-breakpoint-up('md', $grid-breakpoints) {
-    .sticky-top-70 {
-        position: sticky;
-        top: 60px;
-        z-index: 1020;
-    }
-}

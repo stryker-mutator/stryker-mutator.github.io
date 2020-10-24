@@ -1,5 +1,0 @@
-{
-    "title": "Introducing Stryker.NET and Stryker4s",
-    "description": "We're excited to announce that we're doubling the number of supported languages for Stryker. We already had support for JavaScript and Typescript, and now both C# and Scala are supported as preview versions. Try them out and let us know what you think.",
-    "date": "27 September 2018"
-}

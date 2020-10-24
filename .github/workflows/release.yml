@@ -23,13 +23,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm run build
-        env:
-          CI: true
-      - name: Merge static assets and generated-root
-        run: cp -r root/* generated-root/
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: master # The branch the action should deploy to.
-          FOLDER: generated-root # The folder the action should deploy.
+          FOLDER: build # The folder the action should deploy.

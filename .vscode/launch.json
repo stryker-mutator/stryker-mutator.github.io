@@ -1,14 +1,13 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Grunt sdedit",
-            "program": "${workspaceFolder}/node_modules/grunt/bin/grunt",
-            "args": [
-                "sdedit"
-            ]
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch",
+      "request": "launch",
+      "runtimeArgs": ["start"],
+      "runtimeExecutable": "npm",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "pwa-node"
+    }
+  ]
 }
