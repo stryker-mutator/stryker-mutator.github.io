@@ -16,7 +16,7 @@ const languages = [
   {
     title: 'JavaScript and friends',
     imageUrl: 'images/JavascriptLogo.png',
-    docsLink: 'docs/stryker/getting-started',
+    docsLink: 'docs/stryker/introduction',
   },
   {
     title: 'C#',
@@ -56,7 +56,7 @@ function Home() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   return (
-    <Layout description="Description will go into a meta tag in <head />">
+    <Layout description="Stryker Mutator: Test your tests with mutation testing.">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className={clsx('container', styles.bannerContainer)}>
           <div>

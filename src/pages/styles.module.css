@@ -52,23 +52,3 @@
   height: 200px;
   width: 200px;
 }
-
-.previewRibbon {
-  padding: 5px;
-}
-
-.previewRibbon:before {
-  content: 'Preview';
-  position: absolute;
-  padding: 4px 20px;
-  background: var(--ifm-color-info-darker);
-  color: rgb(245, 245, 245);
-  margin-left: 112px;
-  font-size: 0.8em;
-  text-transform: uppercase;
-  font-weight: bold;
-  -ms-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  border-radius: 5px;
-}

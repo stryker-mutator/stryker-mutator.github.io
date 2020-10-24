@@ -21,19 +21,19 @@ module.exports = {
       items: [
         { to: 'blog', label: 'Blog', position: 'left' },
         {
-          to: 'docs/stryker/getting-started',
+          to: 'docs/stryker/introduction',
           activeBasePath: 'docs/stryker/',
           label: 'For JavaScript',
           position: 'left',
         },
         {
-          to: 'docs/stryker-net/Configuration',
+          to: 'docs/stryker-net/Introduction',
           activeBasePath: 'docs/stryker-net',
           label: 'For C#',
           position: 'left',
         },
         {
-          to: 'docs/stryker4s/Configuration',
+          to: 'docs/stryker4s/getting-started',
           activeBasePath: 'docs/stryker4s',
           label: 'For Scala',
           position: 'left',
