@@ -10,7 +10,7 @@ const languages = [
   {
     title: 'JavaScript and friends',
     imageUrl: 'images/JavascriptLogo.png',
-    docsLink: 'docs/stryker/readme',
+    docsLink: 'docs/stryker/getting-started',
     isPreview: false,
   },
   {
