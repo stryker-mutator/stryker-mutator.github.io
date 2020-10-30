@@ -2,7 +2,7 @@
 title: Stryker dashboard
 ---
 
-The Stryker dashboard is a dashboard for mutation testing: https://dashboard.stryker-mutator.io. It is free to use and open source. It has the following features:
+The Stryker dashboard is a dashboard for mutation testing: [https://dashboard.stryker-mutator.io](https://dashboard.stryker-mutator.io). It is free to use and open source. It has the following features:
 
 🥇 Supply a mutation score badge to pimp your readme  
 🤑 Free to use for open source  
