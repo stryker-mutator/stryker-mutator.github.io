@@ -71,7 +71,7 @@ function Home() {
               </Link>
             </div>
           </div>
-            <img src="images/StrykerMan.svg" alt="Strykerman" className="stryker-man"></img>
+          <img src="images/StrykerMan.svg" alt="Strykerman" className="stryker-man"></img>
         </div>
       </header>
       <main>
