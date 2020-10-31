@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker: Blog"><title>Blog - Stryker Mutator</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Lato"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="google-site-verification" content="dcR3wjiLytpKDUxRuQskHBDnuZmrf58jOUjMANVpOn0"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/css/all.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"></head><body><nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary flex-column flex-md-row"><div class="container">   <a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="30" height="30"></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/stryker/" title="stryker">For JavaScript</a></li><li class="nav-item"><a class="nav-link" href="/stryker-net/" title="stryker-net">For C#</a></li><li class="nav-item"><a class="nav-link" href="/stryker4s/" title="stryker4s">For Scala</a></li><li class="nav-item active"><a class="nav-link" href="/blog" title="blog">Blog</a></li><li class="nav-item"><a class="nav-link" href="/example" title="example">An example</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/stryker-mutator/stryker-handbook#readme" title="handbook" target="_blank">Handbook</a></li><li class="nav-item"><a class="nav-link" href="https://dashboard.stryker-mutator.io" title="dashboard" target="_blank">Dashboard</a></li></ul></div></div><a class="d-flex align-items-center" href="https://github.com/stryker-mutator/" id="forkme_banner"> <span class="d-none d-lg-block">View me on GitHub</span><i class="fab fa-github"></i></a></nav><main><div class="container mt-3"><div class="row"><div class="col-md-12"><h1>Get your mutation score badge now!</h1><p>Published: 8 February 2018</p><p class="lead">Always wanted a fancy mutation score badge for your github project? Well friend, today is your lucky day.</p><p>We're launching our <a href="https://dashboard.stryker-mutator.io" target="_blank" rel="noopener">Stryker Dashboard</a> today.
+This will be the home of your test quality in the future.
+The first feature? A mutation score badge!</p>
+<p><img src="https://img.shields.io/badge/mutation%20score-82.3-green.svg" alt="badge green">
+<img src="https://img.shields.io/badge/mutation%20score-72.3-orange.svg" alt="badge orange">
+<img src="https://img.shields.io/badge/mutation%20score-59.6-red.svg" alt="badge red"></p>
+<h2 id="tell-me-how"><a class="stryker-permalink" href="#tell-me-how">🔗</a> Tell me how!</h2>
+<p>Take these steps to enable the mutation score badge on your repository.</p>
+<ul>
+<li><strong>Step 1</strong>: Make sure you can run stryker during a <a href="https://travis-ci.org" target="_blank" rel="noopener">travis</a> build (we only support travis at the moment).</li>
+<li><strong>Step 2</strong>: Go to <a href="https://dashboard.stryker-mutator.io" target="_blank" rel="noopener">https://dashboard.stryker-mutator.io</a> and sign with your github account.</li>
+<li><strong>Step 3</strong>: Flip the switch next to your repository: <br>
+<svg _ngcontent-c6="" height="50" width="250" xmlns="http://www.w3.org/2000/svg">
+<g _ngcontent-c6="">
+<title _ngcontent-c6="">background</title>
+<rect _ngcontent-c6="" x="0" y="0" width="250" height="50" ry="20" rx="20" fill="#fff" r="50" stroke="#E7E8E6" stroke-width="1.5"></rect>
+</g>
+<g _ngcontent-c6="">
+<title _ngcontent-c6="">Switch</title>
+<text _ngcontent-c6="" text-anchor="start" x="10" y="30">username/reponame</text>
+<rect _ngcontent-c6="" fill="#E77964" height="20" rx="10" ry="50" width="45" x="180" y="15"></rect>
+<circle _ngcontent-c6="" cx="215" cy="25" fill="#b74934" r="13"></circle>
+</g>
+</svg></li>
+<li><strong>Step 4</strong>: Configure your api key in your project. Please make sure you encrypt this variable using the <a href="https://docs.travis-ci.com/user/environment-variables/#Encrypting-environment-variables" target="_blank" rel="noopener">encrypted environment variables</a>.
+For example:<br>
+<code>$ travis encrypt STRYKER_DASHBOARD_API_KEY=89b99910-04d8-4ffb-9a91-23d709c828b4 --add</code></li>
+<li><strong>Step 5</strong>: Configure the dashboard reporter in your stryker.conf.js file (you will need stryker version 0.19.1 or higher):<br>
+<code>reporter: [ /*...*/ 'dashboard' ]</code></li>
+<li><strong>Step 6</strong>: Force a travis build<br>
+<code>$ git push origin master</code></li>
+</ul>
+<p>Your badge will be available at: <code>https://badge.stryker-mutator.io/github.com/{username}/{repository_name}/{branch}</code>.
+(don't forget to add it to your readme file)</p>
+<p>Real life examples of the mutation score badge:</p>
+<ul>
+<li><a href="https://github.com/stryker-mutator/stryker-jest-runner#readme" target="_blank" rel="noopener">stryker-mutator/stryker-jest-runner</a> <img src="https://badge.stryker-mutator.io/github.com/stryker-mutator/stryker-jest-runner/master" alt="badge"></li>
+<li><a href="https://github.com/nicojs/node-install-local#readme" target="_blank" rel="noopener">nicojs/node-install-local</a> <img src="https://badge.stryker-mutator.io/github.com/nicojs/node-install-local/master" alt="badge"></li>
+<li><a href="https://github.com/nicojs/node-sdedit#readme" target="_blank" rel="noopener">nicojs/node-sdedit</a> <img src="https://badge.stryker-mutator.io/github.com/nicojs/node-sdedit/master" alt="badge"></li>
+</ul>
+<h2 id="whats-next"><a class="stryker-permalink" href="#whats-next">🔗</a> What's next?</h2>
+<p>A mutation score badge sure is nice, but what does the future bring?</p>
+<p>First we want to support monorepo style projects (stryker itself is a mono-repo). Every package in your monorepo will have its own badge.
+We also want to support a cumulative badge for in your main readme file.</p>
+<p>We would also like to support more build servers and use cases. Are you missing a feature?
+Please let us know by opening <a href="https://github.com/stryker-mutator/stryker-dashboard/issues/new" target="_blank" rel="noopener">an issue</a>.</p>
+<p>But the dashboard is more than just badges. We truly want to make this the home of your test quality.
+You can think of features like:</p>
+<ul>
+<li>Showing your html mutation report.</li>
+<li>Keep your history and show trend lines.</li>
+<li>Informing you how a pull request changes your mutation score.</li>
+<li>Support mutation testing frameworks for other languages.</li>
+</ul>
+<p>We are curious to know what you think.</p>
+<p>Want to get in touch? Find us on <a href="https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM" target="_blank">Slack</a> or <a href="https://twitter.com/stryker_mutator" target="_blank">Twitter</a>.</p><a href="/blog.html" title="blog">Back to blogs</a></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-104444094-1', 'auto');
+ga('send', 'pageview');</script></div></main></body></html>

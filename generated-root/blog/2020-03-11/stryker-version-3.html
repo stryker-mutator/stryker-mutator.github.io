@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker: Blog"><title>Blog - Stryker Mutator</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Lato"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="google-site-verification" content="dcR3wjiLytpKDUxRuQskHBDnuZmrf58jOUjMANVpOn0"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/css/all.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"></head><body><nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary flex-column flex-md-row"><div class="container">   <a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="30" height="30"></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/stryker/" title="stryker">For JavaScript</a></li><li class="nav-item"><a class="nav-link" href="/stryker-net/" title="stryker-net">For C#</a></li><li class="nav-item"><a class="nav-link" href="/stryker4s/" title="stryker4s">For Scala</a></li><li class="nav-item active"><a class="nav-link" href="/blog" title="blog">Blog</a></li><li class="nav-item"><a class="nav-link" href="/example" title="example">An example</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/stryker-mutator/stryker-handbook#readme" title="handbook" target="_blank">Handbook</a></li><li class="nav-item"><a class="nav-link" href="https://dashboard.stryker-mutator.io" title="dashboard" target="_blank">Dashboard</a></li></ul></div></div><a class="d-flex align-items-center" href="https://github.com/stryker-mutator/" id="forkme_banner"> <span class="d-none d-lg-block">View me on GitHub</span><i class="fab fa-github"></i></a></nav><main><div class="container mt-3"><div class="row"><div class="col-md-12"><h1>Announcing Stryker 3.0</h1><p>Published: 11 March 2020</p><p class="lead">Stryker 3.0 is here! New config format and dropping support for node 8.</p><p>With version 3 of Stryker, we've been focussing on usability. We also did some smaller changes worth pointing out.
+For a full list of changes, please read <a href="https://github.com/stryker-mutator/stryker/blob/master/CHANGELOG.md#300-2020-03-11" target="_blank" rel="noopener">our changelog</a>.</p>
+<p>If you're new to mutation testing, it's a way to measure how effective your tests are at finding bugs.
+Please take a look at <a href="/example">our RoboBar 🤖🍷 example</a> and see how even 100% code coverage doesn't tell the whole story.
+Mutation testing is the only way to make sure your code is tested.</p>
+<p>In this blog article:<br>
+<a href="#migration">🚀 Migration</a><br>
+<a href="#new-config-format">📃 New config format</a><br>
+<a href="#intellisense-in-configuration">👓 IntelliSense in configuration</a><br>
+<a href="#html-reporter-by-default">🎨 HTML reporter by default</a><br>
+<a href="#breaking-changes">🔥 Breaking changes</a></p>
+<h2 id="migration"><a class="stryker-permalink" href="#migration">🔗</a> 🚀 Migration</h2>
+<p>Migrating to the latest major version is easy! Just update all <code>@stryker-mutator</code> dependencies to at least 3.0.0.
+Please note that Node 8 is <em>no longer supported</em>. For other breaking changes, please read the <a href="#breaking-changes">🔥 Breaking changes</a></p>
+<p>If you're new to Stryker, please see <a href="/stryker/quickstart">our quickstart</a>. Have fun with mutation testing!</p>
+<h2 id="new-config-format"><a class="stryker-permalink" href="#new-config-format">🔗</a> 📃 New config format</h2>
+<p>We've always supported a stryker.conf.js file for your Stryker options.
+In that file, you had to export a function that would be executed by Stryker
+in which you could set your config options.</p>
+<p>Although this is still allowed, it is unnecessarily complex. That's why Stryker now supports direct
+object exports.</p>
+<pre><code class="language-js">module.exports = {
+    // Stryker config here
+}
+</code></pre>
+<p>Stryker also doesn't force the <code>.js</code> extension anymore. This allows you to write your
+config in a <code>stryker.conf.json</code> file (or, if you're feeling adventures, you could also
+use something like <a href="https://github.com/TypeStrong/ts-node" target="_blank" rel="noopener">ts-node</a> or <a href="https://coffeescript.org/#nodejs-usage" target="_blank" rel="noopener">CoffeeScript/register</a> to use other file formats).</p>
+<h2 id="intellisense-in-configuration"><a class="stryker-permalink" href="#intellisense-in-configuration">🔗</a> 👓 IntelliSense in configuration</h2>
+<p>With the rising popularity of <a href="https://json-schema.org/" target="_blank" rel="noopener">JSON schema</a>
+(and the code editors supporting it) it's more common to use JSON files for configuration. That's why we now also support
+the <code>stryker.conf.json</code> format. By pointing the <code>$schema</code> key to <a href="https://raw.githubusercontent.com/stryker-mutator/stryker/master/packages/api/schema/stryker-core.json" target="_blank" rel="noopener">our <code>stryker-core.json</code> schema file</a>, you'll be able to get IntelliSense
+in your code editor of choice.</p>
+<p><img src="/images/blogs/intellisense.png" alt="IntelliSense"></p>
+<p>This now also the default generated by <code>npx stryker init</code>.</p>
+<p>If you still want to use the JS file format, it is also possible to get IntelliSense,
+as long as your editor supports TypeScript notation in JSDoc.</p>
+<pre><code class="language-js">/**
+* @type {import('@stryker-mutator/api/core').StrykerOptions}
+*/
+module.exports = {
+  // IntelliSense here!
+}
+</code></pre>
+<h2 id="html-reporter-by-default"><a class="stryker-permalink" href="#html-reporter-by-default">🔗</a> 🎨 HTML reporter by default</h2>
+<p>We've noticed that most developers like the HTML reporter a lot.
+However, it was always a separate package. This was originally done
+because it depended on a somewhat expensive template library (namely <a href="https://handlebarsjs.com/" target="_blank" rel="noopener">handlebars</a>).
+Since the release of the <a href="/blog/2019-04-03/one-mutation-testing-html-report">mutation testing HTML report</a>,
+this is no longer the case.</p>
+<p>That's why Stryker now comes with the HTML reporter included. It is also enabled by default. You can still disable it
+by overriding the <code>&quot;reporters&quot;</code> property manually.</p>
+<h2 id="breaking-changes"><a class="stryker-permalink" href="#breaking-changes">🔗</a> 🔥 Breaking changes</h2>
+<p>This major release comes with some breaking changes:</p>
+<ol>
+<li><strong>Platform</strong>
+<ul>
+<li><a href="https://github.com/stryker-mutator/stryker/pull/2028" target="_blank" rel="noopener">#2028</a> NodeJS version 10 or higher is now required to run Stryker.</li>
+</ul>
+</li>
+<li><strong>Core</strong>
+<ul>
+<li><a href="https://github.com/stryker-mutator/stryker/issues/1996" target="_blank" rel="noopener">#1996</a> Always exit with exit code 1 if an error of any kind occurs (previously there were scenarios where it didn't fail).</li>
+<li><a href="https://github.com/stryker-mutator/stryker/pull/2039" target="_blank" rel="noopener">#2039</a> The Dashboard reporter (if enabled) will now default to uploading the full report.</li>
+</ul>
+</li>
+<li><strong>HTML Reporter</strong>
+<ul>
+<li><a href="https://github.com/stryker-mutator/stryker/pull/2036" target="_blank" rel="noopener">#2036</a> The HTML reporter is now included in the Stryker core. You should remove the dependency on <code>&quot;@stryker-mutator/html-reporter&quot;</code>.
+Please override the <code>&quot;reporters&quot;</code> option to disable the reporter.</li>
+</ul>
+</li>
+<li><strong>Karma runner</strong>
+<ul>
+<li><a href="https://github.com/stryker-mutator/stryker/pull/2048" target="_blank" rel="noopener">#2048</a> Always run with <code>client.clearContext</code> to prevent a race condition.
+for more details.</li>
+<li><a href="https://github.com/stryker-mutator/stryker/pull/2035" target="_blank" rel="noopener">#2035</a> Use <code>ChromeHeadless</code> by default instead of <code>PhantomJS</code>.</li>
+</ul>
+</li>
+</ol>
+<p>Want to get in touch? Find us on <a href="https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM" target="_blank">Slack</a> or <a href="https://twitter.com/stryker_mutator" target="_blank">Twitter</a>.</p><a href="/blog.html" title="blog">Back to blogs</a></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-104444094-1', 'auto');
+ga('send', 'pageview');</script></div></main></body></html>

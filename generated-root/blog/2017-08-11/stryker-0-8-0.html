@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf8"><meta http-equiv="X-UA-Compatible" content="chrome=1"><meta name="description" content="Stryker: Blog"><title>Blog - Stryker Mutator</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Lato"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#b74934"><meta name="google-site-verification" content="dcR3wjiLytpKDUxRuQskHBDnuZmrf58jOUjMANVpOn0"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/css/all.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"></head><body><nav class="navbar sticky-top navbar-expand-md navbar-dark bg-secondary flex-column flex-md-row"><div class="container">   <a class="navbar-brand" href="/"><img src="/images/stryker_205x205.png" alt="Stryker" width="30" height="30"></a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbar"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="/stryker/" title="stryker">For JavaScript</a></li><li class="nav-item"><a class="nav-link" href="/stryker-net/" title="stryker-net">For C#</a></li><li class="nav-item"><a class="nav-link" href="/stryker4s/" title="stryker4s">For Scala</a></li><li class="nav-item active"><a class="nav-link" href="/blog" title="blog">Blog</a></li><li class="nav-item"><a class="nav-link" href="/example" title="example">An example</a></li><li class="nav-item"><a class="nav-link" href="https://github.com/stryker-mutator/stryker-handbook#readme" title="handbook" target="_blank">Handbook</a></li><li class="nav-item"><a class="nav-link" href="https://dashboard.stryker-mutator.io" title="dashboard" target="_blank">Dashboard</a></li></ul></div></div><a class="d-flex align-items-center" href="https://github.com/stryker-mutator/" id="forkme_banner"> <span class="d-none d-lg-block">View me on GitHub</span><i class="fab fa-github"></i></a></nav><main><div class="container mt-3"><div class="row"><div class="col-md-12"><h1>Stryker 0.8 release</h1><p>Published: 11 August 2017</p><p class="lead">Stryker 0.8 just released with better CI integration and configurable thresholds.</p><p>For the entire changelog per package:</p>
+<ul>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker/CHANGELOG.md" target="_blank" rel="noopener">stryker changelog</a></li>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-api/CHANGELOG.md" target="_blank" rel="noopener">stryker-api changelog</a></li>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-html-reporter/CHANGELOG.md" target="_blank" rel="noopener">stryker-html-reporter changelog</a></li>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-mocha-runner/CHANGELOG.md" target="_blank" rel="noopener">stryker-mocha-runner changelog</a></li>
+<li><a href="https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-mocha-framework/CHANGELOG.md" target="_blank" rel="noopener">stryker-mocha-framework changelog</a></li>
+</ul>
+<h2 id="better-ci-integration"><a class="stryker-permalink" href="#better-ci-integration">🔗</a> Better CI integration</h2>
+<p><a href="https://github.com/stryker-mutator/stryker/pull/355" target="_blank" rel="noopener">Original PR</a></p>
+<p>It's now possible to let your build fail based on your mutation score.
+The way to do this is to make sure stryker runs inside your (nightly) build and configure the <code>threshold.break</code> value:</p>
+<pre><code class="language-javascript">// stryker.conf.js
+// ...
+thresholds: {
+    break: 70, // Fail if mutation score &lt; 70
+    // ..
+}
+// ...
+</code></pre>
+<p>This will break the build if your mutation score falls below 70%.</p>
+<pre><code class="language-bash">[2017-08-11 13:46:10.190] [ERROR] ScoreResultCalculator - Final mutation score 66.97 under breaking threshold 70, setting exit code to 1 (failure).
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! stryker@0.8.0 stryker: `node bin/stryker run`
+</code></pre>
+<p>Want to know what a 'mutation score' is? See <a href="/faq.html#q-so-what-is-this-mutation-score">our faq</a>.</p>
+<h2 id="configurable-color-thresholds"><a class="stryker-permalink" href="#configurable-color-thresholds">🔗</a> Configurable color thresholds</h2>
+<p><a href="https://github.com/stryker-mutator/stryker/pull/355" target="_blank" rel="noopener">Original PR</a></p>
+<p>The clear-text and html reporters now honor configured high and low thresholds.
+You once again configure it using the <code>thresholds</code> config option:</p>
+<pre><code class="language-javascript">// stryker.conf.js
+// ...
+thresholds: {
+    high: 80,
+    low: 60,
+    // ...
+}
+// ...
+</code></pre>
+<p>Configuring these values will color mutation scores above 80% <span class="text-success">green</span>, between 80 and 60% <span class="text-warning">yellow</span> and anything below 60% <span class="text-danger">red</span>.
+You can see an example of an html report based on stryker itself <a href="https://stryker-mutator.github.io/stryker-html-reporter" target="_blank" rel="noopener">here</a>.</p>
+<h2 id="bugfixes"><a class="stryker-permalink" href="#bugfixes">🔗</a> Bugfixes</h2>
+<p>Bugfixes this release:</p>
+<ul>
+<li><a href="https://github.com/stryker-mutator/stryker/issues/335" target="_blank" rel="noopener">Incorrect relative path for html reporter #355</a></li>
+<li><a href="https://github.com/stryker-mutator/stryker/issues/350" target="_blank" rel="noopener">Mutation testing in node based environments can generate false warnings #350</a></li>
+</ul>
+<h2 id="enjoy"><a class="stryker-permalink" href="#enjoy">🔗</a> Enjoy!</h2>
+<p>Enjoy this new release! We're always happy with feedback, negative or positive.</p>
+<p>Want to get in touch? Find us on <a href="https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM" target="_blank">Slack</a> or <a href="https://twitter.com/stryker_mutator" target="_blank">Twitter</a>.</p><a href="/blog.html" title="blog">Back to blogs</a></div></div><footer class="navbar navbar-footer"><div class="container"><p class="navbar-text">Stryker is released under the Apache 2.0 license. Site by Nico Jansen, Simon de Lang and Alex van Assem. Logo by Selina van den Top.</p></div></footer><script src="/js/all.bundle.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-104444094-1', 'auto');
+ga('send', 'pageview');</script></div></main></body></html>
