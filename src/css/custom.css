@@ -74,7 +74,3 @@ html[data-theme='dark'] .header-github-link:before {
   color: #ddd;
   background-color: var(--ifm-color-primary-darkest);
 }
-
-.stryker-man {
-  min-width: 452px;
-}

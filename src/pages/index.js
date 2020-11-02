@@ -71,7 +71,10 @@ function Home() {
               </Link>
             </div>
           </div>
-          <img src="images/StrykerMan.svg" alt="Strykerman" className="stryker-man"></img>
+          <picture className={styles.heroImage}>
+            <source media="(min-width:662px)" srcSet="images/StrykerMan.svg"></source>
+            <img src="images/StrykerMan.svg" alt="Strykerman"></img>
+          </picture>
         </div>
       </header>
       <main>

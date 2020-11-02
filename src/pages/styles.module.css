@@ -52,3 +52,11 @@
   height: 200px;
   width: 200px;
 }
+
+.stryker-man {
+  min-width: 452px;
+}
+
+.heroImage {
+  min-width: 452px;
+}
