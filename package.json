@@ -8,7 +8,7 @@
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "prebuild": "npm run clone:docs",
-    "prestart": "npm run clone:docs",
+    "postinstall": "npm run clone:docs",
     "clean": "docusaurus clear && rimraf docs/{stryker,stryker4s,stryker-net,mutation-testing-elements}",
     "clone:docs": "bash clone_docs.sh",
     "lint": "prettier --check --ignore-path=.gitignore .",
