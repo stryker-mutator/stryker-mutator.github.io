@@ -12,6 +12,10 @@ module.exports = {
   organizationName: 'stryker-mutator',
   projectName: 'stryker-mutator.github.io',
   themeConfig: {
+    image: 'images/strykerman.png',
+    colorMode: {
+      respectPrefersColorScheme: true,
+    },
     navbar: {
       title: 'Stryker Mutator',
       logo: {
@@ -63,7 +67,6 @@ module.exports = {
         {
           title: 'Docs',
           items: [
-            // TODO: Fill
             {
               label: 'FAQ',
               to: 'docs/General/faq',
