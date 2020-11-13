@@ -105,6 +105,8 @@ module.exports = {
     },
     prism: {
       additionalLanguages: ['scala', 'csharp', 'java'],
+      theme: require('prism-react-renderer/themes/github'),
+      darkTheme: require('prism-react-renderer/themes/dracula'),
     },
     googleAnalytics: {
       trackingID: 'UA-104444094-1',
