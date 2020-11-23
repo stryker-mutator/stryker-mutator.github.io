@@ -20,8 +20,8 @@ module.exports = {
       id: 'podcast', // Any value that will identify this message.
       content:
         '🎧 Listen to the <a target="_blank" href="https://thedeepdive.simplecast.com/episodes/mutation-testing-with-stryker">"Mutation testing with Stryker" podcast episode on InDepth.dev</a>',
-      backgroundColor: 'var(--ifm-navbar-background-color)', // Defaults to `#fff`.
-      textColor: 'var(--ifm-navbar-link-color)', // Defaults to `#000`.
+      backgroundColor: 'var(--ifm-navbar-background-color, #fff)', // Defaults to `#fff`.
+      textColor: 'var(--ifm-navbar-link-color, #000)', // Defaults to `#000`.
       isCloseable: false, // Defaults to `true`.
     },
     navbar: {
