@@ -113,6 +113,10 @@ module.exports = {
       // Optional fields.
       anonymizeIP: true, // Should IPs be anonymized?
     },
+    algolia: {
+      apiKey: '5cbcde3fafdb1be491bb20c96a86a211',
+      indexName: 'stryker-mutator',
+    },
   },
   presets: [
     [
