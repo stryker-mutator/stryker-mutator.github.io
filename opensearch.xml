@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Stryker Mutator</ShortName>
+  <Description>Search Stryker Mutator</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">https://stryker-mutator.io/images/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://stryker-mutator.io/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://stryker-mutator.io/opensearch.xml" />
+  <moz:SearchForm>https://stryker-mutator.io</moz:SearchForm>
+</OpenSearchDescription>
