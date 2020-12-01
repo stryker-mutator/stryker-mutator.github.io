@@ -30,18 +30,17 @@
   },
   "homepage": "https://github.com/stryker-mutator/stryker-mutator.github.io#readme",
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.66",
-    "@docusaurus/plugin-client-redirects": "2.0.0-alpha.66",
-    "@docusaurus/preset-classic": "2.0.0-alpha.66",
+    "@docusaurus/core": "2.0.0-alpha.69",
+    "@docusaurus/plugin-client-redirects": "2.0.0-alpha.69",
+    "@docusaurus/preset-classic": "2.0.0-alpha.69",
     "clsx": "^1.1.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "defaults",
+      "not IE 11"
     ],
     "development": [
       "last 1 chrome version",
