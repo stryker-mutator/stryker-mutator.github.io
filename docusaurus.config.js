@@ -62,9 +62,11 @@ module.exports = {
           position: 'right',
         },
         {
+          href: '#',
+          target: '_self',
           position: 'right',
           className: 'header-github-link',
-          'aria-label': 'GitHub repository',
+          'aria-label': 'GitHub repository dropdown',
           items: [
             {
               label: 'Stryker (JS & TS)',
