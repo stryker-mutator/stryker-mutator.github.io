@@ -62,10 +62,33 @@ module.exports = {
           position: 'right',
         },
         {
-          href: 'https://github.com/stryker-mutator/stryker-mutator.github.io',
+          href: '#',
+          target: '_self',
           position: 'right',
           className: 'header-github-link',
-          'aria-label': 'GitHub repository',
+          'aria-label': 'GitHub repository dropdown',
+          items: [
+            {
+              label: 'Stryker (JS & TS)',
+              href: 'https://github.com/stryker-mutator/stryker',
+            },
+            {
+              label: 'Stryker.NET (C#)',
+              href: 'https://github.com/stryker-mutator/stryker-net',
+            },
+            {
+              label: 'Stryker4s (Scala)',
+              href: 'https://github.com/stryker-mutator/stryker4s',
+            },
+            {
+              label: 'Mutation Testing Elements',
+              href: 'https://github.com/stryker-mutator/mutation-testing-elements',
+            },
+            {
+              label: 'This website',
+              href: 'https://github.com/stryker-mutator/stryker-mutator.github.io',
+            },
+          ],
         },
       ],
     },
