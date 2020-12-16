@@ -62,7 +62,6 @@ module.exports = {
           position: 'right',
         },
         {
-          // href: 'https://github.com/stryker-mutator/',
           position: 'right',
           className: 'header-github-link',
           'aria-label': 'GitHub repository',
