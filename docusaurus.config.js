@@ -161,9 +161,6 @@ module.exports = {
         blog: {
           showReadingTime: true,
           editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/develop/',
-          feedOptions: {
-            type: 'rss',
-          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
