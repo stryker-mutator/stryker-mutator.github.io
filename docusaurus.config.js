@@ -114,7 +114,7 @@ module.exports = {
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/stryker-mutator',
+              href: 'https://twitter.com/stryker_mutator',
             },
           ],
         },
@@ -154,7 +154,6 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          // TODO: set up home directory for blogs (probably stryker-handbook/README): https://v2.docusaurus.io/docs/docs-introduction/#home-page-docs
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/develop/',
         },
