@@ -139,11 +139,12 @@ module.exports = {
       theme: require('prism-react-renderer/themes/github'),
       darkTheme: require('prism-react-renderer/themes/dracula'),
     },
-    googleAnalytics: {
-      trackingID: 'UA-104444094-1',
-      // Optional fields.
-      anonymizeIP: true, // Should IPs be anonymized?
-    },
+    // Disabled until we add a cookie banner
+    // googleAnalytics: {
+    //   trackingID: 'UA-104444094-1',
+    //   // Optional fields.
+    //   anonymizeIP: true, // Should IPs be anonymized?
+    // },
     algolia: {
       apiKey: '5cbcde3fafdb1be491bb20c96a86a211',
       indexName: 'stryker-mutator',
