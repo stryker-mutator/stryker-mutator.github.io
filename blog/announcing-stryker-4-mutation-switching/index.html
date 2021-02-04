@@ -10,15 +10,15 @@
 <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-104444094-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview")</script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
 <link rel="search" type="application/opensearchdescription+xml" title="Stryker Mutator" href="/opensearch.xml"><title data-react-helmet="true">Announcing Stryker 4.0 - Mutation Switching | Stryker Mutator</title><meta data-react-helmet="true" property="og:title" content="Announcing Stryker 4.0 - Mutation Switching | Stryker Mutator"><meta data-react-helmet="true" name="description" content="We&#x27;re proud to announce the next major release of the Stryker mutation testing framework for JavaScript and friends: Stryker 4.0."><meta data-react-helmet="true" property="og:description" content="We&#x27;re proud to announce the next major release of the Stryker mutation testing framework for JavaScript and friends: Stryker 4.0."><meta data-react-helmet="true" property="og:image" content="https://stryker-mutator.io/images/strykerman.png"><meta data-react-helmet="true" name="twitter:image" content="https://stryker-mutator.io/images/strykerman.png"><meta data-react-helmet="true" name="twitter:image:alt" content="Image for Announcing Stryker 4.0 - Mutation Switching | Stryker Mutator"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="docsearch:language" content="en"><meta data-react-helmet="true" name="docsearch:docusaurus_tag" content="default"><link data-react-helmet="true" rel="shortcut icon" href="/images/favicon.ico"><link data-react-helmet="true" rel="preconnect" href="https://BH4D9OD16A-dsn.algolia.net" crossorigin="anonymous"><link rel="stylesheet" href="/styles.6b0a676a.css">
-<link rel="preload" href="/styles.9c45cc21.js" as="script">
-<link rel="preload" href="/runtime~main.c98deaf5.js" as="script">
-<link rel="preload" href="/main.9966829e.js" as="script">
-<link rel="preload" href="/1.590059b0.js" as="script">
-<link rel="preload" href="/2.8d0d4e4f.js" as="script">
-<link rel="preload" href="/3.48a0d79a.js" as="script">
-<link rel="preload" href="/ccc49370.031762d8.js" as="script">
+<link rel="preload" href="/styles.72210dde.js" as="script">
+<link rel="preload" href="/runtime~main.bc97fc60.js" as="script">
+<link rel="preload" href="/main.6b844b92.js" as="script">
+<link rel="preload" href="/1.e408ca52.js" as="script">
+<link rel="preload" href="/2.9548153d.js" as="script">
+<link rel="preload" href="/3.d2d6d67a.js" as="script">
+<link rel="preload" href="/ccc49370.5a244465.js" as="script">
 <link rel="preload" href="/a32dca28.ff0ab261.js" as="script">
-<link rel="preload" href="/5abda609.392609da.js" as="script">
+<link rel="preload" href="/5abda609.399c70b9.js" as="script">
 </head>
 <body>
 <script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
@@ -28,14 +28,14 @@
 🌼<a href="https://github.com/Lakitna" target="_blank" rel="noopener noreferrer">Lakitna</a><br>
 🌻<a href="https://github.com/brodybits" target="_blank" rel="noopener noreferrer">brodybits</a><br>
 🌺<a href="https://github.com/Garethp" target="_blank" rel="noopener noreferrer">Garethp</a></p><p>You guys are incredible!</p><p>If you read through this article: thank you! You&#x27;re awesome! Now stop reading and give Stryker 4 a try. And let us know what you think 😀.</p></section><footer class="row margin-vert--lg"><div class="col"><strong>Tags:</strong><a class="margin-horiz--sm" href="/blog/tags/stryker">stryker</a></div></footer></article><div><a href="https://github.com/stryker-mutator/stryker-mutator.github.io/edit/develop/blog/2020-10-07-announcing-stryker-4-mutation-switching.md" target="_blank" rel="noreferrer noopener"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" role="img" viewBox="0 0 40 40" class="iconEdit_2LL7"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="margin-vert--xl"><nav class="pagination-nav" aria-label="Blog post page navigation"><div class="pagination-nav__item"></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/blog/announcing-stryker-4-beta-mutation-switching"><div class="pagination-nav__sublabel">Older Post</div><div class="pagination-nav__label">Announcing Stryker 4.0 Beta »</div></a></div></nav></div></main><div class="col col--2"><div class="tableOfContents_2xL- thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#-getting-started" class="table-of-contents__link">🚀 Getting started</a></li><li><a href="#-mutation-switching" class="table-of-contents__link">👽 Mutation switching</a></li><li><a href="#-code-instrumentation" class="table-of-contents__link">🐠 Code instrumentation</a></li><li><a href="#-build-command-support" class="table-of-contents__link">👷‍‍ Build command support</a></li><li><a href="#-checker-plugin" class="table-of-contents__link">✅ Checker plugin</a></li><li><a href="#-coverage-analysis" class="table-of-contents__link">☔ Coverage analysis</a></li><li><a href="#🧹-other-changes" class="table-of-contents__link">🧹 Other changes</a></li><li><a href="#-breaking-changes" class="table-of-contents__link">💥 Breaking changes</a></li><li><a href="#-whats-next" class="table-of-contents__link">🔮 What&#39;s next?</a></li><li><a href="#-thank-you" class="table-of-contents__link">🎉 Thank you</a></li></ul></div></div></div></div></div><footer class="footer footer--dark"><div class="container"><div class="row footer__links"><div class="col footer__col"><h4 class="footer__title">Docs</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/docs/General/faq">FAQ</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">Community</h4><ul class="footer__items"><li class="footer__item"><a href="https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM" target="_blank" rel="noopener noreferrer" class="footer__link-item">Slack</a></li><li class="footer__item"><a href="https://twitter.com/stryker_mutator" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">More</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/stryker-mutator/" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Stryker is released under the Apache 2.0 license. Site by the Stryker team (see GitHub). Logo by Selina van den Top.</div></div></div></footer></div>
-<script src="/styles.9c45cc21.js"></script>
-<script src="/runtime~main.c98deaf5.js"></script>
-<script src="/main.9966829e.js"></script>
-<script src="/1.590059b0.js"></script>
-<script src="/2.8d0d4e4f.js"></script>
-<script src="/3.48a0d79a.js"></script>
-<script src="/ccc49370.031762d8.js"></script>
+<script src="/styles.72210dde.js"></script>
+<script src="/runtime~main.bc97fc60.js"></script>
+<script src="/main.6b844b92.js"></script>
+<script src="/1.e408ca52.js"></script>
+<script src="/2.9548153d.js"></script>
+<script src="/3.d2d6d67a.js"></script>
+<script src="/ccc49370.5a244465.js"></script>
 <script src="/a32dca28.ff0ab261.js"></script>
-<script src="/5abda609.392609da.js"></script>
+<script src="/5abda609.399c70b9.js"></script>
 </body>
 </html>
