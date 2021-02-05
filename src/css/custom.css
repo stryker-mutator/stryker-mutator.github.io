@@ -20,8 +20,17 @@
 }
 
 :root[data-theme='dark'] {
+  --ifm-color-primary: #e5331f;
+  --ifm-color-primary-dark: #ca2e1d;
+  --ifm-color-primary-darker: #ad2515;
+  --ifm-color-primary-darkest: #801b10;
   --ifm-link-color: var(--ifm-color-primary-light);
 }
+
+:root[data-theme='dark'] .hero {
+  --ifm-color-primary: #22323d;
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
   display: block;
@@ -62,4 +71,14 @@ html[data-theme='dark'] .header-github-link:before {
 /* Button should always have white text, even on light mode */
 :root[data-theme='light'] .hero--primary .button:not(.button--active):not(:hover) {
   color: var(--ifm-font-color-base-inverse);
+}
+
+:root[data-theme='dark'] .button.button--secondary.button--outline:not(.button--active) {
+  background-color: var(--ifm-color-primary-darker);
+  border-color: var(--ifm-color-primary-darkest);
+}
+
+:root[data-theme='dark'] .button.button--secondary.button--outline:not(.button--active):hover {
+  color: #ddd;
+  background-color: var(--ifm-color-primary-darkest);
 }
