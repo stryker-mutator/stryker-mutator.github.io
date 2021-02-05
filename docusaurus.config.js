@@ -12,6 +12,18 @@ module.exports = {
   organizationName: 'stryker-mutator',
   projectName: 'stryker-mutator.github.io',
   themeConfig: {
+    image: 'images/strykerman.png',
+    colorMode: {
+      respectPrefersColorScheme: true,
+    },
+    announcementBar: {
+      id: 'podcast', // Any value that will identify this message.
+      content:
+        '🎧 Listen to the <a target="_blank" href="https://thedeepdive.simplecast.com/episodes/mutation-testing-with-stryker">"Mutation testing with Stryker" podcast episode on InDepth.dev</a>',
+      backgroundColor: 'var(--ifm-navbar-background-color, #fff)',
+      textColor: 'var(--ifm-navbar-link-color, #000)',
+      isCloseable: true,
+    },
     navbar: {
       title: 'Stryker Mutator',
       logo: {
@@ -50,10 +62,33 @@ module.exports = {
           position: 'right',
         },
         {
-          href: 'https://github.com/stryker-mutator/stryker-mutator.github.io',
+          href: '#',
+          target: '_self',
           position: 'right',
           className: 'header-github-link',
-          'aria-label': 'GitHub repository',
+          'aria-label': 'GitHub repository dropdown',
+          items: [
+            {
+              label: 'Stryker (JS & TS)',
+              href: 'https://github.com/stryker-mutator/stryker',
+            },
+            {
+              label: 'Stryker.NET (C#)',
+              href: 'https://github.com/stryker-mutator/stryker-net',
+            },
+            {
+              label: 'Stryker4s (Scala)',
+              href: 'https://github.com/stryker-mutator/stryker4s',
+            },
+            {
+              label: 'Mutation Testing Elements',
+              href: 'https://github.com/stryker-mutator/mutation-testing-elements',
+            },
+            {
+              label: 'This website',
+              href: 'https://github.com/stryker-mutator/stryker-mutator.github.io',
+            },
+          ],
         },
       ],
     },
@@ -63,7 +98,6 @@ module.exports = {
         {
           title: 'Docs',
           items: [
-            // TODO: Fill
             {
               label: 'FAQ',
               to: 'docs/General/faq',
@@ -80,7 +114,7 @@ module.exports = {
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/stryker-mutator',
+              href: 'https://twitter.com/stryker_mutator',
             },
           ],
         },
@@ -102,11 +136,17 @@ module.exports = {
     },
     prism: {
       additionalLanguages: ['scala', 'csharp', 'java'],
+      theme: require('prism-react-renderer/themes/github'),
+      darkTheme: require('prism-react-renderer/themes/dracula'),
     },
     googleAnalytics: {
       trackingID: 'UA-104444094-1',
       // Optional fields.
       anonymizeIP: true, // Should IPs be anonymized?
+    },
+    algolia: {
+      apiKey: '5cbcde3fafdb1be491bb20c96a86a211',
+      indexName: 'stryker-mutator',
     },
   },
   presets: [
@@ -114,16 +154,12 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          // TODO: set up home directory for blogs (probably stryker-handbook/README): https://v2.docusaurus.io/docs/docs-introduction/#home-page-docs
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/develop/',
         },
         blog: {
           showReadingTime: true,
           editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/develop/',
-          feedOptions: {
-            type: 'rss',
-          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
