@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[62],{135:function(o){o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"april-fools","name":"april fools","count":1,"permalink":"/blog/tags/april-fools"}')}}]);
