@@ -93,7 +93,6 @@ module.exports = {
       ],
     },
     footer: {
-      style: 'dark',
       links: [
         {
           title: 'Docs',
@@ -132,7 +131,12 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Stryker is released under the Apache 2.0 license. Site by the Stryker team (see GitHub). Logo by Selina van den Top.`,
+      copyright: `Powered by <a href="https://www.infosupport.com/open-source/">Info Support</a>.<br/>Stryker is released under the Apache 2.0 license. Site by the <a href="https://github.com/orgs/stryker-mutator/people">Stryker team</a>. Logo by Selina van den Top.`,
+      logo: {
+        alt: 'Info Support Logo',
+        src: 'images/info-support.svg',
+        href: 'https://infosupport.com',
+      },
     },
     prism: {
       additionalLanguages: ['scala', 'csharp', 'java'],
