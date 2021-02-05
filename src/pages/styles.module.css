@@ -56,3 +56,8 @@
 .heroImage {
   min-width: 400px;
 }
+@media screen and (max-width: 662px) {
+  .heroImage {
+    min-width: 200px;
+  }
+}
