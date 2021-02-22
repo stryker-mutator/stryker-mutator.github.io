@@ -31,7 +31,8 @@ function git_clone_docs() (
     git sparse-checkout set 'docs'
   fi
 
-  git pull origin master
+  defaultBranch="$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
+  git pull origin $defaultBranch
 
   mv docs/* .
   cd ../

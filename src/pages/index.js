@@ -15,17 +15,17 @@ import AssessmentSvg from '../icons/assessment.svg';
 const languages = [
   {
     title: 'JavaScript and friends',
-    imageUrl: 'images/JavascriptLogo.png',
+    imageUrl: 'images/JavascriptLogo.svg',
     docsLink: 'docs/stryker/introduction',
   },
   {
     title: 'C#',
-    imageUrl: 'images/CSharpLogo.png',
+    imageUrl: 'images/CSharpLogo.svg',
     docsLink: 'docs/stryker-net/introduction',
   },
   {
     title: 'Scala',
-    imageUrl: 'images/ScalaLogo.png',
+    imageUrl: 'images/ScalaLogo.webp',
     docsLink: 'docs/stryker4s/getting-started',
   },
 ];
@@ -37,7 +37,7 @@ function Language({ imageUrl, title, docsLink }) {
       {imgUrl && (
         <a href={docsLink}>
           <figure className={clsx('text--center')}>
-            <img className={styles.languageImage} src={imgUrl} alt={title} />
+            <img className={styles.languageImage} height={200} src={imgUrl} alt={title} />
             <figcaption>{title}</figcaption>
           </figure>
         </a>
@@ -135,7 +135,10 @@ function Home() {
                 </div>
                 <p>
                   Free as in Speech. Maintained by the open source community at{' '}
-                  <a href="https://github.com/stryker-mutator">GitHub</a>.
+                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/stryker-mutator">
+                    GitHub
+                  </a>
+                  .
                 </p>
               </Feature>
 
@@ -158,7 +161,11 @@ function Home() {
                 </div>
                 <p>
                   Use{' '}
-                  <a href="https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker/master">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker/master"
+                  >
                     clever reports
                   </a>{' '}
                   to sniff out surviving mutants and improve test effectiveness.

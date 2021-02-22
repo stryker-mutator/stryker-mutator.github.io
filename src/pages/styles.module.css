@@ -50,7 +50,7 @@
 
 .languageImage {
   height: 200px;
-  width: 200px;
+  width: auto;
 }
 
 .heroImage {
@@ -59,6 +59,7 @@
 
 @media screen and (max-width: 662px) {
   .heroImage {
+    margin-top: 1rem;
     min-width: 200px;
   }
 }
