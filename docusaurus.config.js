@@ -8,7 +8,7 @@ module.exports = {
   url: 'https://stryker-mutator.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  favicon: 'images/favicon.ico',
+  favicon: 'images/stryker.svg',
   organizationName: 'stryker-mutator',
   projectName: 'stryker-mutator.github.io',
   themeConfig: {
@@ -19,7 +19,7 @@ module.exports = {
     announcementBar: {
       id: 'podcast', // Any value that will identify this message.
       content:
-        '🎧 Listen to the <a target="_blank" href="https://thedeepdive.simplecast.com/episodes/mutation-testing-with-stryker">"Mutation testing with Stryker" podcast episode on InDepth.dev</a>',
+        '🎧 Listen to the <a target="_blank" rel="noopener noreferrer" href="https://thedeepdive.simplecast.com/episodes/mutation-testing-with-stryker">"Mutation testing with Stryker" podcast episode on InDepth.dev</a>',
       backgroundColor: 'var(--ifm-navbar-background-color, #fff)',
       textColor: 'var(--ifm-navbar-link-color, #000)',
       isCloseable: true,
@@ -131,7 +131,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Powered by <a href="https://www.infosupport.com/open-source/">Info Support</a>.<br/>Stryker is released under the Apache 2.0 license. Site by the <a href="https://github.com/orgs/stryker-mutator/people">Stryker team</a>. Logo by Selina van den Top.`,
+      copyright: `Powered by <a target="_blank" rel="noopener noreferrer" href="https://www.infosupport.com/open-source/">Info Support</a>.<br/>Stryker is released under the Apache 2.0 license. Site by the <a target="_blank" rel="noopener noreferrer" href="https://github.com/orgs/stryker-mutator/people">Stryker team</a>. Logo by Selina van den Top.`,
       logo: {
         alt: 'Info Support Logo',
         src: 'images/info-support.svg',
