@@ -139,7 +139,7 @@ module.exports = {
       },
     },
     prism: {
-      additionalLanguages: ['scala', 'csharp', 'java'],
+      additionalLanguages: ['java', 'scala', 'csharp'],
       theme: require('prism-react-renderer/themes/github'),
       darkTheme: require('prism-react-renderer/themes/dracula'),
     },
