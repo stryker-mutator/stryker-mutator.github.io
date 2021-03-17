@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/stryker-mutator/stryker-mutator.github.io#readme",
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.71",
+    "@docusaurus/core": "2.0.0-alpha.72",
     "@docusaurus/plugin-client-redirects": "2.0.0-alpha.71",
     "@docusaurus/preset-classic": "2.0.0-alpha.71",
     "clsx": "^1.1.1",
