@@ -69,7 +69,7 @@ module.exports = {
           'aria-label': 'GitHub repository dropdown',
           items: [
             {
-              label: 'Stryker (JS & TS)',
+              label: 'StrykerJS (JS & TS)',
               href: 'https://github.com/stryker-mutator/stryker-js',
             },
             {
