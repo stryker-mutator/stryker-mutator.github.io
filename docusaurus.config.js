@@ -33,8 +33,8 @@ module.exports = {
       items: [
         { to: 'blog', label: 'Blog', position: 'left' },
         {
-          to: 'docs/stryker/introduction',
-          activeBasePath: 'docs/stryker/',
+          to: 'docs/stryker-js/introduction',
+          activeBasePath: 'docs/stryker-js/',
           label: 'For JavaScript',
           position: 'left',
         },

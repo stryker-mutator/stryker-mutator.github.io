@@ -44,8 +44,8 @@ webpack: {
 },
 ```
 
-For more info, please see the [stryker-webpack-transpiler changelog](https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-webpack-transpiler/CHANGELOG.md)
-or take a look at the [readme](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-webpack-transpiler#readme)
+For more info, please see the [stryker-webpack-transpiler changelog](https://github.com/stryker-mutator/stryker-js/blob/master/packages/stryker-webpack-transpiler/CHANGELOG.md)
+or take a look at the [readme](https://github.com/stryker-mutator/stryker-js/tree/master/packages/stryker-webpack-transpiler#readme)
 
 Enjoy!
 
@@ -70,7 +70,7 @@ However, we are working on first class support for any project using Jest, so yo
 
 Webpack support is awesome, but performance does take a big hit if we need to bundle each mutant.
 Having the coverage analysis can help a lot with that. As of yet, we don't support coverage analysis
-when using a transpiler. However, [PR 559](https://github.com/stryker-mutator/stryker/pull/559) looks promising
+when using a transpiler. However, [PR 559](https://github.com/stryker-mutator/stryker-js/pull/559) looks promising
 and we'll be merging that into master in about a week or so.
 
 We will also be working on React support with support for the Jest test runner. You can expect that in the next
