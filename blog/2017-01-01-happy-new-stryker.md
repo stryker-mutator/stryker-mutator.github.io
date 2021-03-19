@@ -30,7 +30,7 @@ resilient to this _"mutant"_. If they are (and they fail), all is fine - the _mu
 
 Stryker began its life as the thesis project of Simon de Lang. After graduating, his thesis tutor Nico Jansen joined him and continued development in the open on [GitHub](https://github.com/stryker-mutator/).
 Since then they had five major releases, improving performance, adding support for the [Karma](http://karma-runner.github.io/1.0/index.html) and [Mocha](http://mochajs.org/) test runners,
-as well as creating a fancy [HTML reporter](https://github.com/stryker-mutator/stryker-js/tree/master/packages/stryker-html-reporter).
+as well as creating a fancy [HTML reporter](https://github.com/stryker-mutator/mutation-testing-elements/tree/master/packages/mutation-testing-elements).
 
 Up until now, the two of them did all of this in their own time, next to their daytime jobs as software engineers.
 
