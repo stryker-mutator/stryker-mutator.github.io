@@ -70,7 +70,7 @@ module.exports = {
           items: [
             {
               label: 'Stryker (JS & TS)',
-              href: 'https://github.com/stryker-mutator/stryker',
+              href: 'https://github.com/stryker-mutator/stryker-js',
             },
             {
               label: 'Stryker.NET (C#)',
