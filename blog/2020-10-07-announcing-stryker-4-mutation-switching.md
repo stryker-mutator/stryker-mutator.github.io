@@ -125,7 +125,7 @@ Configure it with:
 }
 ```
 
-Please see [the TypeScript checker's readme](https://github.com/stryker-mutator/stryker/tree/master/packages/typescript-checker#readme) for more details.
+Please see [the TypeScript checker's readme](https://github.com/stryker-mutator/stryker-js/tree/master/packages/typescript-checker#readme) for more details.
 
 ## ☔ Coverage analysis
 
@@ -137,7 +137,7 @@ Coverage analysis is a great way to speed up mutation testing. It is a means to 
 
 Running with "perTest" coverage analysis allows for significant performance improvement, usually between 40% and 60%. However, most projects were unable to take advantage of it because Stryker relied on [istanbul code coverage](https://istanbul.js.org/) combined with test runner hooks. It only worked in scenarios without transpiling or bundling.
 
-This changes with version 4. When Stryker instruments your code with mutants, it also injects the coverage instrumentation. No need for instanbul anymore, allowing Stryker to measure mutant coverage, _regardless of which bundler/transpiler you are using_. Hooking into the test runner is the only remaining requirement. All test runner plugins support these hooks, except for the `@stryker-mutator/jest-runner` (although we're [planning to support it](https://github.com/stryker-mutator/stryker/issues/2316)).
+This changes with version 4. When Stryker instruments your code with mutants, it also injects the coverage instrumentation. No need for instanbul anymore, allowing Stryker to measure mutant coverage, _regardless of which bundler/transpiler you are using_. Hooking into the test runner is the only remaining requirement. All test runner plugins support these hooks, except for the `@stryker-mutator/jest-runner` (although we're [planning to support it](https://github.com/stryker-mutator/stryker-js/issues/2316)).
 
 ## 🧹 Other changes
 
@@ -153,40 +153,40 @@ Options editors provided a way for plugins to edit the Stryker options directly.
 
 ## 💥 Breaking changes
 
-Here is a list of the most important breaking changes. For a full list, please see our [changelog](https://github.com/stryker-mutator/stryker/blob/master/CHANGELOG.md).
+Here is a list of the most important breaking changes. For a full list, please see our [changelog](https://github.com/stryker-mutator/stryker-js/blob/master/CHANGELOG.md).
 
 - Configuring "transpilers" is no longer supported; please use `--buildCommand` instead.
 - Configuring `mutator` as a string, or configuring `mutator.name` is no longer supported, Stryker will always use its code instrumenter.
 - TypeScript 3.7 or higher is required if you're using TypeScript to transpile your code, either via a `--buildCommand` or via a test runner plugin, like [ts-jest](https://www.npmjs.com/package/ts-jest), [karma-webpack](https://www.npmjs.com/package/karma-webpack) or using the [angular-cli](https://www.npmjs.com/package/@angular/cli). If you're dependent on TS <3.7, please consider upgrading, or keep using Stryker V3. This is because the mutation instrumenter heavily leans on the support of `// @ts-nocheck` feature, added in TS3.7. If you're using another transpiler, like [babel](https://babeljs.io) or [ts-node with `transpileOnly`](https://github.com/TypeStrong/ts-node), then Stryker will work fine.
 - Because of the requirement for TS 3.7, Angular >=9.0 is required for Angular projects.
 - The `"command"` test runner is now "best-effort". Stryker will use an environment variable to communicate which mutant should be active. Your test command should pass the environment variables to the test environment. We expect this to work for most test runners and test commands out there. One exception is Karma, but since we have the `@stryker-mutator/karma-runner` for this use case, it shouldn't be a problem.
-- Support for the Web Component Tester is dropped. Please see [#2386](https://github.com/stryker-mutator/stryker/issues/2386) for reasoning.
-- Exporting a `function` from your "stryker.conf.js" file is deprecated. Please export your config as an object instead, or use a stryker.conf.json file. Please see [#2429](https://github.com/stryker-mutator/stryker/issues/2429) for more details.
+- Support for the Web Component Tester is dropped. Please see [#2386](https://github.com/stryker-mutator/stryker-js/issues/2386) for reasoning.
+- Exporting a `function` from your "stryker.conf.js" file is deprecated. Please export your config as an object instead, or use a stryker.conf.json file. Please see [#2429](https://github.com/stryker-mutator/stryker-js/issues/2429) for more details.
 - The `--maxConcurrentTestRunner` option is now deprecated, please use `--concurrency` instead. Stryker will use this setting to determine how to scale checkers or test runner processes. Note that Stryker will no longer prevent you from configuring more than the number of logical cores in your machine, i.e., `--concurrency 9999` might be a bad idea.
 
 ## 🔮 What's next?
 
 Mutation switching was a considerable undertaking, but we had to do it since it allows for further performance and usability improvements. Let's discuss some here.
 
-All these issues align with our project goals, which we've published in [our roadmap](https://github.com/stryker-mutator/stryker/wiki/Roadmap).
+All these issues align with our project goals, which we've published in [our roadmap](https://github.com/stryker-mutator/stryker-js/wiki/Roadmap).
 
 **Better Jest support**
 
-With mutation switching in our backpack, implementing "perTest" coverage analysis for Jest is now on the table, allowing Stryker to run fewer tests in total. See [#2316](https://github.com/stryker-mutator/stryker/issues/2316) for more info.
+With mutation switching in our backpack, implementing "perTest" coverage analysis for Jest is now on the table, allowing Stryker to run fewer tests in total. See [#2316](https://github.com/stryker-mutator/stryker-js/issues/2316) for more info.
 
 **Hot reload**
 
-Currently, Stryker will reload all code files between test runs (clearing them from the [require.cache](https://nodejs.org/api/modules.html#modules_require_cache) or doing a full page reload with Karma). However, thanks to mutation switching, the mutated code does not have to be reloaded. Instead, we can switch the active mutant and do another test run. Mocha will be the first test runner to receive this improvement. See [#2413](https://github.com/stryker-mutator/stryker/issues/2413) for more info.
+Currently, Stryker will reload all code files between test runs (clearing them from the [require.cache](https://nodejs.org/api/modules.html#modules_require_cache) or doing a full page reload with Karma). However, thanks to mutation switching, the mutated code does not have to be reloaded. Instead, we can switch the active mutant and do another test run. Mocha will be the first test runner to receive this improvement. See [#2413](https://github.com/stryker-mutator/stryker-js/issues/2413) for more info.
 
 **In place mutation**
 
 Stryker currently never mutates _your code_ directly. Instead, it makes a copy of it in a "sandbox" directory, and it mutates your code there. The reason for this should be apparent; you don't want mutants to make there way into production.
 
-However, in some corner cases, the simple act of copying your code to a sandbox directory makes running the tests impossible. See [#2163](https://github.com/stryker-mutator/stryker/issues/2163) for some examples. To truly make Stryker work for all JavaScript projects, we will need to allow for "in place" mutation. Don't worry, this will be optional, and we will make sure to let you know what Stryker is doing 🧐.
+However, in some corner cases, the simple act of copying your code to a sandbox directory makes running the tests impossible. See [#2163](https://github.com/stryker-mutator/stryker-js/issues/2163) for some examples. To truly make Stryker work for all JavaScript projects, we will need to allow for "in place" mutation. Don't worry, this will be optional, and we will make sure to let you know what Stryker is doing 🧐.
 
 ## 🎉 Thank you
 
-Back in July, we released the first beta of Stryker 4. Since then, we got loads of responses resulting in the closing of [more than 40 issues](https://github.com/stryker-mutator/stryker/issues?q=is%3Aissue+milestone%3A4.0+is%3Aclosed), some of which were pretty major 😅. We want to thank everyone who helped to make this release possible! In particular (in no specific order)
+Back in July, we released the first beta of Stryker 4. Since then, we got loads of responses resulting in the closing of [more than 40 issues](https://github.com/stryker-mutator/stryker-js/issues?q=is%3Aissue+milestone%3A4.0+is%3Aclosed), some of which were pretty major 😅. We want to thank everyone who helped to make this release possible! In particular (in no specific order)
 
 🌹 [gramster](https://github.com/gramster)  
 💐[kmdrGroch](https://github.com/kmdrGroch)  

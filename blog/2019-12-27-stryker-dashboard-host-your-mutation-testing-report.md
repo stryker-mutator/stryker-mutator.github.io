@@ -33,7 +33,7 @@ The dashboard now has several new features:
 
 Click on the links below to see some examples of mutation testing reports hosted in the Stryker Dashboard.
 
-- [Stryker ![badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fstryker-mutator%2Fstryker%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker/master)
+- [Stryker ![badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fstryker-mutator%2Fstryker%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker-js/master)
 - [Stryker4s ![badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fstryker-mutator%2Fstryker4s%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker4s/master)
 - [Stryker.NET ![badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fstryker-mutator%2Fstryker-net%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker-net/master)
 

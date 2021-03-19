@@ -155,4 +155,4 @@ The upcoming months you can expect even more awesome features and improvements i
 - Regex mutator (never seen before in mutation testing)
 - Mutating a whole solution at once
 
-Want to help make Stryker even better? Check out our [open issues](https://github.com/stryker-mutator/stryker-net/issues). Or help with implementing [mutation switching for Stryker (js)](https://github.com/stryker-mutator/stryker/issues/1514)
+Want to help make Stryker even better? Check out our [open issues](https://github.com/stryker-mutator/stryker-net/issues). Or help with implementing [mutation switching for Stryker (js)](https://github.com/stryker-mutator/stryker-js/issues/1514)

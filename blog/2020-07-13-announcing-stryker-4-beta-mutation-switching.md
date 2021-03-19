@@ -30,7 +30,7 @@ npm install --save-dev @stryker-mutator/mocha-runner@next
 
 This beta is released early, in order to get community feedback. We've not yet updated the docs with the changes specified in this blog article. At this moment, the jest-runner and the command test runner _still need to be migrated and will not work as expected_.
 
-_Note: Since beta version `4.0.0-beta.2`, both the command test runner and the jest test runner are supported. However, the command test runner does have some [limitations](https://github.com/stryker-mutator/stryker/pull/2345)_
+_Note: Since beta version `4.0.0-beta.2`, both the command test runner and the jest test runner are supported. However, the command test runner does have some [limitations](https://github.com/stryker-mutator/stryker-js/pull/2345)_
 
 If you're new to mutation testing, it's a way to measure your tests' effectiveness. Please take a look at [our RoboBar 🤖🍷 example](/example) and see how even 100% code coverage doesn't tell the whole story. Mutation testing is the only way to make sure your code is thoroughly tested.
 
@@ -109,7 +109,7 @@ Configure it with:
 
 (tsconfig.json is the default setting for "tsconfigFile").
 
-Please see [the TypeScript checker's readme for more details](https://github.com/stryker-mutator/stryker/tree/epic/mutation-switching/packages/typescript-checker#readme)
+Please see [the TypeScript checker's readme for more details](https://github.com/stryker-mutator/stryker-js/tree/epic/mutation-switching/packages/typescript-checker#readme)
 
 ## ☔ More coverage analysis
 
@@ -121,7 +121,7 @@ Coverage analysis is a way to speed up mutation testing. Stryker always came wit
 
 Running with "perTest" coverage yields a significant performance improvement (usually between 40% and 60%). However, most projects were unable to take advantage of it because Stryker relied on a complex mechanism of [istanbul](https://istanbul.js.org/) code coverage combined with hooks in the test runner. It only worked in scenarios without complicated transpiling or bundling.
 
-With the introduction of mutation switching, the instrumenter is responsible for inserting coverage instrumentation into the code. This means that Stryker can measure mutant coverage, _regardless of which bundler/transpiler you are using_. The only requirement is that Stryker needs to be able to hook into the test runner. This is currently supported for `@stryker-mutator/mocha-runner`, `@stryker-mutator/karma-runner` and `@stryker-mutator/jasmine-runner`. Support for [`@stryker-mutator/jest-runner` is planned](https://github.com/stryker-mutator/stryker/issues/2316).
+With the introduction of mutation switching, the instrumenter is responsible for inserting coverage instrumentation into the code. This means that Stryker can measure mutant coverage, _regardless of which bundler/transpiler you are using_. The only requirement is that Stryker needs to be able to hook into the test runner. This is currently supported for `@stryker-mutator/mocha-runner`, `@stryker-mutator/karma-runner` and `@stryker-mutator/jasmine-runner`. Support for [`@stryker-mutator/jest-runner` is planned](https://github.com/stryker-mutator/stryker-js/issues/2316).
 
 ## 🧹 Other changes
 
@@ -134,4 +134,4 @@ We also decided to take this opportunity to improve the maintainability of the S
 
 ## 🔮 What's next
 
-We'll be focussing on getting Stryker 4.0 released. For that to happen, we would appreciate your feedback. Feel free to report any [issues](https://github.com/stryker-mutator/stryker/issues/new) you have with this beta release.
+We'll be focussing on getting Stryker 4.0 released. For that to happen, we would appreciate your feedback. Feel free to report any [issues](https://github.com/stryker-mutator/stryker-js/issues/new) you have with this beta release.

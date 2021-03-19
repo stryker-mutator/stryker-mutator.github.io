@@ -9,7 +9,7 @@ tags: [stryker]
 ---
 
 A new major version of Stryker for JavaScript and TypeScript has been released: version 2.0.0.
-This blog post will cover some of the changes. For a full list of changes, please read [our changelog](https://github.com/stryker-mutator/stryker/blob/master/CHANGELOG.md#200-2019-05-17).
+This blog post will cover some of the changes. For a full list of changes, please read [our changelog](https://github.com/stryker-mutator/stryker-js/blob/master/CHANGELOG.md#200-2019-05-17).
 
 <!--truncate-->
 
