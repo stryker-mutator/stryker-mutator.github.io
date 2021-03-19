@@ -39,7 +39,7 @@ function git_clone_docs() (
 )
 
 # stryker does not have docs in docs :(
-git_clone_docs "stryker"
+git_clone_docs "stryker-js"
 git_clone_docs "mutation-testing-elements"
 rm -rf docs/mutation-testing-elements/packages
 git_clone_docs "stryker4s"
