@@ -146,18 +146,9 @@ const redirects = [
   { from: ['/docs/stryker/mocha-runner'], to: '/docs/stryker-js/mocha-runner' },
   { from: ['/docs/stryker/guides/react'], to: '/docs/stryker-js/guides/react' },
   { from: ['/docs/stryker/guides/angular'], to: '/docs/stryker-js/guides/angular' },
-  { from: ['/docs/stryker/guides/legacy/stryker-3/angular/'], to: '/docs/stryker-js/guides/legacy/stryker-3/angular/' },
   { from: ['/docs/stryker/guides/nodejs'], to: '/docs/stryker-js/guides/nodejs' },
   { from: ['/docs/stryker/guides/create-a-plugin'], to: '/docs/stryker-js/guides/create-a-plugin' },
   { from: ['/docs/stryker/guides/vuejs'], to: '/docs/stryker-js/guides/vuejs' },
-  { from: ['/docs/stryker/plugins/typescript-checker'], to: '/docs/stryker-js/plugins/typescript-checker' },
-  { from: ['/docs/stryker/plugins/guides/create-a-plugin'], to: '/docs/stryker-js/plugins/guides/create-a-plugin' },
-  { from: ['/docs/stryker/'], to: '/docs/stryker-js/' },
-  { from: ['/docs/stryker/api/plugins/'], to: '/docs/stryker-js/api/plugins/' },
-  { from: ['/docs/stryker/guides/react-native/'], to: '/docs/stryker-js/guides/react-native/' },
-  { from: ['/stryker/quickstart'], to: '/stryker-js/quickstart' },
-  { from: ['/docs/stryker/guides/'], to: '/docs/stryker-js/guides/' },
-  { from: ['/docs/stryker/guides/legacy/stryker-4/angular/'], to: '/docs/stryker-js/guides/legacy/stryker-4/angular/' },
 ];
 
 module.exports = redirects;
