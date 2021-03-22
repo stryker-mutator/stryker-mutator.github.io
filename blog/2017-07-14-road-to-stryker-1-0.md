@@ -20,7 +20,7 @@ Some of Strykers achievements are:
 - Stryker uses advance coverage analysis to do less work.
 
 The way Stryker achieves all this, is using a plugin model. Want to use a different test runner?
-Create a class that implements the [TestRunner interface](https://github.com/stryker-mutator/stryker/blob/master/packages/stryker-api/src/test_runner/TestRunner.ts) and you're done.
+Create a class that implements the [TestRunner interface](https://github.com/stryker-mutator/stryker-js/blob/master/packages/stryker-api/src/test_runner/TestRunner.ts) and you're done.
 However, Stryker does one assumption: your source code can be directly executed in your environment.
 
 ## Road to v1

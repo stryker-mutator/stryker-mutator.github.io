@@ -5,7 +5,7 @@ module.exports = {
     // @ts-expect-error
     'Mutation Testing': require('./docs/mutation-testing-elements/sidebar'),
     // @ts-expect-error
-    Stryker: require('./docs/stryker/sidebar'),
+    StrykerJS: require('./docs/stryker-js/sidebar'),
     // @ts-expect-error
     'Stryker.NET': require('./docs/stryker-net/sidebar'),
     // @ts-expect-error

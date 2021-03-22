@@ -30,7 +30,7 @@ resilient to this _"mutant"_. If they are (and they fail), all is fine - the _mu
 
 Stryker began its life as the thesis project of Simon de Lang. After graduating, his thesis tutor Nico Jansen joined him and continued development in the open on [GitHub](https://github.com/stryker-mutator/).
 Since then they had five major releases, improving performance, adding support for the [Karma](http://karma-runner.github.io/1.0/index.html) and [Mocha](http://mochajs.org/) test runners,
-as well as creating a fancy [HTML reporter](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-html-reporter).
+as well as creating a fancy [HTML reporter](https://github.com/stryker-mutator/mutation-testing-elements/tree/master/packages/mutation-testing-elements).
 
 Up until now, the two of them did all of this in their own time, next to their daytime jobs as software engineers.
 
@@ -50,8 +50,8 @@ Here's a quick overview of what we did:
 - Released [version 0.5.5 of Stryker](http://stryker-mutator.github.io/blog/2016-12-30/stryker-0-5-5.html), including:
   - A new progress reporter
   - Limit the number of test-names to log in the clear text reporter
-  - Support to [exclude online files from globbing](https://github.com/stryker-mutator/stryker/issues/90)
-- Support for [karma config parsing in the stryker-karma-runner](https://github.com/stryker-mutator/stryker/tree/master/packages/stryker-karma-runner/issues/7)
+  - Support to [exclude online files from globbing](https://github.com/stryker-mutator/stryker-js/issues/90)
+- Support for [karma config parsing in the stryker-karma-runner](https://github.com/stryker-mutator/stryker-js/tree/master/packages/stryker-karma-runner/issues/7)
 - Improved documentation for first time-users
 - A plan for a series of blog articles
 

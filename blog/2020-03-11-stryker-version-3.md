@@ -9,7 +9,7 @@ tags: [stryker]
 ---
 
 With version 3 of Stryker, we've been focussing on usability. We also did some smaller changes worth pointing out.
-For a full list of changes, please read [our changelog](https://github.com/stryker-mutator/stryker/blob/master/CHANGELOG.md#300-2020-03-11).
+For a full list of changes, please read [our changelog](https://github.com/stryker-mutator/stryker-js/blob/master/CHANGELOG.md#300-2020-03-11).
 
 <!--truncate-->
 
@@ -82,13 +82,13 @@ by overriding the `"reporters"` property manually.
 This major release comes with some breaking changes:
 
 1. **Platform**
-   - [#2028](https://github.com/stryker-mutator/stryker/pull/2028) NodeJS version 10 or higher is now required to run Stryker.
+   - [#2028](https://github.com/stryker-mutator/stryker-js/pull/2028) NodeJS version 10 or higher is now required to run Stryker.
 1. **Core**
-   - [#1996](https://github.com/stryker-mutator/stryker/issues/1996) Always exit with exit code 1 if an error of any kind occurs (previously there were scenarios where it didn't fail).
-   - [#2039](https://github.com/stryker-mutator/stryker/pull/2039) The Dashboard reporter (if enabled) will now default to uploading the full report.
+   - [#1996](https://github.com/stryker-mutator/stryker-js/issues/1996) Always exit with exit code 1 if an error of any kind occurs (previously there were scenarios where it didn't fail).
+   - [#2039](https://github.com/stryker-mutator/stryker-js/pull/2039) The Dashboard reporter (if enabled) will now default to uploading the full report.
 1. **HTML Reporter**
-   - [#2036](https://github.com/stryker-mutator/stryker/pull/2036) The HTML reporter is now included in the Stryker core. You should remove the dependency on `"@stryker-mutator/html-reporter"`.
+   - [#2036](https://github.com/stryker-mutator/stryker-js/pull/2036) The HTML reporter is now included in the Stryker core. You should remove the dependency on `"@stryker-mutator/html-reporter"`.
      Please override the `"reporters"` option to disable the reporter.
 1. **Karma runner**
-   - [#2048](https://github.com/stryker-mutator/stryker/pull/2048) Always run with `client.clearContext` to prevent a race condition.
-   - [#2035](https://github.com/stryker-mutator/stryker/pull/2035) Use `ChromeHeadless` by default instead of `PhantomJS`.
+   - [#2048](https://github.com/stryker-mutator/stryker-js/pull/2048) Always run with `client.clearContext` to prevent a race condition.
+   - [#2035](https://github.com/stryker-mutator/stryker-js/pull/2035) Use `ChromeHeadless` by default instead of `PhantomJS`.

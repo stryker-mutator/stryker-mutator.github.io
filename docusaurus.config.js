@@ -33,8 +33,8 @@ module.exports = {
       items: [
         { to: 'blog', label: 'Blog', position: 'left' },
         {
-          to: 'docs/stryker/introduction',
-          activeBasePath: 'docs/stryker/',
+          to: 'docs/stryker-js/introduction',
+          activeBasePath: 'docs/stryker-js/',
           label: 'For JavaScript',
           position: 'left',
         },
@@ -69,8 +69,8 @@ module.exports = {
           'aria-label': 'GitHub repository dropdown',
           items: [
             {
-              label: 'Stryker (JS & TS)',
-              href: 'https://github.com/stryker-mutator/stryker',
+              label: 'StrykerJS (JS & TS)',
+              href: 'https://github.com/stryker-mutator/stryker-js',
             },
             {
               label: 'Stryker.NET (C#)',

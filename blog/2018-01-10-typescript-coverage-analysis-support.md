@@ -16,7 +16,7 @@ This article first explains the basics of [(code) coverage](https://en.wikipedia
 
 See the original PR for even more details:
 
-- [feat(coverage analysis): Support transpiled code #559](https://github.com/stryker-mutator/stryker/pull/559)
+- [feat(coverage analysis): Support transpiled code #559](https://github.com/stryker-mutator/stryker-js/pull/559)
 
 ## Coverage analysis
 

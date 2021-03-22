@@ -16,7 +16,7 @@ const languages = [
   {
     title: 'JavaScript and friends',
     imageUrl: 'images/JavascriptLogo.svg',
-    docsLink: 'docs/stryker/introduction',
+    docsLink: 'docs/stryker-js/introduction',
   },
   {
     title: 'C#',
@@ -148,7 +148,7 @@ function Home() {
                   <h3>Multilingual</h3>
                 </div>
                 <p>
-                  Stryker has support for <a href="/docs/stryker/introduction">JavaScript &amp; TypeScript</a>,{' '}
+                  Stryker has support for <a href="/docs/stryker-js/introduction">JavaScript &amp; TypeScript</a>,{' '}
                   <a href="/docs/stryker-net/Introduction">C#</a> and{' '}
                   <a href="/docs/stryker4s/getting-started">Scala</a>.
                 </p>
@@ -164,7 +164,7 @@ function Home() {
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker/master"
+                    href="https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker-js/master"
                   >
                     clever reports
                   </a>{' '}
