@@ -28,7 +28,7 @@ but we're thinking of making this the default mode.
 
 A picture says more than a thousand words. First without the new `--100` mode:
 
-![]9/images/blogs/stryker-without-100-mode.png)
+![](/images/blogs/stryker-without-100-mode.png)
 
 And now with the new `--100` mode:
 
