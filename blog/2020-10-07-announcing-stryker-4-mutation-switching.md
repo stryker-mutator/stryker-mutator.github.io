@@ -10,7 +10,7 @@ tags: [stryker]
 
 We're proud to announce the next major release of the Stryker mutation testing framework for JavaScript and friends: Stryker 4.0.
 
-This release marks a fundamental shift in the way Stryker works internally. It now uses "mutation switching", which improves performance and usability, similar to Stryker.NET and Stryker4s already work. This change, unfortunately, couldn't be done without breaking changes. See the breaking changes paragraph if you're interested.
+This release marks a fundamental shift in the way Stryker works internally. It now uses "mutation switching", which improves performance and usability, similar to how Stryker.NET and Stryker4s already work. This change, unfortunately, couldn't be done without breaking changes. See the breaking changes paragraph if you're interested.
 
 <!--truncate-->
 
@@ -108,7 +108,7 @@ You might know that the old `@stryker-mutator/typescript` transpiler not only tr
 
 Stryker 4.0 removes the transpiler plugin in favor of `--buildCommand`.
 
-_Wondering how your TypeScript code compiles even while some mutants might create type errors? Stryker places `// @no-check` atop your code files. Your TypeScript compiler will ignore any type errors produced by instrumenting your code._
+_Wondering how your TypeScript code compiles even while some mutants might create type errors? Stryker places `// @ts-nocheck` atop your code files. Your TypeScript compiler will ignore any type errors produced by instrumenting your code._
 
 However, you might still want to invalidate mutants that result in a type error, so you won't spend any time looking at them. The new "Checker" plugin helps you here. Checker plugins can choose to invalidate mutants based on rules specific to the checker.
 
