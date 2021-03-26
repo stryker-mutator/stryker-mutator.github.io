@@ -17,9 +17,9 @@ module.exports = {
       respectPrefersColorScheme: true,
     },
     announcementBar: {
-      id: 'podcast', // Any value that will identify this message.
+      id: 'talk', // Any value that will identify this message.
       content:
-        '🎧 Listen to the <a target="_blank" rel="noopener noreferrer" href="https://thedeepdive.simplecast.com/episodes/mutation-testing-with-stryker">"Mutation testing with Stryker" podcast episode on InDepth.dev</a>',
+        '📽️ <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=Vq9eqZzblfg">Watch the talk "Who is testing your tests?" from <i>Scala Love in the City</i></a>',
       backgroundColor: 'var(--ifm-navbar-background-color, #fff)',
       textColor: 'var(--ifm-navbar-link-color, #000)',
       isCloseable: true,
