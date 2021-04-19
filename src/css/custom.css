@@ -57,6 +57,7 @@
 
 .dropdown .navbar__link:after {
   margin-top: 1em;
+  position: inherit;
 }
 
 .footer__link-item {
