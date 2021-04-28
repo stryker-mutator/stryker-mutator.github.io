@@ -51,13 +51,8 @@
     no-repeat;
 }
 
-.dropdown .navbar__link {
-  display: flex;
-}
-
 .dropdown .navbar__link:after {
-  margin-top: 1em;
-  position: inherit;
+  left: 40px;
 }
 
 .footer__link-item {
