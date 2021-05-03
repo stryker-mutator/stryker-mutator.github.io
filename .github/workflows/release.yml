@@ -18,9 +18,17 @@ jobs:
         with:
           persist-credentials: false
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            node_modules/.cache
+          key: ${{ runner.os }}-node-release-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-release-
       - run: npm ci
       - run: npm run build
       - name: Deploy 🚀
