@@ -1,0 +1,1 @@
+(self.webpackChunkstryker_mutator_github_io=self.webpackChunkstryker_mutator_github_io||[]).push([[1080],{7386:function(s){"use strict";s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"stryker-4-s","name":"stryker4s","count":4,"permalink":"/blog/tags/stryker-4-s"}')}}]);
