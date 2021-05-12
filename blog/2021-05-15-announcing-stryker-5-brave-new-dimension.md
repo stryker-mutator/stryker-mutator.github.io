@@ -7,13 +7,14 @@ author_url: https://github.com/nicojs
 author_image_url: https://avatars3.githubusercontent.com/u/1828233?s=400&u=fec18ad3776aaafec54c49bbd7173a841ae7ea59&v=4
 tags: [stryker]
 ---
+
 # Announcing StrykerJS 5.0 - Brave new Dimension
 
 We're proud to announce the next major release of StrykerJS: 5.0. With a name change, a new dimension in your report, a new way to discover files, updated mutators, quality of life improvements, and minor bug fixes.
 
-If you're new to mutation testing, it's a way to measure your tests' effectiveness. A mutation testing framework will make small changes, called _mutants_, one by one in your source code. Then it will run your tests to see if one of them fails. If so, you just "killed" that mutant; if not, it "survived". If too many mutants survive, you probably want to improve your tests. The mutation testing report will give you insides into the test cases you may have missed. If this all sounds complicated, please take a look at [our RoboBar 🤖🍷 example](https://stryker-mutator.io/example). 
+If you're new to mutation testing, it's a way to measure your tests' effectiveness. A mutation testing framework will make small changes, called _mutants_, one by one in your source code. Then it will run your tests to see if one of them fails. If so, you just "killed" that mutant; if not, it "survived". If too many mutants survive, you probably want to improve your tests. The mutation testing report will give you insides into the test cases you may have missed. If this all sounds complicated, please take a look at [our RoboBar 🤖🍷 example](https://stryker-mutator.io/example).
 
-If you're already using Stryker, you can install this latest version with your package manager of choice. 
+If you're already using Stryker, you can install this latest version with your package manager of choice.
 
 ```shell
 npm install --save-dev @stryker-mutator/core
@@ -22,17 +23,19 @@ npm install --save-dev @stryker-mutator/core
 Don't forget to do the same for any plugins you might be using. For example,
 
 ```shell
-npm install --save-dev @stryke-mutator/mocha-runner
+npm install --save-dev @stryker-mutator/mocha-runner
 ```
 
 With that out of the way, let's dive into the new stuff!
 
 ## 👪 Name change
-That's right. We've rebranded 'Stryker for JavaScript and friends' as simply **StrykerJS**. This change makes it easier to distinguish StrykerJS from other frameworks in the Stryker family (Stryker.NET and Stryker4s). It also allows for better use of Twitter real estate 😊. 
+
+That's right. We've rebranded 'Stryker for JavaScript and friends' as simply **StrykerJS**. This change makes it easier to distinguish StrykerJS from other frameworks in the Stryker family (Stryker.NET and Stryker4s). It also allows for better use of Twitter real estate 😊.
 
 Don't worry; the names of the NPM packages haven't changed. So it is purely a branding thing.
 
 ## ✨ New dimension
+
 The mutation test report has always been the bread and butter of Stryker. Either in your browser or console, it is where you find out where the killed and survived mutants are. But the next question you might ask is: which tests were responsible? Stryker knows but wasn't telling you. Until now!
 
 Behold, the new dimension you'll find in your reports—the test view 🧪.
@@ -48,21 +51,21 @@ The test view tells you at a glance which tests are _killing_ mutants, which are
 
 A couple of caveats to point out:
 
-* The `Covering` state will only be available when selecting the [`perTest` coverage analysis setting](https://stryker-mutator.io/docs/stryker-js/configuration#coverageanalysis-string). 
-* StrykerJS always runs your tests with `bail` mode active (or `failFast` in jasmine), making your test runner stop after the first failing test. As a result, a mutant can only be killed by one test. If you have overlap in asserts across tests, other tests might be marked as "Covering", while they would kill a mutant when run in isolation. 
-* Some mutants are executed as soon as your file _is loaded_ instead of during _test execution_. For example:
+- The `Covering` state will only be available when selecting the [`perTest` coverage analysis setting](https://stryker-mutator.io/docs/stryker-js/configuration#coverageanalysis-string).
+- StrykerJS always runs your tests with `bail` mode active (or `failFast` in jasmine), making your test runner stop after the first failing test. As a result, a mutant can only be killed by one test. If you have overlap in asserts across tests, other tests might be marked as "Covering", while they would kill a mutant when run in isolation.
+- Some mutants are executed as soon as your file _is loaded_ instead of during _test execution_. For example:
   ```diff
   -export const hello ='👋'
   +export const hello = ''
-  ``` 
+  ```
   Tests are never able to cover such mutants (yet they can still kill them).
-* Currently, only the `@stryker-mutator/jest-runner` can group your tests in their original test files. Running StrykerJS with another test runner will result in your tests being displayed in one list instead. 
+- Currently, only the `@stryker-mutator/jest-runner` can group your tests in their original test files. Running StrykerJS with another test runner will result in your tests being displayed in one list instead.
 
 ## 🤷‍♂️ Discovering files
 
-StrykerJS typically doesn't mutate your files directly. Instead, it creates a copy inside a _sandbox_  directory, usually located at `.stryker-tmp/sandbox-123456`. However, it won't copy over all files there to save time. Stryker used to rely on git to decide which files to copy. Any `.gitignored` files would not be copied.
+StrykerJS typically doesn't mutate your files directly. Instead, it creates a copy inside a _sandbox_ directory, usually located at `.stryker-tmp/sandbox-123456`. However, it won't copy over all files there to save time. Stryker used to rely on git to decide which files to copy. Any `.gitignored` files would not be copied.
 
-There were some issues with this approach. First of all, it required your project to be located in a git repository and you needed to have git installed. And then, there are also examples of test suites that need some `.gitignored` files to run. 
+There were some issues with this approach. First of all, it required your project to be located in a git repository and you needed to have git installed. And then, there are also examples of test suites that need some `.gitignored` files to run.
 
 To combat these issues, StrykerJS 5 will no longer use git for file discovery. Instead, it will include all files while ignoring some standard patterns, like "node_modules". You can remove more files by specifying patterns in the new [`ignorePatterns`](https://stryker-mutator.io/docs/stryker-js/configuration#ignorepatterns-string) configuration option.
 
@@ -72,7 +75,7 @@ See the [original pull request](https://github.com/stryker-mutator/stryker-js/pu
 
 ## 👽 Updated mutator
 
-We've decided to add a new variant to the [logical operator mutator](https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators#logical-operator). It now also mutates _the nullish coalescing operator_ (`??`). 
+We've decided to add a new variant to the [logical operator mutator](https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators#logical-operator). It now also mutates _the nullish coalescing operator_ (`??`).
 
 ```diff
 -foo ?? bar
@@ -91,7 +94,7 @@ Since v4.3, `@stryker-mutator/jest-runner` also supports this setting. With this
 
 ## 🧹 Other changes
 
-We once again chose to improve the maintainability of the Stryker code base. 
+We once again chose to improve the maintainability of the Stryker code base.
 
 **Unified reporter api**
 
@@ -107,12 +110,12 @@ See the [original PR](https://github.com/stryker-mutator/stryker-js/pull/2877) f
 
 ## 💥 Breaking changes
 
-* **range:** The `range` property is no longer present on a `mutant`. Note, this is a breaking change for plugin creators only.
-* **options:** `"perTest"` is now the default value for "coverageAnalysis" when the configured test runner is not "command". Explicitly set `"coverageAnalysis": "off"` manually to opt-out of this behavior.
-* **node:** Node 10 is no longer supported. Please use Node 12 or higher.
-* **serialize:** Having a non-JSON-serializable value in your configuration won't be sent to the child process anymore. If you really need them in your test runner configuration, you should isolate those values and put them in test runner-specific config files, loaded by the test runner plugin itself, for example, jest.config.js, karma.conf.js, webpack.config.js.
-* **ignore patterns:** Stryker will no longer use a git command to determine which files belong to your project. Instead, it will rely on sane defaults. You can change this behavior by defining [`ignorePatterns`](https://stryker-mutator.io/docs/stryker-js/configuration/#ignorepatterns-string).
-* **ignore patterns:** The `files` configuration option is deprecated and will be removed in a future release. Please use [`ignorePatterns`](https://stryker-mutator.io/docs/stryker-js/configuration/#ignorepatterns-string) instead.
+- **range:** The `range` property is no longer present on a `mutant`. Note, this is a breaking change for plugin creators only.
+- **options:** `"perTest"` is now the default value for "coverageAnalysis" when the configured test runner is not "command". Explicitly set `"coverageAnalysis": "off"` manually to opt-out of this behavior.
+- **node:** Node 10 is no longer supported. Please use Node 12 or higher.
+- **serialize:** Having a non-JSON-serializable value in your configuration won't be sent to the child process anymore. If you really need them in your test runner configuration, you should isolate those values and put them in test runner-specific config files, loaded by the test runner plugin itself, for example, jest.config.js, karma.conf.js, webpack.config.js.
+- **ignore patterns:** Stryker will no longer use a git command to determine which files belong to your project. Instead, it will rely on sane defaults. You can change this behavior by defining [`ignorePatterns`](https://stryker-mutator.io/docs/stryker-js/configuration/#ignorepatterns-string).
+- **ignore patterns:** The `files` configuration option is deprecated and will be removed in a future release. Please use [`ignorePatterns`](https://stryker-mutator.io/docs/stryker-js/configuration/#ignorepatterns-string) instead.
 
   This:
 
@@ -123,16 +126,16 @@ See the [original PR](https://github.com/stryker-mutator/stryker-js/pull/2877) f
   ```
 
   Is equivalent to:
-  
+
   ```json
   {
     "ignorePatterns": ["**", "!foo.js"]
   }
   ```
-* **reporter api:** Changes to `Reporter` and `TestRunner` plugin API of Stryker
-* **jest-runner:** Support for project type `create-react-app-ts` is dropped from the jest-runner.
+
+- **reporter api:** Changes to `Reporter` and `TestRunner` plugin API of Stryker
+- **jest-runner:** Support for project type `create-react-app-ts` is dropped from the jest-runner.
 
 ## 🎉 Thank you
 
 Thanks to everyone for your continued support! Have questions or issues? Don't hesitate to contact us in [Slack](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM), on [Twitter](https://twitter.com/stryker_mutator/) or open [an issue](https://github.com/stryker-mutator/stryker-js/issues/new/choose).
-
