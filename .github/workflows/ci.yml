@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
 
     steps:
       - uses: actions/checkout@v2.3.4
@@ -23,7 +23,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - run: npm ci
-      - run: npm run lint
-      - run: npm run build
-        env:
-          CI: true
+      - name: Lint 🧶
+        run: npm run lint
+      - name: Build 🏗️
+        run: npm run build
+      - name: Deploy 🚀
+        if: ${{ github.ref == 'refs/heads/develop' }}
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: master # The branch the action should deploy to.
+          FOLDER: build # The folder the action should deploy.
