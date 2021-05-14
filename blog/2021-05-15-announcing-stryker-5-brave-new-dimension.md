@@ -65,7 +65,7 @@ A couple of caveats to point out:
 
 StrykerJS typically doesn't mutate your files directly. Instead, it creates a copy inside a _sandbox_ directory, usually located at `.stryker-tmp/sandbox-123456`. However, it won't copy over all files there to save time. Stryker used to rely on git to decide which files to copy. Any `.gitignored` files would not be copied.
 
-There were some issues with this approach. First of all, it required your project to be located in a git repository and you needed to have git installed. And then, there are also examples of test suites that need some `.gitignored` files to run.
+There were some issues with this approach. First of all, it required your project to be located in a git repository and you needed to have git installed. And then, there are also examples of test suites that need some `.gitignore`d files to run.
 
 To combat these issues, StrykerJS 5 will no longer use git for file discovery. Instead, it will include all files while ignoring some standard patterns, like "node_modules". You can remove more files by specifying patterns in the new [`ignorePatterns`](https://stryker-mutator.io/docs/stryker-js/configuration#ignorepatterns-string) configuration option.
 
