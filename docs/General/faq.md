@@ -1,6 +1,7 @@
 ---
 sidebar_label: FAQ
 title: Frequently Asked Questions
+sidebar_position: 4
 ---
 
 Here you will find the answer to the most common issues first-time users of Stryker encounter.  
