@@ -4,9 +4,16 @@
         <title>Stryker Mutator Blog</title>
         <link>https://stryker-mutator.io/blog</link>
         <description>Stryker Mutator Blog</description>
-        <lastBuildDate>Wed, 07 Oct 2020 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 15 May 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Announcing StrykerJS 5.0 - Brave new Dimension]]></title>
+            <link>https://stryker-mutator.io/blog/announcing-stryker-js-5-brave-new-dimension.md</link>
+            <guid>announcing-stryker-js-5-brave-new-dimension.md</guid>
+            <pubDate>Sat, 15 May 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[We're proud to announce the next major release of StrykerJS: 5.0. With a name change, a new dimension in your report, a new way to discover files, updated mutators, quality of life improvements, and minor bug fixes.]]></description>
+        </item>
         <item>
             <title><![CDATA[Announcing Stryker 4.0 - Mutation Switching]]></title>
             <link>https://stryker-mutator.io/blog/announcing-stryker-4-mutation-switching</link>

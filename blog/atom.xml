@@ -2,11 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://stryker-mutator.io/blog</id>
     <title>Stryker Mutator Blog</title>
-    <updated>2020-10-07T00:00:00.000Z</updated>
+    <updated>2021-05-15T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://stryker-mutator.io/blog"/>
     <subtitle>Stryker Mutator Blog</subtitle>
     <icon>https://stryker-mutator.io/images/stryker.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[Announcing StrykerJS 5.0 - Brave new Dimension]]></title>
+        <id>announcing-stryker-js-5-brave-new-dimension.md</id>
+        <link href="https://stryker-mutator.io/blog/announcing-stryker-js-5-brave-new-dimension.md"/>
+        <updated>2021-05-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We're proud to announce the next major release of StrykerJS: 5.0. With a name change, a new dimension in your report, a new way to discover files, updated mutators, quality of life improvements, and minor bug fixes.]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Announcing Stryker 4.0 - Mutation Switching]]></title>
         <id>announcing-stryker-4-mutation-switching</id>
