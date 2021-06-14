@@ -23,7 +23,7 @@ Imagine you're on your way to a sunny holiday destination. You've checked in you
 A lot has changed in recent versions of Stryker4s. Stryker4s now runs your tests in an entirely different way, bringing big performance improvements. As an example, running Stryker4s on the Stryker4s codebase used to take about 40 minutes on `0.9.1`. On`0.12.1`, this has been reduced to a fast 40 seconds. A short list of some new features:
 
 - ✨ New testrunner boasting improved performance
-- 🔀 Concurrency for even faster performance
+- 🔀 Concurrency to improve speed by using all available cores
 - 🕵️‍♀️ Coverage analysis to skip mutants without coverage
 - ⏱️ Timeout detection in tests
 - 👽 New mutator: regular expressions. Thanks to [Weapon regeX](https://github.com/stryker-mutator/weapon-regex/)!
@@ -34,8 +34,8 @@ In the rest of this blog post, we'll do a deep-dive into the increased performan
 
 In the older sbt plugin, there was a lot of overhead in running your tests. As a quick reminder, Stryker4s uses [mutation switching](https://stryker-mutator.io/blog/mutation-switching/), so it only has to compile your code once, instead of for each mutant. After mutating your source code, Stryker4s would essentially just call `sbt test` with the mutated code for every mutant. This means sbt would:
 
-1. look for code changes (which there never are).
-1. make sure all compiled code is up-to-date (which it always is).
+1. Look for code changes (which there never are).
+1. Make sure all compiled code is up-to-date (which it always is).
 1. Start a new Java process with your class files, dependencies, and a small sbt entry point library.
 1. Run your tests and report the results back to the main sbt process.
 1. Repeat for the next mutant.
@@ -46,8 +46,8 @@ import Mermaid from '@theme/Mermaid';
   _key="sbt-old"
   chart={`
 sequenceDiagram
-  participant sbt
   participant Stryker4s
+  participant sbt
   participant sbt test process
   Stryker4s->>sbt: Compile mutated code
   loop For each mutant
@@ -68,11 +68,11 @@ It's clear the process can be optimized. Once Stryker4s is set up and all mutati
 
 ### 🏗️ Meet: build info
 
-The first thing we need to do is figure out what tests your project contains. One of the great things about sbt is its standardization and extensibility as a build tool. Because sbt knows exactly what your project looks like, plugins can retrieve all this information. To find out what tests you have, Stryker4s uses three pieces of information from sbt:
+The first thing Stryker4s needs to do is figure out what tests our project contains. One of the great things about sbt is its standardization and extensibility as a build tool. Because sbt knows exactly what your project looks like, plugins can retrieve all this information. To find out what tests you have, Stryker4s uses three pieces of information from sbt:
 
 1. `fullClasspath` location of all dependency JARs (including test-dependencies) and `.class` files of your compiled code.
-1. `loadedTestFrameworks` the configured test framework. Sbt detects a couple of frameworks by default, but if you use MUnit you might remember having to add `testFrameworks += new TestFramework("munit.Framework")` to your build.sbt before MUnit can run.
-1. `testGrouping` contains every test suite sbt discovers in your project.
+2. `loadedTestFrameworks` the configured test framework. Sbt detects a couple of frameworks by default, but if you use MUnit you might remember having to add `testFrameworks += new TestFramework("munit.Framework")` to your build.sbt before MUnit can run.
+3. `testGrouping` contains every test suite sbt discovers in your project.
 
 You can try running these yourself in a sbt console to see how Stryker4s looks at your project:
 
@@ -128,8 +128,8 @@ Stryker4s can start a new process with all the information collected above. Beca
   _key="sbt-new"
   chart={`
 sequenceDiagram
-  participant sbt
   participant Stryker4s
+  participant sbt
   participant testrunner worker
   Stryker4s->>sbt: compile and retrieve build info
   sbt-->>Stryker4s: return project info
