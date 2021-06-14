@@ -60,7 +60,7 @@ sequenceDiagram
 `}
 />
 
-Doing those checks and starting a new process make a lot of sense for a development workflow, but it's a lot of overhead for mutation testing. This came from the original implementation of the sbt plugin and hasn't changed much in the two years that the plugin has existed. Time for some improvements!
+Doing those checks and starting a new process makes a lot of sense for a development workflow, but not for mutation testing. This implementation of the test runner hasn't changed much in the two years that the plugin has existed. Time for some improvements!
 
 ## 🐣 The new
 
@@ -99,7 +99,7 @@ We now know what tests are in your project. Let's have a look at running those t
 
 ### 🧪 Meet: test interfaces
 
-This is something our friends in the NodeJS world are (rightfully) a little [jealous of](https://stryker-mutator.io/docs/stryker-js/plugins#test-runners). When you call `sbt test`, sbt will look for any registered test frameworks that implement the [test-interface](https://github.com/sbt/test-interface) (from `loadedTestFrameworks`). This is a small collection of interfaces that let a test framework tell sbt how to run tests in that framework. Because all test frameworks in sbt implement this interface, we have a single programmatic way to call any test framework. It doesn't matter if you're using ScalaTest, MUnit, Weaver-test or anything else. Using a bit of reflection, we can create an instance of the test framework runner and run tests:
+This is something our friends in the NodeJS world are (rightfully) a little [jealous of](https://stryker-mutator.io/docs/stryker-js/plugins#test-runners) 😏. When you call `sbt test`, sbt will look for any registered test frameworks that implement the [test-interface](https://github.com/sbt/test-interface) (from `loadedTestFrameworks`). This is a small collection of interfaces that let a test framework tell sbt how to run tests in that framework. Because all test frameworks in sbt implement this interface, we have a single programmatic way to call any test framework. It doesn't matter if you're using ScalaTest, MUnit, Weaver-test or anything else. Using a bit of reflection, we can create an instance of the test framework runner and run tests:
 
 ```scala
 val framework = classLoader.loadClass(testFrameworkClass).getConstructor().newInstance().asInstanceOf[Framework]
