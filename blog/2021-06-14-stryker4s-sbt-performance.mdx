@@ -131,14 +131,15 @@ sequenceDiagram
   participant Stryker4s
   participant sbt
   participant testrunner worker
-  Stryker4s->>sbt: compile and retrieve build info
-  sbt-->>Stryker4s: return project info
-  Stryker4s->>+testrunner worker: start n new workers
+  Stryker4s->>+sbt: compile and retrieve build info
+  sbt-->>-Stryker4s: return project info
+  Stryker4s->>+testrunner worker: start <n> new workers
   loop For each mutant
     Stryker4s->>testrunner worker: run tests
-    testrunner worker->>Stryker4s: report test result
+    testrunner worker-->>Stryker4s: report test result
   end
-  testrunner worker->>-Stryker4s: close test worker
+  Stryker4s->>testrunner worker: close test worker
+  testrunner worker-->>-Stryker4s: 
 `}
 />
 
