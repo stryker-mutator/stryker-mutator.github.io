@@ -9,8 +9,8 @@
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[Stryker4s: from 40 minutes to 40 seconds]]></title>
-            <link>https://stryker-mutator.io/blog/stryker4s-sbt-speedup</link>
-            <guid>stryker4s-sbt-speedup</guid>
+            <link>https://stryker-mutator.io/blog/stryker4s-40-minutes-to-40-seconds</link>
+            <guid>stryker4s-40-minutes-to-40-seconds</guid>
             <pubDate>Wed, 16 Jun 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Stryker4s is your friendly mutation testing framework for Scala. Compared to earlier versions, Stryker4s 0.12 achieves a 60x speed increase in some scenarios 🤯. Are you curious to know how? Keep on reading.]]></description>
         </item>

@@ -9,8 +9,8 @@
     <icon>https://stryker-mutator.io/images/stryker.svg</icon>
     <entry>
         <title type="html"><![CDATA[Stryker4s: from 40 minutes to 40 seconds]]></title>
-        <id>stryker4s-sbt-speedup</id>
-        <link href="https://stryker-mutator.io/blog/stryker4s-sbt-speedup"/>
+        <id>stryker4s-40-minutes-to-40-seconds</id>
+        <link href="https://stryker-mutator.io/blog/stryker4s-40-minutes-to-40-seconds"/>
         <updated>2021-06-16T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Stryker4s is your friendly mutation testing framework for Scala. Compared to earlier versions, Stryker4s 0.12 achieves a 60x speed increase in some scenarios 🤯. Are you curious to know how? Keep on reading.]]></summary>
     </entry>
