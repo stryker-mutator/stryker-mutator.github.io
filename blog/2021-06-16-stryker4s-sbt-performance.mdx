@@ -114,7 +114,7 @@ testTasks.foreach(testTask => {
 
 ### 🔀 Meet: concurrency
 
-Stryker4s activates each mutant separately and runs your unit tests against _only_ the change that mutant creates. This is to make sure one mutant won't have an impact on the result of another. However, there's no rule that says we can't start multiple Java processes at the same time and run those in parallel.
+Stryker4s activates and runs each mutant one by one in isolation. This is to make sure one mutant won't have an impact on the result of another. This is done by creating a separate process for it. However, there's no rule that says we can't start multiple Java processes at the same time and run those in parallel.
 
 With multiple separate worker-processes, each worker has its own separate memory, threads, and active mutant. This way, if one mutant results in an `OutOfMemoryError` it won't impact the others. In long-lived processes like mutation testing, the performance increases of parallelism far outweigh the overhead of starting and managing multiple workers.
 
