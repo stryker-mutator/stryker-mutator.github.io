@@ -1,6 +1,6 @@
 ---
 slug: stryker4s-sbt-speedup
-title: 'Improving Stryker4s performance: from 40 minutes to 40 seconds'
+title: 'Stryker4s: from 40 minutes to 40 seconds'
 author: Hugo van Rijswijk
 author_title: Stryker4s Team
 author_url: https://github.com/hugo-vrijswijk
@@ -8,17 +8,17 @@ author_image_url: https://avatars.githubusercontent.com/u/10114577
 tags: [stryker4s]
 ---
 
-Stryker4s is your friendly mutation testing framework for Scala. Compared to earlier versions, Stryker4s `0.12` achieves a 100x speed increase 🤯. Are you curious to know how? Keep on reading.
-
-In this blog we'll talk about the performance improvements made in the last couple Stryker4s versions and dive into how they are made possible.
+Stryker4s is your friendly mutation testing framework for Scala. Compared to earlier versions, Stryker4s `0.12` achieves a 60x speed increase in some scenarios 🤯. Are you curious to know how? Keep on reading.
 
 <!--truncate-->
 
 If you're new to mutation testing, it's a way to measure your tests' effectiveness. A mutation testing framework will make small changes, called _mutants_, one by one in your source code. Then it will run your tests to see if one of them fails. If so, you just "killed" that mutant; if not, it "survived". If too many mutants survive, you probably want to improve your tests. The mutation testing report will give you insides into the test cases you may have missed. If this all sounds complicated, please take a look at the recent talk ["Who is testing your tests?"](https://www.youtube.com/watch?v=Vq9eqZzblfg) from _Scala Love in the City_ or check out the rest of the [website](/).
 
-Imagine you're on your way to a sunny holiday destination. You've checked in your luggage, gone through customs, and boarded the plane. Then, the plane moves forward a couple of meters, and you're thrown out and sent back to customs before going through the whole thing again. It'll take years before you get to sip on your umbrella cocktail 🍹! This is exactly how Stryker4s has been running your code… until now.
+In this blog we'll talk about the performance improvements made in the last couple Stryker4s versions and dive into how they are made possible.
 
 ## 📃 In short
+
+Imagine you're on your way to a sunny holiday destination. You've checked in your luggage, gone through customs, and boarded the plane. Then, the plane moves forward a couple of meters, and you're thrown out and sent back to customs before going through the whole thing again. It'll take years before you get to sip on your umbrella cocktail 🍹! This is exactly how Stryker4s has been running your code… until now.
 
 A lot has changed in recent versions of Stryker4s. Stryker4s now runs your tests in an entirely different way, bringing big performance improvements. As an example, running Stryker4s on the Stryker4s codebase used to take about 40 minutes on `0.9.1`. On`0.12.1`, this has been reduced to a fast 40 seconds. A short list of some new features:
 
@@ -30,7 +30,7 @@ A lot has changed in recent versions of Stryker4s. Stryker4s now runs your tests
 
 In the rest of this blog post, we'll do a deep-dive into the increased performance. Let's start by taking a look at the older version of Stryker4s.
 
-## 🐌 The old
+## 🐢 The old
 
 In the older sbt plugin, there was a lot of overhead in running your tests. As a quick reminder, Stryker4s uses [mutation switching](https://stryker-mutator.io/blog/mutation-switching/), so it only has to compile your code once, instead of for each mutant. After mutating your source code, Stryker4s would essentially just call `sbt test` with the mutated code for every mutant. This means sbt would:
 
@@ -62,7 +62,7 @@ sequenceDiagram
 
 Doing those checks and starting a new process makes a lot of sense for a development workflow, but not for mutation testing. This implementation of the test runner hasn't changed much in the two years that the plugin has existed. Time for some improvements!
 
-## 🐣 The new
+## 🐇 The new
 
 It's clear the process can be optimized. Once Stryker4s is set up and all mutations have been compiled, the only thing we really want to do is run some tests and get a result. Sbt doesn't give plugins full control over the entire test process, but it does have all the information about _what_ your project looks like. This is something we can work with!
 
@@ -114,7 +114,9 @@ testTasks.foreach(testTask => {
 
 ### 🔀 Meet: concurrency
 
-When running your unit tests, Stryker4s activates each mutant separately and runs your unit tests against _only_ the change that mutant creates. It won't activate two mutants at the same time because there's no way to know which of the two mutants gave a result. However, there's no rule that says we can't start multiple Java processes at the same time and run those in parallel. Each process has its own separate memory, threads, and active mutant. This way, if one mutant result in an `OutOfMemoryError` it won't impact the others. Starting multiple testrunner workers also improves performance by making better use of multi-core CPUs.
+Stryker4s activates each mutant separately and runs your unit tests against _only_ the change that mutant creates. This is to make sure one mutant won't have an impact on the result of another. However, there's no rule that says we can't start multiple Java processes at the same time and run those in parallel.
+
+With multiple separate worker-processes, each worker has its own separate memory, threads, and active mutant. This way, if one mutant results in an `OutOfMemoryError` it won't impact the others. In long-lived processes like mutation testing, the performance increases of parallelism far outweigh the overhead of starting and managing multiple workers.
 
 ### 🧰 Putting it all together
 
@@ -145,7 +147,7 @@ sequenceDiagram
 `}
 />
 
-As you can see, there's not much overhead left in running your tests. The limiting factor is now how fast your tests are!
+As you can see, there's not much overhead left in running your tests. The limiting factor is now how fast your tests are! When running Stryker4s on itself, this method improves performance 60x: from 40 minutes to 40 seconds.
 
 ## 🔮 What's next?
 
