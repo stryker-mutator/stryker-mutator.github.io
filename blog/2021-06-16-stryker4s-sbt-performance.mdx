@@ -112,6 +112,8 @@ testTasks.foreach(testTask => {
 })
 ```
 
+Stryker4s can then use this to activate a mutant and instantly run the tests without any overhead from sbt.
+
 ### 🔀 Meet: concurrency
 
 Stryker4s activates and runs each mutant one by one in isolation. This is to make sure one mutant won't have an impact on the result of another. This is done by creating a separate process for it. However, there's no rule that says we can't start multiple Java processes at the same time and run those in parallel.
