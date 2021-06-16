@@ -24,7 +24,7 @@ const languages = [
     docsLink: 'docs/stryker-net/introduction',
   },
   {
-    title: 'Scala',
+    title: 'Scala test change',
     imageUrl: 'images/ScalaLogo.webp',
     docsLink: 'docs/stryker4s/getting-started',
   },
