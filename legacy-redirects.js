@@ -132,6 +132,7 @@ const redirects = [
     ],
     to: '/blog/announcing-stryker-4-mutation-switching',
   },
+  { from: ['/blog/stryker4s-sbt-speedup'], to: '/blog/stryker4s-40-minutes-to-40-seconds' },
   // Stryker to StrykerJS
   { from: ['/docs/stryker/configuration'], to: '/docs/stryker-js/configuration' },
   { from: ['/docs/stryker/introduction'], to: '/docs/stryker-js/introduction' },
