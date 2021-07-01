@@ -15,13 +15,7 @@ jobs:
         uses: actions/setup-node@v2.2.0
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2.1.6
-        with:
-          path: |
-            ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          cache: 'npm'          
       - run: npm ci
       - name: Lint 🧶
         run: npm run lint
