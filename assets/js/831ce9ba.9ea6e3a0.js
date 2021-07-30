@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstryker_mutator_github_io=self.webpackChunkstryker_mutator_github_io||[]).push([[5734],{70345:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"april-fools","name":"april fools","count":1,"permalink":"/blog/tags/april-fools"}')}}]);
