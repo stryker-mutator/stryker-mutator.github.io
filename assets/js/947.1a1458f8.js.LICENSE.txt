@@ -284,11 +284,13 @@
 
 /*! exports provided: clusterDb, clear, extractDecendants, validate, findNonClusterChild, adjustClustersAndEdges, extractor, sortNodesByHierarchy */
 
+/*! exports provided: configKeys, default */
+
 /*! exports provided: default */
 
 /*! exports provided: defaultConfig, updateCurrentConfig, setSiteConfig, saveConfigFromInitilize, updateSiteConfig, getSiteConfig, setConfig, getConfig, sanitize, addDirective, reset */
 
-/*! exports provided: detectInit, detectDirective, detectType, isSubstringInArray, interpolateToCurve, formatUrl, runFunc, getStylesFromArray, generateId, random, assignWithDepth, getTextObj, drawSimpleText, wrapLabel, calculateTextHeight, calculateTextWidth, calculateTextDimensions, calculateSvgSizeAttrs, configureSvgSize, initIdGeneratior, entityDecode, default */
+/*! exports provided: detectInit, detectDirective, detectType, isSubstringInArray, interpolateToCurve, formatUrl, runFunc, getStylesFromArray, generateId, random, assignWithDepth, getTextObj, drawSimpleText, wrapLabel, calculateTextHeight, calculateTextWidth, calculateTextDimensions, calculateSvgSizeAttrs, configureSvgSize, initIdGeneratior, entityDecode, directiveSanitizer, default */
 
 /*! exports provided: draw, default */
 
