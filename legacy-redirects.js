@@ -13,6 +13,7 @@ const redirects = [
   { from: ['/quickstart', '/stryker/quickstart'], to: '/docs/stryker-js/getting-started' },
   { from: ['/faq'], to: '/docs/General/faq' },
   { from: ['/stryker', '/stryker/index'], to: '/docs/stryker-js/getting-started' },
+  { from: ['/stryker-net', '/stryker-net/index', '/stryker-net/quickstart'], to: '/docs/stryker-net/Introduction' },
   { from: ['/stryker4s', '/stryker4s/index', '/stryker4s/quickstart'], to: '/docs/stryker4s/getting-started' },
   { from: ['/stryker/handbook', '/stryker4s/handbook', '/stryker-net/handbook'], to: '/docs/' },
   // Blogs
