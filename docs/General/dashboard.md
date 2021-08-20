@@ -10,7 +10,7 @@ The Stryker dashboard is a dashboard for mutation testing: [https://dashboard.st
 📊 Hosts your mutation testing report in the cloud  
 🌎 Supports all mutation testing frameworks\*
 
-\* That support the [mutation testing report schema](https://github.com/stryker-mutator/mutation-testing-elements/tree/master/packages/mutation-testing-report-schema).
+\* That support the [mutation testing report schema](https://github.com/stryker-mutator/mutation-testing-elements/tree/master/packages/report-schema).
 
 ## Enable the dashboard for your project
 
@@ -76,5 +76,5 @@ The variables here are:
 - `PROJECT`: The name registered with the dashboard. It is in the form of `gitProvider/organization/repository`. At the moment the dashboard backend only supports `github.com` as a git provider, but we will also support `gitlab.com`/`bitbucket.org`, etc. in the future. It can have an indefinite number of levels. Slashes (`/`) in this name are _not_ escaped. For example `github.com/stryker-mutator/stryker-net`.
 - `VERSION`: the version of the report. This should be filled with the branch name, git tag or git sha (although no validation is done). You can override a report of a specific version, like docker tags. Slashes in the version should not be encoded. For example, it's valid to use "feat/logging".
 - `API_KEY`: The API key that you retrieved by enabling the report on the dashboard.stryker-mutator.io website.
-- `mutation-testing-report.json` file: A valid report according to the [mutation testing report schema](https://github.com/stryker-mutator/mutation-testing-elements/tree/master/packages/mutation-testing-report-schema), or a mutation score only report in the form of `{ "mutationScore": 42 }` (this way, you will have a mutation score badge, but no other information is stored).
+- `mutation-testing-report.json` file: A valid report according to the [mutation testing report schema](https://github.com/stryker-mutator/mutation-testing-elements/tree/master/packages/report-schema), or a mutation score only report in the form of `{ "mutationScore": 42 }` (this way, you will have a mutation score badge, but no other information is stored).
 - `MODULE`: Optional. If you want to store multiple reports for a version, you can use this value to separate them logically, for example, in a mono-repo setup where each package (or project or module) delivers a report.
