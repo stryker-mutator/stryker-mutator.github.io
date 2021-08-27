@@ -13,6 +13,10 @@
         <link href="https://stryker-mutator.io/blog/stryker4s-40-minutes-to-40-seconds"/>
         <updated>2021-06-16T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Stryker4s is your friendly mutation testing framework for Scala. Compared to earlier versions, Stryker4s 0.12 achieves a 60x speed increase in some scenarios 🤯. Are you curious to know how? Keep on reading.]]></summary>
+        <author>
+            <name>Hugo van Rijswijk</name>
+            <uri>https://github.com/hugo-vrijswijk</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Announcing StrykerJS 5.0 - Brave new Dimension]]></title>
@@ -20,6 +24,10 @@
         <link href="https://stryker-mutator.io/blog/announcing-stryker-js-5-brave-new-dimension.md"/>
         <updated>2021-05-15T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We're proud to announce the next major release of StrykerJS: 5.0. With a name change, a new dimension in your report, a new way to discover files, updated mutators, quality of life improvements, and minor bug fixes.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Announcing Stryker 4.0 - Mutation Switching]]></title>
@@ -27,6 +35,10 @@
         <link href="https://stryker-mutator.io/blog/announcing-stryker-4-mutation-switching"/>
         <updated>2020-10-07T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We're proud to announce the next major release of the Stryker mutation testing framework for JavaScript and friends: Stryker 4.0.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Announcing Stryker 4.0 Beta]]></title>
@@ -34,6 +46,10 @@
         <link href="https://stryker-mutator.io/blog/announcing-stryker-4-beta-mutation-switching"/>
         <updated>2020-07-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We're excited to announce the beta of the next major release of the Stryker mutation testing framework for JavaScript and friends: Stryker 4.0.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Integrating Stryker.NET in your azure pipelines]]></title>
@@ -41,6 +57,10 @@
         <link href="https://stryker-mutator.io/blog/azure-pipelines-integration"/>
         <updated>2020-05-15T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Over the past few months we have been working hard to integrate Stryker.NET with azure pipelines. Learn how you can leverage our new features to include mutation testing in your continuous integration.]]></summary>
+        <author>
+            <name>Richard Werkman</name>
+            <uri>https://github.com/richardwerkman</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Announcing Stryker 100% mode]]></title>
@@ -48,6 +68,10 @@
         <link href="https://stryker-mutator.io/blog/announcing-100-mode"/>
         <updated>2020-04-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Over the years, we've been privileged to explain the concept of Mutation Testing to great developers, testers and others.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Announcing Stryker 3.0]]></title>
@@ -55,6 +79,10 @@
         <link href="https://stryker-mutator.io/blog/stryker-version-3"/>
         <updated>2020-03-11T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[With version 3 of Stryker, we've been focussing on usability. We also did some smaller changes worth pointing out.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Host your mutation testing report]]></title>
@@ -62,6 +90,10 @@
         <link href="https://stryker-mutator.io/blog/stryker-dashboard-host-your-mutation-testing-report"/>
         <updated>2019-12-27T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[📊 The Stryker Dashboard can now host your mutation testing report in the cloud.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Announcing Stryker 2.0]]></title>
@@ -69,6 +101,10 @@
         <link href="https://stryker-mutator.io/blog/announcing-stryker-2-0"/>
         <updated>2019-05-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[A new major version of Stryker for JavaScript and TypeScript has been released: version 2.0.0.]]></summary>
+        <author>
+            <name>Simon de Lang</name>
+            <uri>https://github.com/simondel</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Announcing Stryker.NET 0.10 with .NET Framework support]]></title>
@@ -76,6 +112,10 @@
         <link href="https://stryker-mutator.io/blog/announcing-dotnet-framework-support"/>
         <updated>2019-04-05T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Stryker.NET 0.10 is here! This brings new features to mutation testing for .NET. Read all about these features in this blog.]]></summary>
+        <author>
+            <name>Richard Werkman</name>
+            <uri>https://github.com/richardwerkman</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[One mutation testing HTML report]]></title>
@@ -83,6 +123,10 @@
         <link href="https://stryker-mutator.io/blog/one-mutation-testing-html-report"/>
         <updated>2019-04-03T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[If you've used Stryker before, you'll know that it produces a gorgeous report you can view in the browser.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Announcing Stryker 1.0]]></title>
@@ -90,6 +134,10 @@
         <link href="https://stryker-mutator.io/blog/announcing-stryker-1-0"/>
         <updated>2019-02-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Stryker 1.0 is here! This is an important milestone for mutation testing in JavaScript and TypeScript.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Stryker4s 0.1.0 released]]></title>
@@ -97,6 +145,10 @@
         <link href="https://stryker-mutator.io/blog/stryker4s-0-1-0-released"/>
         <updated>2018-12-25T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This is the first official release of Stryker4s! Bringing easy mutation testing to Scala sbt projects. And it comes with some great features.]]></summary>
+        <author>
+            <name>Hugo van Rijswijk</name>
+            <uri>https://github.com/hugo-vrijswijk</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Announcing Stryker 0.34]]></title>
@@ -104,6 +156,10 @@
         <link href="https://stryker-mutator.io/blog/announcing-stryker-0-34"/>
         <updated>2018-12-24T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Stryker 0.34 is here. This new version comes with features to help you get started. It's never been this easy to mutation test your JS project!]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Mutation switching in Stryker4s]]></title>
@@ -111,6 +167,10 @@
         <link href="https://stryker-mutator.io/blog/mutation-switching"/>
         <updated>2018-10-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Learn how Stryker4s uses mutation switching to improve performance.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Introducing Stryker.NET and Stryker4s]]></title>
@@ -118,6 +178,10 @@
         <link href="https://stryker-mutator.io/blog/csharp-and-scala-support"/>
         <updated>2018-09-27T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We're excited to announce that we're doubling the number of supported languages for Stryker. We already had support for JavaScript and Typescript, and now both C# and Scala are supported as preview versions. Try them out and let us know what you think.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Use git to select files]]></title>
@@ -125,6 +189,10 @@
         <link href="https://stryker-mutator.io/blog/use-git-to-select-files"/>
         <updated>2018-04-04T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The 0.21 release of Stryker simplifies configuration by using your git database.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Get your mutation score badge now!]]></title>
@@ -132,6 +200,10 @@
         <link href="https://stryker-mutator.io/blog/get-your-mutation-score-badge-now"/>
         <updated>2018-02-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[We're launching our Stryker Dashboard today.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Webpack support is here]]></title>
@@ -139,6 +211,10 @@
         <link href="https://stryker-mutator.io/blog/webpack-support"/>
         <updated>2018-01-26T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Stryker now supports bundling your code using webpack before running your tests.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[TypeScript coverage analysis support]]></title>
@@ -146,6 +222,10 @@
         <link href="https://stryker-mutator.io/blog/typescript-coverage-analysis-support"/>
         <updated>2018-01-10T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Let's start this new year strong. Stryker 0.18 adds coverage analysis support for transpilers, starting with the TypeScript transpiler.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Stryker adds Babel support]]></title>
@@ -153,6 +233,10 @@
         <link href="https://stryker-mutator.io/blog/babel-support"/>
         <updated>2017-12-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[A new Stryker plugin that adds support for Babel projects has just been released!]]></summary>
+        <author>
+            <name>Simon de Lang</name>
+            <uri>https://github.com/simondel</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[New HTML reporter]]></title>
@@ -160,6 +244,10 @@
         <link href="https://stryker-mutator.io/blog/new-html-report"/>
         <updated>2017-10-28T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The Stryker HTML Reporter version 0.10 has a lot of new features, but more importantly: a sexy new look.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[TypeScript support]]></title>
@@ -167,6 +255,10 @@
         <link href="https://stryker-mutator.io/blog/typescript-support"/>
         <updated>2017-10-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Stryker 0.10 marks the biggest change in Stryker history yet, as we now support running mutation testing on TypeScript code.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Stryker 0.8 release]]></title>
@@ -174,6 +266,10 @@
         <link href="https://stryker-mutator.io/blog/stryker-0-8-0"/>
         <updated>2017-08-11T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Stryker 0.8 just released with better CI integration and configurable thresholds.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Road to Stryker 1.0]]></title>
@@ -181,6 +277,10 @@
         <link href="https://stryker-mutator.io/blog/road-to-stryker-1-0"/>
         <updated>2017-07-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Stryker is about two years old. During this time we achieved a lot. But it's far from finished. So, what's next? Let's take a glimpse in the future.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Stryker 0.6.4 released]]></title>
@@ -188,6 +288,10 @@
         <link href="https://stryker-mutator.io/blog/stryker-0-6-4"/>
         <updated>2017-06-10T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This release of Stryker brings a number of new features and improvements. Including a new quickstart and a number of reporter improvements.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Stryker weekend]]></title>
@@ -195,6 +299,10 @@
         <link href="https://stryker-mutator.io/blog/stryker-weekend"/>
         <updated>2017-02-21T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[During the last weekend of January we spent a weekend with ten students from the HAN University and University of Twente developing valuable features for Stryker!]]></summary>
+        <author>
+            <name>Simon de Lang</name>
+            <uri>https://github.com/simondel</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Introduction to mutation testing]]></title>
@@ -202,6 +310,10 @@
         <link href="https://stryker-mutator.io/blog/introduction-to-mutation-testing"/>
         <updated>2017-01-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Writing unit tests can be hard. Even for an easy example such as a calculator app.]]></summary>
+        <author>
+            <name>Simon de Lang</name>
+            <uri>https://github.com/simondel</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Happy new Stryker!]]></title>
@@ -209,6 +321,10 @@
         <link href="https://stryker-mutator.io/blog/happy-new-stryker"/>
         <updated>2017-01-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[2017 - The year to invest into test quality]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
     <entry>
         <title type="html"><![CDATA[Stryker 0.5.5 released!]]></title>
@@ -216,5 +332,9 @@
         <link href="https://stryker-mutator.io/blog/stryker-0-5-5"/>
         <updated>2016-12-30T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The full changelog can be found on GitHub. In this post we'll dive into a couple of new features.]]></summary>
+        <author>
+            <name>Nico Jansen</name>
+            <uri>https://github.com/nicojs</uri>
+        </author>
     </entry>
 </feed>
