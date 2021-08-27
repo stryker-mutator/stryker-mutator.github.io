@@ -69,7 +69,7 @@ html[data-theme='dark'] .header-github-link:before {
     no-repeat;
 }
 
-:root[data-theme='dark'] article.margin-bottom--xl > footer > div:nth-child(1) > a {
+:root[data-theme='dark'] article.margin-bottom--xl > footer ul > li > a {
   color: var(--stryker-yellow);
 }
 
