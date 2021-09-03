@@ -32,15 +32,20 @@ function git_clone_docs() (
   fi
 
   defaultBranch="$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
-  git pull origin $defaultBranch
+  checkoutBranch=defaultBranch
+  if [ -n "$2" ]; then
+    checkoutBranch=$2
+  fi
+  git pull origin $checkoutBranch
 
   mv docs/* .
   cd ../
 )
 
 # stryker does not have docs in docs :(
+# cloning a different branch works like: git_clone_docs "stryker-net" "v1.0"
 git_clone_docs "stryker-js"
 git_clone_docs "mutation-testing-elements"
 rm -rf docs/mutation-testing-elements/packages
 git_clone_docs "stryker4s"
-git_clone_docs "stryker-net"
+git_clone_docs "stryker-net" "v1.0"
