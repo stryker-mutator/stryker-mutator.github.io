@@ -87,3 +87,8 @@ html[data-theme='dark'] .header-github-link:before {
   color: #ddd;
   background-color: var(--ifm-color-primary-darkest);
 }
+
+/* Notification bar close button */
+:root[data-theme='dark'] button.clean-btn {
+  color: var(--ifm-color-white);
+}
