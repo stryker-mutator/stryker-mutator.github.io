@@ -21,7 +21,7 @@ const languages = [
   {
     title: 'C#',
     imageUrl: 'images/CSharpLogo.svg',
-    docsLink: 'docs/stryker-net/introduction',
+    docsLink: 'docs/stryker-net/Introduction',
   },
   {
     title: 'Scala',
