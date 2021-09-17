@@ -12,6 +12,7 @@ function git_clone_docs() (
 
   cd docs
 
+
   # Update folder if it already exists
   if [ -d $localdir ]
   then
@@ -23,7 +24,11 @@ function git_clone_docs() (
   else
     echo "Cloning $localdir..."
     # Else create new empty git repository and pull only docs folder to it
-    git clone $remoteUrl $localdir --depth 1
+    if [ -n "$2" ]; then
+      git clone --branch $2 $remoteUrl $localdir --depth 1
+    else
+      git clone $remoteUrl $localdir --depth 1
+    fi
     cd "$localdir"
 
     # Tell git to only checkout docs folder
@@ -32,14 +37,8 @@ function git_clone_docs() (
   fi
 
   defaultBranch="$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
-  checkoutBranch="$2"
-  if [ -n "$checkoutBranch" ]; then
-    git fetch origin $checkoutBranch --depth 1
-    echo "Checkout $checkoutBranch"
-    git checkout -b $checkoutBranch
-  else 
-    git pull origin $defaultBranch
-  fi
+  checkoutBranch=${2:-$defaultBranch}
+  git pull origin $checkoutBranch
 
   mv docs/* .
   cd ../
