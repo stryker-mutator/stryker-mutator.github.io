@@ -34,12 +34,13 @@ function git_clone_docs() (
   defaultBranch="$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
   checkoutBranch=$defaultBranch
   if [ -n "$2" ]; then
-    checkoutBranch=$2
+    checkoutBranch="$2"
+    git fetch --depth 1 $2
   fi
   git pull origin $checkoutBranch
 
-  mv docs/* .
-  cd ../
+  # mv docs/* .
+  # cd ../
 )
 
 # stryker does not have docs in docs :(
