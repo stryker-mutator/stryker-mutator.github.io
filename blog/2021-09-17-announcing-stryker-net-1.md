@@ -113,22 +113,31 @@ It's now possible to filter mutants at source code level. This gives the most fi
 
 The syntax for the comments is: `Stryker [disable|restore][once][all| mutator list][: reason for disabling]`
 
+`// Stryker disable all` Disables all mutations from that line on. 
+
+`// Stryker restore all` re-enables all mutations from that line on. 
+
+`// Stryker disable once all` will only disable mutations on the next line.
+
+`// Stryker disable once Arithmetic,Update` will only disable Arithmetic and Update mutations on the next line
+
 Example:
 
 ```csharp
 var i = 0;
+var y = 10;
 // Stryker disable all : reason for disable
 i++; // won't be mutated
-i++; // won't be mutated
+y++; // won't be mutated
 // Stryker restore all
-i++; // will be mutated
+i--; // will be mutated
 // Stryker disable once all
-i++; // won't be mutated
+y--; // won't be mutated
 i++; // will be mutated
 // Stryker disable once Arithmetic
-i++; // will be mutated
+y++; // will be mutated
 // Stryker disable once Arithmetic,Update
-i++; // won't be mutated
+i--; // won't be mutated
 ```
 
 ### Ignore mutations
@@ -230,18 +239,12 @@ Stryker now uses the information computed by SourceLink to automatically retriev
 Enable this by adding the following to your `.csproj`:
 
 ```xml
-    <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
- 
-    <!-- Optional: Embed source files that are not tracked by the source control manager in the PDB -->
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-  
-    <!-- Optional: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  <ItemGroup>
+    <PackageReference Include="DotNet.ReproducibleBuilds" Version="0.1.66" PrivateAssets="All"/>
+  </ItemGroup>
 ```
 
-And add the correct package reference for your source control provider. Search nuget for `Microsoft.SourceLink.*` and pick your provider. For full info on how to enable SourceLink see [their readme](https://github.com/dotnet/sourcelink#readme)
+For full info on how to enable SourceLink using ReproducibleBuilds see [their readme](https://github.com/dotnet/reproducible-builds/blob/main/README.md)
 
 ## 🐛 Bug fixes
 
