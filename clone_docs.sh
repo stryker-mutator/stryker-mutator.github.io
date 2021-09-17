@@ -37,7 +37,7 @@ function git_clone_docs() (
     checkoutBranch="$2"
     git fetch origin $2 --depth 1
   fi
-  git pull origin $checkoutBranch
+  git checkout $checkoutBranch
 
   # mv docs/* .
   # cd ../
