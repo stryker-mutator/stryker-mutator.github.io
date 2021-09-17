@@ -44,8 +44,8 @@ function git_clone_docs() (
   cd ../
 )
 
-# stryker does not have docs in docs :(
 # cloning a different branch works like: git_clone_docs "stryker-net" "v1.0"
+# stryker-js does not have docs in docs :(
 git_clone_docs "stryker-js"
 git_clone_docs "mutation-testing-elements"
 rm -rf docs/mutation-testing-elements/packages

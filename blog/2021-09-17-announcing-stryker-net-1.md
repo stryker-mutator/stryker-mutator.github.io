@@ -252,6 +252,14 @@ For full info on how to enable SourceLink using ReproducibleBuilds see [their re
 
 Internally Stryker replaces the `.dll` on your disk when running. Up till now the mutated assembly stayed in place. This had some unintended side effects. For example code coverage results are incorrect when run on a mutated assembly. And there was the risk of accidentally releasing/publishing the mutated assembly instead of the original one in a pipeline.
 
+## 👪 Team expansion 
+
+We welcome [Cyrille DUPUYDAUBY](https://github.com/dupdob) to the team of Stryker maintainers. This was well earned after continued support and development since Nov 26, 2018! 
+
 ## 🎉 Thank you
 
 Thanks to everyone for your continued support! Have questions or issues? Don't hesitate to contact us on [Slack](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM), on [Twitter](https://twitter.com/stryker_mutator/) or open [an issue](https://github.com/stryker-mutator/stryker-net/issues/new/choose).
+
+Special thanks to [Cyrille DUPUYDAUBY](https://github.com/dupdob), [Peter Semkin](https://github.com/psfinaki), [Philip Rowan
+](https://github.com/philrowan-mtb), [Corentin Altepe](https://github.com/corentinaltepe), [Cédric Luthi](https://github.com/0xced), [Gregory Bell](https://github.com/grbell-ms), [John McGlynn](https://github.com/JohnMcGlynnMSFT), [Beatrice Forslund](https://github.com/Bforslund) and [dukedagmor](https://github.com/dukedagmor) for their efforts to make this release happen 👏
+
