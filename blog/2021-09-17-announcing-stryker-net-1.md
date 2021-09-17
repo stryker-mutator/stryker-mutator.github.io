@@ -34,7 +34,7 @@ This should have some performance benefits. And helps with developing Stryker.NE
 
 Please [download and install .NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0) or update your pipeline to support .NET 5.
 
-### ⏭ Options rework 
+### ⏭ Options rework
 
 Almost all options have been renamed or work different. A fundamental difference on the CLI is how multi value options are passed.
 
@@ -58,11 +58,11 @@ A lot of options have been renamed or have been removed from the CLI. They can n
 
 Options migration overview:
 
-| Old cli                       | New cli                                    | Old json                      | New json                     |
-| ----------------------------- | ------------------------------------------ | ----------------------------- | ---------------------------- |
-| config-file-path              | f \| config-file                            | ❌                          | ❌                            |
+| Old cli                       | New cli                                     | Old json                      | New json                     |
+| ----------------------------- | ------------------------------------------- | ----------------------------- | ---------------------------- |
+| config-file-path              | f \| config-file                            | ❌                            | ❌                           |
 | max-concurrent-testrunners    | c \| concurrency                            | max-concurrent-testrunners    | concurrency                  |
-| dev-mode                      | dev-mode                                   | dev-mode                      | ❌                            |
+| dev-mode                      | dev-mode                                    | dev-mode                      | ❌                           |
 | solution-path                 | s \| solution                               | solution-path                 | solution                     |
 | log-file                      | L \| log-to-file                            | log-file                      | ❌                           |
 | log-level                     | V \| verbosity                              | log-level                     | verbosity                    |
@@ -83,7 +83,7 @@ Options migration overview:
 | disable-testing-mix-mutations | ❌                                          | disable-testing-mix-mutations | disable-mix-mutants          |
 | test-projects                 | ❌                                          | test-projects                 | test-projects                |
 | dashboard-url                 | ❌                                          | dashboard-url                 | dashboard-url                |
-| dashboard-api-key             | dashboard-api-key                          | dashboard-api-key             | ❌                            |
+| dashboard-api-key             | dashboard-api-key                           | dashboard-api-key             | ❌                           |
 | project-name                  | ❌                                          | dashboard-project             | project-info.name            |
 | module-name                   | ❌                                          | dashboard-module              | project-info.module          |
 | project-version               | v \| version                                | dashboard-version             | project-info.version         |
@@ -91,11 +91,11 @@ Options migration overview:
 | azure-storage-url             | ❌                                          | azure-storage-url             | baseline.azure-fileshare-url |
 | dashboard-fallback-version    | ❌                                          | dashboard-fallback-version    | baseline.fallback-version    |
 | baseline-storage-location     | ❌                                          | baseline-storage-location     | baseline.provider            |
-| dashboard-compare             | with-baseline                              | dashboard-compare             | baseline                     |
-| git-diff-target               | \--since ...                               | git-diff-target               | since.target                 |
-| azure-storage-sas             | azure-fileshare-sas                        | azure-storage-sas             | ❌                            |
-| files-to-exclude              | ❌                                          | ❌                             | ❌                            |
-| test-runner                   | ❌                                          | ❌                             | ❌                            |
+| dashboard-compare             | with-baseline                               | dashboard-compare             | baseline                     |
+| git-diff-target               | \--since ...                                | git-diff-target               | since.target                 |
+| azure-storage-sas             | azure-fileshare-sas                         | azure-storage-sas             | ❌                           |
+| files-to-exclude              | ❌                                          | ❌                            | ❌                           |
+| test-runner                   | ❌                                          | ❌                            | ❌                           |
 
 ❌ means the option has been removed.
 
@@ -105,17 +105,17 @@ An exciting set of new features has been added with this release! Let's walk tro
 
 ### Allow failing tests
 
-It's now allowed to start a mutation test run even with failing tests. Stryker will try to make the best of the situation by marking mutants that are covered by `initially failing tests` as `survived`. 
+It's now allowed to start a mutation test run even with failing tests. Stryker will try to make the best of the situation by marking mutants that are covered by `initially failing tests` as `survived`.
 
 ### Mutant filtering
 
-It's now possible to filter mutants at source code level. This gives the most fine grained level of control. 
+It's now possible to filter mutants at source code level. This gives the most fine grained level of control.
 
 The syntax for the comments is: `Stryker [disable|restore][once][all| mutator list][: reason for disabling]`
 
-`// Stryker disable all` Disables all mutations from that line on. 
+`// Stryker disable all` Disables all mutations from that line on.
 
-`// Stryker restore all` re-enables all mutations from that line on. 
+`// Stryker restore all` re-enables all mutations from that line on.
 
 `// Stryker disable once all` will only disable mutations on the next line.
 

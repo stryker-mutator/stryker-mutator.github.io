@@ -28,33 +28,31 @@ With that out of the way, let's dive into the new stuff!
 
 ## 🐲 No more beta
 
-For the last few years Stryker.NET has been in beta. This meant we didn't guarantee that features were stable and we could change functionality at our wish. 
+For the last few years Stryker.NET has been in beta. This meant we didn't guarantee that features were stable and we could change functionality at our wish.
 In practice we kept all features pretty stable and even used deprecation for some features. They have been removed now that version 1.0 is done 😃
 
 ## Breaking changes
 
 When upgrading from version 0.x to 1.0 you'll have to make sure you:
-* Install dotnetcore runtime 5.0.
-* Migrate all your command and json [configuration](todo) to our new notation.
+
+- Install dotnetcore runtime 5.0.
+- Migrate all your command and json [configuration](todo) to our new notation.
 
 Later in this post you can find a complete [migration guide](#migration-guide).
 
 ## ✨ New features
 
-
-
 ### Allow failing tests
 
 Up until now stryker needed a 100% succeeding testrun to ensure your mutation score is correct. But now you can run stryker even on a failing testset.
 
-This can be useful for example when 
+This can be useful for example when
 
 ### Extensive mutant filtering
 
 inline comments and linq
 
 ### Multi target support
-
 
 ### Statement mutator
 
