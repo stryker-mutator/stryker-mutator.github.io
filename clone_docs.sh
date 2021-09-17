@@ -32,7 +32,7 @@ function git_clone_docs() (
   fi
 
   defaultBranch="$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
-  checkoutBranch=defaultBranch
+  checkoutBranch=$defaultBranch
   if [ -n "$2" ]; then
     checkoutBranch=$2
   fi
