@@ -32,7 +32,6 @@ function git_clone_docs() (
   fi
 
   defaultBranch="$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
-<<<<<<< HEAD
   checkoutBranch="$2"
   if [ -n "$checkoutBranch" ]; then
     git fetch origin $checkoutBranch --depth 1
@@ -40,11 +39,6 @@ function git_clone_docs() (
   else 
     git pull origin $defaultBranch
   fi
-=======
-  checkoutBranch=${2:-$defaultBranch}
-  git checkout $checkoutBranch
-  git pull origin $checkoutBranch
->>>>>>> 31c0ff08d9f8066815457a29ea955177e7c72830
 
   mv docs/* .
   cd ../
