@@ -35,6 +35,7 @@ function git_clone_docs() (
   checkoutBranch="$2"
   if [ -n "$checkoutBranch" ]; then
     git fetch origin $checkoutBranch --depth 1
+    echo "Checkout $checkoutBranch"
     git checkout $checkoutBranch
   else 
     git pull origin $defaultBranch
