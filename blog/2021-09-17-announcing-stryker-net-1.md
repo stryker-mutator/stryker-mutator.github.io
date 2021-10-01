@@ -167,7 +167,7 @@ y++; // will be mutated
 i--; // won't be mutated
 ```
 
-_Note that this feature is scope aware. If you disable mutations inside a method, the scope will not leak outside the method even if there is more code below._
+_Note that this feature is scope aware. If you disable mutators inside a method, the scope will not leak outside the method even if there is more code below._
 
 ### Ignore mutations
 
