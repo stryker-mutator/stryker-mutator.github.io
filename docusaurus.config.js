@@ -39,7 +39,7 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'docs/stryker-net/Introduction',
+          to: 'docs/stryker-net/introduction',
           activeBasePath: 'docs/stryker-net',
           label: 'For C#',
           position: 'left',
