@@ -16,45 +16,64 @@ We're proud to announce the next major release of StrykerJS: 5.0. With a name ch
 
 If you're new to mutation testing, it's a way to measure your tests' effectiveness. A mutation testing framework will make small changes, called _mutants_, one by one in your source code. Then it will run your tests to see if one of them fails. If so, you just "killed" that mutant; if not, it "survived". If too many mutants survive, you probably want to improve your tests. The mutation testing report will give you insides into the test cases you may have missed. If this all sounds complicated, please take a look at [our RoboBar 🤖🍷 example](https://stryker-mutator.io/example).
 
-If you're new to StrykerJS, please follow our [Getting started guide](todo). Are you already using StrykerJS? Update to the latest version with your package manager of choice.
+If you're new to StrykerJS, please follow our [Getting started guide](https://stryker-mutator.io/docs/stryker-js/getting-started/). Are you already using StrykerJS? Update to the latest version with your package manager of choice.
 
 ```shell
-dotnet tool update -g dotnet-stryker
-#or
-dotnet tool install -g dotnet-stryker
+npm install --save-dev @stryker-mutator/core@latest
+# OR
+yarn add --dev @stryker-mutator/core@latest
+```
+
+Don't forget to do the same for any plugins you might be using. For example,
+
+```shell
+npm install --save-dev @stryker-mutator/mocha-runner@latest
+# OR
+yarn add --dev @stryker-mutator/mocha-runner@latest
 ```
 
 With that out of the way, let's dive into the new stuff!
 
-## 🐲 No more beta
+## 👪 Name change
 
-For the last few years Stryker.NET has been in beta. This meant we didn't guarantee that features were stable and we could change functionality at our wish.
-In practice we kept all features pretty stable and even used deprecation for some features. They have been removed now that version 1.0 is done 😃
+That's right. We've rebranded 'Stryker for JavaScript and friends' as simply **StrykerJS**. This change makes it easier to distinguish StrykerJS from other frameworks in the Stryker family (Stryker.NET and Stryker4s). It also allows for better use of Twitter real estate 😊.
 
-## Breaking changes
+Don't worry; the names of the NPM packages haven't changed. So it is purely a branding thing.
 
-When upgrading from version 0.x to 1.0 you'll have to make sure you:
+## ✨ New dimension
 
-- Install dotnetcore runtime 5.0.
-- Migrate all your command and json [configuration](todo) to our new notation.
+The mutation test report has always been the bread and butter of Stryker. Either in your browser or console, it is where you find out where the killed and survived mutants are. But the next question you might ask is: which tests were responsible? Stryker knows but wasn't telling you. Until now!
 
-Later in this post you can find a complete [migration guide](#migration-guide).
+Behold, the new dimension you'll find in your reports—the test view 🧪.
 
-## ✨ New features
+![html test view](/images/blogs/test-view-html-1.png)
+![html test view2](/images/blogs/test-view-html-2.png)
 
-### Allow failing tests
+Or using the `clear-text` reporter:
 
-Up until now stryker needed a 100% succeeding testrun to ensure your mutation score is correct. But now you can run stryker even on a failing testset.
+![text test view](/images/blogs/test-view-console.png)
 
-This can be useful for example when
+The test view tells you at a glance which tests are _killing_ mutants, which are merely _covering_ mutants (without killing) and which are _not covering_ any mutants. Furthermore, you can determine which mutants were covered or killed by that particular test case. Finding out so much information about your tests has never been this easy!
 
-### Extensive mutant filtering
+A couple of caveats to point out:
 
-inline comments and linq
-
-### Multi target support
-
-### Statement mutator
+- The `Covering` state will only be available when selecting the [`perTest` coverage analysis setting](https://stryker-mutator.io/docs/stryker-js/configuration#coverageanalysis-string).
+- StrykerJS always runs your tests with `bail` mode active (or `failFast` in jasmine), making your test runner stop after the first failing test. As a result, a mutant can only be killed by one test. If you have overlap in asserts across tests, other tests might be marked as "Covering", while they would kill a mutant when run in isolation.
+- Some mutants are executed as soon as your file _is loaded_ instead of during _test execution_. We call these mutants _static mutants_, and all your tests are executed as a result. For example:
+  ```diff
+  // hello.js
+  -export const hello ='👋'
+  +export const hello = ''
+  ```
+  A test that for `hello` might look like:
+  ```js
+  import { hello } from './hello.js';
+  describe('hello', () => {
+    it('should be a string', () => expect(typeof hello).toBe('string'));
+  });
+  ```
+  As you can see, this is a relatively weak test that doesn't kill this mutant. You might assume that this test covers the mutant, but upon further inspection, you'll notice that `hello` is declared as soon as the file loads. There is no way for Stryker to know that this test is supposed to cover the mutant. As a result, the test is marked as "Not Covering".
+- Currently, only the `@stryker-mutator/jest-runner` can group your tests in their original test files. Running with another test runner will result in your tests being displayed in a list instead.
 
 ## 🤷‍♂️ Discovering files
 
