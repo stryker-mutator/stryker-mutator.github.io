@@ -187,7 +187,7 @@ Example:
 
 ### MsBuild path option
 
-By default stryker tries to autodiscover msbuild on your system. If stryker fails to discover the correct msbuild you may supply the path to msbuild manually with this option.
+By default Stryker tries to autodiscover msbuild on your system. If Stryker fails to discover the correct msbuild you may supply the path to msbuild manually with this option.
 
 Example:
 
