@@ -103,7 +103,7 @@ Options migration overview:
 
 An exciting set of new features has been added with this release! Let's walk trough them all:
 
-### Statement removal mutations
+### Statement removal mutator
 
 We introduced a new mutator that removes statements that otherwise would have been untouched by other mutators. 
 
@@ -129,13 +129,13 @@ It's now possible to filter mutants at source code level. This gives the most fi
 
 The syntax for the comments is: `Stryker [disable|restore][once][all| mutator list][: reason for disabling]`
 
-`// Stryker disable all` Disables all mutations from that line on.
+`// Stryker disable all` Disables all mutants from that line on.
 
-`// Stryker restore all` re-enables all mutations from that line on.
+`// Stryker restore all` re-enables all mutants from that line on.
 
-`// Stryker disable once all` will only disable mutations on the next line.
+`// Stryker disable once all` will only disable mutants on the next line.
 
-`// Stryker disable once Arithmetic,Update` will only disable Arithmetic and Update mutations on the next line
+`// Stryker disable once Arithmetic,Update` will only disable Arithmetic and Update mutants on the next line
 
 Example:
 
@@ -158,7 +158,7 @@ i--; // won't be mutated
 
 ### Ignore mutations
 
-The ignore mutations option has been extended to offer more fine grained control. Before v1.x it was possible to ignore complete mutators. Now it's possible to ignore specific mutations inside these mutators as well.
+The ignore mutations option has been extended to offer more fine grained control. Before v1.x it was possible to ignore complete mutators. Now it's possible to ignore specific mutants inside these mutators as well.
 
 Example:
 
