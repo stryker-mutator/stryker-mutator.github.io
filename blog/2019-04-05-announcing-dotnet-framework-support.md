@@ -34,7 +34,7 @@ Calculating the percentage of mutants that were killed results in the mutation s
 It is the only way to measure _your tests effectiveness_. It's really as simple as that.
 
 To cover as much logic as possible Stryker.NET provides a wide range of mutations.
-An overview of these mutations can be found [here](../docs/stryker-net/Mutators).
+An overview of these mutations can be found [here](../docs/stryker-net/mutators).
 You can run Stryker.NET with .NET Core on Windows, Mac and Linux as well as .NET Framework on Windows.
 
 ## 💪 Start using Stryker.NET
