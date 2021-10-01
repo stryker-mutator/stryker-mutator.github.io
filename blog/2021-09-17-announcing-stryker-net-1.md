@@ -103,6 +103,22 @@ Options migration overview:
 
 An exciting set of new features has been added with this release! Let's walk trough them all:
 
+### Statement removal mutations
+
+We introduced a new mutator that removes statements that otherwise would have been untouched by other mutators. 
+
+![](./../static/images/blogs/statement-mutation.png)
+
+The mutator will remove the following statements:
+- ReturnStatement
+- BreakStatement
+- ContinueStatement
+- GotoStatement
+- ThrowStatement
+- YieldReturnStatement
+- YieldBreakStatement
+- ExpressionStatement
+
 ### Allow failing tests
 
 It's now allowed to start a mutation test run even with failing tests. Stryker will try to make the best of the situation by marking mutants that are covered by `initially failing tests` as `survived`.
@@ -156,39 +172,6 @@ Example:
 ```
 
 > Note: this only works for Linq mutations for now.
-
-All possible mutations:
-
-```
-None,
-Distinct,
-Reverse,
-Average,
-AsEnumerable,
-OrderBy,
-OrderByDescending,
-FirstOrDefault,
-First,
-SingleOrDefault,
-Single,
-Last,
-All,
-Any,
-Skip,
-Take,
-SkipWhile,
-TakeWhile,
-Min,
-Max,
-Sum,
-Count,
-ThenBy,
-ThenByDescending,
-Union,
-Intersect,
-Concat,
-Except
-```
 
 ### MsBuild path option
 
