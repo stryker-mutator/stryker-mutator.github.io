@@ -10,7 +10,7 @@ tags: [stryker.net]
 
 # Announcing Stryker.NET 1.0 - No more beta!
 
-We're proud to announce the first major release of Stryker.NET: 1.0. It comes with exciting new features and a overhaul of how options work. It should now be easier to use.
+We're proud to announce the first major release of Stryker.NET: 1.0. It comes with exciting new features and an overhaul of how you interact with the stryker cli. With the release of stryker 1.0 we wanted to make sure we created a cohesive and intuitive user experience.
 
 <!--truncate-->
 
@@ -18,9 +18,17 @@ If you're new to mutation testing, it's a way to measure your tests' effectivene
 
 If you're new to Stryker.NET, please follow our [Getting started guide](https://stryker-mutator.io/docs/stryker-net/getting-started/). Are you already using Stryker.NET? Update to the latest version with the following command:
 
+
+Global install:
 ```shell
-dotnet tool update -g dotnet-stryker
+dotnet tool update dotnet-stryker --global
 ```
+
+Project install:
+```shell
+dotnet tool update dotnet-stryker --local
+```
+
 
 With that out of the way, let's dive into the new stuff!
 
@@ -33,6 +41,8 @@ The .NET runtime for Stryker.NET has been updated from 3.1 to 5.0.
 This should have some performance benefits. And helps with developing Stryker.NET in the future.
 
 Please [download and install .NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0) or update your pipeline to support .NET 5.
+
+_Note that you do not have to update your application to use dotnet 5. Dotnet 5 is only a runtime requirement for stryker to be able to run on your system._
 
 ### ⏭ Options rework
 
@@ -54,7 +64,7 @@ dotnet stryker --reporter "html" --reporter "progress"
 
 #### Options migration guide
 
-A lot of options have been renamed or have been removed from the CLI. They can now only be passed in the JSON. Other options are now only available trough CLI. For example a API key should not be stored in JSON so that possibility has been removed.
+A lot of options have been renamed. We have also decided that some options either do not belong on the commandline or don't belong in the configuration file. For example an API key should not be stored in the configuration file so that possibility has been removed.
 
 Options migration overview:
 
@@ -99,9 +109,9 @@ Options migration overview:
 
 ❌ means the option has been removed.
 
-## 🚀 Whats new?
+## 🚀 What's new?
 
-An exciting set of new features has been added with this release! Let's walk trough them all:
+An exciting set of new features has been added with this release! Let's walk through them all:
 
 ### Statement removal mutator
 
@@ -125,7 +135,7 @@ It's now allowed to start a mutation test run even with failing tests. Stryker w
 
 ### Mutant filtering
 
-It's now possible to filter mutants at source code level. This gives the most fine grained level of control.
+It's now possible to filter mutants at source code level using special comments. This gives the most fine grained level of control.
 
 The syntax for the comments is: `Stryker [disable|restore][once][all| mutator list][: reason for disabling]`
 
@@ -156,6 +166,8 @@ y++; // will be mutated
 i--; // won't be mutated
 ```
 
+_Note that this feature is scope aware. If you disable mutations inside a method, the scope will not leak outside the method even if there is more code below._
+
 ### Ignore mutations
 
 The ignore mutations option has been extended to offer more fine grained control. Before v1.x it was possible to ignore complete mutators. Now it's possible to ignore specific mutants inside these mutators as well.
@@ -171,11 +183,11 @@ Example:
 }
 ```
 
-> Note: this only works for Linq mutations for now.
+> Note: this only works for Linq mutations for now but we plan to bring this functionality to all mutations.
 
 ### MsBuild path option
 
-By default stryker tries to autodiscover msbuild on your system. If stryker fails to discover msbuild you may supply the path to msbuild manually with this option.
+By default stryker tries to autodiscover msbuild on your system. If stryker fails to discover the correct msbuild you may supply the path to msbuild manually with this option.
 
 Example:
 
@@ -199,7 +211,7 @@ Example:
 
 ### Filter test cases
 
-A long awaited feature has finally found its way into Stryker! It is now possible to exclude some test cases. For example if you have long running integration tests in your unit test project they can be disabled for Stryker. This will improve runtime.
+A long awaited feature has finally found its way into Stryker! It is now possible to exclude some test cases. For example if you have long running integration tests in your unit test project they can be disabled for Stryker. This will improve run time.
 
 Example:
 
@@ -227,22 +239,22 @@ Enable this by adding the following to your `.csproj`:
   </ItemGroup>
 ```
 
-For full info on how to enable SourceLink using ReproducibleBuilds see [their readme](https://github.com/dotnet/reproducible-builds/blob/main/README.md)
+For more information on SourceLink and  ReproducibleBuilds see [SourceLink](https://github.com/dotnet/sourcelink) and [Dotnet.ReproducibleBuilds](https://github.com/dotnet/reproducible-builds)
 
 ## 🐛 Bug fixes
 
 ### No more mutated assembly on disk after stryker run
 
-Internally Stryker replaces the `.dll` on your disk when running. Up till now the mutated assembly stayed in place. This had some unintended side effects. For example code coverage results are incorrect when run on a mutated assembly. And there was the risk of accidentally releasing/publishing the mutated assembly instead of the original one in a pipeline.
+While mutation testing Stryker replaces your system under test assembly on disk. Up till now the mutated assembly stayed in place after mutation testing was done. This had some unintended side effects. For example code coverage results could be incorrect until you rebuild your project and there was the risk of accidentally releasing/publishing the mutated assembly instead of the original if you did not rebuild you project after mutation testing in your pipelines. We now copy your original assembly before we modify it, and place it back after we're done. No more rebuild required!
 
 ## 👪 Team expansion 
 
-We welcome [Cyrille DUPUYDAUBY](https://github.com/dupdob) to the team of Stryker maintainers. This was well earned after continued support and development since Nov 26, 2018! 
+We welcome [Cyrille DUPUYDAUBY](https://github.com/dupdob) to the team! They have supported us with feedback, testing and development since 2018 and it was long past that we officially recognized his contributions to the project! 
 
 ## 🎉 Thank you
 
-Thanks to everyone for your continued support! Have questions or issues? Don't hesitate to contact us on [Slack](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM), on [Twitter](https://twitter.com/stryker_mutator/) or open [an issue](https://github.com/stryker-mutator/stryker-net/issues/new/choose).
+Thanks to everyone for your continued support! Have questions or issues? Don't hesitate to contact us on [Slack](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM), on [Twitter](https://twitter.com/stryker_mutator/), 
+ [open an issue or start a discussion](https://github.com/stryker-mutator/stryker-net/issues/new/choose).
 
-Special thanks to [Cyrille DUPUYDAUBY](https://github.com/dupdob), [Peter Semkin](https://github.com/psfinaki), [Philip Rowan
-](https://github.com/philrowan-mtb), [Corentin Altepe](https://github.com/corentinaltepe), [Cédric Luthi](https://github.com/0xced), [Gregory Bell](https://github.com/grbell-ms), [John McGlynn](https://github.com/JohnMcGlynnMSFT), [Beatrice Forslund](https://github.com/Bforslund) and [dukedagmor](https://github.com/dukedagmor) for their efforts to make this release happen 👏
+Special thanks to [Cyrille DUPUYDAUBY](https://github.com/dupdob), [Peter Semkin](https://github.com/psfinaki), [Philip Rowan](https://github.com/philrowan-mtb), [Corentin Altepe](https://github.com/corentinaltepe), [Cédric Luthi](https://github.com/0xced), [Gregory Bell](https://github.com/grbell-ms), [John McGlynn](https://github.com/JohnMcGlynnMSFT), [Beatrice Forslund](https://github.com/Bforslund) and [dukedagmor](https://github.com/dukedagmor) and anyone else we may have missed for their efforts to make this release happen 👏 We truly appreciate all the help and feedback we receive!
 
