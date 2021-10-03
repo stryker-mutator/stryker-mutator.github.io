@@ -121,14 +121,14 @@ We introduced a new mutator that removes statements that otherwise would have be
 
 The mutator will remove the following statements:
 
-- ReturnStatement
-- BreakStatement
-- ContinueStatement
-- GotoStatement
-- ThrowStatement
-- YieldReturnStatement
-- YieldBreakStatement
-- ExpressionStatement
+- Return
+- Break
+- Continue
+- Goto
+- Throw
+- YieldReturn
+- YieldBreak
+- Expression
 
 ### Allow failing tests
 
@@ -250,22 +250,8 @@ While mutation testing Stryker replaces your system under test assembly on disk.
 
 ## 👪 Team expansion
 
-<<<<<<< HEAD
-We welcome [Cyrille DUPUYDAUBY](https://github.com/dupdob) to the team of Stryker maintainers. This was well earned after continued support and development since Nov 26, 2018!
-=======
 We welcome [Cyrille DUPUYDAUBY](https://github.com/dupdob) to the team! They have supported us with feedback, testing and development since 2018 and it was long past that we officially recognized his contributions to the project!
-
-> > > > > > > 1647dceb9a07eba8d3bc22818aa4daaa169af701
 
 ## 🎉 Thank you
 
-Thanks to everyone for your continued support! Have questions or issues? Don't hesitate to contact us on [Slack](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM), on [Twitter](https://twitter.com/stryker_mutator/),
-[open an issue or start a discussion](https://github.com/stryker-mutator/stryker-net/issues/new/choose).
-
-<<<<<<< HEAD
-Special thanks to [Cyrille DUPUYDAUBY](https://github.com/dupdob), [Peter Semkin](https://github.com/psfinaki), [Philip Rowan
-](https://github.com/philrowan-mtb), [Corentin Altepe](https://github.com/corentinaltepe), [Cédric Luthi](https://github.com/0xced), [Gregory Bell](https://github.com/grbell-ms), [John McGlynn](https://github.com/JohnMcGlynnMSFT), [Beatrice Forslund](https://github.com/Bforslund) and [dukedagmor](https://github.com/dukedagmor) for their efforts to make this release happen 👏
-=======
-Special thanks to [Cyrille DUPUYDAUBY](https://github.com/dupdob), [Peter Semkin](https://github.com/psfinaki), [Philip Rowan](https://github.com/philrowan-mtb), [Corentin Altepe](https://github.com/corentinaltepe), [Cédric Luthi](https://github.com/0xced), [Gregory Bell](https://github.com/grbell-ms), [John McGlynn](https://github.com/JohnMcGlynnMSFT), [Beatrice Forslund](https://github.com/Bforslund) and [dukedagmor](https://github.com/dukedagmor) and anyone else we may have missed for their efforts to make this release happen 👏 We truly appreciate all the help and feedback we receive!
-
-> > > > > > > 1647dceb9a07eba8d3bc22818aa4daaa169af701
+Special thanks to [Cyrille DUPUYDAUBY](https://github.com/dupdob), [Peter Semkin](https://github.com/psfinaki), [Philip Rowan](https://github.com/philrowan-mtb), [Corentin Altepe](https://github.com/corentinaltepe), [Cédric Luthi](https://github.com/0xced), [Gregory Bell](https://github.com/grbell-ms), [John McGlynn](https://github.com/JohnMcGlynnMSFT), [Beatrice Forslund](https://github.com/Bforslund), [dukedagmor](https://github.com/dukedagmor) and anyone else we may have missed for their efforts to make this release happen 👏 We truly appreciate all the help and feedback we receive!
