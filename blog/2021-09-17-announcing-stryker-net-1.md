@@ -5,7 +5,7 @@ author: Richard Werkman
 author_title: Stryker Team
 author_url: https://github.com/richardwerkman
 author_image_url: https://avatars.githubusercontent.com/u/14224500?v=4
-tags: [stryker.net]
+tags: [stryker.net, release, mutation testing, stryker mutator, stryker]
 ---
 
 # Announcing Stryker.NET 1.0 - No more beta!
