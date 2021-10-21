@@ -31,7 +31,7 @@
   "homepage": "https://github.com/stryker-mutator/stryker-mutator.github.io#readme",
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.7",
-    "@docusaurus/plugin-client-redirects": "2.0.0-beta.7",
+    "@docusaurus/plugin-client-redirects": "2.0.0-beta.8",
     "@docusaurus/preset-classic": "2.0.0-beta.7",
     "clsx": "^1.1.1",
     "mermaid": "^8.13.3",
