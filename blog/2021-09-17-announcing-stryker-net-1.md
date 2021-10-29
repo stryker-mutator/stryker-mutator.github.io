@@ -10,7 +10,7 @@ tags: [stryker.net, release, mutation testing, stryker mutator, stryker]
 
 # Announcing Stryker.NET 1.0 - No more beta!
 
-We're proud to announce the first major release of Stryker.NET: 1.0. It comes with exciting new features and an overhaul of how you interact with the stryker cli. With the release of stryker 1.0 we wanted to make sure we created a cohesive and intuitive user experience.
+We're proud to announce the first major release of Stryker.NET: 1.0. It comes with exciting new features and an overhaul of how you interact with the Stryker CLI. With the release of Stryker 1.0 we wanted to make sure we created a cohesive and intuitive user experience.
 
 <!--truncate-->
 
@@ -42,7 +42,7 @@ This should have some performance benefits. And helps with developing Stryker.NE
 
 Please [download and install .NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0) or update your pipeline to support .NET 5.
 
-_Note that you do not have to update your application to use dotnet 5. Dotnet 5 is only a runtime requirement for stryker to be able to run on your system._
+_Note that you do not have to update your application to use dotnet 5. Dotnet 5 is only a runtime requirement for Stryker to be able to run on your system._
 
 ### ⏭ Options rework
 
@@ -226,9 +226,9 @@ Example:
 
 Uses `dotnet test --filter` option syntax, [detailed here](https://docs.microsoft.com/en-us/dotnet/core/testing/selective-unit-tests).
 
-### Use source link for dashboard reporter
+### Use Source Link for dashboard reporter
 
-Filling all settings to use the dashboard reporter could be a bit of a hustle. Thanks to [SourceLink](https://github.com/dotnet/sourcelink#readme), the repository URL and the full version (including the git SHA1) of a project can be included in the produced assembly.
+Filling all settings to use the dashboard reporter could be a bit of a hustle. Thanks to [Source Link](https://github.com/dotnet/sourcelink#readme), the repository URL and the full version (including the git SHA1) of a project can be included in the produced assembly.
 
 Stryker now uses the information computed by SourceLink to automatically retrieve the project name (github.com/organization/project) and project version which are required for the dashboard reporter.
 
@@ -244,13 +244,13 @@ For more information on SourceLink and ReproducibleBuilds see [SourceLink](https
 
 ## 🐛 Bug fixes
 
-### No more mutated assembly on disk after stryker run
+### No more mutated assembly on disk after Stryker run
 
-While mutation testing Stryker replaces your system under test assembly on disk. Up till now the mutated assembly stayed in place after mutation testing was done. This had some unintended side effects. For example code coverage results could be incorrect until you rebuild your project and there was the risk of accidentally releasing/publishing the mutated assembly instead of the original if you did not rebuild you project after mutation testing in your pipelines. We now copy your original assembly before we modify it, and place it back after we're done. No more rebuild required!
+While mutation testing Stryker replaces your system under test assembly on disk. Up till now the mutated assembly stayed in place after mutation testing was done. This had some unintended side effects. For example code coverage results could be incorrect until you rebuild your project and there was the risk of accidentally releasing/publishing the mutated assembly instead of the original if you did not rebuild your project after mutation testing in your pipelines. We now copy your original assembly before we modify it, and place it back after we're done. No more rebuild required!
 
 ## 👪 Team expansion
 
-We welcome [Cyrille DUPUYDAUBY](https://github.com/dupdob) to the team! They have supported us with feedback, testing and development since 2018 and it was long past that we officially recognized his contributions to the project!
+We welcome [Cyrille DUPUYDAUBY](https://github.com/dupdob) to the team! They have supported us with feedback, testing and development since 2018 and it was long past that we officially recognized their contributions to the project!
 
 ## 🎉 Thank you
 
