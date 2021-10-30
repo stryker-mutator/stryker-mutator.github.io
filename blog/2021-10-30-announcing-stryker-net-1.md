@@ -244,6 +244,10 @@ Enable this by adding the following to your `.csproj`:
 
 For more information on SourceLink and ReproducibleBuilds see [SourceLink](https://github.com/dotnet/sourcelink) and [Dotnet.ReproducibleBuilds](https://github.com/dotnet/reproducible-builds)
 
+### Block removal mutations
+
+Finally the last missing "common" mutation is added to Stryker.NET! Block removal mutations empty every block statement in your code. This means method bodies or statement bodies (if, while, for). With this mutation Stryker will have improved coverage on your complete codebase. Every method will have at least one mutation and thus should have at least one test.
+
 ## 🐛 Bug fixes
 
 ### No more mutated assembly on disk after Stryker run
