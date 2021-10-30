@@ -1,5 +1,5 @@
 ---
-slug: 2021-09-17-announcing-stryker-net-1.md
+slug: 2021-30-10-announcing-stryker-net-1.md
 title: Announcing Stryker.NET 1.0
 author: Richard Werkman
 author_title: Stryker Team
@@ -10,7 +10,7 @@ tags: [stryker.net, release, mutation testing, stryker mutator, stryker]
 
 # Announcing Stryker.NET 1.0 - No more beta!
 
-We're proud to announce the first major release of Stryker.NET: 1.0. It comes with exciting new features and an overhaul of how you interact with the Stryker CLI. With the release of Stryker 1.0 we wanted to make sure we created a cohesive and intuitive user experience.
+We're proud to announce the first major release of Stryker.NET: 1.0. It comes with exciting new features and an overhaul of how you interact with the Stryker CLI. With the release of Stryker 1.0, we wanted to create a cohesive and intuitive user experience.
 
 <!--truncate-->
 
@@ -38,7 +38,7 @@ With that out of the way, let's dive into the new stuff!
 
 The .NET runtime for Stryker.NET has been updated from 3.1 to 5.0.
 
-This should have some performance benefits. And helps with developing Stryker.NET in the future.
+This update should have some performance benefits, and it will help with developing Stryker.NET in the future.
 
 Please [download and install .NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0) or update your pipeline to support .NET 5.
 
@@ -46,17 +46,19 @@ _Note that you do not have to update your application to use dotnet 5. Dotnet 5 
 
 ### ⏭ Options rework
 
-Almost all options have been renamed or work different. A fundamental difference on the CLI is how multi value options are passed.
+Most options have been renamed or work differently. 
+
+A fundamental difference is how you pass multi-value options from the command line.
 
 #### Multi value options
 
-The old annotation for passing multi value options was confusing and not based on any standards. For example this is how multiple reporters were passed 👎
+The old annotation for passing multi-value options was confusing and not based on any standards. For example, this is how you provided multiple reporters pre 1.0 👎
 
 ```shell
 dotnet stryker --reporters "['html', 'progress']"
 ```
 
-This now looks like 👍
+From 1.0 onward, this now looks like 👍
 
 ```shell
 dotnet stryker --reporter "html" --reporter "progress"
@@ -64,7 +66,7 @@ dotnet stryker --reporter "html" --reporter "progress"
 
 #### Options migration guide
 
-A lot of options have been renamed. We have also decided that some options either do not belong on the commandline or don't belong in the configuration file. For example an API key should not be stored in the configuration file so that possibility has been removed.
+Most options have a new name. We have also decided that some options either don't belong on the commandline or don't belong in the configuration file. For example, an API key should not be stored in the configuration file so that possibility has been removed.
 
 Options migration overview:
 
@@ -111,7 +113,7 @@ Options migration overview:
 
 ## 🚀 What's new?
 
-An exciting set of new features has been added with this release! Let's walk through them all:
+This release comes packed with new features! Let's walk through them all:
 
 ### Statement removal mutator
 
@@ -132,11 +134,11 @@ The mutator will remove the following statements:
 
 ### Allow failing tests
 
-It's now allowed to start a mutation test run even with failing tests. Stryker will try to make the best of the situation by marking mutants that are covered by `initially failing tests` as `survived`.
+It's now allowed to start a mutation test run even with failing tests. Stryker will try to make the best of the situation by marking mutants covered by `initially failing tests` as `survived`.
 
 ### Mutant filtering
 
-It's now possible to filter mutants at source code level using special comments. This gives the most fine grained level of control.
+It's now possible to filter mutants at the source code level using special comments. This filtering gives the most fine-grained level of control.
 
 The syntax for the comments is: `Stryker [disable|restore][once][all| mutator list][: reason for disabling]`
 
@@ -167,11 +169,11 @@ y++; // will be mutated
 i--; // won't be mutated
 ```
 
-_Note that this feature is scope aware. If you disable mutators inside a method, the scope will not leak outside the method even if there is more code below._
+_Note that this feature is scope aware. If you disable mutators inside a method, the scope will not leak outside the method, even if there is more code below._
 
 ### Ignore mutations
 
-The ignore mutations option has been extended to offer more fine grained control. Before v1.x it was possible to ignore complete mutators. Now it's possible to ignore specific mutants inside these mutators as well.
+The `ignore-mutations` option now offers more fine-grained control. Before v1.0 it was possible to ignore complete mutators. Now it's possible to ignore specific mutants inside these mutators as well.
 
 Example:
 
@@ -184,11 +186,11 @@ Example:
 }
 ```
 
-> Note: this only works for Linq mutations for now but we plan to bring this functionality to all mutations.
+> Note: this only works for Linq mutations for now, but we plan to bring this functionality to all mutations.
 
 ### MsBuild path option
 
-By default Stryker tries to autodiscover msbuild on your system. If Stryker fails to discover the correct msbuild you may supply the path to msbuild manually with this option.
+By default Stryker tries to auto-discover MSBuild on your system. However, if Stryker fails to discover the correct MSBuild, you may manually supply the path with this option.
 
 Example:
 
@@ -198,7 +200,7 @@ Example:
 
 ### Target framework
 
-If the project targets multiple frameworks, it is now possible to specify the particular framework to build against. If you specify a non-existent target, Stryker will build the project against a random one (or the only one if so).
+If the project targets multiple frameworks, it is now possible to specify the particular framework to build against. If you set a non-existent target, Stryker will build the project against a random one (or the only one if so).
 
 Example:
 
@@ -212,7 +214,7 @@ Example:
 
 ### Filter test cases
 
-A long awaited feature has finally found its way into Stryker! It is now possible to exclude some test cases. For example if you have long running integration tests in your unit test project they can be disabled for Stryker. This will improve run time.
+A long-awaited feature has finally found its way into Stryker! It is now possible to exclude some test cases. So, for example, if you have long-running integration tests in your unit test project, they can be disabled for Stryker, improving the performance.
 
 Example:
 
@@ -228,9 +230,9 @@ Uses `dotnet test --filter` option syntax, [detailed here](https://docs.microsof
 
 ### Use Source Link for dashboard reporter
 
-Filling all settings to use the dashboard reporter could be a bit of a hustle. Thanks to [Source Link](https://github.com/dotnet/sourcelink#readme), the repository URL and the full version (including the git SHA1) of a project can be included in the produced assembly.
+Filling all settings to use the dashboard reporter could be a bit of a hassle. However, thanks to [Source Link](https://github.com/dotnet/sourcelink#readme), the repository URL and the full version (including the git SHA1) of a project can be included in the produced assembly.
 
-Stryker now uses the information computed by SourceLink to automatically retrieve the project name (github.com/organization/project) and project version which are required for the dashboard reporter.
+Stryker now uses the information computed by SourceLink to automatically retrieve the project name (github.com/organization/project) and project version, both of which are requirements for the dashboard reporter.
 
 Enable this by adding the following to your `.csproj`:
 
@@ -246,11 +248,11 @@ For more information on SourceLink and ReproducibleBuilds see [SourceLink](https
 
 ### No more mutated assembly on disk after Stryker run
 
-While mutation testing Stryker replaces your system under test assembly on disk. Up till now the mutated assembly stayed in place after mutation testing was done. This had some unintended side effects. For example code coverage results could be incorrect until you rebuild your project and there was the risk of accidentally releasing/publishing the mutated assembly instead of the original if you did not rebuild your project after mutation testing in your pipelines. We now copy your original assembly before we modify it, and place it back after we're done. No more rebuild required!
+During mutation testing, Stryker replaces your system under test assembly on disk. Up till now, the mutated assembly stayed in place after mutation testing was done. This had some unintended side effects. For example, code coverage results could be incorrect until you rebuild your project, and there was the risk of accidentally releasing/publishing the mutated assembly instead of the original if you did not rebuild your project after mutation testing in your pipelines. We now copy your original assembly before we modify it and place it back after mutation testing. No more rebuild required!
 
 ## 👪 Team expansion
 
-We welcome [Cyrille DUPUYDAUBY](https://github.com/dupdob) to the team! They have supported us with feedback, testing and development since 2018 and it was long past that we officially recognized their contributions to the project!
+We welcome [Cyrille DUPUYDAUBY](https://github.com/dupdob) to the team! They have supported us with feedback, testing, and development since 2018. It was long past due that we officially recognized their contributions to the project!
 
 ## 🎉 Thank you
 
