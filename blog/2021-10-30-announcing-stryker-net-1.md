@@ -46,7 +46,7 @@ _Note that you do not have to update your application to use dotnet 5. Dotnet 5 
 
 ### ⏭ Options rework
 
-Most options have been renamed or work differently. 
+Most options have been renamed or work differently.
 
 A fundamental difference is how you pass multi-value options from the command line.
 
