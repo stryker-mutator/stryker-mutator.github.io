@@ -121,14 +121,14 @@ We introduced a new mutator that removes statements that otherwise would have be
 
 The mutator will remove the following statements:
 
-- Return
-- Break
-- Continue
-- Goto
-- Throw
-- YieldReturn
-- YieldBreak
-- Expression
+- `return`
+- `break`
+- `continue`
+- `goto`
+- `throw`
+- `yield return`
+- `yield break`
+- `expression`
 
 ### Allow failing tests
 
@@ -153,7 +153,7 @@ Example:
 ```csharp
 var i = 0;
 var y = 10;
-// Stryker disable all : reason for disable
+// Stryker disable all : for explanatory reasons
 i++; // won't be mutated
 y++; // won't be mutated
 // Stryker restore all
