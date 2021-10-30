@@ -50,4 +50,4 @@ git_clone_docs "stryker-js"
 git_clone_docs "mutation-testing-elements" "stryker-net-v1.0"
 rm -rf docs/mutation-testing-elements/packages
 git_clone_docs "stryker4s"
-git_clone_docs "stryker-net" "v1.0"
+git_clone_docs "stryker-net"
