@@ -98,7 +98,7 @@ Options migration overview:
 | dashboard-api-key             | dashboard-api-key                           | dashboard-api-key             | ❌                           |
 | project-name                  | ❌                                          | dashboard-project             | project-info.name            |
 | module-name                   | ❌                                          | dashboard-module              | project-info.module          |
-| project-version               | v \| version                                | dashboard-version             | project-info.version         |
+| dashboard-version             | v \| version                                | dashboard-version             | project-info.version         |
 | diff-ignore-files             | ❌                                          | diff-ignore-files             | since.ignore-changes-in      |
 | azure-storage-url             | ❌                                          | azure-storage-url             | baseline.azure-fileshare-url |
 | dashboard-fallback-version    | ❌                                          | dashboard-fallback-version    | baseline.fallback-version    |
