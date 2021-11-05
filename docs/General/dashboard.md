@@ -47,13 +47,15 @@ Enabling the dashboard reporter works the same across all implementations of Str
 
 The `project` and `version` settings can also be retrieved from your build servers environment. This is not supported for all CI providers or Stryker implementations. See the table below for the current support.
 
-|                | Stryker | Stryker.NET | Stryker4s |
-| -------------- | ------- | ----------- | --------- |
-| Travis         | ✅      | ❌          | ✅        |
-| CircleCI       | ✅      | ❌          | ✅        |
-| Azure dev/ops  | ❌      | ❌          | ❌        |
-| GitlabCI       | ❌      | ❌          | ❌        |
-| Github actions | ✅      | ❌          | ✅        |
+|                | Stryker | Stryker.NET[^1] | Stryker4s |
+| -------------- | ------- | --------------- | --------- |
+| Travis         | ✅      | ✅              | ✅        |
+| CircleCI       | ✅      | ✅              | ✅        |
+| Azure dev/ops  | ❌      | ✅              | ❌        |
+| GitlabCI       | ❌      | ✅              | ❌        |
+| Github actions | ✅      | ✅              | ✅        |
+
+[^1]: The `project` and `version` are automatically retrieved if your project is using [SourceLink](https://github.com/dotnet/sourcelink).
 
 ### Send a report via curl
 
