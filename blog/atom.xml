@@ -650,7 +650,7 @@ def filterOddAnd(specialNumber: Int): List[Int] = {
     .filter(isOdd)
     .filterNot(_.equals(specialNumber))
 }
-</code></pre><p>With this code base <code>filter</code> and <code>filterNot</code> could be mutated to there counterparts.
+</code></pre><p>With this code base <code>filter</code> and <code>filterNot</code> could be mutated to their counterparts.
 This would give us the following code base if we implement the pattern match at the direct position.</p><pre><code class="language-scala">def isEven(number: Int): Boolean = number % 2 == 0
 def isOdd(number: Int): Boolean = !isEven(number)
 
