@@ -117,7 +117,7 @@ def filterOddAnd(specialNumber: Int): List[Int] = {
 }
 ```
 
-With this code base `filter` and `filterNot` could be mutated to there counterparts.
+With this code base `filter` and `filterNot` could be mutated to their counterparts.
 This would give us the following code base if we implement the pattern match at the direct position.
 
 ```scala
