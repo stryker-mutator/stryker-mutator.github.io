@@ -28,11 +28,11 @@ Take these steps to enable the mutation score badge on your repository.
   <svg _ngcontent-c6="" height="50" width="250" xmlns="http://www.w3.org/2000/svg">
   <g _ngcontent-c6="">
   <title _ngcontent-c6="">background</title>
-  <rect _ngcontent-c6="" x="0" y="0" width="250" height="50" ry="20" rx="20" fill="#fff" r="50" stroke="#E7E8E6" stroke-width="1.5"></rect>
+  <rect _ngcontent-c6="" x="0" y="0" width="250" height="50" ry="20" rx="20" fill="#fff" r="50" stroke="#E7E8E6" strokeWidth="1.5"></rect>
   </g>
   <g _ngcontent-c6="">
   <title _ngcontent-c6="">Switch</title>
-  <text _ngcontent-c6="" text-anchor="start" x="10" y="30">username/reponame</text>
+  <text _ngcontent-c6="" textAnchor="start" x="10" y="30">username/reponame</text>
   <rect _ngcontent-c6="" fill="#E77964" height="20" rx="10" ry="50" width="45" x="180" y="15"></rect>
   <circle _ngcontent-c6="" cx="215" cy="25" fill="#b74934" r="13"></circle>
   </g>
