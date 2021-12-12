@@ -151,7 +151,12 @@ module.exports = {
       apiKey: '5cbcde3fafdb1be491bb20c96a86a211',
       indexName: 'stryker-mutator',
     },
-    metadatas: [{ name: 'og:type', content: 'website' }],
+    metadata: [
+      {
+        name: 'keywords',
+        content: 'mutation testing, JavaScript, TypeScript, C#, .NET, Scala, testing, testing tools, software',
+      },
+    ],
   },
   presets: [
     [

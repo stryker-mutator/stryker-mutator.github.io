@@ -13,6 +13,7 @@ import './Mermaid.css';
  * flowchart TD
  *   cr([Create Request]) --> backoffice[Backoffice Server REST]
  * `}/>
+ * @param {{chart: string, _key: string}} input
  */
 export default function Mermaid({ chart, _key }) {
   const id = `mermaid-${_key}`;
