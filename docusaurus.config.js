@@ -148,7 +148,8 @@ module.exports = {
       anonymizeIP: true, // Should IPs be anonymized?
     },
     algolia: {
-      apiKey: '5cbcde3fafdb1be491bb20c96a86a211',
+      appId: 'QF3A1J09N2',
+      apiKey: 'b0ec9342a88037eafe5fa4fd412b8b35',
       indexName: 'stryker-mutator',
     },
     metadata: [
