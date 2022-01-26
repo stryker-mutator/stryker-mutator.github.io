@@ -142,11 +142,7 @@ module.exports = {
       theme: require('prism-react-renderer/themes/github'),
       darkTheme: require('prism-react-renderer/themes/dracula'),
     },
-    googleAnalytics: {
-      trackingID: 'UA-104444094-1',
-      // Optional fields.
-      anonymizeIP: true, // Should IPs be anonymized?
-    },
+
     algolia: {
       appId: 'QF3A1J09N2',
       apiKey: 'b0ec9342a88037eafe5fa4fd412b8b35',
@@ -173,6 +169,11 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        googleAnalytics: {
+          trackingID: 'UA-104444094-1',
+          // Optional fields.
+          anonymizeIP: true, // Should IPs be anonymized?
         },
       },
     ],
