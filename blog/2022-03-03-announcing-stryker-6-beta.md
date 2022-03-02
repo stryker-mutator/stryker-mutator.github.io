@@ -75,7 +75,7 @@ Next, Stryker creates _worker_ processes. A worker process is responsible for ac
 1. Activate the mutant
 1. _Load all files_, using `require`
 1. Run the tests with the test runner of choice.
-1. _Unload all files_, using [`delete require.cache['path/to/cjs/module']`](https://nodejs.org/api/modules.html#requirecache), to prepare for the next run.
+1. _Unload all files_, using [`delete require.cache['path/to/cjs/module']`](https://nodejs.org/api/modules.html#requirecache) to prepare for the next run.
 1. Report the result
 
 As you can see, _all files are loaded and unloaded_ for each mutant run. This "reloading" [won't ever work with native ESM](https://github.com/nodejs/tooling/issues/51), as there is simply no `cache` we can `delete` the loaded files from 🤷‍♀️.
