@@ -68,7 +68,7 @@ function add(a, b) {
 }
 ```
 
-Next, Stryker creates _worker_ processes. A worker process is responsible for activating a mutant, running tests, and reporting the result to the main process. To do that, it uses the test runner of your choice, for example, [mocha](mochajs.org/). For NodeJS-based test runners, it would look something like this:
+Next, Stryker creates _worker_ processes. A worker process is responsible for activating a mutant, running tests, and reporting the result to the main process. To do that, it uses the test runner of your choice, for example, [mocha](https://mochajs.org/). For NodeJS-based test runners, it would look something like this:
 
 (old process)
 
@@ -105,13 +105,13 @@ The result is a significant performance improvement 🐇. You can clearly see th
 
 That's a whopping 70% performance improvement 🤯.
 
-We call this feature "hot reload," and StrykerJS supports it in `@stryker-mutator/mocha-runner` and `@stryker-mutator/jasmine-runner`. Please note that this feature is always on from version 6 onward, even for plain old CommonJS style projects! It does require a higher version of mocha or jasmine, respectively, see [breaking changes](#-breaking-changes). Support for `@stryker-mutator/cucumber-runner` is planned in the future.
+We call this feature "hot reload," and StrykerJS supports it in `@stryker-mutator/mocha-runner` and `@stryker-mutator/jasmine-runner`. Please note that this feature is always on from version 6 onward, even for plain old CommonJS style projects! It does require a higher version of mocha or jasmine, respectively, see [breaking changes](#-breaking-changes). Support for `@stryker-mutator/cucumber-runner` for the release of version 8 of `@cucumber/cucumber`.
 
-Unfortunately, we won't be supporting hot reload for the `@stryker-mutator/jest-runner` any time soon since it lacks a proper public API.
+Unfortunately, we're not supporting hot reload for the `@stryker-mutator/jest-runner` or `@stryker-mutator/karma-runner` yet, please up-vote [#3455](https://github.com/stryker-mutator/stryker-js/issues/3455) or [#3454](https://github.com/stryker-mutator/stryker-js/issues/3454) respectively if you want to see it happen 💙.
 
-## 🗿 `--ignoreStatic`
+## 🗿 Ignore static
 
-Yes, indeed, hot reload sounds incredible! Until you start to consider _static mutants_.
+Yes, indeed, hot reload sounds incredible! But what about _static mutants_?
 
 A static mutant is a mutant that is executed once on _file load_ rather than during _test runtime_.
 
@@ -146,11 +146,11 @@ When you consider mutant schemata, the actual code produced by StrykerJS looks m
 const hi = global.activeMutant === '1' ? '' : '👋';
 ```
 
-Now consider that [hot reload](#hot-reload) means that a mutant is only activated during the runtime of the tests instead of at load time. So it would mean that this mutant _survives no matter how good your tests are_. We can't have that 😪.
+Now consider that [hot reload](#-hot-reload) means that a mutant is only activated during the runtime of the tests instead of at load time. So it would mean that this mutant _survives no matter how good your tests are_. We can't have that 😪.
 
-That's why StrykerJS will detect static mutants and _still follow the old process_ to test them. However, instead of reloading the files (remember, this won't work for ESM files), it will create a new and shiny worker process for every static mutant run (for NodeJS based test runners).
+That's why StrykerJS will detect static mutants and _still follow the old process_ to test them. However, instead of reloading the files (remember, this won't work for ESM files), it will create a shiny, new worker process for every static mutant run (for NodeJS-based test runners).
 
-Creating new worker processes to test static mutants makes testing them much more expensive in StrykerJS v6. Also, they are generally less interesting for you to spend your time on since they include constant strings, numbers, etc. You might even want to ignore them entirely! This is where `--ignoreStatic` comes in.
+Creating new worker processes to test static mutants makes them much more expensive in StrykerJS v6. Also, they are generally less interesting for you to spent your time on since they include constant strings, numbers, etc. You might even want to ignore them entirely! This is where `--ignoreStatic` comes in.
 
 With `--ignoreStatic` static mutants are ... well ignored. You can still see them in your HTML report, but they won't count towards your mutation score.
 
@@ -164,7 +164,7 @@ Please try this feature out and provide feedback. We're also thinking of better 
 
 ## 📃 ESM-based config
 
-From v6 onward, StrykerJS itself is distributed as pure ESM. It also even support _your config_ as ESM. Either by adding `{ "type": "module" }` to your package.json file, or by renaming `stryker.conf.js` to `stryker.conf.mjs`.
+From v6 onward, StrykerJS also supports _your config_ as ESM. Either by adding `{ "type": "module" }` to your package.json file, or by renaming `stryker.conf.js` to `stryker.conf.mjs`.
 
 ```js
 // stryker.conf.mjs
@@ -178,6 +178,8 @@ export default config;
 ```
 
 We've updated the `stryker init` command to emit this new config file format when choosing for "JavaScript" config format.
+
+_Note_: for completeness sake, `stryker.conf.cjs` is also supported.
 
 ## 💥 Breaking changes
 
