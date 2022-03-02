@@ -40,7 +40,7 @@ Enabling the dashboard reporter works the same across all implementations of Str
    - Configuring the "module is done via the `dashboard.module` configuration key.
    - Configuring the "version" is done via the `dashboard.version` configuration key. (default: retrieved from environment)
    - Configuring the "baseUrl" is done via the `dashboard.baseUrl` configuration key. It defaults to "[https://dashboard.stryker-mutator.io](https://dashboard.stryker-mutator.io)".
-   - Configuring the "reportType" is done via the `dashboard.reporType` configuration key.
+   - Configuring the "reportType" is done via the `dashboard.reportType` configuration key.
 3. Configuring the API key by setting the "STRYKER_DASHBOARD_API_KEY" variable.
 
 #### Retrieved from environment
