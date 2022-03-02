@@ -74,9 +74,8 @@ Next, Stryker creates _worker_ processes. A worker process is responsible for ac
 
 1. Activate the mutant
 2. Load the code using `require`
-   3.Run the tests with the test runner of choice.
-   _Unload all files_, using [`delete require.cache['path/to/cjs/module']`](https://nodejs.org/api/modules.html#requirecache), to prepare for the next run.
-   Report the result
+3. Run the tests with the test runner of choice. _Unload all files_, using [`delete require.cache['path/to/cjs/module']`](https://nodejs.org/api/modules.html#requirecache), to prepare for the next run. 
+4. Report the result
 
 As you can see, _all files are loaded and unloaded_ for each mutant run. This "reloading" [won't ever work with native ESM](https://github.com/nodejs/tooling/issues/51), as there is simply no `cache` we can `delete` the loaded files from 🤷‍♀️.
 
@@ -85,10 +84,11 @@ The reloading is also very expensive. Think about it: if your project contains 1
 When you think about it, it is also **unnecessary**; why not simply keep all files loaded? Since they contain all the mutants anyway. This new process looks something like this:
 
 (new process)
-(once) Load the code using `import`
-Activate the mutant
-Run the tests with the test runner of choice.
-Report the result
+
+1. (once) Load the code using `import`
+2. Activate the mutant
+3. Run the tests with the test runner of choice.
+4. Report the result
 
 The result is a significant performance improvement 🐇. You can clearly see the difference when running StrykerJS on Stryker's core itself:
 
