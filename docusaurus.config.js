@@ -19,7 +19,7 @@ module.exports = {
     announcementBar: {
       id: 'talk', // Any value that will identify this message.
       content:
-        '📽️ <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=Vq9eqZzblfg">Watch the talk "Who is testing your tests?" from <i>Scala Love in the City</i></a>',
+        '📽️ <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=sGwfwtkaDfk">Watch the video "How to test your tests in .NET" from <i>Nick Chapsas</i></a>',
       backgroundColor: 'var(--ifm-navbar-background-color, #fff)',
       textColor: 'var(--ifm-navbar-link-color, #000)',
       isCloseable: true,
