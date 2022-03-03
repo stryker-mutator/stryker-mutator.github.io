@@ -1,5 +1,5 @@
 ---
-slug: announcing-stryker-6-beta
+slug: announcing-stryker-js-v6.0-beta
 title: Announcing StrykerJS v6.0 Beta
 author: Nico Jansen
 author_title: Stryker Team
