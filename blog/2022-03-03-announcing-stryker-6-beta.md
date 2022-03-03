@@ -34,9 +34,9 @@ If you're new to mutation testing, it's a way to measure your tests' effectivene
 
 Now, let's dive into the changes! 🏊‍♂️
 
-## 📦 ESM support for NodeJS based test runners
+## 📦 ESM support for NodeJS-based test runners
 
-As stated in the introduction, StrykerJS v6 brings official support for ESM.
+As stated in the introduction, StrykerJS v6 brings official support for ESM projects.
 
 With ESM, you can use `import` and `export` statements. NodeJS has supported ESM since version 12. Browsers have gradually been adding support since 2017, and all major browsers support it by now. I recommend watching [Gil Tayar's introduction to ESM](https://www.youtube.com/watch?v=Zyoztl_7l7g) when you want to brush up on the ESM basics.
 
@@ -52,7 +52,7 @@ As you can see _no configuration change_ is needed. Updating StrykerJS is enough
 
 ## ⏩ Hot reload
 
-As you might know, StrykerJS uses mutation switching (sometimes called mutant schemata), meaning Stryker inserts all mutants into your source code yet only activate them one at a time.
+As you might know, StrykerJS uses mutation switching (sometimes called mutant schemata), meaning Stryker inserts all mutants into your source code yet only activates them one at a time.
 
 It looks something like this:
 
@@ -78,9 +78,9 @@ Next, Stryker creates _worker_ processes. A worker process is responsible for ac
 1. _Unload all files_, using [`delete require.cache['path/to/cjs/module']`](https://nodejs.org/api/modules.html#requirecache) to prepare for the next run.
 1. Report the result
 
-As you can see, _all files are loaded and unloaded_ for each mutant run. This "reloading" [won't ever work with native ESM](https://github.com/nodejs/tooling/issues/51), as there is simply no `cache` we can `delete` the loaded files from 🤷‍♀️.
+As you can see, _all files are loaded and unloaded_ for each mutant run. This way of reloading [won't ever work with native ESM](https://github.com/nodejs/tooling/issues/51), as there is simply no `cache` we can `delete` the loaded files from 🤷‍♀️.
 
-The reloading is also very expensive. Think about it: if your project contains 1k files, with a total of 10k mutants, it could mean a total of _ten million file IO actions_. That's why mutation testing with StrykerJS would slow down considerably when the size of your project grows.
+The reloading is also expensive. Think about it: if your project contains 1k files, with a total of 10k mutants, it could mean a total of _ten million file IO actions_. That's why mutation testing with StrykerJS would slow down considerably when the size of your project grows.
 
 When you think about it, it is also **unnecessary**; why not simply keep all files loaded? Since they contain all the mutants anyway. This new process looks something like this:
 
@@ -107,7 +107,7 @@ That's a whopping 70% performance improvement 🤯.
 
 We call this feature "hot reload," and StrykerJS supports it in `@stryker-mutator/mocha-runner` and `@stryker-mutator/jasmine-runner`. Please note that this feature is always on from version 6 onward, even for plain old CommonJS style projects! It does require a higher version of mocha or jasmine, respectively, see [breaking changes](#-breaking-changes). Support for `@stryker-mutator/cucumber-runner` for the release of version 8 of `@cucumber/cucumber`.
 
-Unfortunately, we're not supporting hot reload for the `@stryker-mutator/jest-runner` or `@stryker-mutator/karma-runner` yet, please up-vote [#3455](https://github.com/stryker-mutator/stryker-js/issues/3455) or [#3454](https://github.com/stryker-mutator/stryker-js/issues/3454) respectively if you want to see it happen 💙.
+Unfortunately, we're not supporting hot reload for the `@stryker-mutator/jest-runner` or `@stryker-mutator/karma-runner` yet; please up-vote [#3455](https://github.com/stryker-mutator/stryker-js/issues/3455) or [#3454](https://github.com/stryker-mutator/stryker-js/issues/3454) respectively if you want to see it happen 💙.
 
 ## 🗿 Ignore static
 
@@ -146,11 +146,11 @@ When you consider mutant schemata, the actual code produced by StrykerJS looks m
 const hi = global.activeMutant === '1' ? '' : '👋';
 ```
 
-Now consider that [hot reload](#-hot-reload) means that a mutant is only activated during the runtime of the tests instead of at load time. So it would mean that this mutant _survives no matter how good your tests are_. We can't have that 😪.
+When you now factor in [hot reload](#-hot-reload), you see that the mutant is only active during the runtime of the tests instead of at load time. This would mean that the mutant _survives no matter how good your tests are_. We can't have that 😪!
 
 That's why StrykerJS will detect static mutants and _still follow the old process_ to test them. However, instead of reloading the files (remember, this won't work for ESM files), it will create a shiny, new worker process for every static mutant run (for NodeJS-based test runners).
 
-Creating new worker processes to test static mutants makes them much more expensive in StrykerJS v6. Also, they are generally less interesting for you to spent your time on since they include constant strings, numbers, etc. You might even want to ignore them entirely! This is where `--ignoreStatic` comes in.
+Creating new worker processes to test static mutants makes them much more expensive in StrykerJS v6. Also, they are generally less interesting for you to spend your time on since they include constant strings, numbers, etc. You might even want to ignore them entirely! This is where `--ignoreStatic` comes in.
 
 With `--ignoreStatic` static mutants are ... well ignored. You can still see them in your HTML report, but they won't count towards your mutation score.
 
@@ -158,9 +158,9 @@ With `--ignoreStatic` static mutants are ... well ignored. You can still see the
 <figcaption>An ignored static mutant</figcaption>
 </figure>
 
-Your mileage may vary, but for running StrykerJS on Stryker's core itself, we [saw a whopping 50% performance improvement by ignoring 6% of our mutants (the static mutants) 🤯](https://github.com/stryker-mutator/stryker-js/issues/3282#issuecomment-980110861). For more details on static mutants, see [the new documentation on static mutants](../docs/mutation-testing-elements/static-mutants).
+Your mileage may vary, but for running StrykerJS on Stryker's core itself, we [saw a whopping 50% performance improvement by ignoring 6% of our mutants (the static mutants) 🤯](https://github.com/stryker-mutator/stryker-js/issues/3282#issuecomment-980110861). For more details on static mutants, see [the new documentation on on them](../docs/mutation-testing-elements/static-mutants).
 
-Please try this feature out and provide feedback. We're also thinking of better ways to point this feature out to users of Stryker, or even enable it by default. Feel free to voice your opinion in [the issue about it](https://github.com/stryker-mutator/stryker-js/issues/3435).
+Please try this feature out and provide feedback. We're also thinking of ways to point this feature out to users of Stryker, or even enable it by default. Feel free to voice your opinion in [the GitHub issue about it](https://github.com/stryker-mutator/stryker-js/issues/3435).
 
 ## 📃 ESM-based config
 
@@ -185,14 +185,15 @@ _Note_: for completeness sake, `stryker.conf.cjs` is also supported.
 
 This is the list of breaking changes.
 
-- **html reporter:** Configuration option `htmlReporter.baseDir` is deprecated and will be removed in a later version. Please use `htmlReporter.fileName` instead.
-- **esm config:** Exporting a function (using `module.exports = function(config) {}`) from your `stryker.conf.js` file is no longer supported. This was already deprecated but now will give an error.
-- **esm:** StrykerJS is now a pure ESM. Please [read this](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
-- **esm:** Node 12.20 is now the min version.
-- **esm:** Karma v6.3 is now the min supported karma version for `@stryker-mutator/karma-runner`, since [that version added support for async config loading](https://github.com/karma-runner/karma/blob/master/CHANGELOG.md#630-2021-03-23)
-- **esm:** The `@stryker-mutator/jasmine-runner` now requires jasmine@3.10 or higher.
-- **esm:** The `@stryker-mutator/mocha-runner` now requires `mocha@7.2` or higher.
-- **reload test environment:** Test runner plugins must provide `TestRunnerCapabilities` by implementing the `capabilities` method.
+- [#3450](https://github.com/stryker-mutator/stryker-js/pull/3450) **checker-api:** The `check` method of checker plugins now receives a _group of mutants_ and should provide a `CheckResult` per mutant id.
+- [#3438](https://github.com/stryker-mutator/stryker-js/pull/3438) **html reporter:** Configuration option `htmlReporter.baseDir` is deprecated and will be removed in a later version. Please use `htmlReporter.fileName` instead.
+- [#3432](https://github.com/stryker-mutator/stryker-js/pull/3432) **esm config:** Exporting a function (using `module.exports = function(config) {}`) from your `stryker.conf.js` file is no longer supported. This was already deprecated but now will give an error.
+- [#3409](https://github.com/stryker-mutator/stryker-js/pull/3409) **esm:** StrykerJS is now a pure ESM. Please [read this](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
+- [#3409](https://github.com/stryker-mutator/stryker-js/pull/3409) **esm:** Node 12.20 is now the min version.
+- [#3409](https://github.com/stryker-mutator/stryker-js/pull/3409) **esm:** Karma v6.3 is now the min supported karma version for `@stryker-mutator/karma-runner`, since [that version added support for async config loading](https://github.com/karma-runner/karma/blob/master/CHANGELOG.md#630-2021-03-23)
+- [#3396](https://github.com/stryker-mutator/stryker-js/pull/3396) **esm:** The `@stryker-mutator/jasmine-runner` now requires jasmine@3.10 or higher.
+- [#3393](https://github.com/stryker-mutator/stryker-js/pull/3393) **esm:** The `@stryker-mutator/mocha-runner` now requires `mocha@7.2` or higher.
+- [#3369](https://github.com/stryker-mutator/stryker-js/pull/3369) **reload test environment:** Test runner plugins must provide `TestRunnerCapabilities` by implementing the `capabilities` method.
 
 ## 🔮 What's next
 
