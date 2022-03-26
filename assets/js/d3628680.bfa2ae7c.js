@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstryker_mutator_github_io=self.webpackChunkstryker_mutator_github_io||[]).push([[911],{9089:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","name":"dashboard","count":2,"permalink":"/blog/tags/dashboard"}')}}]);

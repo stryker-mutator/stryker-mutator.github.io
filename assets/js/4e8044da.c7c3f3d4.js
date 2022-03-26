@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstryker_mutator_github_io=self.webpackChunkstryker_mutator_github_io||[]).push([[1863],{2664:function(t){t.exports=JSON.parse('{"allTagsPath":"/blog/tags","name":"mutation testing","count":1,"permalink":"/blog/tags/mutation-testing"}')}}]);
