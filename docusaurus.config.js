@@ -1,8 +1,7 @@
 // @ts-check
-/**
- * @type {import('@docusaurus/types').DocusaurusConfig}
- */
-module.exports = {
+
+/** @type {import('@docusaurus/types').Config} */
+const config = {
   title: 'Stryker Mutator',
   tagline: 'Test your tests with mutation testing.',
   url: 'https://stryker-mutator.io',
@@ -11,7 +10,7 @@ module.exports = {
   favicon: 'images/stryker.svg',
   organizationName: 'stryker-mutator',
   projectName: 'stryker-mutator.github.io',
-  themeConfig: {
+  themeConfig: /** @type {import('@docusaurus/preset-classic').ThemeConfig} */ ({
     image: 'images/strykerman.png',
     colorMode: {
       respectPrefersColorScheme: true,
@@ -154,11 +153,12 @@ module.exports = {
         content: 'mutation testing, JavaScript, TypeScript, C#, .NET, Scala, testing, testing tools, software',
       },
     ],
-  },
+  }),
   presets: [
     [
       '@docusaurus/preset-classic',
-      {
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/develop/',
@@ -175,8 +175,10 @@ module.exports = {
           // Optional fields.
           anonymizeIP: true, // Should IPs be anonymized?
         },
-      },
+      }),
     ],
   ],
   plugins: [['@docusaurus/plugin-client-redirects', { redirects: require('./legacy-redirects') }]],
 };
+
+module.exports = config;
