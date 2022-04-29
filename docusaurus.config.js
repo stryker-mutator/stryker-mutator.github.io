@@ -147,6 +147,7 @@ const config = {
       appId: 'QF3A1J09N2',
       apiKey: 'b0ec9342a88037eafe5fa4fd412b8b35',
       indexName: 'stryker-mutator',
+      contextualSearch: false,
     },
     metadata: [
       {
