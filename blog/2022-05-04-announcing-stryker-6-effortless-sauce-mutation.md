@@ -1,6 +1,6 @@
 ---
 slug: stryker-js-v6.0-effortless-sauce-mutation
-title: "StrykerJS v6.0: Effortless Sauce Mutation"
+title: 'StrykerJS v6.0: Effortless Sauce Mutation'
 author: Nico Jansen
 author_title: Stryker Team
 author_url: https://github.com/nicojs
