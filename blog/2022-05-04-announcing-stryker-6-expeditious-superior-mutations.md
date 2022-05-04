@@ -52,10 +52,9 @@ You configure it like this:
 
 As you can see _no configuration change_ is needed. Updating StrykerJS is enough 😁.
 
-
 ## ⏩ Hot reload
 
-StrykerJS will run your tests many, many times. Consider that each mutant is tested in isolation, so it runs your tests as many times as there are (covered) mutants. A way to save time is only to load your tests once (using `import`/`require`) and then run them multiple times in quick succession while activating a different mutant each time. We call this feature "hot reload", and it is generally the fastest way to implement mutation testing. 
+StrykerJS will run your tests many, many times. Consider that each mutant is tested in isolation, so it runs your tests as many times as there are (covered) mutants. A way to save time is only to load your tests once (using `import`/`require`) and then run them multiple times in quick succession while activating a different mutant each time. We call this feature "hot reload", and it is generally the fastest way to implement mutation testing.
 
 Hot reloading is only possible because Stryker uses mutant schemata. With mutant schemata (or mutation switching), Stryker inserts all mutants into your source code yet only activates them one at a time.
 
@@ -113,7 +112,6 @@ That's a whopping 70% performance improvement 🤯.
 Hot reload is supported in `@stryker-mutator/mocha-runner` and `@stryker-mutator/jasmine-runner`. Please note that this feature is always on from version 6 onward, even for plain old CommonJS style projects! It does require a higher version of mocha or jasmine, respectively, see [breaking changes](#-breaking-changes). Support for `@stryker-mutator/cucumber-runner` is planned for version 8 of `@cucumber/cucumber` release.
 
 Unfortunately, we're not supporting hot reload for the `@stryker-mutator/jest-runner` or `@stryker-mutator/karma-runner` yet; please up-vote [#3455](https://github.com/stryker-mutator/stryker-js/issues/3455) or [#3454](https://github.com/stryker-mutator/stryker-js/issues/3454) respectively if you want to see it happen 💙.
-
 
 ## 🗿 Static mutant improvements
 
