@@ -1,6 +1,6 @@
 ---
-slug: stryker-js-v6.0-effortless-sauce-mutation
-title: 'StrykerJS v6.0: Effortless Sauce Mutation'
+slug: stryker-js-v6-expeditious-superior-mutations
+title: 'StrykerJS v6.0: Expeditious Superior Mutations'
 author: Nico Jansen
 author_title: Stryker Team
 author_url: https://github.com/nicojs
@@ -14,7 +14,7 @@ StrykerJS now supports _native ECMAScript modules_, or ESM for short. To make th
 
 <!-- truncate -->
 
-Update your Stryker dependencies to get started using the beta.
+To update to the latest version of StrykerJS, install `@latest` as follows:
 
 ```shell
 npm install --save-dev @stryker-mutator/core@latest
@@ -54,7 +54,9 @@ As you can see _no configuration change_ is needed. Updating StrykerJS is enough
 
 ## ⏩ Hot reload
 
-As you might know, StrykerJS uses mutation switching (sometimes called mutant schemata), meaning Stryker inserts all mutants into your source code yet only activates them one at a time.
+To test each mutant, StrykerJS will run your tests many times. Each mutant is tested in isolation, so it needs as many test runs as you have mutants that have test coverage. A way to save time here is to load your tests only once (using `import`/`require`) and then run them multiple times. We call this feature "hot reload", and it is generally the fastest way to implement mutation testing. It is only possible because Stryker uses mutant schemata.
+
+With mutant schemata (sometimes called mutation switching), Stryker inserts all mutants into your source code yet only activates them one at a time.
 
 It looks something like this:
 
@@ -70,7 +72,7 @@ function add(a, b) {
 }
 ```
 
-Next, Stryker creates _worker_ processes. A worker process is responsible for activating a mutant, running tests, and reporting the result to the main process. To do that, it uses the test runner of your choice, for example, [mocha](https://mochajs.org/). For NodeJS-based test runners, it would look something like this:
+Next, Stryker creates _worker_ processes. A worker process is responsible for activating a mutant, running tests, and reporting the result to the main process. It uses the test runner of your choice, for example, [mocha](https://mochajs.org/). For NodeJS-based test runners, it would look something like this:
 
 (old process)
 
@@ -86,7 +88,7 @@ The reloading is also expensive. Think about it: if your project contains 1k fil
 
 When you think about it, it is also **unnecessary**; why not simply keep all files loaded? Since they contain all the mutants anyway. This new process looks something like this:
 
-(new process)
+(new process using hot reload)
 
 1. (once) Load the code using `import`
 1. Activate the mutant
@@ -107,7 +109,7 @@ The result is a significant performance improvement 🐇. You can clearly see th
 
 That's a whopping 70% performance improvement 🤯.
 
-We call this feature "hot reload," and StrykerJS supports it in `@stryker-mutator/mocha-runner` and `@stryker-mutator/jasmine-runner`. Please note that this feature is always on from version 6 onward, even for plain old CommonJS style projects! It does require a higher version of mocha or jasmine, respectively, see [breaking changes](#-breaking-changes). Support for `@stryker-mutator/cucumber-runner` for the release of version 8 of `@cucumber/cucumber`.
+We call this feature "hot reload," and StrykerJS supports it in `@stryker-mutator/mocha-runner` and `@stryker-mutator/jasmine-runner`. Please note that this feature is always on from version 6 onward, even for plain old CommonJS style projects! It does require a higher version of mocha or jasmine, respectively, see [breaking changes](#-breaking-changes). Support for `@stryker-mutator/cucumber-runner` is planned for version 8 of `@cucumber/cucumber` release.
 
 Unfortunately, we're not supporting hot reload for the `@stryker-mutator/jest-runner` or `@stryker-mutator/karma-runner` yet; please up-vote [#3455](https://github.com/stryker-mutator/stryker-js/issues/3455) or [#3454](https://github.com/stryker-mutator/stryker-js/issues/3454) respectively if you want to see it happen 💙.
 
@@ -191,7 +193,7 @@ Even though it is a performance improvement, the default value for`"ignoreStatic
 You will see the message when 2 conditions are met:
 
 1. Stryker estimates static mutants to take >= 40% of the total execution time; and
-2. The average estimated execution time of static mutants in your project is twice that of non-static mutants.
+2. Your project's estimated average execution time of a static mutant is twice that of a non-static mutant in your project.
 
 Stryker logs this message _right before testing mutants_, so you can quickly kill Stryker and run again with `--ignoreStatic` if you want.
 
