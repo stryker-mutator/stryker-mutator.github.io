@@ -52,11 +52,12 @@ You configure it like this:
 
 As you can see _no configuration change_ is needed. Updating StrykerJS is enough 😁.
 
+
 ## ⏩ Hot reload
 
-To test each mutant, StrykerJS will run your tests many times. Each mutant is tested in isolation, so it needs as many test runs as you have mutants that have test coverage. A way to save time here is to load your tests only once (using `import`/`require`) and then run them multiple times. We call this feature "hot reload", and it is generally the fastest way to implement mutation testing. It is only possible because Stryker uses mutant schemata.
+StrykerJS will run your tests many, many times. Consider that each mutant is tested in isolation, so it runs your tests as many times as there are (covered) mutants. A way to save time is only to load your tests once (using `import`/`require`) and then run them multiple times in quick succession while activating a different mutant each time. We call this feature "hot reload", and it is generally the fastest way to implement mutation testing. 
 
-With mutant schemata (sometimes called mutation switching), Stryker inserts all mutants into your source code yet only activates them one at a time.
+Hot reloading is only possible because Stryker uses mutant schemata. With mutant schemata (or mutation switching), Stryker inserts all mutants into your source code yet only activates them one at a time.
 
 It looks something like this:
 
@@ -72,7 +73,7 @@ function add(a, b) {
 }
 ```
 
-Next, Stryker creates _worker_ processes. A worker process is responsible for activating a mutant, running tests, and reporting the result to the main process. It uses the test runner of your choice, for example, [mocha](https://mochajs.org/). For NodeJS-based test runners, it would look something like this:
+When older versions of Stryker are testing mutants inside a worker process, it looks like this:
 
 (old process)
 
@@ -86,7 +87,7 @@ As you can see, _all files are loaded and unloaded_ for each mutant run. This wa
 
 The reloading is also expensive. Think about it: if your project contains 1k files, with a total of 10k mutants, it could mean a total of _ten million file IO actions_. That's why mutation testing with StrykerJS would slow down considerably when the size of your project grows.
 
-When you think about it, it is also **unnecessary**; why not simply keep all files loaded? Since they contain all the mutants anyway. This new process looks something like this:
+As of v6, Node-based test runners use hot reload. The process is now:
 
 (new process using hot reload)
 
@@ -109,9 +110,10 @@ The result is a significant performance improvement 🐇. You can clearly see th
 
 That's a whopping 70% performance improvement 🤯.
 
-We call this feature "hot reload," and StrykerJS supports it in `@stryker-mutator/mocha-runner` and `@stryker-mutator/jasmine-runner`. Please note that this feature is always on from version 6 onward, even for plain old CommonJS style projects! It does require a higher version of mocha or jasmine, respectively, see [breaking changes](#-breaking-changes). Support for `@stryker-mutator/cucumber-runner` is planned for version 8 of `@cucumber/cucumber` release.
+Hot reload is supported in `@stryker-mutator/mocha-runner` and `@stryker-mutator/jasmine-runner`. Please note that this feature is always on from version 6 onward, even for plain old CommonJS style projects! It does require a higher version of mocha or jasmine, respectively, see [breaking changes](#-breaking-changes). Support for `@stryker-mutator/cucumber-runner` is planned for version 8 of `@cucumber/cucumber` release.
 
 Unfortunately, we're not supporting hot reload for the `@stryker-mutator/jest-runner` or `@stryker-mutator/karma-runner` yet; please up-vote [#3455](https://github.com/stryker-mutator/stryker-js/issues/3455) or [#3454](https://github.com/stryker-mutator/stryker-js/issues/3454) respectively if you want to see it happen 💙.
+
 
 ## 🗿 Static mutant improvements
 
