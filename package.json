@@ -9,7 +9,7 @@
     "deploy": "docusaurus deploy",
     "prebuild": "npm run clone:docs",
     "postinstall": "npm run clone:docs",
-    "clean": "docusaurus clear && rimraf docs/{stryker,stryker4s,stryker-net,mutation-testing-elements}",
+    "clean": "docusaurus clear && rimraf docs/{stryker-js,stryker4s,stryker-net,mutation-testing-elements}",
     "clone:docs": "bash clone_docs.sh",
     "lint": "prettier --check --ignore-path=.gitignore .",
     "lint:fix": "prettier --write --ignore-path=.gitignore ."
