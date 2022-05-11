@@ -3,7 +3,7 @@
 // This file contains all urls from the old non-Docusaurus website that need a redirect so no links are broken
 
 /**
- * @type {import('@docusaurus/plugin-client-redirects').RedirectOption[]}
+ * @type {import('@docusaurus/plugin-client-redirects/lib/options').RedirectOption[]}
  */
 const redirects = [
   // Content pages
