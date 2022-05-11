@@ -10,6 +10,7 @@ const config = {
   favicon: 'images/stryker.svg',
   organizationName: 'stryker-mutator',
   projectName: 'stryker-mutator.github.io',
+  trailingSlash: true,
   themeConfig: /** @type {import('@docusaurus/preset-classic').ThemeConfig} */ ({
     image: 'images/strykerman.png',
     colorMode: {

@@ -42,7 +42,7 @@ As stated in the introduction, StrykerJS v6 brings official support for ESM proj
 
 With ESM, you can use `import` and `export` statements. NodeJS has supported ESM since version 12. Browsers have gradually been adding support since 2017, and all major browsers support it by now. I recommend watching [Gil Tayar's introduction to ESM](https://www.youtube.com/watch?v=Zyoztl_7l7g) when you want to brush up on the ESM basics.
 
-The `@stryker-mutator/karma-runner` and `@stryker-mutator/jest-runner` already worked with ESM (for Jest, you will need to configure the [`--experimental-vm-modules`](../docs/stryker-js/jest-runner#ecmascript-modules) flag), but our node-based runners did not. This changes with version 6.
+The `@stryker-mutator/karma-runner` and `@stryker-mutator/jest-runner` already worked with ESM (for Jest, you will need to configure the [`--experimental-vm-modules`](/docs/stryker-js/jest-runner#ecmascript-modules) flag), but our node-based runners did not. This changes with version 6.
 
 You configure it like this:
 
@@ -150,7 +150,7 @@ When you consider mutant schemata, the actual code produced by StrykerJS looks m
 const hi = global.activeMutant === '1' ? '' : '👋';
 ```
 
-This mutant is called a _static mutant_. It is executed on file-load rather than during test run-time. For more details on static mutants, see [the new documentation on them](../docs/mutation-testing-elements/static-mutants).
+This mutant is called a _static mutant_. It is executed on file-load rather than during test run-time. For more details on static mutants, see [the new documentation on them](/docs/mutation-testing-elements/static-mutants).
 
 Now, let's factor in [hot reload](#-hot-reload), where worker processes load the files once and reuse them across multiple mutant runs. This would mean that the mutant _survives no matter how good your tests are_. We can't have that 😪!
 
