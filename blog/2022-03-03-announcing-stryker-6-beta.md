@@ -40,7 +40,7 @@ As stated in the introduction, StrykerJS v6 brings official support for ESM proj
 
 With ESM, you can use `import` and `export` statements. NodeJS has supported ESM since version 12. Browsers have gradually been adding support since 2017, and all major browsers support it by now. I recommend watching [Gil Tayar's introduction to ESM](https://www.youtube.com/watch?v=Zyoztl_7l7g) when you want to brush up on the ESM basics.
 
-The `@stryker-mutator/karma-runner` and `@stryker-mutator/jest-runner` already worked with ESM (for Jest, you will need to configure the [`--experimental-vm-modules`](../docs/stryker-js/jest-runner#ecmascript-modules) flag), but our node-based runners did not. This changes with version 6.
+The `@stryker-mutator/karma-runner` and `@stryker-mutator/jest-runner` already worked with ESM (for Jest, you will need to configure the [`--experimental-vm-modules`](/docs/stryker-js/jest-runner/#ecmascript-modules) flag), but our node-based runners did not. This changes with version 6.
 
 You configure it like this:
 
@@ -158,7 +158,7 @@ With `--ignoreStatic` static mutants are ... well ignored. You can still see the
 <figcaption>An ignored static mutant</figcaption>
 </figure>
 
-Your mileage may vary, but for running StrykerJS on Stryker's core itself, we [saw a whopping 50% performance improvement by ignoring 6% of our mutants (the static mutants) 🤯](https://github.com/stryker-mutator/stryker-js/issues/3282#issuecomment-980110861). For more details on static mutants, see [the new documentation on on them](../docs/mutation-testing-elements/static-mutants).
+Your mileage may vary, but for running StrykerJS on Stryker's core itself, we [saw a whopping 50% performance improvement by ignoring 6% of our mutants (the static mutants) 🤯](https://github.com/stryker-mutator/stryker-js/issues/3282#issuecomment-980110861). For more details on static mutants, see [the new documentation on on them](/docs/mutation-testing-elements/static-mutants).
 
 Please try this feature out and provide feedback. We're also thinking of ways to point this feature out to users of Stryker, or even enable it by default. Feel free to voice your opinion in [the GitHub issue about it](https://github.com/stryker-mutator/stryker-js/issues/3435).
 
