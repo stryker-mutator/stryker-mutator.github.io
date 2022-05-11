@@ -10,7 +10,6 @@ const config = {
   favicon: 'images/stryker.svg',
   organizationName: 'stryker-mutator',
   projectName: 'stryker-mutator.github.io',
-  trailingSlash: false,
   themeConfig: /** @type {import('@docusaurus/preset-classic').ThemeConfig} */ ({
     image: 'images/strykerman.png',
     colorMode: {
@@ -29,6 +28,8 @@ const config = {
       logo: {
         alt: 'Stryker Mutator Logo',
         src: 'images/stryker.svg',
+        height: 32,
+        width: 32,
       },
       items: [
         { to: 'blog', label: 'Blog', position: 'left' },
