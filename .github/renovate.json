@@ -1,0 +1,10 @@
+{
+  "extends": ["config:js-app"],
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true,
+      "automergeStrategy": "squash"
+    }
+  ]
+}
