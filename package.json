@@ -33,10 +33,10 @@
     "@docusaurus/core": "2.0.0-beta.21",
     "@docusaurus/plugin-client-redirects": "2.0.0-beta.21",
     "@docusaurus/preset-classic": "2.0.0-beta.21",
-    "clsx": "^1.1.1",
-    "mermaid": "^9.1.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "clsx": "1.1.1",
+    "mermaid": "9.1.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "browserslist": {
     "production": [
@@ -50,7 +50,7 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^2.6.2",
-    "rimraf": "^3.0.2"
+    "prettier": "2.6.2",
+    "rimraf": "3.0.2"
   }
 }
