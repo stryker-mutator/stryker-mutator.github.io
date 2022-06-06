@@ -23,8 +23,7 @@ jobs:
         run: npm run build
       - name: Deploy 🚀
         if: ${{ github.ref == 'refs/heads/develop' }}
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: master # The branch the action should deploy to.
           FOLDER: build # The folder the action should deploy.
