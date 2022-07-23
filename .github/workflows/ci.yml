@@ -20,9 +20,7 @@ jobs:
       - name: Lint 🧶
         run: npm run lint
       - name: Build 🏗️
-        run: |
-          npm run clean
-          npm run build
+        run: npm run build
       - name: Deploy 🚀
         if: ${{ github.ref == 'refs/heads/develop' }}
         uses: JamesIves/github-pages-deploy-action@v4
