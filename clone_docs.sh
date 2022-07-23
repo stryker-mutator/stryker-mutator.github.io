@@ -25,15 +25,23 @@ function git_clone_docs() (
     echo "Cloning $localdir..."
     # Else create new empty git repository and pull only docs folder to it
     if [ -n "$2" ]; then
-      git clone --branch $2 $remoteUrl $localdir --depth 1
+      git clone --branch $2 $remoteUrl $localdir --depth 1 --no-checkout 
     else
-      git clone $remoteUrl $localdir --depth 1
+      git clone $remoteUrl $localdir --depth 1 --no-checkout
     fi
     cd "$localdir"
 
     # Tell git to only checkout docs folder
-    git sparse-checkout init
+    git sparse-checkout init --cone
     git sparse-checkout set 'docs'
+
+    defaultBranch="$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
+    checkoutBranch=${2:-$defaultBranch}
+
+    git checkout $checkoutBranch
+
+    # Remove everything in the root that is not in docs
+    rm !(docs)
   fi
 
   defaultBranch="$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
