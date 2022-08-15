@@ -46,7 +46,8 @@ The website should be opened in your browser of choice. Changes you make to the 
 
 1. Create a new markdown file under `blog/`. Look at the other blog articles for inspiration about what metadata you need to add
 2. Test the website locally to see if the blog article looks fine.
-3. Make the PR.
+3. Run Prettier with `npm run lint`, or `npm run lint:fix` if you're feeling lucky.
+4. Make the PR.
 
 ### Update the documentation
 
