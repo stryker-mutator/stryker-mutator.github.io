@@ -8,6 +8,10 @@ author_image_url: https://maarten.mulders.it/img/twitter-profile-202106.png
 tags: [stryker, pit, java, maven, dashboard]
 ---
 
+<head>
+  <link rel="canonical" href="https://maarten.mulders.it/2022/07/mutation-testing-badge-with-pit-and-stryker-dashboard/" />
+</head>
+
 Until recently, it would be quite cumbersome to integrate PIT with the Stryker Mutator Dashboard.
 It involved (mis-) using a different PIT reporter, a fragile Bash script to fiddle around in one of the generated JavaScript files...
 Not pretty at all.
