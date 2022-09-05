@@ -117,6 +117,8 @@ import Mermaid from '@theme/Mermaid';
     B-->C(3. Upload \`stryker-incremental.json\` artifact)
 `} />
 
+Your preferred implementation of steps 1 and 3 will depend on your CI provider. Besides artifact storage provided by your CI provider, you can also opt for cloud storage. If you are using AWS, it might make sense to use an S3 bucket here. You probably want to opt for Azure blob storage when using Azure DevOps.
+
 Is your project open-source? Then you're in luck with the [Stryker Dashboard](https://dashboard.stryker-mutator.io), free to use for open-source projects. The JSON file format StrykerJS uses for its incremental mode is the same as the Stryker Dashboard's report file. So downloading this JSON report (step 1) is as easy as using a cURL request. Furthermore, since it already updates the report, you get 'step 3' for free when using the [dashboard reporter](../../docs/General/dashboard/).
 
 For example, to download the report for the `main` branch for a project called `my-org/my-repo`, you can use this cURL request:
@@ -139,7 +141,7 @@ rm .header.out
 
 ## 🔮 What's next
 
-Please try out incremental mode and let us know what you think. We would love to hear from you! Also, look at the [6.2 release notes](https://github.com/stryker-mutator/stryker-js/releases/tag/v6.2.0) to see the complete list of changes in 6.2.
+Please try out incremental mode and let us know what you think. We would love to hear from you! You can take a look at the [incremental documentation page](../../docs/stryker-js/incremental). Also, look at the [6.2 release notes](https://github.com/stryker-mutator/stryker-js/releases/tag/v6.2.0) to see the complete list of changes in 6.2. 
 
 In the medium term, we'll be working on supporting more test runners and implementing performance improvements in the typescript checker. We maintain a [🛣 roadmap on github](https://github.com/stryker-mutator/stryker-js/wiki/Roadmap), so you can always see what we're actively working on.
 
