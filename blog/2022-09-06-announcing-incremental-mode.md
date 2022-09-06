@@ -46,11 +46,12 @@ npx stryker run --incremental
 
 _**Note:** Setting `"incremental": true` in your stryker.conf.json file is also supported_
 
-The first time you do an incremental run, StrykerJS will do an entire run as usual, except it will write the JSON result to a `reports/stryker-incremental.json` file at the end. The next time you run StrykerJS incrementally, it will read this JSON file and try to reuse as much of it as possible. 
+The first time you do an incremental run, StrykerJS will do an entire run as usual, except it will write the JSON result to a `reports/stryker-incremental.json` file at the end. The next time you run StrykerJS incrementally, it will read this JSON file and try to reuse as much of it as possible.
 
 _**Note:** You can change the file's location with the `--incrementalFile` option._
 
 Reuse of a mutant result is possible when:
+
 - That mutant was "Killed"; the culprit test still exists and didn't change
 - Or, that mutant was not "Killed"; no new test covers it, and no covering tests changed.
 
@@ -65,6 +66,7 @@ You can see the statistics of the incremental analysis in your console. It appea
 ```
 
 Here you can see that:
+
 - One file with mutants changed (2 mutants added, 2 mutants removed)
 - Two test files changed (22 tests added and 21 tests removed)
 - In total, Stryker reuses 3731 mutant results, meaning only 234 mutants need to run this time.
@@ -73,7 +75,7 @@ _**Note:** Stryker.NET has a similar feature called: "baseline". See [the PR for
 
 ## 🥢 Limitations
 
-When in incremental mode, Stryker will do its best to produce an accurate mutation testing report. But, due to the complex nature of mutation testing, there are inherent limitations: 
+When in incremental mode, Stryker will do its best to produce an accurate mutation testing report. But, due to the complex nature of mutation testing, there are inherent limitations:
 
 - Stryker will not detect any changes you've made in files other than mutated files and test files.
 - Detecting test changes is only supported when the test runner plugin reports the necessary test details.
@@ -104,7 +106,7 @@ Using the combination of `--incremental` with a custom `--mutate` pattern, Stryk
 
 ## 🔁 Continuous Integration (CI)
 
-Incremental mutation testing is ideal for CI scenarios! For example, when you open a Pull/Merge Request against your main branch, you probably don't need an entire mutation testing run; you are just interested in _changes since the last run on the main branch_. 
+Incremental mutation testing is ideal for CI scenarios! For example, when you open a Pull/Merge Request against your main branch, you probably don't need an entire mutation testing run; you are just interested in _changes since the last run on the main branch_.
 
 For this to work, you need the `stryker-incremental.json` file. You could 'check in' this file into source control, but it changes a lot, and you should not treat it as source code anyway. Instead, it is better to treat it as an artifact.
 
@@ -112,10 +114,17 @@ The CI process for mutation testing looks as follows.
 
 import Mermaid from '@theme/Mermaid';
 
-<Mermaid chart={`graph TD;
-    A(1. Download stryker-incremental.json artifact)-->B(2. Run \`stryker --incremental\`)
-    B-->C(3. Upload \`stryker-incremental.json\` artifact)
-`} />
+<!-- prettier-ignore-start -->
+
+<Mermaid 
+  _key="simple-ci" 
+  chart={`
+graph TD; A(1. Download stryker-incremental.json artifact)-->B(2. Run \`stryker --incremental\`)
+B-->C(3. Upload \`stryker-incremental.json\` artifact)
+  `} 
+  />
+
+<!-- prettier-ignore-end -->
 
 Your preferred implementation of steps 1 and 3 will depend on your CI provider. Besides artifact storage provided by your CI provider, you can also opt for cloud storage. If you are using AWS, it might make sense to use an S3 bucket here. You probably want to opt for Azure blob storage when using Azure DevOps.
 
@@ -136,12 +145,29 @@ then
     echo "- falling back to main branch.."
     curl -s --create-dirs -o reports/stryker-incremental.json https://dashboard.stryker-mutator.io/api/reports/github.com/my-org/my-repo/main
 fi
-rm .header.out 
+rm .header.out
 ```
+
+If you only ever run Stryker with incremental mode, you might fear that the mutation report slowly 'drifts' from reality because of [said limitations](#-limitations). We recommend doing a full mutation testing run now and then to prevent this, either with [`--force`](#-forcing-reruns) or using the dashboard reporter. We do this in CI to develop StrykerJS itself. Our complete CI process looks like this:
+
+<!-- prettier-ignore-start -->
+
+<Mermaid 
+  _key="full-ci" 
+  chart={`
+flowchart TB;
+    A(1. Download JSON report from dashboard)-->B(2. Run stryker incremental)
+    B-->C(3. Upload JSON report to dashboard)
+    C--Merge to main branch-->D(4. Full mutation testing run)
+    D-->E(5. Upload new JSON report to dashboard)
+`} 
+/>
+
+<!-- prettier-ignore-end -->
 
 ## 🔮 What's next
 
-Please try out incremental mode and let us know what you think. We would love to hear from you! You can take a look at the [incremental documentation page](../../docs/stryker-js/incremental). Also, look at the [6.2 release notes](https://github.com/stryker-mutator/stryker-js/releases/tag/v6.2.0) to see the complete list of changes in 6.2. 
+Please try out incremental mode and let us know what you think. We would love to hear from you! You can take a look at the [incremental documentation page](../../docs/stryker-js/incremental). Also, look at the [6.2 release notes](https://github.com/stryker-mutator/stryker-js/releases/tag/v6.2.0) to see the complete list of changes in 6.2.
 
 In the medium term, we'll be working on supporting more test runners and implementing performance improvements in the typescript checker. We maintain a [🛣 roadmap on github](https://github.com/stryker-mutator/stryker-js/wiki/Roadmap), so you can always see what we're actively working on.
 
