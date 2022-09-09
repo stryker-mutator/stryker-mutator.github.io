@@ -17,7 +17,7 @@ const redirects = [
   { from: ['/stryker4s', '/stryker4s/index', '/stryker4s/quickstart'], to: '/docs/stryker4s/getting-started' },
   { from: ['/stryker/handbook', '/stryker4s/handbook', '/stryker-net/handbook'], to: '/docs/' },
   // Blogs
-  { from: ['/blog/tags/stryker', '/blog/tags/stryker/'], to: '/blog/tags/stryker-js' },
+  { from: ['/blog/tags/stryker'], to: '/blog/tags/stryker-js' },
   { from: ['/blog/2016-12-30/stryker-0-5-5', '/blog/2016-12-30/stryker-0-5-5.html'], to: '/blog/stryker-0-5-5' },
   {
     from: ['/blog/2017-01-01/happy-new-stryker', '/blog/2017-01-01/happy-new-stryker.html'],
