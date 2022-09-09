@@ -5,7 +5,7 @@ author: Maarten Mulders
 author_title: Stryker Team
 author_url: https://maarten.mulders.it/
 author_image_url: https://maarten.mulders.it/img/twitter-profile-202106.png
-tags: [stryker, pit, java, maven, dashboard]
+tags: [pit, java, maven, dashboard]
 ---
 
 <head>

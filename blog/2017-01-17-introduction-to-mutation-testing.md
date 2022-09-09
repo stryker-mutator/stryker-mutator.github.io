@@ -5,7 +5,7 @@ author: Simon de Lang
 author_title: Stryker Team
 author_url: https://github.com/simondel
 author_image_url: https://avatars1.githubusercontent.com/u/4221997?s=460&u=d09f7c27690d66764ff2f2ebb6d9f8d5431ad9e3&v=4
-tags: [stryker]
+tags: [stryker-js]
 ---
 
 Writing unit tests can be hard. Even for an easy example such as a calculator app.
