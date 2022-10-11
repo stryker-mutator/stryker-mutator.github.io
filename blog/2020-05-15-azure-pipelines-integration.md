@@ -125,26 +125,26 @@ If we put all these features together your pipeline could look like this:
 
 ```yaml
 steps:
-- task: UseDotNet@2
-  displayName: 'Use dotnet 6'
-  inputs:
-    version: 6.x
-- task: DotNetCoreCLI@2
-  displayName: 'Install dotnet tools for Stryker.CLI'
-  inputs:
-    command: custom
-    custom: 'tool restore'
-  workingDirectory: 'src\Stryker.CLI\Stryker.CLI.UnitTest'
-- task: DotNetCoreCLI@2
-  displayName: 'Run stryker on Stryker.CLI'
-  inputs:
-    command: custom
-    custom: 'stryker --reporter dashboard --reporter html --threshold-high 90 --threshold-low 75 --break-at 60 --since'
-  workingDirectory: 'src\Stryker.CLI\Stryker.CLI.UnitTest'
-- task: stryker-mutator.mutation-report-publisher.publish-mutation-report.publish-mutation-report@0
-  displayName: 'Publish Mutation Test Report'
-  inputs:
-    reportPattern: 'src\Stryker.CLI\Stryker.CLI.UnitTest\**\mutation-report.html'
+  - task: UseDotNet@2
+    displayName: 'Use dotnet 6'
+    inputs:
+      version: 6.x
+  - task: DotNetCoreCLI@2
+    displayName: 'Install dotnet tools for Stryker.CLI'
+    inputs:
+      command: custom
+      custom: 'tool restore'
+    workingDirectory: 'src\Stryker.CLI\Stryker.CLI.UnitTest'
+  - task: DotNetCoreCLI@2
+    displayName: 'Run stryker on Stryker.CLI'
+    inputs:
+      command: custom
+      custom: 'stryker --reporter dashboard --reporter html --threshold-high 90 --threshold-low 75 --break-at 60 --since'
+    workingDirectory: 'src\Stryker.CLI\Stryker.CLI.UnitTest'
+  - task: stryker-mutator.mutation-report-publisher.publish-mutation-report.publish-mutation-report@0
+    displayName: 'Publish Mutation Test Report'
+    inputs:
+      reportPattern: 'src\Stryker.CLI\Stryker.CLI.UnitTest\**\mutation-report.html'
 ```
 
 If you run into trouble during installation or running, please let us know so we can improve.
