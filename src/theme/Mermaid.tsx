@@ -5,6 +5,11 @@ import mermaid from 'mermaid';
 import { useColorMode } from '@docusaurus/theme-common';
 import './Mermaid.css';
 
+interface Props {
+  chart: string;
+  _key: string;
+}
+
 /**
  * React component of Mermaid for use in .md(x) files
  * See https://mermaid-js.github.io for diagram syntax
@@ -13,11 +18,10 @@ import './Mermaid.css';
  * flowchart TD
  *   cr([Create Request]) --> backoffice[Backoffice Server REST]
  * `}/>
- * @param {{chart: string, _key: string}} input
  */
-export default function Mermaid({ chart, _key }) {
+export default function Mermaid({ chart, _key }: Props) {
   const id = `mermaid-${_key}`;
-  const ref = React.useRef();
+  const ref = React.useRef<HTMLDivElement>(null);
   const theme = useColorMode().colorMode === 'dark' ? 'dark' : 'default';
 
   // We run this as an effect instead of top level outside the component
@@ -34,7 +38,7 @@ export default function Mermaid({ chart, _key }) {
     if (ref.current) {
       try {
         mermaid.mermaidAPI.render(id, chart, (result) => {
-          ref.current.innerHTML = result;
+          ref.current!.innerHTML = result;
         });
       } catch (error) {
         console.error('Could not render Mermaid diagram', error);

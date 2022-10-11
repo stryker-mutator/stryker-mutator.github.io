@@ -1,0 +1,4 @@
+{
+  "origins": ["https://stryker-mutator.io"],
+  "originsRegex": ["http://localhost:[0-9]+", "https://deploy-preview-[0-9]+--stryker-mutator\\.netlify\\.app"]
+}

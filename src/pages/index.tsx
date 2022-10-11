@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
@@ -30,7 +30,13 @@ const languages = [
   },
 ];
 
-function Language({ imageUrl, title, docsLink }) {
+type LanugageProps = {
+  title: string;
+  imageUrl: string;
+  docsLink: string;
+};
+
+function Language({ imageUrl, title, docsLink }: LanugageProps) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
     <div className={clsx('col col--4', styles.feature)}>
@@ -46,7 +52,9 @@ function Language({ imageUrl, title, docsLink }) {
   );
 }
 
-export const Feature = ({ children }) => (
+type FeatureProps = PropsWithChildren<{}>;
+
+export const Feature = ({ children }: FeatureProps) => (
   <div className="col col--4">
     <div className="feature">{children}</div>
   </div>
@@ -54,7 +62,7 @@ export const Feature = ({ children }) => (
 
 function Home() {
   const context = useDocusaurusContext();
-  const { siteConfig = {} } = context;
+  const { siteConfig } = context;
   return (
     <Layout description="Stryker Mutator: Test your tests with mutation testing.">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
