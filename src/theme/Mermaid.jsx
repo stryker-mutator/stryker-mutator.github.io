@@ -18,7 +18,7 @@ import './Mermaid.css';
 export default function Mermaid({ chart, _key }) {
   const id = `mermaid-${_key}`;
   const ref = React.useRef();
-  const theme = useColorMode().isDarkTheme ? 'dark' : 'default';
+  const theme = useColorMode().colorMode === 'dark' ? 'dark' : 'default';
 
   // We run this as an effect instead of top level outside the component
   // so we can use the color mode to toggle mermaid themes
