@@ -40,13 +40,13 @@ On large projects we can also use git to filter changed files in a pull request.
 How does this work? Simply run Stryker.NET with the following command in your PR build:
 
 ```
-dotnet stryker --diff
+dotnet stryker --since
 ```
 
 This will use the master branch as base by default. If you use a different branch as base for your pull requests you can change the base branch like this:
 
 ```
-dotnet stryker --diff --git-source "coalesce(variables['System.PullRequest.TargetBranch'], variables['Build.SourceBranchName'])"
+dotnet stryker --since:"coalesce(variables['System.PullRequest.TargetBranch'], variables['Build.SourceBranchName'])"
 ```
 
 This will get the pull request target branch, or the build source branch if no pull request target branch is available.
@@ -88,7 +88,7 @@ This will break your pipeline if a minimum mutation score wasn't reached.
 How to use custom thresholds:
 
 ```
-dotnet stryker --threshold-high 90 --threshold-low 75 --threshold-break 60
+dotnet stryker --threshold-high 90 --threshold-low 75 --break-at 60
 ```
 
 or in `stryker-config.json`
@@ -97,9 +97,12 @@ or in `stryker-config.json`
 {
     "stryker-config":
     {
-        "threshold-high": 90,
-        "threshold-low": 75,
-        "threshold-break": 60
+        "thresholds":
+        {
+          "high": 90,
+          "low": 75,
+          "break": 60
+        }
     }
 }
 ```
@@ -122,27 +125,26 @@ If we put all these features together your pipeline could look like this:
 
 ```yaml
 steps:
-- task: UseDotNet@2
-displayName: 'Use .Net Core runtime 3.1.x'
-inputs:
-    packageType: runtime
-    version: 3.1.x
-- task: DotNetCoreCLI@2
-displayName: 'Install dotnet tools for Stryker.CLI'
-inputs:
-    command: custom
-    custom: 'tool restore'
+  - task: UseDotNet@2
+    displayName: 'Use dotnet 6'
+    inputs:
+      version: 6.x
+  - task: DotNetCoreCLI@2
+    displayName: 'Install dotnet tools for Stryker.CLI'
+    inputs:
+      command: custom
+      custom: 'tool restore'
     workingDirectory: 'src\Stryker.CLI\Stryker.CLI.UnitTest'
-- task: DotNetCoreCLI@2
-displayName: 'Run stryker on Stryker.CLI'
-inputs:
-    command: custom
-    custom: 'stryker --reporters "[''dashboard'', ''html'']" --threshold-high 90 --threshold-low 75 --threshold-break 60 --diff'
+  - task: DotNetCoreCLI@2
+    displayName: 'Run stryker on Stryker.CLI'
+    inputs:
+      command: custom
+      custom: 'stryker --reporter dashboard --reporter html --threshold-high 90 --threshold-low 75 --break-at 60 --since'
     workingDirectory: 'src\Stryker.CLI\Stryker.CLI.UnitTest'
-- task: stryker-mutator.mutation-report-publisher.publish-mutation-report.publish-mutation-report@0
-displayName: 'Publish Mutation Test Report'
-inputs:
-    reportPattern: 'src\Stryker.CLI\Stryker.CLI.UnitTest\**\mutation-report.html'
+  - task: stryker-mutator.mutation-report-publisher.publish-mutation-report.publish-mutation-report@0
+    displayName: 'Publish Mutation Test Report'
+    inputs:
+      reportPattern: 'src\Stryker.CLI\Stryker.CLI.UnitTest\**\mutation-report.html'
 ```
 
 If you run into trouble during installation or running, please let us know so we can improve.
@@ -151,7 +153,7 @@ If you run into trouble during installation or running, please let us know so we
 
 The upcoming months you can expect even more awesome features and improvements in Stryker.NET.
 
-- The `git diff` feature will be greatly improved and result in a full report.
+- The `since` feature will be greatly improved and result in a full report. This is called the baseline feature.
 - Regex mutator (never seen before in mutation testing)
 - Mutating a whole solution at once
 
