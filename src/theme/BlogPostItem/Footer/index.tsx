@@ -26,7 +26,7 @@ export default function FooterWrapper(props: Props): JSX.Element {
       <Giscus
         repo="stryker-mutator/stryker-mutator.github.io"
         repoId="MDEwOlJlcG9zaXRvcnk1OTE3NzI0Nw=="
-        category="Announcements"
+        category="Blog posts"
         categoryId="DIC_kwDOA4b5H84B_GmS"
         mapping="title"
         strict="0"
