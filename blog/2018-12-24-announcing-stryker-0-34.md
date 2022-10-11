@@ -5,7 +5,7 @@ author: Nico Jansen
 author_title: Stryker Team
 author_url: https://github.com/nicojs
 author_image_url: https://avatars3.githubusercontent.com/u/1828233?s=400&u=fec18ad3776aaafec54c49bbd7173a841ae7ea59&v=4
-tags: [stryker]
+tags: [stryker-js]
 ---
 
 Stryker 0.34 is here. This new version comes with features to help you get started. It's never been this easy to mutation test your JS project!
