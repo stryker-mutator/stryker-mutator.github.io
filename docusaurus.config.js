@@ -2,6 +2,23 @@
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  webpack: {
+    jsLoader: (isServer) => ({
+      loader: require.resolve('swc-loader'),
+      options: {
+        jsc: {
+          parser: {
+            syntax: 'typescript',
+            tsx: true,
+          },
+          target: 'es2020',
+        },
+        module: {
+          type: isServer ? 'commonjs' : 'es6',
+        },
+      },
+    }),
+  },
   title: 'Stryker Mutator',
   tagline: 'Test your tests with mutation testing.',
   url: 'https://stryker-mutator.io',
