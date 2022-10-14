@@ -256,4 +256,4 @@ This is the list of breaking changes.
 
 With v6 out, we will be implementing a performance boost for our [`typescript-checker`](https://github.com/stryker-mutator/stryker-js/pull/3450). In the medium term we'll be looking to implement [incremental mode](https://github.com/stryker-mutator/stryker-js/issues/2753).
 
-In the mean-time, we would love to hear from you! Please voice your feedback on [our slack channel](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM) or by sending a [tweet](https://twitter.com/stryker_mutator/)
+In the mean-time, we would love to hear from you! Please voice your feedback in the comment section below 👇, on [our slack channel](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM) or by sending a [tweet](https://twitter.com/stryker_mutator/).

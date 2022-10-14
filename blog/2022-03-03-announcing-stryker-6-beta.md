@@ -197,4 +197,4 @@ This is the list of breaking changes.
 
 ## 🔮 What's next
 
-We'll be focussing on getting StrykerJS 6.0 released in about a month or so. We would appreciate your feedback. Feel free to report any [issues](https://github.com/stryker-mutator/stryker-js/issues) you find or voice your opinion on [our slack channel](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM)
+We'll be focussing on getting StrykerJS 6.0 released in about a month or so. We would appreciate your feedback. Feel free to report any [issues](https://github.com/stryker-mutator/stryker-js/issues) you find or voice your opinion in the comment section below 👇 or on [our slack channel](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM).
