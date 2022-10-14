@@ -171,4 +171,4 @@ Please try out incremental mode and let us know what you think. We would love to
 
 In the medium term, we'll be working on supporting more test runners and implementing performance improvements in the typescript checker. We maintain a [🛣 roadmap on github](https://github.com/stryker-mutator/stryker-js/wiki/Roadmap), so you can always see what we're actively working on.
 
-In the meantime, we would love to hear from you! So please voice your feedback on [our slack channel](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM) or by sending a [tweet](https://twitter.com/stryker_mutator/).
+In the meantime, we would love to hear from you! So please voice your feedback in the comment section below 👇, on [our slack channel](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM) or by sending a [tweet](https://twitter.com/stryker_mutator/).
