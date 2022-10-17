@@ -1,6 +1,6 @@
 // From https://raymondjulin.com/blog/drawing-diagrams-in-sanity-with-mermaid-js
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import mermaid from 'mermaid';
 import { useColorMode } from '@docusaurus/theme-common';
 import './Mermaid.css';
@@ -21,8 +21,9 @@ interface Props {
  */
 export default function Mermaid({ chart, _key }: Props) {
   const id = `mermaid-${_key}`;
-  const ref = React.useRef<HTMLDivElement>(null);
   const theme = useColorMode().colorMode === 'dark' ? 'dark' : 'default';
+
+  const [chartHtml, setChartHtml] = useState('');
 
   // We run this as an effect instead of top level outside the component
   // so we can use the color mode to toggle mermaid themes
@@ -35,14 +36,10 @@ export default function Mermaid({ chart, _key }: Props) {
 
   // This effect renders and updates the DOM node with innerHTML.
   useEffect(() => {
-    if (ref.current) {
-      try {
-        mermaid.mermaidAPI.render(id, chart, (result) => {
-          ref.current!.innerHTML = result;
-        });
-      } catch (error) {
-        console.error('Could not render Mermaid diagram', error);
-      }
+    try {
+      mermaid.mermaidAPI.render(id, chart, (result) => setChartHtml(result));
+    } catch (error) {
+      console.error('Could not render Mermaid diagram', error);
     }
   }, [theme, chart]);
 
@@ -53,7 +50,7 @@ export default function Mermaid({ chart, _key }: Props) {
   return (
     <>
       <div key="faux" id={id} />
-      <div key="preview" className="mermaid-diagram" ref={ref} />
+      <div key="preview" className="mermaid-diagram" dangerouslySetInnerHTML={{ __html: chartHtml }} />
     </>
   );
 }
