@@ -5,16 +5,13 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          # Use same version of node for netlify and CI build
+          node-version-file: '.nvmrc'
           cache: 'npm'
       - run: npm ci
       - name: Lint 🧶
