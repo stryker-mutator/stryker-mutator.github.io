@@ -1,5 +1,8 @@
 {
   "extends": ["config:js-app"],
+  "lockFileMaintenance": {
+    "enabled": true
+  },
   "packageRules": [
     {
       "matchDepTypes": ["devDependencies"],
