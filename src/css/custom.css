@@ -92,3 +92,7 @@ html[data-theme='dark'] .header-github-link:before {
 :root[data-theme='dark'] button.clean-btn {
   color: var(--ifm-color-white);
 }
+
+.docusaurus-mermaid-container {
+  margin-bottom: 16px;
+}
