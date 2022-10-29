@@ -40,11 +40,7 @@ In the older sbt plugin, there was a lot of overhead in running your tests. As a
 1. Run your tests and report the results back to the main sbt process.
 1. Repeat for the next mutant.
 
-import Mermaid from '@theme/Mermaid';
-
-<Mermaid
-  _key="sbt-old"
-  chart={`
+```mermaid
 sequenceDiagram
   participant Stryker4s
   participant sbt
@@ -57,8 +53,7 @@ sequenceDiagram
     sbt test process->>-sbt: Report test results
     sbt->>Stryker4s: Tests successful Y/N
   end
-`}
-/>
+```
 
 Doing those checks and starting a new process makes a lot of sense for a development workflow, but not for mutation testing. This implementation of the test runner hasn't changed much in the two years that the plugin has existed. Time for some improvements!
 
@@ -128,9 +123,7 @@ Stryker4s can start a new process with all the information collected above. Beca
 1. Create a new instance of the test framework in the created process.
 1. For each mutant, programmatically run the tests on the worker process.
 
-<Mermaid
-  _key="sbt-new"
-  chart={`
+```mermaid
 sequenceDiagram
   participant Stryker4s
   participant sbt
@@ -145,9 +138,8 @@ sequenceDiagram
     testrunner worker-->>Stryker4s: report test result
   end
   Stryker4s->>testrunner worker: close test worker
-  testrunner worker-->>-Stryker4s: 
-`}
-/>
+  testrunner worker-->>-Stryker4s:
+```
 
 As you can see, there's not much overhead left in running your tests. The limiting factor is now how fast your tests are! When running Stryker4s on itself, this method improves performance 60x: from 40 minutes to 40 seconds.
 

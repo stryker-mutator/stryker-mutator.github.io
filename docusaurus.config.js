@@ -200,6 +200,10 @@ const config = {
     ],
   ],
   plugins: [['@docusaurus/plugin-client-redirects', { redirects: require('./legacy-redirects') }]],
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
 };
 
 module.exports = config;

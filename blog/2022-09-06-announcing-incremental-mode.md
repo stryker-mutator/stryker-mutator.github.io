@@ -112,19 +112,10 @@ For this to work, you need the `stryker-incremental.json` file. You could 'check
 
 The CI process for mutation testing looks as follows.
 
-import Mermaid from '@theme/Mermaid';
-
-<!-- prettier-ignore-start -->
-
-<Mermaid 
-  _key="simple-ci" 
-  chart={`
-graph TD; A(1. Download stryker-incremental.json artifact)-->B(2. Run \`stryker --incremental\`)
-B-->C(3. Upload \`stryker-incremental.json\` artifact)
-  `} 
-  />
-
-<!-- prettier-ignore-end -->
+```mermaid
+graph TD; A(1. Download stryker-incremental.json artifact)-->B(2. Run `stryker --incremental`)
+B-->C(3. Upload `stryker-incremental.json` artifact)
+```
 
 Your preferred implementation of steps 1 and 3 will depend on your CI provider. Besides artifact storage provided by your CI provider, you can also opt for cloud storage. If you are using AWS, it might make sense to use an S3 bucket here. You probably want to opt for Azure blob storage when using Azure DevOps.
 
@@ -150,20 +141,13 @@ rm .header.out
 
 If you only ever run Stryker with incremental mode, you might fear that the mutation report slowly 'drifts' from reality because of [said limitations](#-limitations). We recommend doing a full mutation testing run now and then to prevent this, either with [`--force`](#-forcing-reruns) or using the dashboard reporter. We do this in CI to develop StrykerJS itself. Our complete CI process looks like this:
 
-<!-- prettier-ignore-start -->
-
-<Mermaid 
-  _key="full-ci" 
-  chart={`
+```mermaid
 flowchart TB;
     A(1. Download JSON report from dashboard)-->B(2. Run stryker incremental)
     B-->C(3. Upload JSON report to dashboard)
     C--Merge to main branch-->D(4. Full mutation testing run)
     D-->E(5. Upload new JSON report to dashboard)
-`} 
-/>
-
-<!-- prettier-ignore-end -->
+```
 
 ## 🔮 What's next
 
