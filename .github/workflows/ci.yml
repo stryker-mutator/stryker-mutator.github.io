@@ -1,6 +1,6 @@
 name: Node.js CI
 
-on: [push, pull_request, workflow_dispatch]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -18,9 +18,5 @@ jobs:
         run: npm run lint
       - name: Build 🏗️
         run: npm run build
-      - name: Deploy 🚀
-        if: ${{ github.ref == 'refs/heads/develop' }}
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          BRANCH: master # The branch the action should deploy to.
-          FOLDER: build # The folder the action should deploy.
+        # Build is separate deployment on develop branch
+        if: ${{ github.ref != 'refs/heads/develop' }}
