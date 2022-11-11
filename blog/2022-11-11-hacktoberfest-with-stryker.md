@@ -32,6 +32,7 @@ Let's take a look at what we have accomplished in just two days of hacking:
 - Fix: [Multiple mutator descriptions](https://github.com/stryker-mutator/stryker-net/pull/2277)
 - Fix: [Correctly show whitespace in report](https://github.com/stryker-mutator/stryker-net/pull/2276)
 - Fix: [Spaces in the output path are supported for the -o option](https://github.com/stryker-mutator/stryker-net/pull/2264)
+- Docs: [Add operating modes page](https://github.com/stryker-mutator/stryker-net/pull/2291)
 - Docs: [Add reference to integration test projects in contribution guide](https://github.com/stryker-mutator/stryker-net/pull/2275)
 - Chore: [Improve pipeline performance](https://github.com/stryker-mutator/stryker-net/pull/2269)
 - Chore: [Removed hard coded references to command line](https://github.com/stryker-mutator/stryker-net/pull/2268)
