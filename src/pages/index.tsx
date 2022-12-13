@@ -43,7 +43,7 @@ function Language({ imageUrl, title, docsLink }: LanugageProps) {
       {imgUrl && (
         <a href={docsLink}>
           <figure className={clsx('text--center')}>
-            <img className={styles.languageImage} height={200} src={imgUrl} alt={title} />
+            <img className={styles.languageImage} height={200} width={200} src={imgUrl} alt={title} />
             <figcaption>{title}</figcaption>
           </figure>
         </a>
@@ -80,7 +80,7 @@ function Home() {
             </div>
           </div>
           <picture className={styles.heroImage}>
-            <source media="(min-width:662px)" srcSet="images/stryker-man.svg"></source>
+            <source media="(min-width:662px)" width="400" height="400" srcSet="images/stryker-man.svg"></source>
             <img src="images/stryker-gun.svg" alt="Strykerman"></img>
           </picture>
         </div>
