@@ -154,6 +154,8 @@ const config = {
         alt: 'Info Support Logo',
         src: 'images/info-support.svg',
         href: 'https://infosupport.com',
+        width: 117,
+        height: 33,
       },
     },
     prism: {
