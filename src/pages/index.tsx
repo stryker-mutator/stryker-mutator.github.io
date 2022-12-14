@@ -1,49 +1,55 @@
-import React, { PropsWithChildren } from 'react';
-import clsx from 'clsx';
-import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import styles from './styles.module.css';
-import MutationsSvg from '../icons/mutations.svg';
-import TargetSvg from '../icons/target.svg';
-import PublicSvg from '../icons/public.svg';
-import GroupsSvg from '../icons/groups.svg';
-import TranslateSvg from '../icons/translate.svg';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import CSharpLogo from '@site/static/images/CSharpLogo.svg';
+import JavaScriptLogo from '@site/static/images/JavascriptLogo.svg';
+import ScalaLogo from '@site/static/images/ScalaLogo.webp';
+import Layout from '@theme/Layout';
+import clsx from 'clsx';
+import React, { ComponentType, PropsWithChildren, SVGProps } from 'react';
 import AssessmentSvg from '../icons/assessment.svg';
+import GroupsSvg from '../icons/groups.svg';
+import MutationsSvg from '../icons/mutations.svg';
+import PublicSvg from '../icons/public.svg';
+import TargetSvg from '../icons/target.svg';
+import TranslateSvg from '../icons/translate.svg';
+import styles from './styles.module.css';
 
 const languages = [
   {
     title: 'JavaScript and friends',
-    imageUrl: 'images/JavascriptLogo.svg',
+    image: JavaScriptLogo,
     docsLink: 'docs/stryker-js/introduction',
   },
   {
     title: 'C#',
-    imageUrl: 'images/CSharpLogo.svg',
+    image: CSharpLogo,
     docsLink: 'docs/stryker-net/Introduction',
   },
   {
     title: 'Scala',
-    imageUrl: 'images/ScalaLogo.webp',
+    image: ScalaLogo,
     docsLink: 'docs/stryker4s/getting-started',
   },
 ];
 
 type LanugageProps = {
   title: string;
-  imageUrl: string;
+  image: string | ComponentType<SVGProps<SVGSVGElement>>;
   docsLink: string;
 };
 
-function Language({ imageUrl, title, docsLink }: LanugageProps) {
-  const imgUrl = useBaseUrl(imageUrl);
+function Language({ image: Image, title, docsLink }: LanugageProps) {
   return (
     <div className={clsx('col col--4', styles.feature)}>
-      {imgUrl && (
+      {Image && (
         <a href={docsLink}>
           <figure className={clsx('text--center')}>
-            <img className={styles.languageImage} height={200} width={200} src={imgUrl} alt={title} />
+            {typeof Image === 'string' ? (
+              <img className={styles.languageImage} height={200} width={200} src={Image} alt={title} />
+            ) : (
+              <Image role="img" className={styles.languageImage} />
+            )}
             <figcaption>{title}</figcaption>
           </figure>
         </a>
@@ -79,10 +85,17 @@ function Home() {
               </Link>
             </div>
           </div>
-          <picture className={styles.heroImage}>
-            <source media="(min-width:662px)" width="400" height="400" srcSet="images/stryker-man.svg"></source>
-            <img src="images/stryker-gun.svg" alt="Strykerman"></img>
-          </picture>
+          <div>
+            <img
+              className={styles.heroImage}
+              src={useBaseUrl('images/stryker-gun.svg')}
+              srcSet={`${useBaseUrl('images/stryker-gun.svg')} 200w, ${useBaseUrl('images/stryker-man.svg')}`}
+              sizes="(min-width: 662px) 400px, 200px"
+              width={200}
+              height={200}
+              alt="Strykerman"
+            ></img>
+          </div>
         </div>
       </header>
       <main>

@@ -55,11 +55,15 @@
 
 .heroImage {
   min-width: 400px;
+  width: 400px;
+  height: 400px;
 }
 
 @media screen and (max-width: 662px) {
   .heroImage {
     margin-top: 1rem;
     min-width: 200px;
+    width: 200px;
+    height: 200px;
   }
 }

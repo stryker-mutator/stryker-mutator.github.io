@@ -24,7 +24,7 @@ const config = {
   url: 'https://stryker-mutator.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  favicon: 'images/stryker.svg',
+  favicon: '/images/stryker.svg',
   organizationName: 'stryker-mutator',
   projectName: 'stryker-mutator.github.io',
   trailingSlash: true,
