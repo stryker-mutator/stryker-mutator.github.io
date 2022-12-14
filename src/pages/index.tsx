@@ -105,8 +105,8 @@ function Home() {
               <div className="col col--12 text--center">
                 <h2>Getting started with Stryker</h2>
                 <div className="row">
-                  {languages.map((props, idx) => (
-                    <Language key={idx} {...props} />
+                  {languages.map((props) => (
+                    <Language key={props.title} {...props} />
                   ))}
                 </div>
               </div>
