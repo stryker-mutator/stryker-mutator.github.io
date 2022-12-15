@@ -1,49 +1,55 @@
-import React, { PropsWithChildren } from 'react';
-import clsx from 'clsx';
-import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import styles from './styles.module.css';
-import MutationsSvg from '../icons/mutations.svg';
-import TargetSvg from '../icons/target.svg';
-import PublicSvg from '../icons/public.svg';
-import GroupsSvg from '../icons/groups.svg';
-import TranslateSvg from '../icons/translate.svg';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import CSharpLogo from '@site/static/images/CSharpLogo.svg';
+import JavaScriptLogo from '@site/static/images/JavascriptLogo.svg';
+import ScalaLogo from '@site/static/images/ScalaLogo.webp';
+import Layout from '@theme/Layout';
+import clsx from 'clsx';
+import React, { ComponentType, PropsWithChildren, SVGProps } from 'react';
 import AssessmentSvg from '../icons/assessment.svg';
+import GroupsSvg from '../icons/groups.svg';
+import MutationsSvg from '../icons/mutations.svg';
+import PublicSvg from '../icons/public.svg';
+import TargetSvg from '../icons/target.svg';
+import TranslateSvg from '../icons/translate.svg';
+import styles from './styles.module.css';
 
 const languages = [
   {
     title: 'JavaScript and friends',
-    imageUrl: 'images/JavascriptLogo.svg',
+    image: JavaScriptLogo,
     docsLink: 'docs/stryker-js/introduction',
   },
   {
     title: 'C#',
-    imageUrl: 'images/CSharpLogo.svg',
+    image: CSharpLogo,
     docsLink: 'docs/stryker-net/Introduction',
   },
   {
     title: 'Scala',
-    imageUrl: 'images/ScalaLogo.webp',
+    image: ScalaLogo,
     docsLink: 'docs/stryker4s/getting-started',
   },
 ];
 
 type LanugageProps = {
   title: string;
-  imageUrl: string;
+  image: string | ComponentType<SVGProps<SVGSVGElement>>;
   docsLink: string;
 };
 
-function Language({ imageUrl, title, docsLink }: LanugageProps) {
-  const imgUrl = useBaseUrl(imageUrl);
+function Language({ image: Image, title, docsLink }: LanugageProps) {
   return (
     <div className={clsx('col col--4', styles.feature)}>
-      {imgUrl && (
+      {Image && (
         <a href={docsLink}>
           <figure className={clsx('text--center')}>
-            <img className={styles.languageImage} height={200} src={imgUrl} alt={title} />
+            {typeof Image === 'string' ? (
+              <img className={styles.languageImage} height={200} width={200} src={Image} alt={title} />
+            ) : (
+              <Image role="img" className={styles.languageImage} />
+            )}
             <figcaption>{title}</figcaption>
           </figure>
         </a>
@@ -51,6 +57,68 @@ function Language({ imageUrl, title, docsLink }: LanugageProps) {
     </div>
   );
 }
+
+const features: { icon: ComponentType<SVGProps<SVGSVGElement>>; title: string; content: JSX.Element }[] = [
+  {
+    icon: MutationsSvg,
+    title: 'Mutations',
+    content: (
+      <span>
+        Control more than <a href="/docs/mutation-testing-elements/supported-mutators">30 supported mutations</a>.
+      </span>
+    ),
+  },
+  {
+    icon: TargetSvg,
+    title: 'Speed',
+    content: <span>Use code analysis and parallel test runner processes to speed things up.</span>,
+  },
+  {
+    icon: PublicSvg,
+    title: 'Test runner agnostic',
+    content: <span>Run tests with your favorite test runner.</span>,
+  },
+  {
+    icon: GroupsSvg,
+    title: 'Open source',
+    content: (
+      <span>
+        Free as in Speech. Maintained by the open source community at{' '}
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/stryker-mutator">
+          GitHub
+        </a>
+        .
+      </span>
+    ),
+  },
+  {
+    icon: TranslateSvg,
+    title: 'Multilingual',
+    content: (
+      <span>
+        Stryker has support for <a href="/docs/stryker-js/introduction">JavaScript &amp; TypeScript</a>,{' '}
+        <a href="/docs/stryker-net/Introduction">C#</a> and <a href="/docs/stryker4s/getting-started">Scala</a>.
+      </span>
+    ),
+  },
+  {
+    icon: AssessmentSvg,
+    title: 'Clever reports',
+    content: (
+      <span>
+        Use{' '}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker-js/master"
+        >
+          clever reports
+        </a>{' '}
+        to sniff out surviving mutants and improve test effectiveness.
+      </span>
+    ),
+  },
+];
 
 type FeatureProps = PropsWithChildren<{}>;
 
@@ -79,10 +147,17 @@ function Home() {
               </Link>
             </div>
           </div>
-          <picture className={styles.heroImage}>
-            <source media="(min-width:662px)" srcSet="images/stryker-man.svg"></source>
-            <img src="images/stryker-gun.svg" alt="Strykerman"></img>
-          </picture>
+          <div>
+            <img
+              className={styles.heroImage}
+              src={useBaseUrl('images/stryker-gun.svg')}
+              srcSet={`${useBaseUrl('images/stryker-gun.svg')} 200w, ${useBaseUrl('images/stryker-man.svg')}`}
+              sizes="(min-width: 662px) 400px, 200px"
+              width={200}
+              height={200}
+              alt="Strykerman"
+            ></img>
+          </div>
         </div>
       </header>
       <main>
@@ -92,8 +167,8 @@ function Home() {
               <div className="col col--12 text--center">
                 <h2>Getting started with Stryker</h2>
                 <div className="row">
-                  {languages.map((props, idx) => (
-                    <Language key={idx} {...props} />
+                  {languages.map((props) => (
+                    <Language key={props.title} {...props} />
                   ))}
                 </div>
               </div>
@@ -109,76 +184,15 @@ function Home() {
               </div>
             </div>
             <div className="row">
-              <Feature>
-                <div className={styles.featureTitle}>
-                  <MutationsSvg className={styles.featureIcon} />
-                  <h3>Mutations</h3>
-                </div>
-                <p>
-                  Control more than{' '}
-                  <a href="/docs/mutation-testing-elements/supported-mutators">30 supported mutations</a>.
-                </p>
-              </Feature>
-
-              <Feature>
-                <div className={styles.featureTitle}>
-                  <TargetSvg className={styles.featureIcon} />
-                  <h3>Speed</h3>
-                </div>
-                <p>Use code analysis and parallel test runner processes to speed things up.</p>
-              </Feature>
-
-              <Feature>
-                <div className={styles.featureTitle}>
-                  <PublicSvg className={styles.featureIcon} />
-                  <h3>Test runner agnostic</h3>
-                </div>
-                <p>Run tests with your favorite test runner.</p>
-              </Feature>
-
-              <Feature>
-                <div className={styles.featureTitle}>
-                  <GroupsSvg className={styles.featureIcon} />
-                  <h3>Open source</h3>
-                </div>
-                <p>
-                  Free as in Speech. Maintained by the open source community at{' '}
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/stryker-mutator">
-                    GitHub
-                  </a>
-                  .
-                </p>
-              </Feature>
-
-              <Feature>
-                <div className={styles.featureTitle}>
-                  <TranslateSvg className={styles.featureIcon} />
-                  <h3>Multilingual</h3>
-                </div>
-                <p>
-                  Stryker has support for <a href="/docs/stryker-js/introduction">JavaScript &amp; TypeScript</a>,{' '}
-                  <a href="/docs/stryker-net/Introduction">C#</a> and{' '}
-                  <a href="/docs/stryker4s/getting-started">Scala</a>.
-                </p>
-              </Feature>
-
-              <Feature>
-                <div className={styles.featureTitle}>
-                  <AssessmentSvg className={styles.featureIcon} />
-                  <h3>Clever reports</h3>
-                </div>
-                <p>
-                  Use{' '}
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker-js/master"
-                  >
-                    clever reports
-                  </a>{' '}
-                  to sniff out surviving mutants and improve test effectiveness.
-                </p>
-              </Feature>
+              {features.map((props) => (
+                <Feature key={props.title}>
+                  <div className={styles.featureTitle}>
+                    <props.icon className={styles.featureIcon} />
+                    <h3>{props.title}</h3>
+                  </div>
+                  <p>{props.content}</p>
+                </Feature>
+              ))}
             </div>
             <br></br>
           </div>

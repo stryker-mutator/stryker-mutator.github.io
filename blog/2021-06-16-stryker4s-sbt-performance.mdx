@@ -138,7 +138,7 @@ sequenceDiagram
     testrunner worker-->>Stryker4s: report test result
   end
   Stryker4s->>testrunner worker: close test worker
-  testrunner worker-->>-Stryker4s:
+  testrunner worker-->>-Stryker4s: exit and report results
 ```
 
 As you can see, there's not much overhead left in running your tests. The limiting factor is now how fast your tests are! When running Stryker4s on itself, this method improves performance 60x: from 40 minutes to 40 seconds.
