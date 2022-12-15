@@ -50,6 +50,7 @@ Given the big success of this years hacktoberfest hackathon we will for sure org
 The new Stryker.NET is packed with a lot of new awesome features 🚀
 
 ## Test whole solution
+
 A long awaited feature is finally here!
 
 ```
@@ -63,61 +64,61 @@ When running from your project root (where your solution file is located) and pa
 
 Stryker will now mutate math methods when it encounters them. All available mutations are:
 
-|      Original           |         Mutated         |
-| ----------------------- | ----------------------- |
-| Acos()                  | Acosh()                 |
-| Acos()                  | Asin()                  |
-| Acos()                  | Atan()                  |
-| Acosh()                 | Acos()                  |
-| Acosh()                 | Asinh()                 |
-| Acosh()                 | Atanh()                 |
-| Asin()                  | Asinh()                 |
-| Asin()                  | Acos()                  |
-| Asin()                  | Atan()                  |
-| Asinh()                 | Asin()                  |
-| Asinh()                 | Acosh()                 |
-| Asinh()                 | Atanh()                 |
-| Atan()                  | Atanh()                 |
-| Atan()                  | Acos()                  |
-| Atan()                  | Asin()                  |
-| Atanh()                 | Atan()                  |
-| Atanh()                 | Acosh()                 |
-| Atanh()                 | Asinh()                 |
-| BitDecrement()          | BitIncrement()          |
-| BitIncrement()          | BitDecrement()          |
-| Ceiling()               | Floor()                 |
-| Cos()                   | Cosh()                  |
-| Cos()                   | Sin()                   |
-| Cos()                   | Tan()                   |
-| Cosh()                  | Cos()                   |
-| Cosh()                  | Sinh()                  |
-| Cosh()                  | Tanh()                  |
-| Exp()                   | Log()                   |
-| Floor()                 | Ceiling()               |
-| Log()                   | Exp()                   |
-| Log()                   | Pow()                   |
-| MaxMagnitude()          | MinMagnitude()          |
-| MinMagnitude()          | MaxMagnitude()          |
-| Pow()                   | Log()                   |
-| ReciprocalEstimate()    | ReciprocalSqrtEstimate() |
-| ReciprocalSqrtEstimate() | ReciprocalEstimate()   |
-| ReciprocalSqrtEstimate() | Sqrt()                 |
-| Sin()                   | Sinh()                  |
-| Sin()                   | Cos()                   |
-| Sin()                   | Tan()                   |
-| Sinh()                  | Sin()                   |
-| Sinh()                  | Cosh()                  |
-| Sinh()                  | Tanh()                  |
-| Tan()                   | Tanh()                  |
-| Tan()                   | Cos()                   |
-| Tan()                   | Sin()                   |
-| Tanh()                  | Tan()                   |
-| Tanh()                  | Cosh()                  |
-| Tanh()                  | Sinh()                  |
+| Original                 | Mutated                  |
+| ------------------------ | ------------------------ |
+| Acos()                   | Acosh()                  |
+| Acos()                   | Asin()                   |
+| Acos()                   | Atan()                   |
+| Acosh()                  | Acos()                   |
+| Acosh()                  | Asinh()                  |
+| Acosh()                  | Atanh()                  |
+| Asin()                   | Asinh()                  |
+| Asin()                   | Acos()                   |
+| Asin()                   | Atan()                   |
+| Asinh()                  | Asin()                   |
+| Asinh()                  | Acosh()                  |
+| Asinh()                  | Atanh()                  |
+| Atan()                   | Atanh()                  |
+| Atan()                   | Acos()                   |
+| Atan()                   | Asin()                   |
+| Atanh()                  | Atan()                   |
+| Atanh()                  | Acosh()                  |
+| Atanh()                  | Asinh()                  |
+| BitDecrement()           | BitIncrement()           |
+| BitIncrement()           | BitDecrement()           |
+| Ceiling()                | Floor()                  |
+| Cos()                    | Cosh()                   |
+| Cos()                    | Sin()                    |
+| Cos()                    | Tan()                    |
+| Cosh()                   | Cos()                    |
+| Cosh()                   | Sinh()                   |
+| Cosh()                   | Tanh()                   |
+| Exp()                    | Log()                    |
+| Floor()                  | Ceiling()                |
+| Log()                    | Exp()                    |
+| Log()                    | Pow()                    |
+| MaxMagnitude()           | MinMagnitude()           |
+| MinMagnitude()           | MaxMagnitude()           |
+| Pow()                    | Log()                    |
+| ReciprocalEstimate()     | ReciprocalSqrtEstimate() |
+| ReciprocalSqrtEstimate() | ReciprocalEstimate()     |
+| ReciprocalSqrtEstimate() | Sqrt()                   |
+| Sin()                    | Sinh()                   |
+| Sin()                    | Cos()                    |
+| Sin()                    | Tan()                    |
+| Sinh()                   | Sin()                    |
+| Sinh()                   | Cosh()                   |
+| Sinh()                   | Tanh()                   |
+| Tan()                    | Tanh()                   |
+| Tan()                    | Cos()                    |
+| Tan()                    | Sin()                    |
+| Tanh()                   | Tan()                    |
+| Tanh()                   | Cosh()                   |
+| Tanh()                   | Sinh()                   |
 
-## Object initializer mutation 
+## Object initializer mutation
 
-``` cs
+```cs
 var myObject = new MyClass() {
     property1 = "",
     property2 = Int.MaxValue
@@ -126,7 +127,7 @@ var myObject = new MyClass() {
 
 Will be mutated into an empty object initializer:
 
-``` cs
+```cs
 var myObject = new MyClass() {
 }
 ```
