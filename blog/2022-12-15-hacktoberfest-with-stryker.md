@@ -1,7 +1,7 @@
 ---
 slug: hacktoberfest-with-stryker
 title: 'Celebrating hacktoberfest with Stryker & big release for Stryker.NET'
-authors: richardwerkman
+authors: [richardwerkman, nicojs, hugo-vrijswijk]
 tags: [stryker mutator, release, hacktoberfest, hackathon]
 ---
 
