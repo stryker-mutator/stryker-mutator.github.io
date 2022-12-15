@@ -37,12 +37,9 @@ Let's take a look at what we have accomplished in just two days of hacking:
 - Chore: [Improve pipeline performance](https://github.com/stryker-mutator/stryker-net/pull/2269)
 - Chore: [Removed hard coded references to command line](https://github.com/stryker-mutator/stryker-net/pull/2268)
 
-## Stryker4s
-
 ## Mutation testing elements (report)
 
-- Feat: [Replace bootstrap with tailwind
-](https://github.com/stryker-mutator/mutation-testing-elements/pull/2160)
+- Feat: [Replace bootstrap with tailwind](https://github.com/stryker-mutator/mutation-testing-elements/pull/2160)
 
 ## See you next year?
 
