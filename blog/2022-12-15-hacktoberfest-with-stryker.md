@@ -1,10 +1,7 @@
 ---
 slug: hacktoberfest-with-stryker
 title: 'Celebrating hacktoberfest with Stryker & big release for Stryker.NET'
-author: Richard Werkman
-author_title: Stryker Team
-author_url: https://github.com/richardwerkman
-author_image_url: https://avatars.githubusercontent.com/u/14224500?v=4
+authors: richardwerkman
 tags: [stryker mutator, release, hacktoberfest, hackathon]
 ---
 
