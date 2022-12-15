@@ -1,10 +1,7 @@
 ---
 slug: 2021-30-10-announcing-stryker-net-1.md
 title: Announcing Stryker.NET 1.0
-author: Richard Werkman
-author_title: Stryker Team
-author_url: https://github.com/richardwerkman
-author_image_url: https://avatars.githubusercontent.com/u/14224500?v=4
+authors: richardwerkman
 tags: [stryker.net, release, mutation testing, stryker mutator, stryker-js]
 ---
 
