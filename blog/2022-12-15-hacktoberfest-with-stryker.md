@@ -1,23 +1,27 @@
 ---
 slug: hacktoberfest-with-stryker
-title: 'Celebrating hacktoberfest with Stryker & big release for Stryker.NET'
+title: 'Celebrating Hacktoberfest results'
 authors: [richardwerkman, nicojs, hugo-vrijswijk]
 tags: [stryker mutator, release, hacktoberfest, hackathon]
 ---
 
-At Stryker we can look back at a very successful Hacktoberfest this year! In the last weekend of October we got together with other open-sourcerers to help reduce the number of outstanding issues on our stryker projects.
+At Stryker we can look back at a very successful Hacktoberfest this year! On the last weekend of October, we got together with other 'open-sourcerers' to help reduce the number of outstanding issues on our Stryker projects.
 
-The hackathon was sponsored by Info Support, this is in addition to the regular sponsoring.
+Info Support sponsored the hackathon, in addition to the regular sponsoring.
 
-# Accomplishments
+![accomplishments](/images/blogs/hacktoberfest-2022.jpg)
 
-During the hackathon we worked on a variety of issues. From small bug fixes to large features that have been in progress for months. Not all work has resulted in merged PRs but everyone learned a lot.
+<!-- truncate -->
+
+## Accomplishments
+
+During the hackathon, we worked on various issues, from minor bug fixes to significant features that have been in progress for months. Not all work has resulted in merged PRs, but everyone learned a lot.
 
 Let's take a look at what we have accomplished in just two days of hacking:
 
-## Stryker JS
+### Stryker JS
 
-## Stryker.NET
+### Stryker.NET
 
 - Feat: [Add mutator for Math class](https://github.com/stryker-mutator/stryker-net/pull/2244)
 - Feat: [Add mutator for `??=`](https://github.com/stryker-mutator/stryker-net/pull/2274)
@@ -34,19 +38,19 @@ Let's take a look at what we have accomplished in just two days of hacking:
 - Chore: [Improve pipeline performance](https://github.com/stryker-mutator/stryker-net/pull/2269)
 - Chore: [Removed hard coded references to command line](https://github.com/stryker-mutator/stryker-net/pull/2268)
 
-## Mutation testing elements (report)
+### Mutation testing elements (report)
 
 - Feat: [Replace bootstrap with tailwind](https://github.com/stryker-mutator/mutation-testing-elements/pull/2160)
 
-## See you next year?
+### See you next year?
 
-Given the big success of this years hacktoberfest hackathon we will for sure organise one next year as well! The hackathon will be hosted in The Netherlands but is setup as a hybrid event so can be joined online as well.
+Given the success of this year's hackathon, we will also organize one next year! This hackathon takes place in The Netherlands and Belgium, so be sure to join if you are in the neighborhood.
 
-# Stryker.NET 3.1
+## Stryker.NET 3.1
 
-The new Stryker.NET is packed with a lot of new awesome features 🚀
+The new Stryker.NET is packed with a lot of new excellent features 🚀
 
-## Test whole solution
+### Test whole solution
 
 A long awaited feature is finally here!
 
@@ -57,7 +61,7 @@ dotnet stryker -s "C:\myproject\mysolution.sln"
 
 When running from your project root (where your solution file is located) and passing the solution file Stryker will analyze your solution and mutate all projects it can find.
 
-## Math mutations
+### Math mutations
 
 Stryker will now mutate math methods when it encounters them. All available mutations are:
 
@@ -113,7 +117,7 @@ Stryker will now mutate math methods when it encounters them. All available muta
 | Tanh()                   | Cosh()                   |
 | Tanh()                   | Sinh()                   |
 
-## Object initializer mutation
+### Object initializer mutation
 
 ```cs
 var myObject = new MyClass() {
@@ -129,7 +133,7 @@ var myObject = new MyClass() {
 }
 ```
 
-## Null coalesing assignment mutation
+### Null coalesing assignment mutation
 
 ```cs
 var object1 ??= object2;
