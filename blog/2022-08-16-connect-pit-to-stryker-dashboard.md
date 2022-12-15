@@ -1,10 +1,7 @@
 ---
 slug: connect-pit-to-stryker-dashboard
 title: 'Connect PIT to Stryker Dashboard'
-author: Maarten Mulders
-author_title: Stryker Team
-author_url: https://maarten.mulders.it/
-author_image_url: https://maarten.mulders.it/img/twitter-profile-202106.png
+authors: mthmulders
 tags: [pit, java, maven, dashboard]
 ---
 
