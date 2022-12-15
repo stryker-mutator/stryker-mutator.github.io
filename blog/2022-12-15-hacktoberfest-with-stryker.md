@@ -5,7 +5,7 @@ author: Richard Werkman
 author_title: Stryker Team
 author_url: https://github.com/richardwerkman
 author_image_url: https://avatars.githubusercontent.com/u/14224500?v=4
-tags: [stryker, hacktoberfest, hackathon]
+tags: [stryker mutator, release, hacktoberfest, hackathon]
 ---
 
 At Stryker we can look back at a very successful Hacktoberfest this year! In the last weekend of October we got together with other open-sourcerers to help reduce the number of outstanding issues on our stryker projects.
