@@ -1,10 +1,7 @@
 ---
 slug: announcing-dotnet-framework-support
 title: Announcing Stryker.NET 0.10 with .NET Framework support
-author: Richard Werkman
-author_title: Stryker.NET Team
-author_url: https://github.com/richardwerkman
-author_image_url: https://avatars1.githubusercontent.com/u/14224500?s=460&u=189f6ef9ab6957063d0674f94c014bef39bf4653&v=4
+authors: richardwerkman
 tags: [stryker.net]
 ---
 
