@@ -1,10 +1,7 @@
 ---
 slug: stryker4s-0-1-0-released
 title: Stryker4s 0.1.0 released
-author: Hugo van Rijswijk
-author_title: Stryker4s Team
-author_url: https://github.com/hugo-vrijswijk
-author_image_url: https://avatars2.githubusercontent.com/u/10114577?s=460&u=51abfbf6e7bd33b38b998de62b0335b89d075a60&v=4
+authors: hugo-vrijswijk
 tags: [stryker4s]
 ---
 
