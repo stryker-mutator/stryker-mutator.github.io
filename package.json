@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.3.1",
-    "@swc/core": "1.3.32",
+    "@swc/core": "1.3.34",
     "@tsconfig/docusaurus": "1.0.6",
     "prettier": "2.8.4",
     "rimraf": "4.1.2",
