@@ -1,8 +1,8 @@
 ---
-slug: announcing-faster-typescript-checker
-title: 'Announcing a faster TypeScript checker for StrykerJS'
+slug: announcing-faster-typescript-checking
+title: 'Announcing faster TypeScript checking for StrykerJS'
 authors: danny-berkelaar
-tags: [stryker-js]
+tags: [stryker-js, typescript]
 ---
 
 We're excited to announce StrykerJS 6.4. This release comes with [some bug fixes](https://github.com/stryker-mutator/stryker-js/releases/tag/v6.4.0), but in this article, we will focus on upgraded TypeScript Checker.
@@ -41,11 +41,20 @@ TypeScript is very smart about what constructs are valid and which aren't. So wh
 
 The way the checker plugin did this was to validate your mutants was somewhat pessimistic, namely, by letting TypeScript validate each mutant one by one. Even when you do this in memory and with TypeScript's `--watch` mode enabled, this results in dramatic performance! Running StrykerJS on itself took 10x longer with this plugin than without it!
 
-## ⏩ The upgraded TypeScript Checker
+## ⏩ New and improved
 
-Luckily there is a solution here. By grouping mutants together, we can type-check a bunch of them at once. Creating these groups is somwhat tricky, [see in depth](#🔎-in-depth).
+Luckily there is a solution here. By grouping mutants together, we can type-check a bunch of them at once. Creating these groups is somewhat tricky, [see in depth](#-in-depth).
 
-**Note:** This grouping strategy is the new default. However, there are some minor [drawbacks](#⚠-drawbacks).
+You can enable the [TypeScript checker](/docs/stryker-js/typescript-checker/) using this configuration:
+
+```js
+// stryker.conf.json
+{
+  "checkers": ["typescript"]
+}
+```
+
+**Note:** This grouping strategy is the new default. However, there are some minor [drawbacks](#-drawbacks).
 
 In our tests on the `core` package of StrykerJS we found that the performance increased by 43% while still being 99.1% accurate! Of course, the larger a project is, the more performance gain this new version might provide.
 
