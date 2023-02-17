@@ -11,7 +11,7 @@ As a reminder, the TypeScript checker is an optional StrykerJS plugin. When conf
 
 The performance of this process has been an issue for quite some time now. In the past, enabling this plugin might have resulted in up to a 10x performance degradation. But there is excellent news, version 6.4 of the Typescript checker improves the performance by up to 50%
 
- <!-- truncate -->
+<!-- truncate -->
 
 To update to the latest version of StrykerJS, install `@latest` as follows:
 
