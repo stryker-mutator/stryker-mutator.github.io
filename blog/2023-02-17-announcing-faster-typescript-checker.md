@@ -9,7 +9,6 @@ We're excited to announce StrykerJS 6.4. Of course, this release comes with [som
 
 The performance of the TypeScript checker has been an issue for quite some time now. In some cases it caused a Stryker run to take twice as long, while mutation testing itself already is a time-consuming process. But there is great news, a new version of the Typescript checker has been released which makes some runs up to 50% faster than before!
 
-
 <!-- truncate -->
 
 To update to the latest version of StrykerJS, install `@latest` as follows:
@@ -36,7 +35,6 @@ Now, let's dive into the upgraded TypeScript checker! 🏊‍♂️
 
 The ability to group mutants, which was introduced in version 6.0 of StrykerJS, has been implemented to gain performance. By grouping mutants that are not related to each other the TypeScript checker can validate more mutants in a single cycle. How groups are created is explained [here](#🔎-in-depth).
 
-
 **Note:** By default the new TypeScript Checker implementation is used. There are some minor [drawbacks](#😥-drawbacks) which can be reverted by using the settings explained in [drawbacks](#😥-drawbacks) paragraph.
 
 In our tests on the `core` package of StrykerJS we found that the performance was increased by 43% and still being able to find 99.1% of the compile errors. The larger a project is the more performance gain the TypeScript will have.
@@ -56,6 +54,7 @@ It's worth noting that the mutation results may not always be 100% accurate with
 If your project requires the highest possible level of accuracy, it's still possible to use the old implementation. This can be achieved by adjusting the configuration settings accordingly as shown below. However, it's important to bear in mind that this approach comes with a trade-off: you'll be forfeiting the performance gains offered by the new checker.
 
 `stryker.conf.json`
+
 ```json
 {
   ...,
