@@ -68,5 +68,5 @@ Please note that mutants that resulted in an `error` are not used in the calcula
 ## Q: I found a bug! What do I do now?
 
 **A: First [take a look at the known issues](https://github.com/stryker-mutator/stryker-js/issues) before filing an issue yourself**  
-You can also [contact us on Gitter](https://gitter.im/stryker-mutator/stryker-js) and ask if the (mis)behavior you've encountered is known.  
+You can also [contact us on Slack](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM) and ask if the (mis)behavior you've encountered is known.
 When reporting an issue, please read [our documentation on how to report bugs](https://github.com/stryker-mutator/stryker-js/blob/master/CONTRIBUTING.md#bug-triage).
