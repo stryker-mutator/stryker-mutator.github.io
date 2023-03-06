@@ -5,8 +5,8 @@ sidebar_position: 4
 ---
 
 Here you will find the answer to the most common issues first-time users of Stryker encounter.  
-If this page doesn't answer your question, please feel free to [![Gitter](https://badges.gitter.im/stryker-mutator/stryker.svg)](https://gitter.im/stryker-mutator/stryker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
-If you think you've encountered a bug, please also contact us on Gitter first, before submitting a bug report.
+If this page doesn't answer your question, please feel free to [![Slack Chat](https://img.shields.io/badge/slack-chat-brightgreen.svg?logo=slack)](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM).
+If you think you've encountered a bug, please also contact us on Slack first, before submitting a bug report.
 
 ## Q: Stryker is slow! How do I speed it up?
 
