@@ -175,6 +175,7 @@ const config = {
         name: 'keywords',
         content: 'mutation testing, JavaScript, TypeScript, C#, .NET, Scala, testing, testing tools, software',
       },
+      { name: 'theme-color', content: '#e74c3c' },
     ],
   }),
   presets: [
