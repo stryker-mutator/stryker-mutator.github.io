@@ -1,6 +1,6 @@
 ---
 slug: announcing-emoji-mutator
-title: 'Announcing Emoji mutation on all Stryker platforms'
+title: 'Announcing Emoji mutations for Stryker'
 authors: richardwerkman
 tags: [stryker-js, stryker-net, stryker4s, typescript, C#, scala]
 ---
@@ -9,7 +9,7 @@ tags: [stryker-js, stryker-net, stryker4s, typescript, C#, scala]
 
 In a world where even our code needs a little bit of fun, Stryker is proud to announce the introduction of Emoji Mutations. From now on, our state-of-the-art mutation testing algorithms will automatically detect all emojis in your code and replace them with their mutated counterparts!
 
-From now on, any code that contains an emoji will have that emoji mutated to its counterpart. For example, a sad face (😔) will be mutated to a happy face (😊), a heart eyes (😍) will be mutated to a crying face (😭), and a laughing face (😂) will be mutated to a grumpy face (😡).
+From now on, any code that contains an emoji will have that emoji mutated to its counterpart. For example, a happy face (😊) will be mutated to a sad face (😔), and a laughing face (😂), to a crying face (😭), or a smiling halo face (😇) will be mutated to a grumpy face (😡).
 
 Update to the latest version of Stryker.JS, Stryker.NET or Stryker4s to enjoy this newest feature ✨
 
@@ -27,23 +27,23 @@ By introducing emoji mutations, we can help ensure that codebases are emotionall
 
 😂 becomes 😭 - because sometimes you need to cry from laughing too hard!
 
-🍕 becomes 🥦 - for those who need a little push to eat healthier while coding.
+🥦 becomes 🍕 - for those who need a little push to eat healthier while coding.
 
-🤔 becomes 🤯 - because coding can be mind-boggling!
+🤯 becomes 🤔 - because coding can be mind-boggling!
 
-💻 becomes 🧚‍♀️ - for when coding feels like magic.
+💻 becomes 🧚‍ - for when coding feels like magic.
 
-😡 becomes 😇 - to promote positivity and forgiveness when dealing with frustrating code.
+😇 becomes 😡 - to promote positivity and forgiveness when dealing with frustrating code.
 
-🐛 becomes 🦋 - for when those pesky bugs finally get fixed.
+🦋 becomes 🐛 - those pesky bugs must finally get fixed.
 
-🔥 becomes ❄️ - because sometimes you need to cool down a heated discussion about code.
+❄️ becomes 🔥 - because sometimes you need to cool down a heated discussion about code.
 
-💩 becomes 💎 - because even the ugliest code can turn into a gem with some polishing.
+💎 becomes 💩 - because even the ugliest code can turn into a gem with some polishing.
 
-🎉 becomes 🧨 - for those who like to live dangerously while celebrating a successful deployment.
+🧨 becomes 🎉 - for those who like to live dangerously while celebrating a successful deployment.
 
-🤖 becomes 🐒 - to remind ourselves that even the most advanced technologies still have roots in the natural world.
+🐒 becomes 🤖 - to remind ourselves that even the most advanced technologies still have roots in the natural world.
 
 **Note:** We can't guarantee that the mutation will impact your actual emotion.
 
