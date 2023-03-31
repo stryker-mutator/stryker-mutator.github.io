@@ -52,4 +52,3 @@ By introducing emoji mutations, we can help ensure that codebases are emotionall
 ## 🔮 What's next
 
 We believe this will not only improve the quality of your code, but also make your work more fun and enjoyable! Try it out today and let us know what you think. Happy coding (or should we say, 😂👨‍💻🎉)!
-
