@@ -5,9 +5,9 @@ authors: richardwerkman
 tags: [stryker-js, stryker-net, stryker4s, typescript, C#, scala]
 ---
 
-**Breaking News**: Code Mutation Testing Introduces _Emoji Mutations_!
+**Breaking News**: Stryker introduces _Emoji Mutations_!
 
-In a world where even our code needs a little bit of fun, Code Mutation Testing is proud to announce the introduction of Emoji Mutations. From now on, our state-of-the-art mutation testing algorithms will automatically detect all emojis in your code and replace them with their mutated counterparts!
+In a world where even our code needs a little bit of fun, Stryker is proud to announce the introduction of Emoji Mutations. From now on, our state-of-the-art mutation testing algorithms will automatically detect all emojis in your code and replace them with their mutated counterparts!
 
 From now on, any code that contains an emoji will have that emoji mutated to its counterpart. For example, a sad face (😔) will be mutated to a happy face (😊), a heart eyes (😍) will be mutated to a crying face (😭), and a laughing face (😂) will be mutated to a grumpy face (😡).
 
