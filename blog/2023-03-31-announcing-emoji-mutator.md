@@ -1,7 +1,7 @@
 ---
 slug: announcing-emoji-mutator
 title: 'Announcing Emoji mutation on all Stryker platforms'
-authors: Richard Werkman
+authors: richardwerkman
 tags: [stryker-js, stryker-net, stryker4s, typescript, C#, scala]
 ---
 
