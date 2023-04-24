@@ -24,7 +24,7 @@ const languages = [
   {
     title: 'C#',
     image: CSharpLogo,
-    docsLink: 'docs/stryker-net/Introduction',
+    docsLink: 'docs/stryker-net/introduction',
   },
   {
     title: 'Scala',
@@ -97,7 +97,7 @@ const features: { icon: ComponentType<SVGProps<SVGSVGElement>>; title: string; c
     content: (
       <span>
         Stryker has support for <a href="/docs/stryker-js/introduction">JavaScript &amp; TypeScript</a>,{' '}
-        <a href="/docs/stryker-net/Introduction">C#</a> and <a href="/docs/stryker4s/getting-started">Scala</a>.
+        <a href="/docs/stryker-net/introduction">C#</a> and <a href="/docs/stryker4s/getting-started">Scala</a>.
       </span>
     ),
   },
