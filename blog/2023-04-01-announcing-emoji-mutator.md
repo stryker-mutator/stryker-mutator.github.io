@@ -2,7 +2,7 @@
 slug: announcing-emoji-mutator
 title: 'Announcing Emoji mutations for Stryker'
 authors: richardwerkman
-tags: [stryker-js, stryker-net, stryker4s, typescript, C#, scala]
+tags: [april fools]
 ---
 
 **Breaking News**: Stryker introduces _Emoji Mutations_!
