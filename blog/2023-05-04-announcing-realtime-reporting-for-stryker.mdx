@@ -1,0 +1,39 @@
+---
+slug: announcing-realtime-reporting-for-stryker
+title: 'Announcing Realtime Reporting for Stryker'
+authors: xander-vedder
+tags: [stryker-js, stryker-net, typescript, C#]
+---
+
+# Realtime Reporting
+
+Wait no longer to see the results of your mutation testing! With this new addition to Stryker, you can receive realtime feedback, enabling you to identify and address survived mutants as soon as they are identified!
+
+<!-- truncate -->
+
+## The problem
+
+Mutation testing is a slow process and developers must wait until the end of the mutation test to see resykts. This delay in feedback can result in a long inner dev loop, as developers may need to spend additional time debugging and fixing issues that could have been identified earlier in the process.
+
+## The solution
+
+With realtime reporting the html report is updated whenever a new mutant has been tested, providing developers with immediate feedback. Developers can identify and address issues in their code earlier, because they don't have to wait until testing is finished to see results.
+
+## Demo
+
+Everything in the report gets updated:
+
+import ReactPlayer from 'react-player';
+
+<ReactPlayer playing controls url="/videos/realtime-reporting.mp4" width="100%" height="100%" />
+
+It is also possible to view a file with mutants that have not run yet (these mutants are marked as `Pending`):
+
+![](/images/blogs/pending-mutants.png)
+
+## Get started with real time reporting
+
+Realtime reporting is available for the html report from Stryker.NET 3.8.
+Realtime reporting is almost ready for StrykerJS and will also be available for the Dashboard reporter in the future.
+
+Enable realtime reporting with `--open-report` or `-o` in Stryker.NET!
