@@ -1,23 +1,36 @@
 ---
 slug: announcing-realtime-reporting-for-stryker
-title: 'Announcing Realtime Reporting for Stryker'
+title: 'Announcing Real-Time Reporting for Stryker.NET'
 authors: xander-vedder
-tags: [stryker-js, stryker-net, typescript, C#]
+tags: [stryker-net, mutation testing elements]
 ---
 
-# Realtime Reporting
-
-Wait no longer to see the results of your mutation testing! With this new addition to Stryker, you can receive realtime feedback, enabling you to identify and address survived mutants as soon as they are identified!
+Wait no longer to see the results of your mutation testing! With this new addition to Stryker.NET, you can receive real-time feedback, enabling you to identify and address survived mutants as soon as they are identified!
 
 <!-- truncate -->
 
+## Getting started
+
+Install Stryker.NET version 3.8.0 or higher using the [getting started](/docs/stryker-net/getting-started/), or update the dotnet-stryker tool version to at least 3.8.0 in your `.config/dotnet-tools.json` file and run `dotnet tool restore`:
+
+```diff
+"tools": {
+    "dotnet-stryker": {
++      "version": "3.8.0",
+      "commands": ["dotnet-stryker"]
+    }
+  }
+```
+
+Enable real-time reporting with `dotnet run stryker --open-report` (or `-o` for short) in Stryker.NET!
+
 ## The problem
 
-Mutation testing is a slow process and developers must wait until the end of the mutation test to see resykts. This delay in feedback can result in a long inner dev loop, as developers may need to spend additional time debugging and fixing issues that could have been identified earlier in the process.
+Mutation testing is a slow process, and developers must wait until the end of the mutation test to see results. This delay in feedback can result in a long inner dev loop, as developers may need to spend additional time debugging and fixing issues that could have been identified earlier in the process.
 
 ## The solution
 
-With realtime reporting the html report is updated whenever a new mutant has been tested, providing developers with immediate feedback. Developers can identify and address issues in their code earlier, because they don't have to wait until testing is finished to see results.
+With real-time reporting, the HTML report updates whenever a new mutant result is available, providing developers with _immediate feedback_. As a result, developers can identify and address issues in their code earlier because they don't have to wait until mutation testing finishes to see results.
 
 ## Demo
 
@@ -29,11 +42,11 @@ import ReactPlayer from 'react-player';
 
 It is also possible to view a file with mutants that have not run yet (these mutants are marked as `Pending`):
 
-![](/images/blogs/pending-mutants.png)
+![Pending mutants](/images/blogs/pending-mutants.png)
 
-## Get started with real time reporting
+## What's next?
 
-Realtime reporting is available for the html report from Stryker.NET 3.8.
-Realtime reporting is almost ready for StrykerJS and will also be available for the Dashboard reporter in the future.
+Now that this feature is implemented for Stryker.NET, we will be focussing of getting it into all other flavors as well. So look forward to real-time reporting comming to StrykerJS and Stryker4s in the near future.
 
-Enable realtime reporting with `--open-report` or `-o` in Stryker.NET!
+Furthermore, since [we're sharing the HTML report as a separate open source project](/blog/2019-04-03-one-mutation-testing-html-report.md), we encourage other mutation testing frameworks to start implementing this feature as well. We'll add documentation to [mutation-testing-elements](https://github.com/stryker-mutator/mutation-testing-elements/) to help implementers soon.
+
