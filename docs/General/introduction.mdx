@@ -5,6 +5,8 @@ slug: '/'
 sidebar_position: 1
 ---
 
+**TL; DR: Mutation testing introduces changes to your code, then runs your unit tests against the changed code. It is expected that your unit tests will now fail. If they don't fail, it might indicate your tests do not sufficiently cover the code.**
+
 Bugs, or _mutants_, are automatically inserted into your production code. Your tests are run for each mutant. If your tests _fail_ then the mutant is _killed_. If your tests passed, the mutant _survived_. The higher the percentage of mutants killed, the more _effective_ your tests are.
 
 It's that simple.
