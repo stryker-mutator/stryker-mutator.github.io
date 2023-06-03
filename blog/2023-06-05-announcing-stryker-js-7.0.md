@@ -104,7 +104,7 @@ See the [tap runner documentation](/docs/stryker-js/tap-runner) for more details
 
 By default, Stryker will exit with an error when it cannot find any tests. This behavior is excellent for when you've misconfigured Stryker, reminding you to fix the configuration and try again.
 
-In more complex setups, you might extract from the pull request which lines of code were exactly affected and pass only those files to Stryker. In this case, you may intend no tests to run. 
+In more complex setups, you might extract from the pull request which lines of code were exactly affected and pass only those files to Stryker. In this case, you may intend no tests to run.
 
 To support this scenario, you can now provide [`--allowEmpty`](/docs/stryker-js/configuration/#allowempty-boolean) (or equivalent in config file). With this flag enabled, Stryker will exit with a successful exit code (0) when no tests were executed.
 
@@ -112,9 +112,9 @@ To support this scenario, you can now provide [`--allowEmpty`](/docs/stryker-js/
 
 ## 🧹 Always clean the temp dir
 
-StrykerJS works inside a [temp directory](/docs/stryker-js/configuration/#tempdirname-string). What happens to this temp dir depends on the [--cleanTempDir](https://stryker-mutator.io/docs/stryker-js/configuration/#cleantempdir-boolean--always) setting. This setting now gets a new option: `'always'`. 
+StrykerJS works inside a [temp directory](/docs/stryker-js/configuration/#tempdirname-string). What happens to this temp dir depends on the [--cleanTempDir](https://stryker-mutator.io/docs/stryker-js/configuration/#cleantempdir-boolean--always) setting. This setting now gets a new option: `'always'`.
 
-When `cleanTempDir` is set to `'always'`, the temp dir is... well... always deleted. This contradicts `true` (default), where the temp dir is only deleted when StrykerJS runs successfully. 
+When `cleanTempDir` is set to `'always'`, the temp dir is... well... always deleted. This contradicts `true` (default), where the temp dir is only deleted when StrykerJS runs successfully.
 
 💐 Special thanks go to [@adeelpm](https://github.com/adeelpm) for implementing this feature.
 
@@ -134,7 +134,7 @@ V7 comes with some more minor but technically-breaking changes. This is the list
 
 ## 🔮 What's next
 
-With v7 out the door, we will closely monitor any issues that might pop up with these new plugins. So if you have an issue, please don't hesitate to [let us know by reporting it](https://github.com/stryker-mutator/stryker-js/issues/new?assignees=&labels=%F0%9F%90%9B+Bug&projects=&template=bug_report.md&title=). 
+With v7 out the door, we will closely monitor any issues that might pop up with these new plugins. So if you have an issue, please don't hesitate to [let us know by reporting it](https://github.com/stryker-mutator/stryker-js/issues/new?assignees=&labels=%F0%9F%90%9B+Bug&projects=&template=bug_report.md&title=).
 
 Next, we will be focussing on getting the [real-time HTML report](/blog/announcing-realtime-reporting-for-stryker) working for StrykerJS and progress support for mutating [`.svelte` files](https://github.com/stryker-mutator/stryker-js/pull/3929).
 
