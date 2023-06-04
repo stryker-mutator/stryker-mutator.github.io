@@ -5,7 +5,7 @@ authors: nicojs
 tags: [stryker-js]
 ---
 
-Welcome to the latest major release of Stryker, version 7.0!
+Welcome to the latest major release of StrykerJS, version 7.0!
 
 We are excited to introduce you to 2 new friends: ⚡ _[Vitest](https://vitest.dev/)_ and 📼 [_Node Tap_](https://node-tap.org/). There are also some quality-of-life improvements and some (minor) breaking changes.
 
