@@ -100,7 +100,7 @@ See the [tap runner documentation](/docs/stryker-js/tap-runner) for more details
 
 💐 Special thanks go to [@danny12321](https://github.com/danny12321) for implementing this plugin, and [isaacs](https://github.com/isaacs) for help in the design ❤
 
-## 🪹 Allow empty
+## 📭 Allow empty
 
 By default, Stryker will exit with an error when it cannot find any tests. This behavior is excellent for when you've misconfigured Stryker, reminding you to fix the configuration and try again.
 
