@@ -135,42 +135,40 @@ function Home() {
     <Layout description="Stryker Mutator: Test your tests with mutation testing.">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className={clsx('container', styles.bannerContainer)}>
-          <div className='col col--12'>
-          <div>
-            <h1 className="hero__title">{siteConfig.title}</h1>
-            <p className="hero__subtitle">{siteConfig.tagline}</p>
-          </div>
-          <div className='col col--12'>
-            <img
-              className={styles.heroImage}
-              src={useBaseUrl('images/stryker-gun.svg')}
-              srcSet={`${useBaseUrl('images/stryker-gun.svg')} 200w, ${useBaseUrl('images/stryker-man.svg')}`}
-              sizes="(min-width: 662px) 400px, 200px"
-              width={200}
-              height={200}
-              alt="Strykerman"
-            ></img>
-          </div>
-          </div>
-
-          <div className={clsx("row", styles.buttons)}>
-              <Link
-                className={clsx('button button--outline button--secondary button--lg', styles.getStarted)}
-                to={useBaseUrl('docs/')}
-              >
-                Introduction
-              </Link>
-
-              <Link
-                className={clsx('button button--outline button--primary button--lg', styles.getStarted)}
-                to={"https://stryker-mutator.io/stryker-playground/"}
-              >
-                Interactive Demo
-              </Link>
+          <div className="col col--12">
+            <div>
+              <h1 className="hero__title">{siteConfig.title}</h1>
+              <p className="hero__subtitle">{siteConfig.tagline}</p>
             </div>
+            <div className="col col--12">
+              <img
+                className={styles.heroImage}
+                src={useBaseUrl('images/stryker-gun.svg')}
+                srcSet={`${useBaseUrl('images/stryker-gun.svg')} 200w, ${useBaseUrl('images/stryker-man.svg')}`}
+                sizes="(min-width: 662px) 400px, 200px"
+                width={200}
+                height={200}
+                alt="Strykerman"
+              ></img>
+            </div>
+          </div>
 
+          <div className={clsx('row', styles.buttons)}>
+            <Link
+              className={clsx('button button--outline button--secondary button--lg', styles.getStarted)}
+              to={useBaseUrl('docs/')}
+            >
+              Introduction
+            </Link>
+
+            <Link
+              className={clsx('button button--outline button--primary button--lg', styles.getStarted)}
+              to={'https://stryker-mutator.io/stryker-playground/'}
+            >
+              Playground
+            </Link>
+          </div>
         </div>
-
       </header>
       <main>
         <section className={styles.languages}>
