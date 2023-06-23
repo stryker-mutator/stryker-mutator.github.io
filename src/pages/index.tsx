@@ -145,6 +145,15 @@ function Home() {
               >
                 Introduction
               </Link>
+
+              <span>Or</span>
+
+              <Link
+                className={clsx('button button--outline button--secondary button--lg', styles.getStarted)}
+                to={useBaseUrl('docs/')}
+              >
+                Interactive demo
+              </Link>
             </div>
           </div>
           <div>
