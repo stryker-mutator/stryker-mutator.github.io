@@ -135,28 +135,12 @@ function Home() {
     <Layout description="Stryker Mutator: Test your tests with mutation testing.">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className={clsx('container', styles.bannerContainer)}>
+          <div className='col col--12'>
           <div>
             <h1 className="hero__title">{siteConfig.title}</h1>
             <p className="hero__subtitle">{siteConfig.tagline}</p>
-            <div className={styles.buttons}>
-              <Link
-                className={clsx('button button--outline button--secondary button--lg', styles.getStarted)}
-                to={useBaseUrl('docs/')}
-              >
-                Introduction
-              </Link>
-
-              <span>Or</span>
-
-              <Link
-                className={clsx('button button--outline button--secondary button--lg', styles.getStarted)}
-                to={useBaseUrl('docs/')}
-              >
-                Interactive demo
-              </Link>
-            </div>
           </div>
-          <div>
+          <div className='col col--12'>
             <img
               className={styles.heroImage}
               src={useBaseUrl('images/stryker-gun.svg')}
@@ -167,7 +151,26 @@ function Home() {
               alt="Strykerman"
             ></img>
           </div>
+          </div>
+
+          <div className={clsx("row", styles.buttons)}>
+              <Link
+                className={clsx('button button--outline button--secondary button--lg', styles.getStarted)}
+                to={useBaseUrl('docs/')}
+              >
+                Introduction
+              </Link>
+
+              <Link
+                className={clsx('button button--outline button--primary button--lg', styles.getStarted)}
+                to={"https://stryker-mutator.io/stryker-playground/"}
+              >
+                Interactive Demo
+              </Link>
+            </div>
+
         </div>
+
       </header>
       <main>
         <section className={styles.languages}>
