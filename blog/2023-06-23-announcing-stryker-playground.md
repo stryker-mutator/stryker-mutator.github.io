@@ -10,7 +10,7 @@ We believe the best way to grasp a new concept is through hands-on practice.
 While we already offer a [quickstart guide](/docs/General/example/), installing all the prerequisites can be quite cumbersome.
 
 
-That is why we are happy to announce the [Stryker Playground](/stryker-playground/), bringing the Stryker.NET experience to the web!
+That is why we are happy to announce the [Stryker Playground](https://stryker-mutator.io/stryker-playground/), bringing the Stryker.NET experience to the web!
 
 <!-- truncate -->
 
