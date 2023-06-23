@@ -76,7 +76,7 @@ const config = {
           position: 'left',
         },
         {
-          to: 'https://stryker-mutator.io/stryker-playground/',
+          href: 'https://stryker-mutator.io/stryker-playground/',
           label: 'Playground',
           position: 'left',
         },
