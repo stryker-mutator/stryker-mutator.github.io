@@ -12,9 +12,9 @@ While we already offer a [quickstart guide](/docs/General/example/), installing 
 
 That is why we are happy to announce the [Stryker Playground](https://stryker-mutator.io/stryker-playground/), bringing the Stryker.NET experience to the web!
 
-![Pending mutants](/images/blogs/playground.png)
-
 <!-- truncate -->
+
+![Pending mutants](/images/blogs/playground.png)
 
 # 🤔 How does this work?
 You may have noticed the playground takes a while to initially load.
