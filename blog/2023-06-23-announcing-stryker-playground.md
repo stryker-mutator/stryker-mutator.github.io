@@ -12,8 +12,9 @@ While we already offer a [quickstart guide](/docs/General/example/), installing 
 
 That is why we are happy to announce the [Stryker Playground](https://stryker-mutator.io/stryker-playground/), bringing the Stryker.NET experience to the web!
 
-<!-- truncate -->
+![Pending mutants](/images/blogs/playground.png)
 
+<!-- truncate -->
 
 # 🤔 How does this work?
 You may have noticed the playground takes a while to initially load.
@@ -28,3 +29,8 @@ We're looking for ways to improve intellisense, which should make it easier to f
 We would also like to introduce a diverse collection of templates, offering users challenges of varying difficulties.
 
 And last but not least, supporting StrykerJs & Stryker4s is also on the roadmap!
+
+# 📣 Share your feedback
+We value your input! Try out [the playground](https://stryker-mutator.io/stryker-playground/) and let us know what you think.
+
+If you encounter any issues or have suggestions for improvement, feel free to [open an issue on Github](https://github.com/stryker-mutator/stryker-playground/issues). 
