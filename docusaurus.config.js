@@ -36,7 +36,7 @@ const config = {
     announcementBar: {
       id: 'talk', // Any value that will identify this message.
       content:
-        '📽️ <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=sGwfwtkaDfk">Watch the video "How to test your tests in .NET" from <i>Nick Chapsas</i></a>',
+        '📢 try out the new <a target="_blank" href="https://stryker-mutator.io/stryker-playground/">Stryker Playground right here in your browser!</a>',
       backgroundColor: 'var(--ifm-navbar-background-color, #fff)',
       textColor: 'var(--ifm-navbar-link-color, #000)',
       isCloseable: true,
@@ -73,6 +73,11 @@ const config = {
           to: 'docs/General/example',
           activeBasePath: 'docs/General/example',
           label: 'An example',
+          position: 'left',
+        },
+        {
+          href: 'https://stryker-mutator.io/stryker-playground/',
+          label: 'Playground',
           position: 'left',
         },
         {

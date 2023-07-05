@@ -15,7 +15,8 @@
   --ifm-color-primary-lighter: #ed6e60;
   --ifm-color-primary-lightest: #f19287;
   --ifm-code-font-size: 95%;
-
+  --ifm-color-background-lighter: #293a47;
+  --ifm-color-background-lightest: #4f6473;
   --stryker-yellow: #f1c40f;
 }
 
@@ -86,6 +87,25 @@ html[data-theme='dark'] .header-github-link:before {
 :root[data-theme='dark'] .button.button--secondary.button--outline:not(.button--active):hover {
   color: #ddd;
   background-color: var(--ifm-color-primary-darkest);
+}
+
+:root[data-theme='dark'] .button.button--primary.button--outline:not(.button--active) {
+  background-color: var(--ifm-color-background-lighter);
+  color: #ddd;
+}
+
+:root[data-theme='dark'] .button.button--primary.button--outline:not(.button--active):hover {
+  color: #ddd;
+  background-color: var(--ifm-color-background-lightest);
+}
+
+:root[data-theme='light'] .button.button--primary.button--outline:not(.button--active) {
+  color: #ddd;
+  border-color: var(--ifm-color-white);
+}
+
+:root[data-theme='light'] .button.button--primary.button--outline:not(.button--active):hover {
+  background-color: var(--ifm-color-primary-darker);
 }
 
 /* Notification bar close button */
