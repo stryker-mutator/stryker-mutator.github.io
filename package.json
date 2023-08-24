@@ -57,6 +57,6 @@
     "prettier": "3.0.2",
     "rimraf": "5.0.1",
     "swc-loader": "0.2.3",
-    "typescript": "5.1.6"
+    "typescript": "5.2.2"
   }
 }
