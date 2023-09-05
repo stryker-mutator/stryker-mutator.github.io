@@ -5,48 +5,46 @@ set -e
 shopt -s extglob
 
 # Clones the `docs` folder of each stryker repository
-
 function git_clone_docs() (
   remoteUrl="https://github.com/stryker-mutator/$1.git"
-  localdir="$1"
+  localDir="$1"
 
   cd docs
 
-
   # Update folder if it already exists
-  if [ -d $localdir ]
+  if [ -d "$localDir" ]
   then
-    echo "$1 already exists. Updating..."
-    cd $localdir
+    echo "$localDir already exists. Updating..."
+    cd "$localDir"
 
     # Move files back into docs to pull
     mv !(docs) docs
   else
-    echo "Cloning $localdir..."
-    # Else create new empty git repository and pull only docs folder to it
+    # Create new empty git repository and pull only docs folder to it
+    echo "Cloning $localDir from git..."
+
+    # Check if specific branch should be pulled
     if [ -n "$2" ]; then
-      git clone --branch $2 $remoteUrl $localdir --depth 1 --no-checkout 
+      git clone --branch "$2" "$remoteUrl" "$localDir" --depth 1 --no-checkout
     else
-      git clone $remoteUrl $localdir --depth 1 --no-checkout
+      # Pull the latest release tag branch from remote
+      git clone "$remoteUrl" "$localDir" --depth 1 --no-checkout
     fi
-    cd "$localdir"
 
-    # Tell git to only checkout docs folder
-    git sparse-checkout init --cone
-    git sparse-checkout set 'docs'
-
-    defaultBranch="$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
-    checkoutBranch=${2:-$defaultBranch}
-
-    git checkout $checkoutBranch
-
-    # Remove everything in the root that is not in docs
-    rm !(docs)
+    cd "$localDir"
   fi
 
-  defaultBranch="$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
-  checkoutBranch=${2:-$defaultBranch}
-  git pull origin $checkoutBranch
+  # Tell git to only checkout docs folder
+  git fetch --tags
+  latestTag=$(git describe --tags "$(git rev-list --tags --max-count=1)")
+
+  echo "Checking out $localDir w/ release tag $latestTag."
+  git sparse-checkout set 'docs'
+  git checkout "$latestTag"
+  git sparse-checkout disable
+
+  # Remove everything in the root that is not in docs
+  rm -rf !(docs)
 
   mv docs/* .
   cd ../
