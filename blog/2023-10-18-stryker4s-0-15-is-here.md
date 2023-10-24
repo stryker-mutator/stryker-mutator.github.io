@@ -41,7 +41,7 @@ We're eager to hear your thoughts on these new colors. If you have suggestions o
 
 ## 🧬 Revamped Instrumenting Algorithm
 
-Before Stryker4s begins running your tests, it needs to parse and instrument your source code with mutants. We've completely overhauled this process, making it more robust and efficient. The new instrumenter streamlines the process, inspired by Stryker-js. It also takes advantage of [fs2](https://fs2.io/) for parallel streaming, significantly boosting performance. This means Stryker4s can start running your tests faster!
+Before Stryker4s begins running your tests, it must parse and instrument your source code with mutants. We've completely overhauled this process, making it more robust and efficient. The new instrumenter, inspired by StrykerJS, streamlines the process. It also takes advantage of [fs2](https://fs2.io/) for parallel streaming, significantly boosting performance. This means Stryker4s can start running your tests faster!
 
 ## 💬 New Dialects
 
