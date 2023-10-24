@@ -32,7 +32,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           # Use same version of node for netlify and CI build
           node-version-file: '.nvmrc'
