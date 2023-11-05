@@ -30,10 +30,10 @@
   },
   "homepage": "https://github.com/stryker-mutator/stryker-mutator.github.io#readme",
   "dependencies": {
-    "@docusaurus/core": "2.4.3",
-    "@docusaurus/plugin-client-redirects": "2.4.3",
-    "@docusaurus/preset-classic": "2.4.3",
-    "@docusaurus/theme-mermaid": "2.4.3",
+    "@docusaurus/core": "3.0.0",
+    "@docusaurus/plugin-client-redirects": "3.0.0",
+    "@docusaurus/preset-classic": "3.0.0",
+    "@docusaurus/theme-mermaid": "3.0.0",
     "@giscus/react": "2.3.0",
     "clsx": "2.0.0",
     "react": "17.0.2",
@@ -51,7 +51,7 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.4.3",
+    "@docusaurus/module-type-aliases": "3.0.0",
     "@swc/core": "1.3.96",
     "@tsconfig/docusaurus": "2.0.2",
     "prettier": "3.0.3",
