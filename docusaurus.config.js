@@ -1,5 +1,7 @@
 // @ts-check
 
+const { themes } = require('prism-react-renderer');
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   webpack: {
@@ -165,8 +167,8 @@ const config = {
     },
     prism: {
       additionalLanguages: ['java', 'scala', 'csharp'],
-      theme: require('prism-react-renderer/themes/github'),
-      darkTheme: require('prism-react-renderer/themes/dracula'),
+      theme: themes.github,
+      darkTheme: themes.dracula,
     },
 
     algolia: {
