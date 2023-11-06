@@ -1,5 +1,4 @@
 import { useColorMode } from '@docusaurus/theme-common';
-// @ts-expect-error exports do not work for some reason
 import { useBlogPost } from '@docusaurus/theme-common/internal';
 import type { WrapperProps } from '@docusaurus/types';
 import Giscus from '@giscus/react';

@@ -1,11 +1,8 @@
-// @ts-check
+import type { RedirectOption } from '@docusaurus/plugin-client-redirects/lib/options';
 
 // This file contains all urls from the old non-Docusaurus website that need a redirect so no links are broken
 
-/**
- * @type {import('@docusaurus/plugin-client-redirects/lib/options').RedirectOption[]}
- */
-const redirects = [
+const redirects: RedirectOption[] = [
   // Content pages
   { from: ['/example', '/example.html'], to: '/docs/General/example' },
   { from: ['/mutators', '/mutators.html'], to: '/docs/mutation-testing-elements/supported-mutators' },
@@ -153,4 +150,4 @@ const redirects = [
   { from: ['/docs/stryker/guides/vuejs'], to: '/docs/stryker-js/guides/vuejs' },
 ];
 
-module.exports = redirects;
+export default redirects;

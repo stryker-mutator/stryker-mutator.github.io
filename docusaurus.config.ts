@@ -1,10 +1,12 @@
-// @ts-check
+import type * as Preset from '@docusaurus/preset-classic';
+import type { Config } from '@docusaurus/types';
+import { themes } from 'prism-react-renderer';
+import redirects from './legacy-redirects';
 
-/** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
   webpack: {
     jsLoader: (isServer) => ({
-      loader: require.resolve('swc-loader'),
+      loader: 'swc-loader',
       options: {
         jsc: {
           parser: {
@@ -28,7 +30,7 @@ const config = {
   organizationName: 'stryker-mutator',
   projectName: 'stryker-mutator.github.io',
   trailingSlash: true,
-  themeConfig: /** @type {import('@docusaurus/preset-classic').ThemeConfig} */ ({
+  themeConfig: {
     image: 'images/strykerman.png',
     colorMode: {
       respectPrefersColorScheme: true,
@@ -165,8 +167,8 @@ const config = {
     },
     prism: {
       additionalLanguages: ['java', 'scala', 'csharp'],
-      theme: require('prism-react-renderer/themes/github'),
-      darkTheme: require('prism-react-renderer/themes/dracula'),
+      theme: themes.github,
+      darkTheme: themes.dracula,
     },
 
     algolia: {
@@ -182,14 +184,13 @@ const config = {
       },
       { name: 'theme-color', content: '#e74c3c' },
     ],
-  }),
+  } satisfies Preset.ThemeConfig,
   presets: [
     [
       '@docusaurus/preset-classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/develop/',
         },
         blog: {
@@ -197,21 +198,21 @@ const config = {
           editUrl: 'https://github.com/stryker-mutator/stryker-mutator.github.io/edit/develop/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: './src/css/custom.css',
         },
         gtag: {
           trackingID: 'G-JN49KF9BV1',
           // Optional fields.
           anonymizeIP: true, // Should IPs be anonymized?
         },
-      }),
+      } satisfies Preset.Options,
     ],
   ],
-  plugins: [['@docusaurus/plugin-client-redirects', { redirects: require('./legacy-redirects') }]],
+  plugins: [['@docusaurus/plugin-client-redirects', { redirects }]],
   markdown: {
     mermaid: true,
   },
   themes: ['@docusaurus/theme-mermaid'],
 };
 
-module.exports = config;
+export default config;
