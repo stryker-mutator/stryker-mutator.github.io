@@ -42,10 +42,12 @@ jobs:
         with:
           path: |
             .docusaurus
+            node_modules/.cache
           key: ${{ runner.os }}-docusaurus-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-docusaurus-${{ hashFiles('**/package-lock.json') }}-
+            ${{ runner.os }}-docusaurus-
       - run: npm ci
       - name: Build 🏗️
         run: npm run build

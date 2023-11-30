@@ -13,6 +13,17 @@ jobs:
           # Use same version of node for netlify and CI build
           node-version-file: '.nvmrc'
           cache: 'npm'
+      - name: Docusaurus cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            .docusaurus
+            node_modules/.cache
+          key: ${{ runner.os }}-docusaurus-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-docusaurus-${{ hashFiles('**/package-lock.json') }}-
+            ${{ runner.os }}-docusaurus-
       - run: npm ci
       - name: Lint 🧶
         run: npm run lint
