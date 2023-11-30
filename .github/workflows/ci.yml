@@ -1,6 +1,10 @@
 name: Node.js CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    types: [synchronize, opened, reopened]
 
 jobs:
   build:
@@ -20,7 +24,7 @@ jobs:
           path: |
             .docusaurus
             node_modules/.cache
-          key: ${{ runner.os }}-docusaurus-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          key: ${{ runner.os }}-docusaurus-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-docusaurus-${{ hashFiles('**/package-lock.json') }}-
