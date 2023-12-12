@@ -11,7 +11,7 @@ For a full list of changes, please read [our changelog](https://github.com/stryk
 <!--truncate-->
 
 If you're new to mutation testing, it's a way to measure how effective your tests are at finding bugs.
-Please take a look at [our RoboBar 🤖🍷 example](/example) and see how even 100% code coverage doesn't tell the whole story.
+Please take a look at [our RoboCoasters 🤖🎢 example](/example) and see how even 100% code coverage doesn't tell the whole story.
 Mutation testing is the only way to make sure your code is tested.
 
 ## 🚀 Migration

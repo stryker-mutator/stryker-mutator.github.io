@@ -27,7 +27,7 @@ npm install --save-dev @stryker-mutator/mocha-runner@latest
 yarn add --dev @stryker-mutator/mocha-runner@latest
 ```
 
-If you're new to mutation testing, it's a way to measure your tests' effectiveness. Please take a look at our RoboBar 🤖🍷 example and see how even 100% code coverage doesn't tell the whole story. Mutation testing is the only way to know if your tests are any good.
+If you're new to mutation testing, it's a way to measure your tests' effectiveness. Please take a look at our RoboCoasters 🤖🎢 example and see how even 100% code coverage doesn't tell the whole story. Mutation testing is the only way to know if your tests are any good.
 In this blog article, we will walk you through the highlights of this release, including new test runners, enhanced options, and important breaking changes.
 
 ## 👩‍👦 New friends

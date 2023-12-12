@@ -11,7 +11,7 @@ We're proud to announce the next major release of StrykerJS: 5.0. With a name ch
 
 <!--truncate-->
 
-If you're new to mutation testing, it's a way to measure your tests' effectiveness. A mutation testing framework will make small changes, called _mutants_, one by one in your source code. Then it will run your tests to see if one of them fails. If so, you just "killed" that mutant; if not, it "survived". If too many mutants survive, you probably want to improve your tests. The mutation testing report will give you insides into the test cases you may have missed. If this all sounds complicated, please take a look at [our RoboBar 🤖🍷 example](https://stryker-mutator.io/example).
+If you're new to mutation testing, it's a way to measure your tests' effectiveness. A mutation testing framework will make small changes, called _mutants_, one by one in your source code. Then it will run your tests to see if one of them fails. If so, you just "killed" that mutant; if not, it "survived". If too many mutants survive, you probably want to improve your tests. The mutation testing report will give you insides into the test cases you may have missed. If this all sounds complicated, please take a look at [our RoboCoasters 🤖🎢 example](https://stryker-mutator.io/example).
 
 If you're new to StrykerJS, please follow our [Getting started guide](https://stryker-mutator.io/docs/stryker-js/getting-started/). Are you already using StrykerJS? Update to the latest version with your package manager of choice.
 

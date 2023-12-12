@@ -11,7 +11,7 @@ In this article, we'll guide you through the highlights of this release, includi
 
 <!-- truncate -->
 
-**New to mutation testing?** It's a unique way to assess the quality of your tests. Check out our [RoboBar 🤖🍷 example](https://stryker-mutator.io/docs/General/example/) to understand why 100% code coverage doesn't tell the whole story. You can also explore our [new playground to experience mutation testing in action (C#)](https://stryker-mutator.io/stryker-playground). Mutation testing is the key to gauging the effectiveness of your tests.
+**New to mutation testing?** It's a unique way to assess the quality of your tests. Check out our [RoboCoasters 🤖🎢 example](https://stryker-mutator.io/docs/General/example/) to understand why 100% code coverage doesn't tell the whole story. You can also explore our [new playground to experience mutation testing in action (C#)](https://stryker-mutator.io/stryker-playground). Mutation testing is the key to gauging the effectiveness of your tests.
 
 To update or install Stryker4s, adjust your `plugins.sbt` file:
 
