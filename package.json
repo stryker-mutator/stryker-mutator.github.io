@@ -34,7 +34,7 @@
     "@docusaurus/plugin-client-redirects": "3.0.1",
     "@docusaurus/preset-classic": "3.0.1",
     "@docusaurus/theme-mermaid": "3.0.1",
-    "@giscus/react": "2.3.0",
+    "@giscus/react": "2.4.0",
     "clsx": "2.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
