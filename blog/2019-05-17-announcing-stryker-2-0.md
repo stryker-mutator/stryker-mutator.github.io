@@ -14,9 +14,9 @@ If you run into any issues using the latest version of Stryker, please let us kn
 
 ## 🚀 Migration
 
-Migrating to the latest major version is easy! Just update all `@stryker-mutator` dependencies to at least version 2.0.0. If you are still using version 0.x.x, then please look at [our blog post regarding stryker v1](https://stryker-mutator.io/blog/2019-02-13/announcing-stryker-1-0).
+Migrating to the latest major version is easy! Just update all `@stryker-mutator` dependencies to at least version 2.0.0. If you are still using version 0.x.x, then please look at [our blog post regarding stryker v1](/blog/announcing-stryker-1-0).
 
-If you're new to Stryker, please see [our quickstart](/stryker/quickstart). Have fun with mutation testing!
+If you're new to Stryker, please see [our quickstart](/docs/stryker-js/getting-started/). Have fun with mutation testing!
 
 ## 🔥 Breaking changes
 

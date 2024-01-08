@@ -11,7 +11,7 @@ For a full list of changes, please read [our changelog](https://github.com/stryk
 <!--truncate-->
 
 If you're new to mutation testing, it's a way to measure how effective your tests are at finding bugs.
-Please take a look at [our RoboBar 🤖🍷 example](/example) and see how even 100% code coverage doesn't tell the whole story.
+Please take a look at [our RoboBar 🤖🍷 example](/docs/General/example/) and see how even 100% code coverage doesn't tell the whole story.
 Mutation testing is the only way to make sure your code is tested.
 
 ## 🚀 Migration
@@ -19,7 +19,7 @@ Mutation testing is the only way to make sure your code is tested.
 Migrating to the latest major version is easy! Just update all `@stryker-mutator` dependencies to at least 3.0.0.
 Please note that Node 8 is _no longer supported_. For other breaking changes, please read the [🔥 Breaking changes](#breaking-changes)
 
-If you're new to Stryker, please see [our quickstart](/stryker/quickstart). Have fun with mutation testing!
+If you're new to Stryker, please see [our quickstart](/docs/stryker-js/getting-started/). Have fun with mutation testing!
 
 ## 📃 New config format
 
@@ -68,7 +68,7 @@ module.exports = {
 We've noticed that most developers like the HTML reporter a lot.
 However, it was always a separate package. This was originally done
 because it depended on a somewhat expensive template library (namely [handlebars](https://handlebarsjs.com/)).
-Since the release of the [mutation testing HTML report](/blog/2019-04-03/one-mutation-testing-html-report),
+Since the release of the [mutation testing HTML report](/blog/one-mutation-testing-html-report),
 this is no longer the case.
 
 That's why Stryker now comes with the HTML reporter included. It is also enabled by default. You can still disable it

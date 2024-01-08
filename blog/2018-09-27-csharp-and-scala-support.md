@@ -12,7 +12,7 @@ We're excited to announce that we're doubling the number of supported languages 
 ## New platforms
 
 As you might know, both C# and Scala run on entirely different platforms compared to Stryker (which runs on NodeJS). This is the main reason we decided to implement them as
-separate frameworks. [Stryker.NET](/stryker-net) is written in C# and runs as a .NET Core application, while [Stryker4s](/stryker4s) is written in Scala and runs on the JVM (Java Virtual Machine).
+separate frameworks. [Stryker.NET](/docs/stryker-net/introduction) is written in C# and runs as a .NET Core application, while [Stryker4s](/docs/stryker4s/getting-started) is written in Scala and runs on the JVM (Java Virtual Machine).
 As of now, a version of Stryker.NET can be found on nuget.org, the package manager for the .NET platform. In due time, Stryker4s can be found on Maven Central.
 
 Stryker.NET is the result of the internship of [Richard](https://github.com/richardwerkman).  
@@ -24,9 +24,9 @@ Thanks to them both for their hard work and continued support.
 
 As you might have noticed, we've redesigned [our website](/). It is focussed to help you get started on the platform of choice.
 
-- [Get started with Stryker.NET](/stryker-net/quickstart) (preview)
-- [Get started with Stryker4s](/stryker4s/quickstart) (preview)
-- [Get started with Stryker](/stryker/quickstart) (for JavaScript / TypeScript)
+- [Get started with Stryker.NET](/docs/stryker-net/introduction/) (preview)
+- [Get started with Stryker4s](/docs/stryker4s/getting-started/) (preview)
+- [Get started with Stryker](/docs/stryker-js/getting-started/) (for JavaScript / TypeScript)
 
 ## One design mentality
 
@@ -34,7 +34,7 @@ Although all 3 versions of Stryker are implemented on different platforms, the d
 _fast to run_. Without compromises.
 
 For Stryker JavaScript we're mutating _source code_ (as explained in our
-[road to Stryker 1.0](/blog/2017-07-14/road-to-stryker-1-0) blog post), instead of transpiled/minified JavaScript code.
+[road to Stryker 1.0](/blog/road-to-stryker-1-0) blog post), instead of transpiled/minified JavaScript code.
 The main advantage is that it makes sure we only mutate _your actual code_, instead of 3rd party library or minified code.
 
 We wanted to offer the same quality to the .NET and Scala counterparts, but they have one additional problem: compiling code takes a long time.

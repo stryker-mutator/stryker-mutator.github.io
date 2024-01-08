@@ -10,7 +10,7 @@ Stryker 1.0 is here! This is an important milestone for mutation testing in Java
 <!--truncate-->
 
 If you’re unfamiliar with Stryker and mutation testing, now is the perfect time to try it out!
-We've updated [our quickstart](/stryker/quickstart), so go ahead and start using Stryker today.
+We've updated [our quickstart](/docs/stryker-js/getting-started/), so go ahead and start using Stryker today.
 Stryker can help you to improve your test quality by inserting bugs in your code and validating
 that your tests can find them. The output is a comprehensive report telling you exactly what your unit tests missed.
 

@@ -23,7 +23,7 @@ Then just run `sbt stryker` and you are good to go!
 
 Not only does this plugin make it a lot easier to add Stryker4s to your project, it also dramatically improves the speed compared to the old command-runner. The reason for this is that the command-runner would simply run the command `sbt test` for each mutant. This meant that sbt would have to start a new process every single time. If you have ever used sbt before, you probably know this can take a while.
 
-With the new plugin we can hook into the sbt process and keep it alive. This means sbt only has to start once, and all we have to do is tell sbt to run tests for all the mutants we found. If you've used Stryker for JavaScript before, this may sound familiar. Adding to it, we don't even have to compile between mutant runs, which also gives a speed boost. You can read more about that in our [last blog post about mutation switching](/blog/2018-10-6/mutation-switching).
+With the new plugin we can hook into the sbt process and keep it alive. This means sbt only has to start once, and all we have to do is tell sbt to run tests for all the mutants we found. If you've used Stryker for JavaScript before, this may sound familiar. Adding to it, we don't even have to compile between mutant runs, which also gives a speed boost. You can read more about that in our [last blog post about mutation switching](/blog/mutation-switching).
 
 Big thanks to [Scelestino](https://github.com/scelestino) and [Wmaarts](https://github.com/Wmaarts) for the help on the plugin.
 

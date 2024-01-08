@@ -96,7 +96,7 @@ Spread the word 💖 to help us grow 🌳.
 ## 🔮 What's next?
 
 We're planning to upgrade the [Stryker dashboard](https://dashboard.stryker-mutator.io).
-Right now it already supports [showing a mutation score badge](/blog/2018-02-08/get-your-mutation-score-badge-now).
+Right now it already supports [showing a mutation score badge](/blog/get-your-mutation-score-badge-now).
 In the future, you will be able to host your entire mutation testing report there. Stay tuned.
 
 Happy mutation testing!
