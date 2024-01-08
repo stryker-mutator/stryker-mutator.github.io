@@ -11,7 +11,7 @@ In this article, we'll guide you through the highlights of this release, includi
 
 <!-- truncate -->
 
-**New to mutation testing?** It's a unique way to assess the quality of your tests. Check out our [RoboBar 🤖🍷 example](https://stryker-mutator.io/docs/General/example/) to understand why 100% code coverage doesn't tell the whole story. You can also explore our [new playground to experience mutation testing in action (C#)](https://stryker-mutator.io/stryker-playground). Mutation testing is the key to gauging the effectiveness of your tests.
+**New to mutation testing?** It's a unique way to assess the quality of your tests. Check out our [RoboBar 🤖🍷 example](/docs/General/example/) to understand why 100% code coverage doesn't tell the whole story. You can also explore our [new playground to experience mutation testing in action (C#)](https://stryker-mutator.io/stryker-playground). Mutation testing is the key to gauging the effectiveness of your tests.
 
 To update or install Stryker4s, adjust your `plugins.sbt` file:
 
@@ -45,13 +45,13 @@ Before Stryker4s begins running your tests, it must parse and instrument your so
 
 ## 💬 New Dialects
 
-Scala is a fast-evolving language, and to ensure compatibility, we already had the [`scala-dialect`](https://stryker-mutator.io/docs/stryker4s/configuration/#scala-dialect-string) config option. In Stryker4s 0.15, we've introduced the `source3` option for Scala 2 codebases using the `-Xsource3` flag and the `scala3future` option for Scala 3 codebases with the `-source:future` flag 📡.
+Scala is a fast-evolving language, and to ensure compatibility, we already had the [`scala-dialect`](/docs/stryker4s/configuration/#scala-dialect-string) config option. In Stryker4s 0.15, we've introduced the `source3` option for Scala 2 codebases using the `-Xsource3` flag and the `scala3future` option for Scala 3 codebases with the `-source:future` flag 📡.
 
 [@fabianhjr](https://github.com/fabianhjr) has also resolved an issue where mutated code wasn't correctly written back to disk using the correct dialect. This mainly affected Scala 3 codebases. Thanks for the fix!
 
 ## 📝 New Configuration Options
 
-We've added several configuration options to offer more flexibility. The first is the [`clean-tmp-dir`](https://stryker-mutator.io/docs/stryker4s/configuration/#clean-tmp-dir-boolean) option, which defaults to `true`. When disabled, Stryker4s won't clean the temporary directory used for instrumented code, which can be handy for debugging. Combine this with [`static-tmp-dir`](https://stryker-mutator.io/docs/stryker4s/configuration/#static-tmp-dir-boolean), and Stryker4s will use the same temporary directory for each run. Both of these options were contributed by [@gergelytraveltime](https://github.com/gergelytraveltime).
+We've added several configuration options to offer more flexibility. The first is the [`clean-tmp-dir`](/docs/stryker4s/configuration/#clean-tmp-dir-boolean) option, which defaults to `true`. When disabled, Stryker4s won't clean the temporary directory used for instrumented code, which can be handy for debugging. Combine this with [`static-tmp-dir`](/docs/stryker4s/configuration/#static-tmp-dir-boolean), and Stryker4s will use the same temporary directory for each run. Both of these options were contributed by [@gergelytraveltime](https://github.com/gergelytraveltime).
 
 ## 📦 Maven Plugin Update
 

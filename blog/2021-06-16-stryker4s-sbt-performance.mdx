@@ -32,7 +32,7 @@ In the rest of this blog post, we'll do a deep-dive into the increased performan
 
 ## 🐢 The old
 
-In the older sbt plugin, there was a lot of overhead in running your tests. As a quick reminder, Stryker4s uses [mutation switching](https://stryker-mutator.io/blog/mutation-switching/), so it only has to compile your code once, instead of for each mutant. After mutating your source code, Stryker4s would essentially just call `sbt test` with the mutated code for every mutant. This means sbt would:
+In the older sbt plugin, there was a lot of overhead in running your tests. As a quick reminder, Stryker4s uses [mutation switching](/blog/mutation-switching/), so it only has to compile your code once, instead of for each mutant. After mutating your source code, Stryker4s would essentially just call `sbt test` with the mutated code for every mutant. This means sbt would:
 
 1. Look for code changes (which there never are).
 1. Make sure all compiled code is up-to-date (which it always is).
@@ -94,7 +94,7 @@ We now know what tests are in your project. Let's have a look at running those t
 
 ### 🧪 Meet: test interfaces
 
-This is something our friends in the NodeJS world are (rightfully) a little [jealous of](https://stryker-mutator.io/docs/stryker-js/plugins#test-runners) 😏. When you call `sbt test`, sbt will look for any registered test frameworks that implement the [test-interface](https://github.com/sbt/test-interface) (from `loadedTestFrameworks`). This is a small collection of interfaces that let a test framework tell sbt how to run tests in that framework. Because all test frameworks in sbt implement this interface, we have a single programmatic way to call any test framework. It doesn't matter if you're using ScalaTest, MUnit, Weaver-test or anything else. Using a bit of reflection, we can create an instance of the test framework runner and run tests:
+This is something our friends in the NodeJS world are (rightfully) a little [jealous of](/docs/stryker-js/plugins#test-runners) 😏. When you call `sbt test`, sbt will look for any registered test frameworks that implement the [test-interface](https://github.com/sbt/test-interface) (from `loadedTestFrameworks`). This is a small collection of interfaces that let a test framework tell sbt how to run tests in that framework. Because all test frameworks in sbt implement this interface, we have a single programmatic way to call any test framework. It doesn't matter if you're using ScalaTest, MUnit, Weaver-test or anything else. Using a bit of reflection, we can create an instance of the test framework runner and run tests:
 
 ```scala
 val framework = classLoader.loadClass(testFrameworkClass).getConstructor().newInstance().asInstanceOf[Framework]

@@ -112,7 +112,7 @@ To support this scenario, you can now provide [`--allowEmpty`](/docs/stryker-js/
 
 ## 🧹 Always clean the temp dir
 
-StrykerJS works inside a [temp directory](/docs/stryker-js/configuration/#tempdirname-string). What happens to this temp dir depends on the [--cleanTempDir](https://stryker-mutator.io/docs/stryker-js/configuration/#cleantempdir-boolean--always) setting. This setting now gets a new option: `'always'`.
+StrykerJS works inside a [temp directory](/docs/stryker-js/configuration/#tempdirname-string). What happens to this temp dir depends on the [--cleanTempDir](/docs/stryker-js/configuration/#cleantempdir-boolean--always) setting. This setting now gets a new option: `'always'`.
 
 When `cleanTempDir` is set to `'always'`, the temp dir is... well... always deleted. This contradicts `true` (default), where the temp dir is only deleted when StrykerJS runs successfully.
 
