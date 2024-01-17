@@ -2,6 +2,6 @@
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
-    "strict": true
-  }
+    "strict": true,
+  },
 }
