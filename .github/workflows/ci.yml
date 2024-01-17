@@ -19,7 +19,7 @@ jobs:
           cache: 'npm'
       - name: Docusaurus cache
         if: ${{ github.ref != 'refs/heads/develop' }}
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             .docusaurus
