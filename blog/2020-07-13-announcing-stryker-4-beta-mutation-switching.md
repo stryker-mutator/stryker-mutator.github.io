@@ -29,7 +29,7 @@ This beta is released early, in order to get community feedback. We've not yet u
 
 _Note: Since beta version `4.0.0-beta.2`, both the command test runner and the jest test runner are supported. However, the command test runner does have some [limitations](https://github.com/stryker-mutator/stryker-js/pull/2345)_
 
-If you're new to mutation testing, it's a way to measure your tests' effectiveness. Please take a look at [our RoboBar 🤖🍷 example](/docs/General/example/) and see how even 100% code coverage doesn't tell the whole story. Mutation testing is the only way to make sure your code is thoroughly tested.
+If you're new to mutation testing, it's a way to measure your tests' effectiveness. Please take a look at [our RoboCoasters 🤖🎢 example](/docs/General/example/) and see how even 100% code coverage doesn't tell the whole story. Mutation testing is the only way to make sure your code is thoroughly tested.
 
 ## 👽 Mutation switching
 

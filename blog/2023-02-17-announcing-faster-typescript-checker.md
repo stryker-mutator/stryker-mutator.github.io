@@ -29,7 +29,7 @@ npm install --save-dev @stryker-mutator/typescript-checker@latest
 yarn add --dev @stryker-mutator/typescript-checker@latest
 ```
 
-If you're new to mutation testing, it's a way to measure your tests' effectiveness. Please take a look at [our RoboBar 🤖🍷 example](/docs/General/example) and see how even 100% code coverage doesn't tell the whole story. Mutation testing is the only way to know if your tests are any good.
+If you're new to mutation testing, it's a way to measure your tests' effectiveness. Please take a look at [our RoboCoasters 🤖🎢 example](/docs/General/example) and see how even 100% code coverage doesn't tell the whole story. Mutation testing is the only way to know if your tests are any good.
 
 Now, let's dive into the upgraded TypeScript checker! 🏊‍♂️
 

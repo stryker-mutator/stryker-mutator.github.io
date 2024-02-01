@@ -13,7 +13,7 @@ This release marks a fundamental shift in the way Stryker works internally. It n
 
 **🎧 Listen to the <a target="_blank" rel="noopener noreferrer" href="https://thedeepdive.simplecast.com/episodes/mutation-testing-with-stryker">"Mutation testing with Stryker" podcast episode on InDepth.dev</a>**
 
-If you're new to mutation testing, it's a way to measure your tests' effectiveness. Please look at [our RoboBar 🤖🍷 example](/docs/General/example) and see how even 100% code coverage doesn't tell the whole story. Mutation testing is the only way to make sure you're not missing any tests.
+If you're new to mutation testing, it's a way to measure your tests' effectiveness. Please look at [our RoboCoasters 🤖🎢 example](/docs/General/example) and see how even 100% code coverage doesn't tell the whole story. Mutation testing is the only way to make sure you're not missing any tests.
 
 **_Note: updated on 9 October 2020: add remark about TypeScript 3.7 requirement in [Breaking changes](#breaking-changes)._**
 
