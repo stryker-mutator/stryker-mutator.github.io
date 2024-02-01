@@ -21,7 +21,7 @@ Jump right into it:
 ## 👾 Mutation testing
 
 For those of you who might not be familiar with Stryker.NET and Mutation Testing, here is a brief reminder.
-Please see [our RoboBar example](/docs/General/example/) for the full introduction.
+Please see [our RoboCoasters example](/docs/General/example/) for the full introduction.
 
 Stryker.NET places _mutants_ (bugs) inside your source code. After that, it runs your tests for each mutant.
 If at least one tests fails, that's great! Your tests just killed that mutant. If not, too bad, the mutant survived.

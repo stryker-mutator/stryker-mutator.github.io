@@ -10,7 +10,7 @@ tags: [dashboard]
 <!--truncate-->
 
 If you're new to mutation testing, it's a way to measure how effective your tests are at finding bugs.
-Please take a look at [our RoboBar 🤖🍷 example](/docs/General/example/) and see how even 100% code coverage doesn't tell the whole story.
+Please take a look at [our RoboCoasters 🤖🎢 example](/docs/General/example/) and see how even 100% code coverage doesn't tell the whole story.
 Mutation testing is the only way to make sure your code is tested.
 
 Mutation testing is done by a mutation testing framework. After a mutation test run, you'll get a report that gives you all the details.
