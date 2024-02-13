@@ -166,7 +166,7 @@ const config: Config = {
       },
     },
     prism: {
-      additionalLanguages: ['java', 'scala', 'csharp', 'diff'],
+      additionalLanguages: ['java', 'scala', 'csharp', 'diff', 'json'],
       theme: themes.github,
       darkTheme: themes.dracula,
     },
