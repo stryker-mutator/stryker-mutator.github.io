@@ -48,7 +48,7 @@ Improving the speed of Stryker.NET is our top priority. That's why we will inves
 
 ## 🌯 That's a wrap
 
-With these updates, the latest version of Stryker.NET represents a significant step forward in empowering developers to build and test their code with greater efficiency and accuracy. The team is dedicated to continuously improving the platform, and these changes reflect their commitment to delivering a top-tier development experience.
+With these updates, the latest version of Stryker.NET represents a significant step forward in empowering developers to build and test their code with greater efficiency and accuracy. The team is dedicated to continuously improving the platform, and these changes reflect our commitment to delivering a top-tier development experience.
 
 Stay tuned for more exciting updates and features from Stryker.NET as the platform continues to evolve and adapt to the ever-changing landscape of software development.
 
