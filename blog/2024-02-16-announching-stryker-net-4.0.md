@@ -25,11 +25,11 @@ Since version `3.13.0` we support initializing a config file straight from the c
 dotnet stryker init --project myproject.csproj
 ```
 
-This command will create a new config file at the commands current location. It will fill the config file with default values for all file based options. Any options passed as CLI options will also be saved in the newly created config file. 
+This command will create a new config file at the commands current location. It will fill the config file with default values for all file based options. Any options passed as CLI options will also be saved in the newly created config file.
 
 ## 🔮 What's Next?
 
-As part of the evolution of the platform, the decision has been made to deprecate baseline & since as global options. Instead they will be implemented as distinct subcommands to indicate that they are distinct modes of operation. 
+As part of the evolution of the platform, the decision has been made to deprecate baseline & since as global options. Instead they will be implemented as distinct subcommands to indicate that they are distinct modes of operation.
 
 The commands will probably look like this:
 
@@ -38,7 +38,7 @@ dotnet stryker with-baseline feat-2
 dotnet stryker baseline recreate feat-2
 ```
 
-While this may require some adjustment for existing users, the team is confident that this change will streamline the user experience and pave the way for future enhancements. 
+While this may require some adjustment for existing users, the team is confident that this change will streamline the user experience and pave the way for future enhancements.
 
 We are also deprecating support for spans in the mutate option. Using file spans in the mutate option is to fragile and should not be used. A replacement for this feature exists in the form of [stryker comments](https://stryker-mutator.io/docs/stryker-net/ignore-mutations/#stryker-comments). This change aligns with the team's focus on optimizing and simplifying the platform, ensuring that users can efficiently navigate and utilize its features without unnecessary complexity.
 
