@@ -29,7 +29,7 @@ This command will create a new config file at the commands current location. It 
 
 ## 🔮 What's Next?
 
-As part of the evolution of the platform, the decision has been made to deprecate the baseline & since options. They will be replaced with commands. 
+As part of the evolution of the platform, the decision has been made to deprecate baseline & since as global options. Instead they will be implemented as distinct subcommands to indicate that they are distinct modes of operation. 
 
 The commands will probably look like this:
 
@@ -40,16 +40,16 @@ dotnet stryker baseline recreate feat-2
 
 While this may require some adjustment for existing users, the team is confident that this change will streamline the user experience and pave the way for future enhancements. 
 
-Another deprecation in a future version is the span in mutate option. We feel this option isn't used by any projects and doesn't work, like we intended it to work. A replacement for this feature could be added, if the need for this arises. This change aligns with the team's focus on optimizing and simplifying the platform, ensuring that users can efficiently navigate and utilize its features without unnecessary complexity.
+We are also deprecating support for spans in the mutate option. Using file spans in the mutate option is to fragile and should not be used. A replacement for this feature exists in the form of [stryker comments](https://stryker-mutator.io/docs/stryker-net/ignore-mutations/#stryker-comments). This change aligns with the team's focus on optimizing and simplifying the platform, ensuring that users can efficiently navigate and utilize its features without unnecessary complexity.
 
 ## 🔬 Research
 
-Improving the speed of Stryker.NET is our top priority. That's why we will investigate how to utilize VSTest in a better way. Other Stryker frameworks have seen big performance improvement by keeping their testrunners alive between testruns. VSTest sadly doesn't support this, so we need to spin up a new instance of VSTest for each testrun. This has a big negative impact on the performance of Stryker. We hope to gain a massive performance boost by this 🚀
+Improving the speed of Stryker.NET is our top priority. That's why we will investigate how to utilize VSTest in a better way. Other Stryker frameworks have seen big performance improvement by keeping their testrunners alive between testruns. VSTest sadly doesn't support this, so we need to spin up a new instance of VSTest for each testrun. This has a big negative impact on the performance of Stryker. We hope to gain a massive performance boost 🚀
 
 ## 🌯 That's a wrap
 
-With these updates, the latest version of stryker.net represents a significant step forward in empowering developers to build and test their code with greater efficiency and accuracy. The team is dedicated to continuously improving the platform, and these changes reflect their commitment to delivering a top-tier development experience.
+With these updates, the latest version of Stryker.NET represents a significant step forward in empowering developers to build and test their code with greater efficiency and accuracy. The team is dedicated to continuously improving the platform, and these changes reflect our commitment to delivering a top-tier development experience.
 
-Stay tuned for more exciting updates and features from stryker.net as the platform continues to evolve and adapt to the ever-changing landscape of software development.
+Stay tuned for more exciting updates and features from Stryker.NET as the platform continues to evolve and adapt to the ever-changing landscape of software development.
 
 In the meantime, we'd love to hear your thoughts. Any feedback is appreciated, on [our Slack channel](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM), our baseline project on [github](https://github.com/orgs/stryker-mutator/projects/7), or send us a [tweet](https://twitter.com/stryker_mutator/).
