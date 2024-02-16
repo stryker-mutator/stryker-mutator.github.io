@@ -5,7 +5,7 @@ authors: richardwerkman
 tags: [stryker-net]
 ---
 
-Hello there! We're excited to share some fantastic news about the latest version of Stryker.NET. The team has been hard at work and has introduced some significant updates that will enhance the user experience and functionality of the platform.
+Hello there! We're excited to share some fantastic news about the latest version of Stryker.NET. We hit a huge milestone of 2 million downloads! 🥳 The team has been hard at work and has introduced some significant updates that will enhance the user experience and functionality of the platform.
 
 <!-- truncate -->
 
