@@ -42,9 +42,6 @@ While this may require some adjustment for existing users, the team is confident
 
 Another deprecation in a future version is the span in mutate option. We feel this option isn't used by any projects and doesn't work, like we intended it to work. A replacement for this feature could be added, if the need for this arises. This change aligns with the team's focus on optimizing and simplifying the platform, ensuring that users can efficiently navigate and utilize its features without unnecessary complexity.
 
-Any feedback is appreciated, on [our Slack channel](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM), our baseline project on [github](https://github.com/orgs/stryker-mutator/projects/7), or send us a [tweet](https://twitter.com/stryker_mutator/).
-
-
 ## 🔬 Research
 
 Improving the speed of Stryker.NET is our top priority. That's why we will investigate how to utilize VSTest in a better way. Other Stryker frameworks have seen big performance improvement by keeping their testrunners alive between testruns. VSTest sadly doesn't support this, so we need to spin up a new instance of VSTest for each testrun. This has a big negative impact on the performance of Stryker. We hope to gain a massive performance boost by this 🚀
@@ -55,4 +52,4 @@ With these updates, the latest version of stryker.net represents a significant s
 
 Stay tuned for more exciting updates and features from stryker.net as the platform continues to evolve and adapt to the ever-changing landscape of software development.
 
-In the meantime, we'd love to hear your thoughts. Share your feedback in the comments below 👇, on [our Slack channel](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM), or send us a [tweet](https://twitter.com/stryker_mutator/).
+In the meantime, we'd love to hear your thoughts. Any feedback is appreciated, on [our Slack channel](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM), our baseline project on [github](https://github.com/orgs/stryker-mutator/projects/7), or send us a [tweet](https://twitter.com/stryker_mutator/).
