@@ -1,7 +1,7 @@
 ---
 slug: stryker-net-4-is-here
 title: 'Stryker.NET 4.0 is here!'
-authors: richard-werkman
+authors: richardwerkman
 tags: [stryker-net]
 ---
 
