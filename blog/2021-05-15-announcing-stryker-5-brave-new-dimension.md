@@ -1,5 +1,5 @@
 ---
-slug: announcing-stryker-js-5-brave-new-dimension.md
+slug: announcing-stryker-js-5-brave-new-dimension
 title: Announcing StrykerJS 5.0 - Brave new Dimension
 authors: nicojs
 tags: [stryker-js]

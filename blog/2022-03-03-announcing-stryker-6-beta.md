@@ -1,5 +1,5 @@
 ---
-slug: announcing-stryker-js-v6.0-beta
+slug: announcing-stryker-js-v6-beta
 title: Announcing StrykerJS v6.0 Beta
 authors: nicojs
 tags: [stryker-js]

@@ -3,7 +3,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import CSharpLogo from '@site/static/images/CSharpLogo.svg';
 import JavaScriptLogo from '@site/static/images/JavascriptLogo.svg';
-import ScalaLogo from '@site/static/images/ScalaLogo.webp';
+import ScalaLogo from '@site/static/images/ScalaLogo.svg';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import React, { ComponentType, PropsWithChildren, SVGProps } from 'react';
@@ -15,7 +15,13 @@ import TargetSvg from '../icons/target.svg';
 import TranslateSvg from '../icons/translate.svg';
 import styles from './styles.module.css';
 
-const languages = [
+type LanugageProps = {
+  title: string;
+  image: ComponentType<SVGProps<SVGSVGElement>>;
+  docsLink: string;
+};
+
+const languages: LanugageProps[] = [
   {
     title: 'JavaScript and friends',
     image: JavaScriptLogo,
@@ -33,23 +39,13 @@ const languages = [
   },
 ];
 
-type LanugageProps = {
-  title: string;
-  image: string | ComponentType<SVGProps<SVGSVGElement>>;
-  docsLink: string;
-};
-
 function Language({ image: Image, title, docsLink }: LanugageProps) {
   return (
     <div className={clsx('col col--4', styles.feature)}>
       {Image && (
         <a href={docsLink}>
           <figure className={clsx('text--center')}>
-            {typeof Image === 'string' ? (
-              <img className={styles.languageImage} height={200} width={200} src={Image} alt={title} />
-            ) : (
-              <Image role="img" className={styles.languageImage} />
-            )}
+            <Image role="img" className={styles.languageImage} />
             <figcaption>{title}</figcaption>
           </figure>
         </a>

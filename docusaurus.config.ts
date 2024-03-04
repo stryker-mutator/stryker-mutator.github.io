@@ -30,6 +30,7 @@ const config: Config = {
   organizationName: 'stryker-mutator',
   projectName: 'stryker-mutator.github.io',
   trailingSlash: true,
+  onBrokenAnchors: 'throw',
   themeConfig: {
     image: 'images/strykerman.png',
     colorMode: {
@@ -185,6 +186,20 @@ const config: Config = {
       { name: 'theme-color', content: '#e74c3c' },
     ],
   } satisfies Preset.ThemeConfig,
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: { ref: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+    },
+    {
+      tagName: 'link',
+      attributes: { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#e74c3c' },
+    },
+    {
+      tagName: 'link',
+      attributes: { rel: 'manifest', href: '/manifest.json' },
+    },
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -208,7 +223,18 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-  plugins: [['@docusaurus/plugin-client-redirects', { redirects }]],
+  plugins: [
+    ['@docusaurus/plugin-client-redirects', { redirects }],
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: false,
+        injectManifestConfig: {
+          globPatterns: ['images/{stryker,stryker-man,stryker-gun,info-support}.svg'],
+        },
+      },
+    ],
+  ],
   markdown: {
     mermaid: true,
   },

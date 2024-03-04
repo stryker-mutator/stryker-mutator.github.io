@@ -131,6 +131,12 @@ const redirects: RedirectOption[] = [
     to: '/blog/announcing-stryker-4-mutation-switching',
   },
   { from: ['/blog/stryker4s-sbt-speedup'], to: '/blog/stryker4s-40-minutes-to-40-seconds' },
+  {
+    from: ['/blog/announcing-stryker-js-5-brave-new-dimension.md'],
+    to: '/blog/announcing-stryker-js-5-brave-new-dimension',
+  },
+  { from: ['/blog/2021-30-10-announcing-stryker-net-1.md'], to: '/blog/2021-30-10-announcing-stryker-net-1' },
+  { from: ['/blog/announcing-stryker-js-v6.0-beta'], to: '/blog/announcing-stryker-js-v6-beta' },
   // Stryker to StrykerJS
   { from: ['/docs/stryker/configuration'], to: '/docs/stryker-js/configuration' },
   { from: ['/docs/stryker/introduction'], to: '/docs/stryker-js/introduction' },
