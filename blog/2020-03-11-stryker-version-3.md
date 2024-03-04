@@ -17,7 +17,7 @@ Mutation testing is the only way to make sure your code is tested.
 ## 🚀 Migration
 
 Migrating to the latest major version is easy! Just update all `@stryker-mutator` dependencies to at least 3.0.0.
-Please note that Node 8 is _no longer supported_. For other breaking changes, please read the [🔥 Breaking changes](#breaking-changes)
+Please note that Node 8 is _no longer supported_. For other breaking changes, please read the [🔥 Breaking changes](#-breaking-changes)
 
 If you're new to Stryker, please see [our quickstart](/docs/stryker-js/getting-started/). Have fun with mutation testing!
 
