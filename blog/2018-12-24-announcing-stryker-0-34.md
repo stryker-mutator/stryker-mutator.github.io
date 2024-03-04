@@ -26,7 +26,7 @@ Some features we want to talk about:
 - [Command test runner](#command-test-runner)
 - [Zero configuration](#zero-configuration)
 - [Init presets](#init-presets)
-- [Web component tester test runner plugin](#web-component-tester-test-runner-plugin)
+- [Web component tester test runner plugin](#web-component-tester-plugin)
 
 ## Command test runner
 

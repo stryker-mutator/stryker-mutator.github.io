@@ -18,7 +18,7 @@ Enabling the dashboard for your project is as simple as navigating to https://da
 
 ## Send your first report
 
-Send your first report [directly from Stryker](#send-a-report-direcly-from-Stryker), or manually via [a curl request](#send-a-report-via-curl).
+Send your first report [directly from Stryker](#send-a-report-directly-from-stryker), or manually via [a curl request](#send-a-report-via-curl).
 
 ### Send a report directly from Stryker
 

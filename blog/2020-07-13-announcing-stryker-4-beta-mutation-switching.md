@@ -91,7 +91,7 @@ The following dependencies are therefore no longer needed, and you can simply re
 
 You might know that the old `@stryker-mutator/typescript` transpiler not only transpiled your code but also filtered out mutants that resulted in type errors, marking them with `compile error` (or `transpile error`) in your report. Mutants with this status are marked as "invalid" and do not influence your mutation score.
 
-Since Stryker 4.0 [removes the transpiler plugin type](#build-command-support) we needed a new plugin that can perform this type checking. Introducing the `Checker` plugin type. In the Stryker 4 release, we will include one such checkers, the `@stryker-mutator/typescript-checker`.
+Since Stryker 4.0 [removes the transpiler plugin type](#-build-command-support) we needed a new plugin that can perform this type checking. Introducing the `Checker` plugin type. In the Stryker 4 release, we will include one such checkers, the `@stryker-mutator/typescript-checker`.
 
 Install it with `npm install @stryker-mutator/typescript-checker@next`
 
