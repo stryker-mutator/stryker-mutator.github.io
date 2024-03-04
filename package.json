@@ -7,6 +7,7 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
+    "serve": "docusaurus serve",
     "prebuild": "npm run clone:docs",
     "postinstall": "npm run clone:docs",
     "clean": "docusaurus clear && rimraf docs/stryker-js docs/stryker4s docs/stryker-net docs/mutation-testing-elements",
@@ -32,6 +33,7 @@
   "dependencies": {
     "@docusaurus/core": "3.1.1",
     "@docusaurus/plugin-client-redirects": "3.1.1",
+    "@docusaurus/plugin-pwa": "3.1.1",
     "@docusaurus/preset-classic": "3.1.1",
     "@docusaurus/theme-mermaid": "3.1.1",
     "@giscus/react": "3.0.0",

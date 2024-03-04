@@ -1,5 +1,5 @@
 ---
-slug: 2021-30-10-announcing-stryker-net-1.md
+slug: 2021-30-10-announcing-stryker-net-1
 title: Announcing Stryker.NET 1.0
 authors: richardwerkman
 tags: [stryker.net, release, mutation testing, stryker mutator, stryker-js]
