@@ -39,7 +39,7 @@ const config: Config = {
     announcementBar: {
       id: 'talk', // Any value that will identify this message.
       content:
-        '📢 try out the new <a target="_blank" href="https://stryker-mutator.io/stryker-playground/">Stryker Playground right here in your browser!</a>',
+        '📣 Discover the <a target="_blank" href="https://video.fosdem.org/2024/h1301/fosdem-2024-1683-who-s-testing-the-tests-mutation-testing-with-strykerjs.av1.webm">"Who\'s testing the tests? Mutation testing with StrykerJS"</a> talk on FOSDEM 2024.',
       backgroundColor: 'var(--ifm-navbar-background-color, #fff)',
       textColor: 'var(--ifm-navbar-link-color, #000)',
       isCloseable: true,
