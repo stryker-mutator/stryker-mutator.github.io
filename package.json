@@ -57,7 +57,7 @@
     "@docusaurus/tsconfig": "3.3.2",
     "@swc/core": "1.5.5",
     "prettier": "3.2.5",
-    "rimraf": "5.0.5",
+    "rimraf": "5.0.6",
     "swc-loader": "0.2.6",
     "typescript": "5.4.5"
   }
