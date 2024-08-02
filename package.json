@@ -55,7 +55,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.4.0",
     "@docusaurus/tsconfig": "3.4.0",
-    "@swc/core": "1.7.4",
+    "@swc/core": "1.7.5",
     "prettier": "3.3.3",
     "rimraf": "6.0.1",
     "swc-loader": "0.2.6",
