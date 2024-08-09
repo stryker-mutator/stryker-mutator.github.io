@@ -1,5 +1,5 @@
 import { useColorMode } from '@docusaurus/theme-common';
-import { useBlogPost } from '@docusaurus/theme-common/internal';
+import { useBlogPost } from '@docusaurus/plugin-content-blog/client';
 import type { WrapperProps } from '@docusaurus/types';
 import Giscus from '@giscus/react';
 import Footer from '@theme-original/BlogPostItem/Footer';
