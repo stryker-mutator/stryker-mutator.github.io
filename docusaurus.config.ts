@@ -4,23 +4,6 @@ import { themes } from 'prism-react-renderer';
 import redirects from './legacy-redirects';
 
 const config: Config = {
-  webpack: {
-    jsLoader: (isServer) => ({
-      loader: 'swc-loader',
-      options: {
-        jsc: {
-          parser: {
-            syntax: 'typescript',
-            tsx: true,
-          },
-          target: 'es2020',
-        },
-        module: {
-          type: isServer ? 'commonjs' : 'es6',
-        },
-      },
-    }),
-  },
   title: 'Stryker Mutator',
   tagline: 'Test your tests with mutation testing.',
   url: 'https://stryker-mutator.io',
