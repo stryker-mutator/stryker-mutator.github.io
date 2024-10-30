@@ -95,6 +95,10 @@ const config: Config = {
               href: 'https://github.com/stryker-mutator/mutation-testing-elements',
             },
             {
+              label: 'Stryker Dashboard',
+              href: 'https://github.com/stryker-mutator/stryker-dashboard',
+            },
+            {
               label: 'This website',
               href: 'https://github.com/stryker-mutator/stryker-mutator.github.io',
             },
