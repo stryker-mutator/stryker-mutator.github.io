@@ -4,6 +4,9 @@ import { themes } from 'prism-react-renderer';
 import redirects from './legacy-redirects';
 
 const config: Config = {
+  future: {
+    experimental_faster: true,
+  },
   title: 'Stryker Mutator',
   tagline: 'Test your tests with mutation testing.',
   url: 'https://stryker-mutator.io',
