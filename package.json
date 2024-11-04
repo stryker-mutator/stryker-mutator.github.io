@@ -2,6 +2,7 @@
   "name": "stryker-mutator.github.io",
   "version": "0.0.0",
   "private": true,
+  "packageManager": "npm@10.9.0",
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
@@ -32,6 +33,7 @@
   "homepage": "https://github.com/stryker-mutator/stryker-mutator.github.io#readme",
   "dependencies": {
     "@docusaurus/core": "3.6.0",
+    "@docusaurus/faster": "3.6.0",
     "@docusaurus/plugin-client-redirects": "3.6.0",
     "@docusaurus/plugin-pwa": "3.6.0",
     "@docusaurus/preset-classic": "3.6.0",
