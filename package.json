@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@docusaurus/tsconfig": "3.6.3",
-    "prettier": "3.4.1",
+    "prettier": "3.4.2",
     "rimraf": "6.0.1",
     "typescript": "5.7.2"
   },
