@@ -54,7 +54,7 @@ function Language({ image: Image, title, docsLink }: LanugageProps) {
   );
 }
 
-const features: { icon: ComponentType<SVGProps<SVGSVGElement>>; title: string; content: JSX.Element }[] = [
+const features: { icon: ComponentType<SVGProps<SVGSVGElement>>; title: string; content: React.ReactNode }[] = [
   {
     icon: MutationsSvg,
     title: 'Mutations',
