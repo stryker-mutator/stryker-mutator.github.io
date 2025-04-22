@@ -19,13 +19,13 @@ Without further ado:
 
 ![](/images/blogs/html-report-bootstrap4.png)
 
-As you might already suspect, we've upgraded to [bootstrap 4 (beta)](http://getbootstrap.com/).
+As you might already suspect, we've upgraded to [bootstrap 4 (beta)](https://getbootstrap.com/).
 
 ## New features
 
 This new report has a ton of new features:
 
-- **Mutant states**. The file report will now show the exact [state of a mutant](http://stryker-mutator.github.io/faq.html#q-what-do-all-these-metrics-mean).
+- **Mutant states**. The file report will now show the exact [state of a mutant](/docs/General/faq/#q-what-do-all-these-metrics-mean).
   It's also possible to filter out the exact states at the top. It even shows the amount of mutants with that state in parentheses.
   This should give you more details as to what happened when testing your application.
 - **Detailed mutant report**. On the right side (or below on small screens) of a file report, you can now see a detailed table with even more information about the mutants.

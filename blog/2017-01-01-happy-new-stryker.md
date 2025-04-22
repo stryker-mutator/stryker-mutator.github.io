@@ -18,7 +18,7 @@ That's the problem [mutation testing](https://en.wikipedia.org/wiki/Mutation_tes
 
 Due to JavaScript's dynamic nature, unit testing has become a fundamental tool to bring a higher level of robustness to JavaScript projects.
 Your average JavaScript app can easily have around 1,000 unit tests. Ensuring that these are actually _effective_ can be a full-time job. This is where Stryker comes in.
-[Stryker Mutator](http://stryker-mutator.github.io/) is our approach to providing a comprehensive mutation testing tool for the JavaScript environment.
+[Stryker Mutator](https://stryker-mutator.github.io/) is our approach to providing a comprehensive mutation testing tool for the JavaScript environment.
 
 We start out by altering your source code ever so slightly (e.g. turning a `+` into `-`) and then running your tests to see if they are
 resilient to this _"mutant"_. If they are (and they fail), all is fine - the _mutant is dead_. If they don't, the _mutant_ survived and you have to fix your test.
@@ -26,7 +26,7 @@ resilient to this _"mutant"_. If they are (and they fail), all is fine - the _mu
 ## Stryker Hackweek 2016
 
 Stryker began its life as the thesis project of Simon de Lang. After graduating, his thesis tutor Nico Jansen joined him and continued development in the open on [GitHub](https://github.com/stryker-mutator/).
-Since then they had five major releases, improving performance, adding support for the [Karma](http://karma-runner.github.io/1.0/index.html) and [Mocha](http://mochajs.org/) test runners,
+Since then they had five major releases, improving performance, adding support for the [Karma](https://karma-runner.github.io/1.0/index.html) and [Mocha](https://mochajs.org/) test runners,
 as well as creating a fancy [HTML reporter](https://github.com/stryker-mutator/mutation-testing-elements/tree/master/packages/mutation-testing-elements).
 
 Up until now, the two of them did all of this in their own time, next to their daytime jobs as software engineers.
@@ -42,9 +42,9 @@ All in all we made **47 commits**, closed **18 issues**, eat **6 kebabs** and **
 Here's a quick overview of what we did:
 
 - Created a [Stryker SonarQube plugin](https://github.com/stryker-mutator/sonar-stryker-plugin), that turns survived mutants into neat SonarQube issues
-- Added [a blog](http://stryker-mutator.github.io/blog.html) to the Stryker homepage
+- Added [a blog](https://stryker-mutator.github.io/blog.html) to the Stryker homepage
 - Upgraded the TypeScript compiler in all projects to 2.1
-- Released [version 0.5.5 of Stryker](http://stryker-mutator.github.io/blog/2016-12-30/stryker-0-5-5.html), including:
+- Released [version 0.5.5 of Stryker](https://stryker-mutator.github.io/blog/2016-12-30/stryker-0-5-5.html), including:
   - A new progress reporter
   - Limit the number of test-names to log in the clear text reporter
   - Support to [exclude online files from globbing](https://github.com/stryker-mutator/stryker-js/issues/90)
@@ -65,4 +65,4 @@ The Stryker Hackweek team consisted of (from left to right):
 - Jasper Catthoor: Software engineer (via Info Support Belgium)
 - Wannes Van Regenmortel: Software engineer (via Info Support Belgium)
 
-#### Want to try out Stryker? Begin with the handy [quick start guide](http://stryker-mutator.github.io/quickstart.html).
+#### Want to try out Stryker? Begin with the handy [quick start guide](/docs/stryker-js/getting-started/).
