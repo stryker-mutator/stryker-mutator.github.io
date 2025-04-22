@@ -40,7 +40,7 @@ dotnet stryker baseline recreate feat-2
 
 While this may require some adjustment for existing users, the team is confident that this change will streamline the user experience and pave the way for future enhancements.
 
-We are also deprecating support for spans in the mutate option. Using file spans in the mutate option is to fragile and should not be used. A replacement for this feature exists in the form of [stryker comments](https://stryker-mutator.io/docs/stryker-net/ignore-mutations/#stryker-comments). This change aligns with the team's focus on optimizing and simplifying the platform, ensuring that users can efficiently navigate and utilize its features without unnecessary complexity.
+We are also deprecating support for spans in the mutate option. Using file spans in the mutate option is to fragile and should not be used. A replacement for this feature exists in the form of [stryker comments](/docs/stryker-net/ignore-mutations/#stryker-comments). This change aligns with the team's focus on optimizing and simplifying the platform, ensuring that users can efficiently navigate and utilize its features without unnecessary complexity.
 
 ## 🔬 Research
 

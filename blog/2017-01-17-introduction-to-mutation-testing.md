@@ -59,7 +59,7 @@ With mutation testing you’re testing your tests.
 The best thing to do if you’re not already using mutation testing is to just try it once. Most languages have a mutation testing framework.
 Just take a look on GitHub and you will probably find one for the language you use.
 
-If you’re using JavaScript, I would suggest looking at Stryker. It has a great [quickstart page](http://stryker-mutator.github.io/quickstart.html) to get you up and running.
+If you’re using JavaScript, I would suggest looking at Stryker. It has a great [quickstart page](/docs/stryker-js/getting-started/) to get you up and running.
 
 If you've first used a mutation testing framework, you may find that there are a lot of mutations that survive, but that’s ok!
 
@@ -70,7 +70,7 @@ just like with your code coverage goal. I sometimes get asked what a good goal i
 It can be a difficult question to answer and I honestly don’t know what a good goal is for your application.
 
 Mutation testing frameworks make very different changes depending on the language or even framework you’re using.
-Stryker could assign any value to any variable since it tests JavaScript. That doesn’t work for a framework like [PIT](http://pitest.org/),
+Stryker could assign any value to any variable since it tests JavaScript. That doesn’t work for a framework like [PIT](https://pitest.org/),
 which can be used to mutation test Java code. This means that your score could differ a lot depending on the language and framework you use.
 The goal you want to set may also differ depending on the type of application that you're writing. A banking application may require a higher mutation score than some side project.
 
