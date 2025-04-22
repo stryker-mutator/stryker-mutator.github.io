@@ -25,17 +25,17 @@ const languages: LanugageProps[] = [
   {
     title: 'JavaScript and friends',
     image: JavaScriptLogo,
-    docsLink: 'docs/stryker-js/introduction',
+    docsLink: 'docs/stryker-js/introduction/',
   },
   {
     title: 'C#',
     image: CSharpLogo,
-    docsLink: 'docs/stryker-net/introduction',
+    docsLink: 'docs/stryker-net/introduction/',
   },
   {
     title: 'Scala',
     image: ScalaLogo,
-    docsLink: 'docs/stryker4s/getting-started',
+    docsLink: 'docs/stryker4s/getting-started/',
   },
 ];
 
@@ -43,12 +43,12 @@ function Language({ image: Image, title, docsLink }: LanugageProps) {
   return (
     <div className={clsx('col col--4', styles.feature)}>
       {Image && (
-        <a href={docsLink}>
+        <Link to={docsLink}>
           <figure className={clsx('text--center')}>
             <Image role="img" className={styles.languageImage} />
             <figcaption>{title}</figcaption>
           </figure>
-        </a>
+        </Link>
       )}
     </div>
   );
@@ -60,7 +60,7 @@ const features: { icon: ComponentType<SVGProps<SVGSVGElement>>; title: string; c
     title: 'Mutations',
     content: (
       <span>
-        Control more than <a href="/docs/mutation-testing-elements/supported-mutators">30 supported mutations</a>.
+        Control more than <Link to="/docs/mutation-testing-elements/supported-mutators">30 supported mutations</Link>.
       </span>
     ),
   },
@@ -80,10 +80,7 @@ const features: { icon: ComponentType<SVGProps<SVGSVGElement>>; title: string; c
     content: (
       <span>
         Free as in Speech. Maintained by the open source community at{' '}
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/stryker-mutator">
-          GitHub
-        </a>
-        .
+        <Link to="https://github.com/stryker-mutator">GitHub</Link>.
       </span>
     ),
   },
@@ -92,8 +89,9 @@ const features: { icon: ComponentType<SVGProps<SVGSVGElement>>; title: string; c
     title: 'Multilingual',
     content: (
       <span>
-        Stryker has support for <a href="/docs/stryker-js/introduction">JavaScript &amp; TypeScript</a>,{' '}
-        <a href="/docs/stryker-net/introduction">C#</a> and <a href="/docs/stryker4s/getting-started">Scala</a>.
+        Stryker has support for <Link to="/docs/stryker-js/introduction">JavaScript &amp; TypeScript</Link>,{' '}
+        <Link to="/docs/stryker-net/introduction">C#</Link> and <Link to="/docs/stryker4s/getting-started">Scala</Link>
+        .
       </span>
     ),
   },
@@ -102,15 +100,9 @@ const features: { icon: ComponentType<SVGProps<SVGSVGElement>>; title: string; c
     title: 'Clever reports',
     content: (
       <span>
-        Use{' '}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker-js/master"
-        >
+        Use <Link to="https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker-js/master">
           clever reports
-        </a>{' '}
-        to sniff out surviving mutants and improve test effectiveness.
+        </Link> to sniff out surviving mutants and improve test effectiveness.
       </span>
     ),
   },

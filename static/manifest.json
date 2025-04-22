@@ -38,21 +38,21 @@
   "shortcuts": [
     {
       "name": "JavaScript",
-      "url": "/docs/stryker-js/introduction",
+      "url": "/docs/stryker-js/introduction/",
       "icons": [
         { "src": "/images/javascript.svg", "type": "image/svg+xml", "sizes": "150x150", "purpose": "any maskable" }
       ]
     },
     {
       "name": "C#",
-      "url": "/docs/stryker-net/introduction",
+      "url": "/docs/stryker-net/introduction/",
       "icons": [
         { "src": "/images/c-sharp.svg", "type": "image/svg+xml", "sizes": "150x150", "purpose": "any maskable" }
       ]
     },
     {
       "name": "Scala",
-      "url": "/docs/stryker4s/getting-started",
+      "url": "/docs/stryker4s/getting-started/",
       "icons": [{ "src": "/images/scala.svg", "type": "image/svg+xml", "sizes": "150x150", "purpose": "any maskable" }]
     }
   ]

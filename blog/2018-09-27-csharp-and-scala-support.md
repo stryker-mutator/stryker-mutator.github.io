@@ -12,7 +12,7 @@ We're excited to announce that we're doubling the number of supported languages 
 ## New platforms
 
 As you might know, both C# and Scala run on entirely different platforms compared to Stryker (which runs on NodeJS). This is the main reason we decided to implement them as
-separate frameworks. [Stryker.NET](/docs/stryker-net/introduction) is written in C# and runs as a .NET Core application, while [Stryker4s](/docs/stryker4s/getting-started) is written in Scala and runs on the JVM (Java Virtual Machine).
+separate frameworks. [Stryker.NET](/docs/stryker-net/introduction/) is written in C# and runs as a .NET Core application, while [Stryker4s](/docs/stryker4s/getting-started/) is written in Scala and runs on the JVM (Java Virtual Machine).
 As of now, a version of Stryker.NET can be found on nuget.org, the package manager for the .NET platform. In due time, Stryker4s can be found on Maven Central.
 
 Stryker.NET is the result of the internship of [Richard](https://github.com/richardwerkman).  
