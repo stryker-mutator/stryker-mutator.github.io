@@ -90,8 +90,7 @@ const features: { icon: ComponentType<SVGProps<SVGSVGElement>>; title: string; c
     content: (
       <span>
         Stryker has support for <Link to="/docs/stryker-js/introduction">JavaScript &amp; TypeScript</Link>,{' '}
-        <Link to="/docs/stryker-net/introduction">C#</Link> and <Link to="/docs/stryker4s/getting-started">Scala</Link>
-        .
+        <Link to="/docs/stryker-net/introduction">C#</Link> and <Link to="/docs/stryker4s/getting-started">Scala</Link>.
       </span>
     ),
   },
@@ -100,9 +99,11 @@ const features: { icon: ComponentType<SVGProps<SVGSVGElement>>; title: string; c
     title: 'Clever reports',
     content: (
       <span>
-        Use <Link to="https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker-js/master">
+        Use{' '}
+        <Link to="https://dashboard.stryker-mutator.io/reports/github.com/stryker-mutator/stryker-js/master">
           clever reports
-        </Link> to sniff out surviving mutants and improve test effectiveness.
+        </Link>{' '}
+        to sniff out surviving mutants and improve test effectiveness.
       </span>
     ),
   },
