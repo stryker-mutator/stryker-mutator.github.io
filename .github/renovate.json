@@ -7,6 +7,12 @@
   "lockFileMaintenance": {
     "enabled": true
   },
+  "github-actions": {
+    "extends": [":preserveSemverRanges"]
+  },
+  "nvm": {
+    "extends": [":preserveSemverRanges"]
+  },
   "packageRules": [
     {
       "matchDepTypes": ["devDependencies"],
