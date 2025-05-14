@@ -56,3 +56,10 @@ rachid-boukaiba:
   image_url: https://avatars.githubusercontent.com/u/36392111?s=48&v=4
   socials:
     github: rachied
+
+andreas:
+  name: Andreas Hoornstra
+  title: StrykerJS Team
+  image_url: https://avatars.githubusercontent.com/u/69248785?v=4
+  socials:
+    github: Andreas02-dev
