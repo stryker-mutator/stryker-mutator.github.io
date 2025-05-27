@@ -6,6 +6,7 @@ import redirects from './legacy-redirects';
 const config: Config = {
   future: {
     experimental_faster: true,
+    v4: true,
   },
   title: 'Stryker Mutator',
   tagline: 'Test your tests with mutation testing.',
