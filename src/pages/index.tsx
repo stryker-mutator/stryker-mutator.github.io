@@ -13,7 +13,8 @@ import MutationsSvg from '../icons/mutations.svg';
 import PublicSvg from '../icons/public.svg';
 import TargetSvg from '../icons/target.svg';
 import TranslateSvg from '../icons/translate.svg';
-import styles from './styles.module.css';
+
+import './styles.css';
 
 type LanugageProps = {
   title: string;
@@ -41,11 +42,11 @@ const languages: LanugageProps[] = [
 
 function Language({ image: Image, title, docsLink }: LanugageProps) {
   return (
-    <div className={clsx('col col--4', styles.feature)}>
+    <div className="col col--4 feature">
       {Image && (
         <Link to={docsLink}>
-          <figure className={clsx('text--center')}>
-            <Image role="img" className={styles.languageImage} />
+          <figure className="text--center">
+            <Image role="img" className="languageImage" />
             <figcaption>{title}</figcaption>
           </figure>
         </Link>
@@ -122,8 +123,8 @@ function Home() {
   const { siteConfig } = context;
   return (
     <Layout description="Stryker Mutator: Test your tests with mutation testing.">
-      <header className={clsx('hero hero--primary', styles.heroBanner)}>
-        <div className={clsx('container', styles.bannerContainer)}>
+      <header className="hero hero--primary heroBanner">
+        <div className="container bannerContainer">
           <div className="col col--12">
             <div>
               <h1 className="hero__title">{siteConfig.title}</h1>
@@ -131,7 +132,7 @@ function Home() {
             </div>
             <div className="col col--12">
               <img
-                className={styles.heroImage}
+                className="heroImage"
                 src={useBaseUrl('images/stryker-gun.svg')}
                 srcSet={`${useBaseUrl('images/stryker-gun.svg')} 200w, ${useBaseUrl('images/stryker-man.svg')}`}
                 sizes="(min-width: 662px) 400px, 200px"
@@ -142,16 +143,13 @@ function Home() {
             </div>
           </div>
 
-          <div className={clsx('row', styles.buttons)}>
-            <Link
-              className={clsx('button button--outline button--secondary button--lg', styles.getStarted)}
-              to={useBaseUrl('docs/')}
-            >
+          <div className="row buttons">
+            <Link className="button button--outline button--secondary button--lg getStarted" to={useBaseUrl('docs/')}>
               Introduction
             </Link>
 
             <Link
-              className={clsx('button button--outline button--primary button--lg', styles.getStarted)}
+              className="button button--outline button--primary button--lg getStarted"
               to={'https://stryker-mutator.io/stryker-playground/'}
             >
               Playground
@@ -160,9 +158,9 @@ function Home() {
         </div>
       </header>
       <main>
-        <section className={styles.languages}>
+        <section className="languages">
           <div className={clsx('container')}>
-            <div className={clsx('row', styles.sectionHeader)}>
+            <div className="row sectionHeader">
               <div className="col col--12 text--center">
                 <h2>Getting started with Stryker</h2>
                 <div className="row">
@@ -177,7 +175,7 @@ function Home() {
 
         <section>
           <div className={clsx('container')}>
-            <div className={clsx('row', styles.sectionHeader)}>
+            <div className="row sectionHeader">
               <div className="col col--12 text--center">
                 <h2>Features</h2>
               </div>
@@ -185,8 +183,8 @@ function Home() {
             <div className="row">
               {features.map((props) => (
                 <Feature key={props.title}>
-                  <div className={styles.featureTitle}>
-                    <props.icon className={styles.featureIcon} />
+                  <div className="featureTitle">
+                    <props.icon className="featureIcon" />
                     <h3>{props.title}</h3>
                   </div>
                   <p>{props.content}</p>
