@@ -158,7 +158,7 @@ function Home() {
       </header>
       <main>
         <section className="languages">
-          <div className='container'>
+          <div className="container">
             <div className="row sectionHeader">
               <div className="col col--12 text--center">
                 <h2>Getting started with Stryker</h2>
@@ -173,7 +173,7 @@ function Home() {
         </section>
 
         <section>
-          <div className='container'>
+          <div className="container">
             <div className="row sectionHeader">
               <div className="col col--12 text--center">
                 <h2>Features</h2>
