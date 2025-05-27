@@ -5,7 +5,6 @@ import CSharpLogo from '@site/static/images/CSharpLogo.svg';
 import JavaScriptLogo from '@site/static/images/JavascriptLogo.svg';
 import ScalaLogo from '@site/static/images/ScalaLogo.svg';
 import Layout from '@theme/Layout';
-import clsx from 'clsx';
 import React, { ComponentType, PropsWithChildren, SVGProps } from 'react';
 import AssessmentSvg from '../icons/assessment.svg';
 import GroupsSvg from '../icons/groups.svg';
@@ -159,7 +158,7 @@ function Home() {
       </header>
       <main>
         <section className="languages">
-          <div className={clsx('container')}>
+          <div className='container'>
             <div className="row sectionHeader">
               <div className="col col--12 text--center">
                 <h2>Getting started with Stryker</h2>
@@ -174,7 +173,7 @@ function Home() {
         </section>
 
         <section>
-          <div className={clsx('container')}>
+          <div className='container'>
             <div className="row sectionHeader">
               <div className="col col--12 text--center">
                 <h2>Features</h2>
