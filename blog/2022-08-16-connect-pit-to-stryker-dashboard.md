@@ -61,7 +61,6 @@ Now, follow these four steps:
    This will ensure the mutation testing results of the various Maven modules will not mix up in the report.
    You **should not** do this if you have a single-module Maven project!
 5. For all the other things, the reporter will autoconfigure itself, given your build runs on any of the following environments:
-
    - GitHub Actions
 
    If your builds run in another environment, please feel free to [open an issue](https://github.com/mthmulders/pit-stryker-dashboard-reporter/issues/new).

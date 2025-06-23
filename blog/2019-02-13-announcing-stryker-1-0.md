@@ -31,7 +31,6 @@ Please use this migration guide to update your older Stryker version. If you're 
 1. **Make sure you're on the latest version of 0.x**
 
    Please make sure you're on the latest 0.x version first. Here is a list of all the latest versions:
-
    - `grunt-stryker@0.13.17`
    - `stryker-api@0.24.1`
    - `stryker-babel-transpiler@0.10.1`
@@ -64,7 +63,6 @@ Please use this migration guide to update your older Stryker version. If you're 
 4. **Upgrade your dependencies**
 
    Update your package.json file.
-
    - `stryker` ➡ `@stryker-mutator/core`
    - `stryker-api` ➡ _none, this can be removed_
    - `stryker-babel-transpiler` ➡ `@stryker-mutator/babel-transpiler`
