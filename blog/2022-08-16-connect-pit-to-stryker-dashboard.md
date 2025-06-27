@@ -43,6 +43,7 @@ Now, follow these four steps:
    </dependency>
    ```
 3. Configure PIT to use the new output format:
+
    ```xml
    <configuration>
        <outputFormats>
@@ -53,6 +54,7 @@ Now, follow these four steps:
 
    1. Alternatively, if `<configuration>` is already there, add the `<outputFormats>`.
    2. Similarly, if `<outputFormats>` is already there, add (or replace) with `<format>stryker-dashboard</format>`.
+
 4. **Important** If you are working on a multi-module Maven project, add the following to the `<configuration>` block:
    ```xml
    <pluginConfiguration>
