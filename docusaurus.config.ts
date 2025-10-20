@@ -168,7 +168,7 @@ const config: Config = {
 
     algolia: {
       appId: 'QF3A1J09N2',
-      apiKey: 'b0ec9342a88037eafe5fa4fd412b8b35',
+      apiKey: '1c12a57de8e3e2c2e577f97967481cec',
       indexName: 'stryker-mutator',
       contextualSearch: false,
     },
