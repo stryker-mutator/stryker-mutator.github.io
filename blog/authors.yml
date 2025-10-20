@@ -1,7 +1,7 @@
 nicojs:
   name: Nico Jansen
   title: Stryker Team
-  image_url: https://avatars.githubusercontent.com/u/1828233?v=4
+  image_url: https://avatars.githubusercontent.com/u/1828233
   socials:
     github: nicojs
     x: _nicojs
@@ -9,28 +9,28 @@ nicojs:
 simondel:
   name: Simon de Lang
   title: Stryker Team
-  image_url: https://avatars.githubusercontent.com/u/4221997?v=4
+  image_url: https://avatars.githubusercontent.com/u/4221997
   socials:
     github: simondel
 
 hugo-vrijswijk:
   name: Hugo van Rijswijk
   title: Stryker4s Team
-  image_url: https://avatars.githubusercontent.com/u/10114577?v=4
+  image_url: https://avatars.githubusercontent.com/u/10114577
   socials:
     github: hugo-vrijswijk
 
 richardwerkman:
   name: Richard Werkman
   title: Stryker.NET Team
-  image_url: https://avatars.githubusercontent.com/u/14224500?v=4
+  image_url: https://avatars.githubusercontent.com/u/14224500
   socials:
     github: richardwerkman
 
 mthmulders:
   name: Martijn Mulders
   title: Stryker Team
-  image_url: https://maarten.mulders.it/img/twitter-profile-202106.png
+  image_url: https://avatars.githubusercontent.com/u/430114
   socials:
     github: mthmulders
     x: mthmulders
@@ -39,20 +39,20 @@ mthmulders:
 danny-berkelaar:
   name: Danny Berkelaar
   title: StrykerJS team
-  image_url: https://avatars.githubusercontent.com/u/15829978?v=4
+  image_url: https://avatars.githubusercontent.com/u/15829978
   socials:
     github: danny12321
 
 xander-vedder:
   name: Xander Vedder
   title: Stryker Team
-  image_url: https://avatars.githubusercontent.com/u/34238405?v=4
+  image_url: https://avatars.githubusercontent.com/u/34238405
   socials:
     github: xandervedder
 
 rachid-boukaiba:
   name: Rachid Boukaiba
   title: Stryker.NET Team
-  image_url: https://avatars.githubusercontent.com/u/36392111?s=48&v=4
+  image_url: https://avatars.githubusercontent.com/u/36392111
   socials:
     github: rachied
