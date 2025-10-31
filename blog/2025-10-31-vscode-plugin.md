@@ -5,7 +5,7 @@ authors: nicojs
 tags: [vscode plugin]
 ---
 
-We're excited to announce the release of the official Stryker Mutator VSCode plugin! 🎉
+We're excited to announce the release of the official Stryker Mutator VS Code plugin! 🎉
 
 With this plugin, you can easily integrate Stryker into your development workflow, allowing you to run mutation tests directly from the comfort of your code editor.
 
