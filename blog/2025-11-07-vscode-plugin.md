@@ -1,8 +1,8 @@
 ---
 slug: vscode-plugin
-title: 'Announcing the Stryker VSCode Plugin'
+title: 'Announcing the Stryker VS Code Plugin'
 authors: nicojs
-tags: [vscode plugin]
+tags: [vscode-plugin, strykerjs]
 ---
 
 We're excited to announce the release of the official Stryker Mutator VS Code plugin! 🎉
@@ -13,11 +13,11 @@ With this plugin, you can easily integrate Stryker into your development workflo
 
 ## 🧑‍💻 The plugin
 
-To install the Stryker Mutator VSCode plugin, visit the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=stryker-mutator.stryker-mutator) and click on the "Install" button. At the moment of writing, the plugin only supports StrykerJS (v9.3.0 or higher), but support for other Stryker flavors is on the roadmap.
+To install the Stryker Mutator VS Code plugin, visit the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=stryker-mutator.stryker-mutator) and click on the "Install" button. At the moment of writing, the plugin only supports StrykerJS (v9.3.0 or higher), but support for other Stryker flavors is on the roadmap.
 
-Key features of the Stryker Mutator VSCode plugin include:
+Key features of the Stryker Mutator VS Code plugin include:
 
-- 🚀 **Real-time feedback** directly in your code editor. See which mutants survive or are killed without leaving VS Code.
+- 🚀 **Real-time feedback** directly in your code editor. See which mutants survive or are killed without leaving your editor.
 - 🧭 **Test Explorer integration**. Browse discover and test mutants per file, folder, or individually.
 - 👀 **Inline annotations and diff views**. Instantly see how each mutation changed your code, and whether your tests caught it.
 - 🔁 **Streamlined workflow**. No need to jump between CLI, browser reports, and code. Everything happens in your IDE.
@@ -38,13 +38,13 @@ At the moment of writing, the MSP is on version 0.4. It provides basic functiona
 
 ## 🚧 Roadmap
 
-The Stryker Mutator VSCode plugin is just the beginning. Here are some features we're planning to add in the near future:
+The Stryker Mutator VS Code plugin is just the beginning. Here are some features we're planning to add in the near future:
 
 - 🌐 **Support for other Stryker flavors**: Expanding support to include Stryker.NET, Stryker4s, and possibly more.
 - 📊 **Enhanced reporting**: More detailed mutation testing reports and visualizations.
-- ⚙️ **Configuration management**: Ability to manage Stryker configuration files directly from VSCode.
-- 🤝 **Community contributions**: What would you like to see in the Stryker Mutator VSCode plugin? We're open to suggestions and contributions.
+- ⚙️ **Configuration management**: Ability to manage Stryker configuration files directly from VS Code.
+- 🤝 **Community contributions**: What would you like to see in the Stryker Mutator VS Code plugin? We're open to suggestions and contributions.
 
 Come to our [GitHub repository's issue tracker](https://github.com/stryker-mutator/editor-plugins/issues) and let us know your thoughts!
 
-We can't wait to see how the Stryker Mutator VSCode plugin enhances your testing experience! Happy coding! 🚀
+We can't wait to see how the Stryker Mutator VS Code plugin enhances your testing experience! Happy coding! 🚀
