@@ -9,3 +9,4 @@ onlyBuiltDependencies:
 minimumReleaseAge: 1440
 
 trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 525600 # 1 year
