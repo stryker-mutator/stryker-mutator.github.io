@@ -1,0 +1,11 @@
+ignoredBuiltDependencies:
+  - core-js
+  - core-js-pure
+
+onlyBuiltDependencies:
+  - '@swc/core'
+
+# 1 day, in minutes
+minimumReleaseAge: 1440
+
+trustPolicy: no-downgrade

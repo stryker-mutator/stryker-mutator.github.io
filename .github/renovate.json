@@ -1,9 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:js-app"],
+  "extends": ["config:js-app", "group:linters"],
+  "timezone": "Europe/Amsterdam",
+  "schedule": ["every weekend"],
   "configMigration": true,
   "platformAutomerge": true,
   "automergeStrategy": "squash",
+  "minimumReleaseAge": "2 days",
   "lockFileMaintenance": {
     "enabled": true
   },

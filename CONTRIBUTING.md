@@ -24,8 +24,8 @@ Run the website locally using these steps:
 ```bash
 git clone git@github.com:stryker-mutator/stryker-mutator.github.io.git
 cd stryker-mutator.github.io
-npm install
-npm start
+pnpm install
+pnpm start
 ```
 
 **Note 1: Make sure you use at least Git version [2.25](https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/)**  
