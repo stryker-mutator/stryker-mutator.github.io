@@ -2,7 +2,7 @@
   "name": "stryker-mutator.github.io",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@10.29.3",
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
