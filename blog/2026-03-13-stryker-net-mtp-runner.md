@@ -29,7 +29,7 @@ dotnet tool update dotnet-stryker --local
 
 Stryker.NET has long relied on **VSTest** as its test runner. VSTest works well, but it has a fundamental limitation: Stryker has to spin up a brand new VSTest process for every mutation test run. On large test suites, that startup overhead adds up quickly.
 
-Microsoft has been building a modern alternative called the [Microsoft Testing Platform (MTP)](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-intro). MTP is already being adopted by all the major testing frameworks — MSTest, NUnit, and xUnit v3 — and it is the _only_ supported runner for newer frameworks such as [TUnit](https://github.com/thomhurst/TUnit). Until now, projects using these frameworks could not use Stryker.NET at all.
+Microsoft has been building a modern alternative called the [Microsoft Testing Platform (MTP)](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-platform-intro). MTP is already being adopted by all the major testing frameworks (MSTest, NUnit, and xUnit v3) and it is the _only_ supported runner for newer frameworks such as [TUnit](https://github.com/thomhurst/TUnit). Until now, projects using these frameworks could not use Stryker.NET at all.
 
 We're excited to announce that **MTP support is now available in preview** in Stryker.NET 4.13.
 
@@ -84,18 +84,18 @@ Two new mutation categories have been added to Stryker.NET's arsenal.
 
 **String method mutations** (`stringmethod`): Stryker now mutates common string manipulation methods. For example:
 
-| Original            | Mutated             |
-| ------------------- | ------------------- |
-| `ToUpper()`         | `ToLower()`         |
-| `ToLower()`         | `ToUpper()`         |
-| `Trim()`            | `""`                |
-| `TrimStart()`       | `TrimEnd()`         |
-| `TrimEnd()`         | `TrimStart()`       |
-| `StartsWith()`      | `EndsWith()`        |
-| `EndsWith()`        | `StartsWith()`      |
-| `PadLeft()`         | `PadRight()`        |
-| `IndexOf()`         | `LastIndexOf()`     |
-| `Substring()`       | `""`                |
+| Original       | Mutated         |
+| -------------- | --------------- |
+| `ToUpper()`    | `ToLower()`     |
+| `ToLower()`    | `ToUpper()`     |
+| `Trim()`       | `""`            |
+| `TrimStart()`  | `TrimEnd()`     |
+| `TrimEnd()`    | `TrimStart()`   |
+| `StartsWith()` | `EndsWith()`    |
+| `EndsWith()`   | `StartsWith()`  |
+| `PadLeft()`    | `PadRight()`    |
+| `IndexOf()`    | `LastIndexOf()` |
+| `Substring()`  | `""`            |
 
 These mutations are particularly good at catching code where the direction or casing of a string operation was never actually tested.
 
