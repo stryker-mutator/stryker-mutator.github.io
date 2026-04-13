@@ -5,9 +5,12 @@ import redirects from './legacy-redirects';
 
 const config: Config = {
   future: {
-    experimental_faster: true,
+    faster: true,
     v4: {
+      fasterByDefault: true,
+      mdx1CompatDisabledByDefault: true,
       removeLegacyPostBuildHeadAttribute: true,
+      siteStorageNamespacing: true,
       useCssCascadeLayers: false,
     },
   },
