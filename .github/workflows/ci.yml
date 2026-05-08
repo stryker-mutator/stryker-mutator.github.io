@@ -30,7 +30,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-docusaurus-${{ hashFiles('**/pnpm-lock.yaml') }}-
             ${{ runner.os }}-docusaurus-
-      - run: pnpm install --prefer-offline --frozen-lockfile
+      - run: pnpm ci --prefer-offline
       - name: Lint 🧶
         run: pnpm run lint
       - name: Build 🏗️
