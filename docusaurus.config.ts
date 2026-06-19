@@ -221,6 +221,7 @@ const config: Config = {
     ],
   ],
   plugins: [
+    'docusaurus-plugin-copy-page-button',
     ['@docusaurus/plugin-client-redirects', { redirects }],
     [
       '@docusaurus/plugin-pwa',
