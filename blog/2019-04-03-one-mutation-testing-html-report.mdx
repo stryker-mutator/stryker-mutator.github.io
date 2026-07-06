@@ -72,9 +72,7 @@ Loading from an external source (using `src="..."`) only works if you serve the 
 Use property binding to also support opening your HTML report from disk directly.
 
 ```js
-document.querySelector('mutation-test-report-app').report = {
-  /*... report data ...*/
-};
+document.querySelector('mutation-test-report-app').report = {/*... report data ...*/};
 ```
 
 The report json should adhere to the [mutation testing report json schema](https://github.com/stryker-mutator/mutation-testing-elements/tree/master/packages/mutation-testing-report-schema#readme),
