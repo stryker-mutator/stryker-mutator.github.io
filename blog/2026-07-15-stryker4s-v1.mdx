@@ -1,0 +1,112 @@
+---
+slug: stryker4s-v1
+title: 'Stryker4s 1.0: Mutation testing across the Scala ecosystem'
+authors: hugo-vrijswijk
+tags: [stryker4s]
+---
+
+We're incredibly proud to announce **Stryker4s 1.0**: our first v1 release! 🎉
+
+This is a huge milestone for the project. Stryker4s has evolved into a mature, stable and performant mutation testing framework that works great across the **three major Scala build tools**: sbt, Maven, and now Mill.
+
+In this post, we'll go through all the new features, as well as some you might have missed in other releases that are worth mentioning again.
+
+{/* truncate */}
+
+**New to mutation testing?** It's a unique way to assess the quality of your tests. Have a look at our [RoboCoasters 🤖🎢 example](/docs/General/example/) to understand why 100% code coverage doesn't tell the whole story. You can also explore our [playground to experience mutation testing in action (C#)](https://stryker-mutator.io/stryker-playground/). Mutation testing is the key to gauging the effectiveness of your tests.
+
+Updating is easy, there are no deprecated or removed features. To update or install Stryker4s, adjust your `plugins.sbt` file:
+
+```scala
+addSbtPlugin("io.stryker-mutator" % "sbt-stryker4s" % "1.0.0")
+```
+
+For Maven users:
+
+```xml
+<plugin>
+  <groupId>io.stryker-mutator</groupId>
+  <artifactId>stryker4s-maven-plugin</artifactId>
+  <version>1.0.0</version>
+</plugin>
+```
+
+And for Mill users:
+
+```scala
+//| mvnDeps: ['io.stryker-mutator::mill-stryker4s::1.0.0']
+import stryker4s.mill.Stryker4sModule
+
+object foo extends ScalaModule, Stryker4sModule {
+  ...
+}
+```
+
+## 🛠️ Three build tools, one implementation
+
+With Stryker4s 1.0, we now run mutation testing across all build tools in the same way, with the same features and performance. The sbt testrunner has been expanded upon and is now used as the base for running tests in all plugins. This means that whether you're using sbt, Maven, or Mill, you can expect a fast and consistent experience.
+
+### 🐘 New: Mill plugin
+
+We've added a brand-new [Mill](https://mill-build.com/) plugin ([#2042](https://github.com/stryker-mutator/stryker4s/issues/2042))! Mill users can now run mutation testing without leaving their build tool of choice.
+
+The plugin uses the same base as the sbt plugin, so it has the same features and performance. It supports **test coverage** and **rollback**, and is fully compatible with Mill's multi-module builds. Configuration is also fully possible inside Mill build settings. No need for a separate `stryker4s.conf` file.
+
+![Stryker4s mill usage](/images/blogs/stryker4s-mill.gif)
+
+Interested in how test running works under the hood? Check out our [older blog post on the sbt plugin performance](/blog/stryker4s-40-minutes-to-40-seconds/).
+
+### 🪶 Rewritten Maven plugin
+
+For the longest time, the Maven plugin seemed like the “forgotten sibling” of Stryker4s plugins. It lacked some features of the sbt plugin (like test reporting), and was much, much slower.
+
+The Maven plugin has been **completely rewritten** ([#2044](https://github.com/stryker-mutator/stryker4s/issues/2044)) and now uses the same base as the sbt (and Mill) plugin. Bringing it the same performance and features as the other plugins, such as fast test running, coverage support, test reports, and rollback of compile errors. Running Stryker4s on its Maven module, performance improved from **~16 minutes to ~12 seconds**! 🎉
+
+### 🐈 sbt plugin: minor but welcome improvements
+
+The sbt plugin has been cross-published to **sbt 2.x** ([#1655](https://github.com/stryker-mutator/stryker4s/issues/1655)). Allowing you to run Stryker4s on the latest sbt versions.
+
+For the longest time, running Stryker4s on a specific module in a multi-module sbt build was a bit of a pain. You had to use the workaround:
+
+```scala
+sbt 'project <module-name>; stryker'
+```
+
+Running Stryker4s on a specific module is now as simple as:
+
+```scala
+sbt <module-name>/stryker
+```
+
+Same as any other sbt tasks. Thanks to [@rwaldvogel](https://github.com/rwaldvogel) for this contribution!
+
+Since a few releases, you've also been able to configure all options in Stryker4s directly in your `build.sbt` file, instead of using a separate `stryker4s.conf` file. Stryker4s will also use these settings to get some defaults (like the Scala dialect or sources to mutate), but you can override them with settings:
+
+```scala
+strykerScalaDialect := scala.meta.dialects.Scala3
+strykerExcludedMutations := Seq("BooleanLiteral")
+```
+
+This also works great with CLI arguments:
+
+```bash
+sbt stryker --scala-dialect scala3 --excluded-mutations BooleanLiteral --open-report
+```
+
+## ⚡ What else?
+
+What do you mean, what else? Is this not enough? Okay, okay. Here are a few more things that landed in 1.0:
+
+- **Scala 3.9 syntax** ([#2039](https://github.com/stryker-mutator/stryker4s/pull/2039)): supports parsing the latest Scala 3.9 syntax.
+- **Auto-open the report** when a run finishes ([#1430](https://github.com/stryker-mutator/stryker4s/issues/1430)), with `--open-report`.
+- **Single-file HTML report** ([#1867](https://github.com/stryker-mutator/stryker4s/issues/1867)): the report is now a single self-contained file, making it easier to share or archive as a CI artifact.
+- **Clearer logging** ([#2015](https://github.com/stryker-mutator/stryker4s/issues/2015)) and richer mutant descriptions for regular expressions from [weapon-regex](https://github.com/stryker-mutator/weapon-regex) ([#1470](https://github.com/stryker-mutator/stryker4s/issues/1470)).
+- **Pre-testing performance improvements** ([#2070](https://github.com/stryker-mutator/stryker4s/issues/2070), [#2083](https://github.com/stryker-mutator/stryker4s/pull/2083), [#2084](https://github.com/stryker-mutator/stryker4s/pull/2084)): a bunch of speed-ups to start running your tests faster. Also includes some fixes to better support large projects and files.
+- **Unix socket communication** with test-runners ([#1834](https://github.com/stryker-mutator/stryker4s/issues/1834)): using [FS2](https://fs2.io/)'s native Unix socket support where available (falling back to TCP), for improved performance and stability.
+- A long list of robustness fixes: handling large test-runner messages ([#2068](https://github.com/stryker-mutator/stryker4s/issues/2068)), better exclude-annotation matching ([#2063](https://github.com/stryker-mutator/stryker4s/issues/2063)), improved rollback of compile errors, and more.
+
+## 🙏 Thank you
+
+Reaching 1.0 is a big milestone, signifying a certain stability and maturity of the project. But it wouldn't have been possible without the contributions of our amazing community. Thank you to everyone who has contributed to Stryker4s, whether through code, bug reports, or feedback. I'm excited to see where Stryker4s will go next.
+
+As always, we'd love to hear your thoughts on [our Slack channel](https://join.slack.com/t/stryker-mutator/shared_invite/enQtOTUyMTYyNTg1NDQ0LTU4ODNmZDlmN2I3MmEyMTVhYjZlYmJkOThlNTY3NTM1M2QxYmM5YTM3ODQxYmJjY2YyYzllM2RkMmM1NjNjZjM), or open an [issue on GitHub](https://github.com/stryker-mutator/stryker4s/issues).
