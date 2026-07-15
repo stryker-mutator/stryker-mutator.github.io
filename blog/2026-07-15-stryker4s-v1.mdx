@@ -18,7 +18,7 @@ In this post, we'll go through all the new features, as well as some you might h
 Updating is easy, there are no deprecated or removed features. To update or install Stryker4s, adjust your `plugins.sbt` file:
 
 ```scala
-addSbtPlugin("io.stryker-mutator" % "sbt-stryker4s" % "1.0.0")
+addSbtPlugin("io.stryker-mutator" % "sbt-stryker4s" % "1.0.1")
 ```
 
 For Maven users:
@@ -27,14 +27,14 @@ For Maven users:
 <plugin>
   <groupId>io.stryker-mutator</groupId>
   <artifactId>stryker4s-maven-plugin</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </plugin>
 ```
 
 And for Mill users:
 
 ```scala
-//| mvnDeps: ['io.stryker-mutator::mill-stryker4s::1.0.0']
+//| mvnDeps: ['io.stryker-mutator::mill-stryker4s::1.0.1']
 import stryker4s.mill.Stryker4sModule
 
 object foo extends ScalaModule, Stryker4sModule {
