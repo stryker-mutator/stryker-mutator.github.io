@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           # Use same version of node for netlify and CI build
           node-version-file: '.nvmrc'
